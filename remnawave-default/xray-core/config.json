@@ -1,0 +1,59 @@
+{
+    "log": {
+        "loglevel": "info"
+    },
+    "inbounds": [
+        {
+            "tag": "Shadowsocks",
+            "port": 1234,
+            "protocol": "shadowsocks",
+            "settings": {
+                "clients": [],
+                "network": "tcp,udp"
+            },
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls",
+                    "quic"
+                ]
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "DIRECT"
+        },
+        {
+            "protocol": "blackhole",
+            "tag": "BLOCK"
+        }
+    ],
+    "routing": {
+        "rules": [
+            {
+                "ip": [
+                    "geoip:private"
+                ],
+                "outboundTag": "BLOCK",
+                "type": "field"
+            },
+            {
+                "domain": [
+                    "geosite:private"
+                ],
+                "outboundTag": "BLOCK",
+                "type": "field"
+            },
+            {
+                "protocol": [
+                    "bittorrent"
+                ],
+                "outboundTag": "BLOCK",
+                "type": "field"
+            }
+        ]
+    }
+}
