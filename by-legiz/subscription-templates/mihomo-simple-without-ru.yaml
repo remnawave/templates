@@ -1,0 +1,100 @@
+mixed-port: 7890
+allow-lan: true
+tcp-concurrent: true
+enable-process: true
+find-process-mode: strict
+mode: rule
+log-level: info
+ipv6: false
+keep-alive-interval: 30
+unified-delay: false
+profile:
+  store-selected: true
+  store-fake-ip: true
+sniffer:
+  enable: true
+  force-dns-mapping: true
+  parse-pure-ip: true
+  sniff:
+    HTTP:
+      ports:
+        - 80
+        - 8080-8880
+      override-destination: true
+    TLS:
+      ports:
+        - 443
+        - 8443
+tun:
+  enable: true
+  stack: mixed
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - any:53
+  strict-route: true
+  mtu: 1500
+dns:
+  enable: true
+  prefer-h3: true
+  use-hosts: true
+  use-system-hosts: true
+  listen: 127.0.0.1:6868
+  ipv6: false
+  enhanced-mode: redir-host
+  default-nameserver:
+    - tls://1.1.1.1
+    - tls://1.0.0.1
+  proxy-server-nameserver:
+    - tls://1.1.1.1
+    - tls://1.0.0.1
+  direct-nameserver:
+    - tls://77.88.8.8
+  nameserver:
+    - https://cloudflare-dns.com/dns-query#PROXY
+
+proxies: # LEAVE THIS LINE!
+
+proxy-groups:
+- name: 'PROXY'
+  type: 'select'
+  proxies:
+  - '⚡️ Fastest'
+  - '📶 First Available'
+  # LEAVE THIS LINE!
+
+- name: '⚡️ Fastest'
+  type: 'url-test'
+  tolerance: 150
+  url: 'https://www.gstatic.com/generate_204'
+  interval: 300
+  proxies: # LEAVE THIS LINE!
+
+- name: '📶 First Available'
+  type: 'fallback'
+  url: 'https://www.gstatic.com/generate_204'
+  interval: 300
+  proxies: # LEAVE THIS LINE!
+
+
+rule-providers:
+  geosite-ru:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/category-ru.mrs
+    path: ./geosite-ru.mrs
+    interval: 86400
+  geoip-ru:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geoip/ru.mrs
+    path: ./geoip-ru.mrs
+    interval: 86400
+
+rules:
+  - PROCESS-NAME,Discord.exe,PROXY
+  - RULE-SET,geosite-ru,DIRECT
+  - RULE-SET,geoip-ru,DIRECT
+  - MATCH,PROXY

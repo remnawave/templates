@@ -1,0 +1,88 @@
+{
+  "log": {
+      "loglevel": "warning"
+  },
+  "dns": {
+      "queryStrategy": "IPIfNonMatch",
+      "servers": [
+          {
+              "address": "1.1.1.1",
+              "skipFallback": false
+          }
+      ],
+      "tag": "dns_out"
+  },
+  "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+          {
+              "domain": [
+                  "geosite:private",
+                  "geosite:apple",
+                  "geosite:apple-pki",
+                  "geosite:huawei",
+                  "geosite:xiaomi",
+                  "geosite:category-android-app-download",
+                  "geosite:f-droid",
+                  "geosite:twitch",
+                  "geosite:yandex",
+                  "geosite:vk",
+                  "geosite:category-gov-ru"
+              ],
+              "outboundTag": "direct"
+          },
+          {
+              "ip": [
+                  "geoip:ru",
+                  "geoip:private"
+              ],
+              "outboundTag": "direct"
+          }
+      ]
+  },
+  "policy": {
+      "system": {
+          "statsOutboundDownlink": true,
+          "statsOutboundUplink": true
+      }
+  },
+  "inbounds": [
+      {
+          "port": 10808,
+          "protocol": "socks",
+          "settings": {
+              "auth": "noauth",
+              "udp": true,
+              "userLevel": 8
+          },
+          "sniffing": {
+              "destOverride": [
+                  "http",
+                  "tls",
+                  "fakedns"
+              ],
+              "enabled": true
+          },
+          "tag": "socks"
+      },
+      {
+          "port": 10809,
+          "protocol": "http",
+          "settings": {
+              "userLevel": 8
+          },
+          "tag": "http"
+      }
+  ],
+  "outbounds": [
+      {
+          "tag": "direct",
+          "protocol": "freedom"
+      },
+      {
+          "tag": "block",
+          "protocol": "blackhole"
+      }
+  ],
+  "stats": {}
+}
