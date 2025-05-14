@@ -1,0 +1,55 @@
+name: Download Templates by legiz
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create directory if not exists
+        run: mkdir -p by-legiz/subscription-templates
+
+      - name: Download xray-json simple without ru
+        run: |
+          curl -L "https://raw.githubusercontent.com/legiz-ru/marz-sub/refs/heads/main/v2ray/default.json" -o "by-legiz/subscription-templates/xray-json-simple-without-ru.json"
+          
+      - name: Download xray-json ru-bundle ruleset by legiz
+        run: |
+          curl -L "https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/refs/heads/main/other/marzban-v2ray-ru-bundle.json" -o "by-legiz/subscription-templates/xray-json-ru-bundle.json"
+
+      - name: Download xray-json ru-bundle with category-ads-all block ruleset by legiz (not work on iOS)
+        run: |
+          curl -L "https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/refs/heads/main/other/marzban-v2ray-ru-bundle-category-ads-all.json" -o "by-legiz/subscription-templates/xray-json-ru-bundle-category-ads-all.json"
+          
+      - name: Download Mihomo RU-BUNDLE + RE-FILTER + OISD BIG (ADBLOCK)
+        run: |
+          curl -L "https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/refs/heads/main/examples/remnawave_prod_rubundle.yaml" -o "by-legiz/subscription-templates/mihomo-ru-bundle.yaml"
+
+      - name: Download Mihomo full proxy without RU
+        run: |
+          curl -L "https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/refs/heads/main/examples/remnawave_prod_fullproxy_without_ru.yaml" -o "by-legiz/subscription-templates/mihomo-simple-without-ru.yaml"
+
+      - name: Download sing-box ru-bundle
+        run: |
+          curl -L "https://raw.githubusercontent.com/legiz-ru/sb-rule-sets/refs/heads/main/.github/sub2sing-box/ru-bundle.json" -o "by-legiz/subscription-templates/singbox-ru-bundle.json"
+          
+      - name: Download sing-box ru-bundle with oisd big adblock
+        run: |
+          curl -L "https://raw.githubusercontent.com/legiz-ru/sb-rule-sets/main/.github/sub2sing-box/ru-bundle-oisd-big.json" -o "by-legiz/subscription-templates/singbox-ru-bundle-oisd-big.json"
+
+      - name: Commit and push if there are changes
+        run: |
+          git config --local user.email "legiz-ru@users.noreply.github.com"
+          git config --local user.name "legiz-ru"
+          git add by-legiz/subscription-templates/
+          git commit -m "Update subscription templates" -a || echo "No changes to commit"
+          git push
