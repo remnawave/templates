@@ -4,7 +4,7 @@ tcp-concurrent: true
 enable-process: true
 find-process-mode: strict
 mode: rule
-log-level: info
+log-level: debug
 ipv6: false
 keep-alive-interval: 30
 unified-delay: false
@@ -27,9 +27,9 @@ sniffer:
         - 8443
 tun:
   enable: true
-  stack: mixed
+  stack: gvisor
   auto-route: true
-  auto-detect-interface: true
+  auto-detect-interface: false
   dns-hijack:
     - any:53
   strict-route: true
@@ -51,39 +51,98 @@ dns:
   direct-nameserver:
     - tls://77.88.8.8
   nameserver:
-    - https://cloudflare-dns.com/dns-query#PROXY
+    - https://cloudflare-dns.com/dns-query
 
 proxies: # LEAVE THIS LINE!
 
 proxy-groups:
-- name: 'PROXY'
-  type: 'select'
-  proxies:
-  - '⚡️ Fastest'
-  - '📶 First Available'
-  # LEAVE THIS LINE!
-
-- name: '⚡️ Fastest'
-  type: 'url-test'
-  tolerance: 150
-  url: 'https://www.gstatic.com/generate_204'
-  interval: 300
-  proxies: # LEAVE THIS LINE!
-
-- name: '📶 First Available'
-  type: 'fallback'
-  url: 'https://www.gstatic.com/generate_204'
-  interval: 300
-  proxies: # LEAVE THIS LINE!
+  - name: PROXY
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hijacking.png
+    type: select
+    proxies:
+      - ⚡️ Fastest
+      - 📶 First Available
+      # LEAVE THIS LINE!
+  - name: ⚡️ Fastest
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png
+    type: url-test
+    tolerance: 150
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    proxies:
+      # LEAVE THIS LINE!
+  - name: 📶 First Available
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Download.png
+    type: fallback
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    proxies:
+      # LEAVE THIS LINE!
 
 
 rule-providers:
+  torrent-trackers:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/torrent-trackers.mrs
+    path: ./rule-sets/torrent-trackers.mrs
+    interval: 86400
+  torrent-clients:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/torrent-clients.yaml
+    path: ./rule-sets/torrent-clients.yaml
+    interval: 86400
   geosite-ru:
     type: http
     behavior: domain
     format: mrs
     url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/category-ru.mrs
     path: ./geosite-ru.mrs
+    interval: 86400
+  xiaomi:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/xiaomi.mrs
+    path: ./rule-sets/xiaomi.mrs
+    interval: 86400
+  blender:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/blender.mrs
+    path: ./rule-sets/blender.mrs
+    interval: 86400
+  drweb:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/drweb.mrs
+    path: ./rule-sets/drweb.mrs
+    interval: 86400
+  debian:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/debian.mrs
+    path: ./rule-sets/debian.mrs
+    interval: 86400
+  canonical:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/canonical.mrs
+    path: ./rule-sets/canonical.mrs
+    interval: 86400
+  python:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/python.mrs
+    path: ./rule-sets/python.mrs
     interval: 86400
   geoip-ru:
     type: http
@@ -92,9 +151,90 @@ rule-providers:
     url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geoip/ru.mrs
     path: ./geoip-ru.mrs
     interval: 86400
+  geosite-private:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/private.mrs
+    path: ./geosite-private.mrs
+    interval: 86400
+  geoip-private:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geoip/private.mrs
+    path: ./geoip-private.mrs
+    interval: 86400
 
 rules:
+  - DOMAIN-SUFFIX,habr.com,PROXY
+  - DOMAIN-SUFFIX,kemono.su,PROXY
+  - DOMAIN-SUFFIX,jut.su,PROXY
+  - DOMAIN-SUFFIX,kara.su,PROXY
+  - DOMAIN-SUFFIX,theins.ru,PROXY
+  - DOMAIN-SUFFIX,tvrain.ru,PROXY
+  - DOMAIN-SUFFIX,echo.msk.ru,PROXY
+  - DOMAIN-SUFFIX,the-village.ru,PROXY
+  - DOMAIN-SUFFIX,snob.ru,PROXY
+  - DOMAIN-SUFFIX,novayagazeta.ru,PROXY
+  - DOMAIN-SUFFIX,moscowtimes.ru,PROXY
+  - DOMAIN-KEYWORD,animego,PROXY
+  - DOMAIN-KEYWORD,yummyanime,PROXY
+  - DOMAIN-KEYWORD,yummy-anime,PROXY
+  - DOMAIN-KEYWORD,animeportal,PROXY
+  - DOMAIN-KEYWORD,anime-portal,PROXY
+  - DOMAIN-KEYWORD,animedub,PROXY
+  - DOMAIN-KEYWORD,anidub,PROXY
+  - DOMAIN-KEYWORD,animelib,PROXY
+  - DOMAIN-KEYWORD,ikianime,PROXY
+  - DOMAIN-KEYWORD,anilibria,PROXY
   - PROCESS-NAME,Discord.exe,PROXY
+  - PROCESS-NAME,discord,PROXY
+  - RULE-SET,geosite-private,DIRECT,no-resolve
+  - RULE-SET,geoip-private,DIRECT
+  - RULE-SET,torrent-clients,DIRECT
+  - RULE-SET,torrent-trackers,DIRECT
+  - DOMAIN-SUFFIX,.ru,DIRECT
+  - DOMAIN-SUFFIX,.su,DIRECT
+  - DOMAIN-SUFFIX,.ru.com,DIRECT
+  - DOMAIN-SUFFIX,.ru.net,DIRECT
+  - DOMAIN-SUFFIX,wikipedia.org,DIRECT
+  - DOMAIN-SUFFIX,kudago.com,DIRECT
+  - DOMAIN-SUFFIX,kinescope.io,DIRECT
+  - DOMAIN-SUFFIX,redheadsound.studio,DIRECT
+  - DOMAIN-SUFFIX,plplayer.online,DIRECT
+  - DOMAIN-SUFFIX,lomont.site,DIRECT
+  - DOMAIN-SUFFIX,remanga.org,DIRECT
+  - DOMAIN-SUFFIX,shopstory.live,DIRECT
+  - DOMAIN-KEYWORD,miradres,DIRECT
+  - DOMAIN-KEYWORD,premier,DIRECT
+  - DOMAIN-KEYWORD,shutterstock,DIRECT
+  - DOMAIN-KEYWORD,2gis,DIRECT
+  - DOMAIN-KEYWORD,diginetica,DIRECT
+  - DOMAIN-KEYWORD,kinescopecdn,DIRECT
+  - DOMAIN-KEYWORD,researchgate,DIRECT
+  - DOMAIN-KEYWORD,springer,DIRECT
+  - DOMAIN-KEYWORD,nextcloud,DIRECT
+  - DOMAIN-KEYWORD,wiki,DIRECT
+  - DOMAIN-KEYWORD,kaspersky,DIRECT
+  - DOMAIN-KEYWORD,stepik,DIRECT
+  - DOMAIN-KEYWORD,likee,DIRECT
+  - DOMAIN-KEYWORD,snapchat,DIRECT
+  - DOMAIN-KEYWORD,yappy,DIRECT
+  - DOMAIN-KEYWORD,pikabu,DIRECT
+  - DOMAIN-KEYWORD,okko,DIRECT
+  - DOMAIN-KEYWORD,wink,DIRECT
+  - DOMAIN-KEYWORD,kion,DIRECT
+  - DOMAIN-KEYWORD,roblox,DIRECT
+  - DOMAIN-KEYWORD,ozon,DIRECT
+  - DOMAIN-KEYWORD,wildberries,DIRECT
+  - DOMAIN-KEYWORD,aliexpress,DIRECT
   - RULE-SET,geosite-ru,DIRECT
+  - RULE-SET,xiaomi,DIRECT
+  - RULE-SET,blender,DIRECT
+  - RULE-SET,drweb,DIRECT
+  - RULE-SET,debian,DIRECT
+  - RULE-SET,canonical,DIRECT
+  - RULE-SET,python,DIRECT
   - RULE-SET,geoip-ru,DIRECT
   - MATCH,PROXY
