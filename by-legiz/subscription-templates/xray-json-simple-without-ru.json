@@ -16,6 +16,24 @@
       "domainStrategy": "IPIfNonMatch",
       "rules": [
           {
+            "domain": [
+              "habr.com",
+              "4pda.to",
+              "4pda.ru",
+              "kemono.su",
+              "jut.su",
+              "kara.su",
+              "theins.ru",
+              "tvrain.ru",
+              "echo.msk.ru",
+              "the-village.ru",
+              "snob.ru",
+              "novayagazeta.ru",
+              "moscowtimes.ru"
+            ],
+            "outboundTag": "proxy"
+          },
+          {
               "domain": [
                   "geosite:private",
                   "geosite:apple",
@@ -25,9 +43,7 @@
                   "geosite:category-android-app-download",
                   "geosite:f-droid",
                   "geosite:twitch",
-                  "geosite:yandex",
-                  "geosite:vk",
-                  "geosite:category-gov-ru"
+                  "geosite:category-ru"
               ],
               "outboundTag": "direct"
           },
