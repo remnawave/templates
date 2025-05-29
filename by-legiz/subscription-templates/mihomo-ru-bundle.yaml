@@ -2,7 +2,7 @@ mixed-port: 7890
 allow-lan: true
 tcp-concurrent: true
 enable-process: true
-find-process-mode: strict
+find-process-mode: always
 mode: rule
 log-level: info
 ipv6: false
