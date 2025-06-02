@@ -1,0 +1,84 @@
+{
+  "log": {
+    "loglevel": "info"
+  },
+  "inbounds": [
+    {
+      "tag": "Steal",
+      "port": 60000,
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "decryption": "none"
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "dest": "www.amd.com:443",
+          "show": false,
+          "xver": 0,
+          "spiderX": "",
+          "shortIds": [
+            "42aeec",
+            "66c8bd6b1002427d",
+            "5a1f",
+            "6c",
+            "adfb6126",
+            "ce557a621e",
+            "5fc062b8b4c2b9",
+            "e4cfaf01e274"
+          ],
+          "publicKey": "CjX_ljcnu7crq2cS_kMTBDFL6wKaUOu5FvKymHawhis",
+          "privateKey": "kaiMIdNXMXBvS387GyltAdsVmGLEpuDePErMd9Myrks",
+          "serverNames": [
+            "www.amd.com"
+          ]
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "DIRECT",
+      "protocol": "freedom"
+    },
+    {
+      "tag": "BLOCK",
+      "protocol": "blackhole"
+    }
+  ],
+  "routing": {
+    "rules": [
+      {
+        "ip": [
+          "geoip:private"
+        ],
+        "type": "field",
+        "outboundTag": "BLOCK"
+      },
+      {
+        "type": "field",
+        "domain": [
+          "geosite:private"
+        ],
+        "outboundTag": "BLOCK"
+      },
+      {
+        "type": "field",
+        "protocol": [
+          "bittorrent"
+        ],
+        "outboundTag": "BLOCK"
+      }
+    ]
+  }
+}
