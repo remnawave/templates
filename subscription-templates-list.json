@@ -82,7 +82,7 @@
         {
             "name": "Xray JSON (CN bundle)",
             "type": "XRAY_JSON",
-            "author": "by-avsba001",
+            "author": "avsba001",
             "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-avsba001/subscription-templates/xray-json-cn-bundle.json"
         },
         {
