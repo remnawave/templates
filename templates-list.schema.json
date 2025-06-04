@@ -1,0 +1,55 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Templates List",
+    "type": "object",
+    "properties": {
+        "$schema": {
+            "type": "string",
+            "description": "JSON Schema reference"
+        },
+        "templates": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "author": {
+                        "type": "string",
+                        "description": "Author of the subscription template"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the subscription template"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "STASH",
+                            "SINGBOX",
+                            "SINGBOX_LEGACY",
+                            "MIHOMO",
+                            "XRAY_JSON",
+                            "CLASH"
+                        ],
+                        "description": "Type of the subscription template"
+                    },
+                    "url": {
+                        "type": "string",
+                        "format": "uri",
+                        "description": "URL to download the template"
+                    }
+                },
+                "required": [
+                    "author",
+                    "name",
+                    "type",
+                    "url"
+                ],
+                "additionalProperties": false
+            }
+        }
+    },
+    "required": [
+        "templates"
+    ],
+    "additionalProperties": false
+}
