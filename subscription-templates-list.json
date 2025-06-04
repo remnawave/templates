@@ -84,6 +84,12 @@
             "type": "XRAY_JSON",
             "author": "avsba001",
             "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-avsba001/subscription-templates/xray-json-cn-bundle.json"
+        },
+        {
+            "name": "Mihomo for Russia",
+            "type": "MIHOMO",
+            "author": "xK1t",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-xK1t/subscription-templates/mihomo-for-russia.yml"
         }
     ]
 }
