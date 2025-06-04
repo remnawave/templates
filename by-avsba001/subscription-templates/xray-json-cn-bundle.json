@@ -1,8 +1,25 @@
 {
   "dns": {
     "servers": [
-      "1.1.1.1",
-      "1.0.0.1"
+      {
+        "address": "localhost",
+        "domains": [
+          "geosite:cn"
+        ],
+        "expectIPs": [
+          "geoip:cn"
+        ]
+      },
+      {
+        "address": "8.8.8.8",
+        "domains": [
+          "geosite:geolocation-!cn"
+        ],
+        "expectIPs": [
+          "geoip:!cn"
+        ]
+      },
+      "https://dns.google/dns-query"
     ],
     "queryStrategy": "UseIP"
   },
