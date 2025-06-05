@@ -26,12 +26,12 @@
                 ]
             },
             "streamSettings": {
-                "network": "tcp",
+                "network": "raw",
                 "security": "reality",
                 "realitySettings": {
                     "show": false,
                     "xver": 1,
-                    "dest": "/dev/shm/nginx.sock",
+                    "target": "/dev/shm/nginx.sock",
                     "spiderX": "",
                     "shortIds": [
                         ""
