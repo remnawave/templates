@@ -1,0 +1,76 @@
+{
+    "log": {
+        "loglevel": "none"
+    },
+    "inbounds": [
+        {
+            "tag": "VLESS_TCP_REALITY",
+            "port": 443,
+            "listen": "0.0.0.0",
+            "protocol": "vless",
+            "settings": {
+                "clients": [],
+                "decryption": "none"
+            },
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls",
+                    "quic"
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "reality",
+                "realitySettings": {
+                    "dest": "#REPLACE_WITH_YOUR_DEST, EXAMPLE: example.com:443",
+                    "show": false,
+                    "xver": 0,
+                    "shortIds": [
+                        ""
+                    ],
+                    "privateKey": "#REPLACE_WITH_YOUR_PRIVATE_KEY, GENERATE BELOW ↓",
+                    "serverNames": [
+                        "#REPLACE_WITH_YOUR_SERVER_NAMES, EXAMPLE: example.com"
+                    ]
+                }
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "DIRECT"
+        },
+        {
+            "protocol": "blackhole",
+            "tag": "BLOCK"
+        }
+    ],
+    "routing": {
+        "rules": [
+            {
+                "ip": [
+                    "geoip:private"
+                ],
+                "outboundTag": "BLOCK",
+                "type": "field"
+            },
+            {
+                "domain": [
+                    "geosite:private"
+                ],
+                "outboundTag": "BLOCK",
+                "type": "field"
+            },
+            {
+                "protocol": [
+                    "bittorrent"
+                ],
+                "outboundTag": "BLOCK",
+                "type": "field"
+            }
+        ]
+    }
+}

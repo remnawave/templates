@@ -1,0 +1,83 @@
+{
+    "log": {
+        "loglevel": "none"
+    },
+    "dns": {
+        "servers": [
+            "1.1.1.1",
+            "1.0.0.1"
+        ]
+    },
+    "inbounds": [
+        {
+            "tag": "TROJAN_WS_TLS",
+            "port": 443,
+            "listen": "0.0.0.0",
+            "protocol": "trojan",
+            "settings": {
+                "clients": []
+            },
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls"
+                ]
+            },
+            "streamSettings": {
+                "network": "ws",
+                "security": "tls",
+                "wsSettings": {
+                    "path": "/ws",
+                    "headers": {}
+                },
+                "tlsSettings": {
+                    "minVersion": "1.2",
+                    "certificates": [
+                        {
+                            "keyFile": "#PLACE YOUR SSL CERTIFICATE KEY FILE INSIDE REMNAWAVE PANEL, EXAMPLE: /var/lib/remnawave/configs/xray/ssl/cert.key",
+                            "certificateFile": "#PLACE YOUR SSL CERTIFICATE FILE INSIDE REMNAWAVE PANEL, EXAMPLE: /var/lib/remnawave/configs/xray/ssl/cert.pem"
+                        }
+                    ],
+                    "cipherSuites": "TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+                    "rejectUnknownSni": true
+                }
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "DIRECT"
+        },
+        {
+            "protocol": "blackhole",
+            "tag": "BLOCK"
+        }
+    ],
+    "routing": {
+        "rules": [
+            {
+                "ip": [
+                    "geoip:private"
+                ],
+                "outboundTag": "BLOCK",
+                "type": "field"
+            },
+            {
+                "domain": [
+                    "geosite:private"
+                ],
+                "outboundTag": "BLOCK",
+                "type": "field"
+            },
+            {
+                "protocol": [
+                    "bittorrent"
+                ],
+                "outboundTag": "BLOCK",
+                "type": "field"
+            }
+        ]
+    }
+}
