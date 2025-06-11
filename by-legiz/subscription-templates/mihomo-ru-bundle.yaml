@@ -161,7 +161,7 @@ rule-providers:
     path: ./ru-bundle/rule.mrs
     interval: 86400
 rules:
-  - OR,((DOMAIN,ipwho.is),(DOMAIN,api.ip.sb),(DOMAIN,ipapi.co),(DOMAIN,ipinfo.io)),🌍 VPN # IP Checker FlClash
+  - OR,((DOMAIN,ipwhois.app),(DOMAIN,ipwho.is),(DOMAIN,api.ip.sb),(DOMAIN,ipapi.co),(DOMAIN,ipinfo.io)),🌍 VPN # IP Checker FlClash and Pandora-Box
   - RULE-SET,oisd_big,REJECT # Блокировка рекламы, трекинга и тд (список oisd big)
   - OR,((RULE-SET,torrent-clients),(RULE-SET,torrent-trackers)),DIRECT # Принудительное директирование торрент трекеров и приложений
   - RULE-SET,youtube,▶️ YouTube 
