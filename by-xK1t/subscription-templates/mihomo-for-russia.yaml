@@ -345,6 +345,13 @@ rule-providers:
     url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geoip/cloudflare.mrs
     path: ./provider/rule-set/cloudflare.mrs
     interval: 86400
+  twitch:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/twitch.mrs
+    path: ./provider/rule-set/geo/geosite/twitch.mrs
+    interval: 86400
 
 rules:
   - RULE-SET,geosite-private,DIRECT,no-resolve
@@ -355,6 +362,8 @@ rules:
   - OR,((RULE-SET,torrent-clients),(RULE-SET,torrent-trackers)),DIRECT
   - OR,((DOMAIN,ipwho.is),(DOMAIN,api.ip.sb),(DOMAIN,ipapi.co),(DOMAIN,ipinfo.io),(DOMAIN-SUFFIX,2ip.io),(DOMAIN-SUFFIX,2ipcore.com)),🥷🏻 Глобальный Proxy (без RU/Torrent)
   - OR,((RULE-SET,discord_domains),(RULE-SET,discord_vc),(PROCESS-NAME,Discord.exe),(RULE-SET,youtube)),▶️ YouTube & 💬 Discord
+  - OR,((DOMAIN,ads.twitch.tv),(DOMAIN,playlist.ttvnw.net)),DIRECT
+  - RULE-SET,twitch,⚡️ Самый быстрый
   - RULE-SET,ai-bundle,🤖 AI
   - RULE-SET,cloudflare,☁️ Cloudflare
   - RULE-SET,ru-bundle,🥷🏻 Глобальный Proxy (без RU/Torrent)
