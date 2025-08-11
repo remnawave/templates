@@ -398,7 +398,7 @@ rule-providers:
   inline-blocked-ips:
     type: inline
     payload:
-      - IP-CIDR,172.232.25.131/32
+      - IP-CIDR,172.232.25.131/32 #IP для чата Warframe
     behavior: classical
   discord_voiceips:
     type: http
