@@ -90,6 +90,12 @@
             "type": "MIHOMO",
             "author": "x_kit_",
             "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-x_kit_/subscription-templates/mihomo-for-russia.yaml"
+        },
+        {
+            "name": "Ultimate Mihomo RU",
+            "type": "MIHOMO",
+            "author": "unknown",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-unknown/subscription-templates/ultimate-mihomo-ru.yaml"
         }
     ]
 }
