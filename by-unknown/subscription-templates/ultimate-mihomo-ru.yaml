@@ -560,6 +560,7 @@ rules:
   - PROCESS-NAME,Telegram.exe,➤ Telegram
 
   # 💬 Discord
+  - AND,((RULE-SET,cloudflare),(NETWORK,udp),(DST-PORT,19200-19500)),💬 Discord
   - AND,((RULE-SET,discord_voiceips),(NETWORK,udp),(DST-PORT,50000-50100)),💬 Discord
   - RULE-SET,discord_vc,💬 Discord
   - RULE-SET,discord_domains,💬 Discord
