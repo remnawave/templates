@@ -292,6 +292,8 @@ rule-providers:
     interval: 86400
 
 rules:
+  - AND,((NETWORK,udp),(DST-PORT,443)),REJECT
+  - AND,((NETWORK,udp),(DST-PORT,853)),REJECT
   - OR,((DOMAIN,ads.twitch.tv),(DOMAIN,playlist.ttvnw.net)),DIRECT
   - RULE-SET,twitch,⚡️ Самый быстрый
   - RULE-SET,geosite-private,DIRECT,no-resolve
