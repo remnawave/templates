@@ -173,8 +173,8 @@ proxy-groups:
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png
     type: select
     proxies:
-      - 🇷🇺 Без VPN
       - 🚫 Недоступные сайты
+      - 🇷🇺 Без VPN
 
   - name: 🟣 Twitch
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Twitch.png
