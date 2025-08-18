@@ -1,4 +1,4 @@
-# Ультимативный конфиг с кучей селекторов (Недоступные сайты, YouTube, Discord, Telegram, Twitch, Cloudflare)
+# Ультимативный конфиг с кучей селекторов (Недоступные сайты, YouTube, Discord, Telegram, Cloudflare)
 # Конфиг в первую очередь предназначен для использования внутри России.
 # Может быть немного перегружен, а также содержать ошибки.
 # Автор не является всезнающим экспертом, используйте конфиг только для тестирования и в качестве примера. Редактируйте под себя.
@@ -59,13 +59,19 @@ sniffer:
   override-destination: false
   sniff:
     HTTP:
-      ports: [80, 8080-8880]
+      ports: 
+        - 80
+        - 8080-8880
       override-destination: true
     TLS:
-      ports: [443, 8443]
+      ports:
+        - 443
+        - 8443
     # Для VLESS REALITY не имеет смысла, так как всё равно делаем REJECT в rules. В противном случае, используем.
     #QUIC:
-    #  ports: [443]
+    #  ports:
+    #    - 443
+    
   skip-dst-address: # Пропуск перехвата для целевых IP
     - 0.0.0.0/8
     - 10.0.0.0/8
@@ -92,8 +98,12 @@ tun:
   auto-route: true
   auto-detect-interface: true
   dns-hijack:
-    - 0.0.0.0:53
+    - any:53
+    - tcp://any:53
   strict-route: true
+  route-exclude-address:
+    - 127.0.0.0/8
+    - ::1/128
 
 dns:
   enable: true
@@ -102,7 +112,8 @@ dns:
   use-system-hosts: true
   ipv6: false #true - если хотите резолвить в ipv6
   enhanced-mode: redir-host
-  # Опционально выбираем DNS сервера. Указано с большим запасом, на случай недоступности
+  # ----
+  # Опционально выбираем DNS сервера. На ваш выбор с большим запасом, на случай недоступности
   default-nameserver:
     # DNS для доменов DNS серверов
     - tls://1.1.1.1#🎲 Любой доступный сервер
@@ -133,12 +144,15 @@ dns:
     #- https://cloudflare-dns.com/dns-query#DIRECT
   direct-nameserver:
     # DNS для сайтов идущих через DIRECT
-    - tls://77.88.8.8#DIRECT
-    - https://77.88.8.8/dns-query#DIRECT
+    - 77.88.8.8#DIRECT # Yandex DNS
+    - 77.88.8.1#DIRECT # Yandex DNS
+    - 8.8.8.8#DIRECT # Google DNS
   nameserver:
     # Сервер по умолчанию, в данном случае используется для доменов, идущих через прокси
     - tls://94.140.14.14#🚫 Недоступные сайты
-
+    - tls://94.140.14.14#🎲 Любой доступный сервер
+    - tls://94.140.15.15#🎲 Любой доступный сервер
+    
 proxies:
   - name: "🇷🇺 Без VPN"
     type: direct
@@ -146,7 +160,7 @@ proxies:
 
 proxy-groups:
   - name: 🚫 Недоступные сайты
-    icon: https://raw.githubusercontent.com/remnawave/templates/084ff3e49c17440b80e04f1f3a8682582a1fbb2a/icons/Blocked.png
+    icon: https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/icons/Blocked.png
     type: select
     proxies:
       - 🎲 Любой доступный сервер
@@ -159,7 +173,7 @@ proxy-groups:
       - 🚫 Недоступные сайты
 
   - name: 💬 Discord
-    icon: https://raw.githubusercontent.com/remnawave/templates/084ff3e49c17440b80e04f1f3a8682582a1fbb2a/icons/Discord.png
+    icon: https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/icons/Discord.png
     type: select
     proxies:
       - 🚫 Недоступные сайты
@@ -170,13 +184,6 @@ proxy-groups:
     proxies:
       - 🚫 Недоступные сайты
       - 🇷🇺 Без VPN
-
-  - name: 🟣 Twitch
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Twitch.png
-    type: select
-    proxies:
-      - 🇷🇺 Без VPN
-      - 🚫 Недоступные сайты
 
   - name: 🟠 Cloudflare
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Cloudflare.png
@@ -189,7 +196,7 @@ proxy-groups:
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Russia.png
     type: select
     remnawave: # Кастомное поле используемое только в Remnawave
-      include-proxies: false
+      include-proxies: false # Опционально, если поставить true, прокси будут включены в эту группу
     proxies:
       - 🇷🇺 Без VPN
 
@@ -446,13 +453,6 @@ rule-providers:
     interval: 86400
     url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/telegram.mrs
     path: ./rule-sets/telegram-domains.mrs
-  twitch-domains:
-    type: http
-    behavior: domain
-    format: mrs
-    interval: 86400
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/twitch.mrs
-    path: ./rule-sets/twitch-domains.mrs
   oisd_big:
     type: http
     behavior: domain
@@ -495,48 +495,61 @@ rule-providers:
     url: https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Russia/outside-clashx.lst
     path: ./rule-sets/ru-outside.lst
     interval: 86400
-  cloudflare:
+  cloudflare-ips:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/cloudflare.mrs
+    path: ./rule-sets/cloudflare-ips.mrs
+    interval: 86400
+  cloudflare-domains:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/cloudflare.mrs
+    path: ./rule-sets/cloudflare-domains.mrs
+    interval: 86400
+  cloudflare-PentiumB:
     type: http
     behavior: ipcidr
     format: text
     url: https://raw.githubusercontent.com/PentiumB/CDN-RuleSet/refs/heads/main/source/cloudflare.lst
-    path: ./rule-sets/cloudflare.lst
+    path: ./rule-sets/cloudflare-PentiumB.lst
     interval: 86400
   quic:
     type: inline
     behavior: classical
     payload:
       - AND,((NETWORK,udp),(DST-PORT,443))
-  full-vpn:
-    type: inline
-    behavior: classical
-    payload:
-      - NETWORK,tcp
-      - NETWORK,udp
+
 rules:
   # Локальную сеть в директ
-  - RULE-SET,geosite-private,DIRECT
   - RULE-SET,geoip-private,DIRECT,no-resolve
+  - RULE-SET,geosite-private,DIRECT
 
   # ВПН и всякие Anydesk, Rustdesk, Teamviewer в директ (опционально, можно убрать)
   - PROCESS-NAME-REGEX,(?i).*tailscale.*,DIRECT
   - PROCESS-NAME-REGEX,(?i).*wireguard.*,DIRECT
   - PROCESS-NAME-REGEX,(?i).*netbird.*,DIRECT
-  - OR,((PROCESS-NAME,tailscaled.exe),(PROCESS-NAME,tailscale-ipn.exe),(PROCESS-NAME,wireguard.exe),(PROCESS-NAME,netbird.exe)),DIRECT
+  - PROCESS-NAME-REGEX,(?i).*anydesk.*,DIRECT
+  - PROCESS-NAME-REGEX,(?i).*rustdesk.*,DIRECT
+  - PROCESS-NAME-REGEX,(?i).*teamviewer.*,DIRECT
   - RULE-SET,remote-control,DIRECT
 
-  # Блокировка рекламы
-  - RULE-SET,oisd_big,REJECT
-  # Пускаем эти домены твича в директ, чтобы избавиться от рекламы
-  - OR,((DOMAIN,ads.twitch.tv),(DOMAIN,playlist.ttvnw.net)),DIRECT
-  # Отправляем торренты в DIRECT
-  - OR,((RULE-SET,torrent-clients),(RULE-SET,torrent-trackers),(PROCESS-NAME-REGEX,(?i).*torrent.*)),DIRECT
+  # Блокировка рекламы (опционально)
+  - RULE-SET,oisd_big,REJECT # Списки скомпилированные Legiz
+  # Пускаем эти домены твича в директ, чтобы избавиться от рекламы (опционально)
+  - OR,((DOMAIN-SUFFIX,ads.twitch.tv),(DOMAIN-SUFFIX,playlist.ttvnw.net)),DIRECT 
+  # Отправляем торренты в DIRECT (опционально)
+  - RULE-SET,torrent-clients,DIRECT
+  - RULE-SET,torrent-trackers,DIRECT
+  - PROCESS-NAME-REGEX,(?i).*torrent.*,DIRECT
 
   # Делаем REJECT QUIC (для VLESS REALITY)
   - RULE-SET,quic,REJECT
 
   # Определялки IP пускаем в прокси, чтобы пользователь видел
-  - OR,((DOMAIN,ipwho.is),(DOMAIN,api.ip.sb),(DOMAIN,ipapi.co),(DOMAIN,ipinfo.io),(DOMAIN-SUFFIX,geolocation.onetrust.com),(DOMAIN-SUFFIX,2ip.io),(DOMAIN-SUFFIX,2ipcore.com)),🚫 Недоступные сайты
+  - OR,((DOMAIN,ipwho.is),(DOMAIN,api.ip.sb),(DOMAIN,ipapi.co),(DOMAIN,ipinfo.io),(DOMAIN-SUFFIX,2ip.io),(DOMAIN-SUFFIX,2ipcore.com)),🚫 Недоступные сайты
 
   # -----
 
@@ -547,44 +560,42 @@ rules:
   # ➤ Telegram
   - RULE-SET,telegram-ips,➤ Telegram
   - RULE-SET,telegram-domains,➤ Telegram
+  - PROCESS-NAME-REGEX,(?i).*ayugram.*,➤ Telegram
   - PROCESS-NAME-REGEX,(?i).*telegram.*,➤ Telegram
-  - PROCESS-NAME,Telegram.exe,➤ Telegram
 
   # 💬 Discord
-  - AND,((RULE-SET,cloudflare),(NETWORK,udp),(DST-PORT,19200-19500)),💬 Discord
+  - AND,((RULE-SET,cloudflare-ips),(NETWORK,udp),(DST-PORT,19200-19500)),💬 Discord
+  - AND,((RULE-SET,cloudflare-PentiumB),(NETWORK,udp),(DST-PORT,19200-19500)),💬 Discord
   - AND,((RULE-SET,discord_voiceips),(NETWORK,udp),(DST-PORT,50000-50100)),💬 Discord
   - RULE-SET,discord_vc,💬 Discord
   - RULE-SET,discord_domains,💬 Discord
   - PROCESS-NAME-REGEX,(?i).*discord.*,💬 Discord
-  - PROCESS-NAME,Discord.exe,💬 Discord
-
-  # 🟣 Twitch
-  - RULE-SET,twitch-domains,🟣 Twitch
-
+  
   # 🚫 Недоступные сайты
-  - RULE-SET,ru-inside,🚫 Недоступные сайты
-  - RULE-SET,refilter_domains,🚫 Недоступные сайты
-  - RULE-SET,ru-inline-banned,🚫 Недоступные сайты
+  - RULE-SET,ru-inside,🚫 Недоступные сайты  # ITDog списки доменов недоступные из РФ - https://github.com/itdoginfo/allow-domains/blob/main/Russia/inside-raw.lst
+  - RULE-SET,refilter_domains,🚫 Недоступные сайты # Re:Filter списки доменов недоступные из РФ - https://github.com/1andrevich/Re-filter-lists/blob/main/community.lst
+  - RULE-SET,ru-inline-banned,🚫 Недоступные сайты # Домены набитые вручную (смотрите выше)
+  - RULE-SET,inline-blocked-ips,🚫 Недоступные сайты # IP набитые вручную (смотрите выше)
   - RULE-SET,category-porn,🚫 Недоступные сайты # Опционально
-  - RULE-SET,ai,🚫 Недоступные сайты
-  - RULE-SET,google-deepmind,🚫 Недоступные сайты
-  - RULE-SET,inline-blocked-ips,🚫 Недоступные сайты
-  - RULE-SET,speedtest-net,🚫 Недоступные сайты
+  - RULE-SET,ai,🚫 Недоступные сайты # Нейросети
+  - RULE-SET,google-deepmind,🚫 Недоступные сайты # Google Gemini и AI Studio
+  - RULE-SET,speedtest-net,🚫 Недоступные сайты # speedtest.net 
 
   # 🟠 Cloudflare
-  - RULE-SET,cloudflare,🟠 Cloudflare
+  - RULE-SET,cloudflare-ips,🟠 Cloudflare # Список ip MetaCubeX
+  - RULE-SET,cloudflare-domains,🟠 Cloudflare # Домены сервисов Cloudflare
+  - RULE-SET,cloudflare-PentiumB,🟠 Cloudflare # Список ip от PentiumB
 
   # ⚪🔵🔴 RU сайты
-  - RULE-SET,ru-inline,⚪🔵🔴 RU сайты
-  - RULE-SET,ru-outside,⚪🔵🔴 RU сайты
-  - RULE-SET,ru-apps,⚪🔵🔴 RU сайты
-  - RULE-SET,yandex,⚪🔵🔴 RU сайты
-  - RULE-SET,mailru,⚪🔵🔴 RU сайты
+  - RULE-SET,ru-inline,⚪🔵🔴 RU сайты # Списки набитые вручную (смотрите выше)
+  - RULE-SET,ru-outside,⚪🔵🔴 RU сайты # ITDog списки доменов доступные только внутри РФ - https://github.com/itdoginfo/allow-domains/blob/main/Russia/outside-raw.lst
+  - RULE-SET,ru-apps,⚪🔵🔴 RU сайты # Списки РУ приложений от Legiz
+  - RULE-SET,yandex,⚪🔵🔴 RU сайты # Яндекс
+  - RULE-SET,mailru,⚪🔵🔴 RU сайты  # mail.ru
+  - RULE-SET,drweb,⚪🔵🔴 RU сайты # DrWeb
   - RULE-SET,geosite-ru,⚪🔵🔴 RU сайты
   - RULE-SET,geoip-ru,⚪🔵🔴 RU сайты
   - RULE-SET,geoip-by,⚪🔵🔴 RU сайты # Опционально
-  - RULE-SET,drweb,⚪🔵🔴 RU сайты
 
   # 🌍 Остальные сайты
-  - RULE-SET,full-vpn,🌍 Остальные сайты
   - MATCH,🌍 Остальные сайты
