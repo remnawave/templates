@@ -43,25 +43,26 @@ dns:
   ipv6: false
   enhanced-mode: redir-host
   default-nameserver:
-    - tls://1.1.1.1
-    - tls://1.0.0.1
+    - tls://77.88.8.8 # Yandex DNS over TLS
+    - 195.208.4.1 # НСДИ
   proxy-server-nameserver:
-    - tls://1.1.1.1
-    - tls://1.0.0.1
+    - tls://77.88.8.8 # Yandex DNS over TLS
+    - 195.208.4.1 # НСДИ
   direct-nameserver:
-    - tls://77.88.8.8
+    - tls://77.88.8.8 # Yandex DNS over TLS
+    - 195.208.4.1 # НСДИ
   nameserver:
     - https://cloudflare-dns.com/dns-query
 
 proxies: # LEAVE THIS LINE!
 
 proxy-groups:
-  - name: PROXY
+  - name: 🌍 VPN
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hijacking.png
     type: select
     proxies:
       - ⚡️ Fastest
-      - 📶 First Available
+      - 🎲 Random
       # LEAVE THIS LINE!
   - name: ⚡️ Fastest
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png
@@ -71,16 +72,39 @@ proxy-groups:
     interval: 300
     proxies:
       # LEAVE THIS LINE!
-  - name: 📶 First Available
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Download.png
+  - name: 🎲 Random
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Filter.png
     type: fallback
     url: https://cp.cloudflare.com/generate_204
     interval: 300
+    remnawave: # Custom field used only in Remnawave
+      shuffle-proxies-order: true # Enables random shuffling of user hosts for this group
     proxies:
       # LEAVE THIS LINE!
 
 
 rule-providers:
+  ru-inline-banned:
+    type: http
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/inline/ru-inline-banned.yaml
+    interval: 86400
+    behavior: classical
+    format: yaml
+    path: ./rule-sets/ru-inline-banned.yaml
+  ru-inline:
+    type: http
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/inline/ru-inline.yaml
+    interval: 86400
+    behavior: classical
+    format: yaml
+    path: ./rule-sets/ru-inline.yaml
+  ru-app-list:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://github.com/legiz-ru/mihomo-rule-sets/blob/main/other/ru-app-list.yaml
+    path: ./rule-sets/ru-app-list.yaml
+    interval: 86400
   torrent-trackers:
     type: http
     behavior: domain
@@ -167,68 +191,15 @@ rule-providers:
     interval: 86400
 
 rules:
-  - DOMAIN-SUFFIX,habr.com,PROXY
-  - DOMAIN-SUFFIX,kemono.su,PROXY
-  - DOMAIN-SUFFIX,jut.su,PROXY
-  - DOMAIN-SUFFIX,kara.su,PROXY
-  - DOMAIN-SUFFIX,theins.ru,PROXY
-  - DOMAIN-SUFFIX,tvrain.ru,PROXY
-  - DOMAIN-SUFFIX,echo.msk.ru,PROXY
-  - DOMAIN-SUFFIX,the-village.ru,PROXY
-  - DOMAIN-SUFFIX,snob.ru,PROXY
-  - DOMAIN-SUFFIX,novayagazeta.ru,PROXY
-  - DOMAIN-SUFFIX,moscowtimes.ru,PROXY
-  - DOMAIN-KEYWORD,animego,PROXY
-  - DOMAIN-KEYWORD,yummyanime,PROXY
-  - DOMAIN-KEYWORD,yummy-anime,PROXY
-  - DOMAIN-KEYWORD,animeportal,PROXY
-  - DOMAIN-KEYWORD,anime-portal,PROXY
-  - DOMAIN-KEYWORD,animedub,PROXY
-  - DOMAIN-KEYWORD,anidub,PROXY
-  - DOMAIN-KEYWORD,animelib,PROXY
-  - DOMAIN-KEYWORD,ikianime,PROXY
-  - DOMAIN-KEYWORD,anilibria,PROXY
-  - PROCESS-NAME,Discord.exe,PROXY
-  - PROCESS-NAME,discord,PROXY
+  - RULE-SET,ru-inline-banned,🌍 VPN
+  - PROCESS-NAME,Discord.exe,🌍 VPN
+  - PROCESS-NAME,discord,🌍 VPN
   - RULE-SET,geosite-private,DIRECT,no-resolve
   - RULE-SET,geoip-private,DIRECT
+  - RULE-SET,ru-app-list,DIRECT
   - RULE-SET,torrent-clients,DIRECT
   - RULE-SET,torrent-trackers,DIRECT
-  - DOMAIN-SUFFIX,.ru,DIRECT
-  - DOMAIN-SUFFIX,.su,DIRECT
-  - DOMAIN-SUFFIX,.ru.com,DIRECT
-  - DOMAIN-SUFFIX,.ru.net,DIRECT
-  - DOMAIN-SUFFIX,wikipedia.org,DIRECT
-  - DOMAIN-SUFFIX,kudago.com,DIRECT
-  - DOMAIN-SUFFIX,kinescope.io,DIRECT
-  - DOMAIN-SUFFIX,redheadsound.studio,DIRECT
-  - DOMAIN-SUFFIX,plplayer.online,DIRECT
-  - DOMAIN-SUFFIX,lomont.site,DIRECT
-  - DOMAIN-SUFFIX,remanga.org,DIRECT
-  - DOMAIN-SUFFIX,shopstory.live,DIRECT
-  - DOMAIN-KEYWORD,miradres,DIRECT
-  - DOMAIN-KEYWORD,premier,DIRECT
-  - DOMAIN-KEYWORD,shutterstock,DIRECT
-  - DOMAIN-KEYWORD,2gis,DIRECT
-  - DOMAIN-KEYWORD,diginetica,DIRECT
-  - DOMAIN-KEYWORD,kinescopecdn,DIRECT
-  - DOMAIN-KEYWORD,researchgate,DIRECT
-  - DOMAIN-KEYWORD,springer,DIRECT
-  - DOMAIN-KEYWORD,nextcloud,DIRECT
-  - DOMAIN-KEYWORD,wiki,DIRECT
-  - DOMAIN-KEYWORD,kaspersky,DIRECT
-  - DOMAIN-KEYWORD,stepik,DIRECT
-  - DOMAIN-KEYWORD,likee,DIRECT
-  - DOMAIN-KEYWORD,snapchat,DIRECT
-  - DOMAIN-KEYWORD,yappy,DIRECT
-  - DOMAIN-KEYWORD,pikabu,DIRECT
-  - DOMAIN-KEYWORD,okko,DIRECT
-  - DOMAIN-KEYWORD,wink,DIRECT
-  - DOMAIN-KEYWORD,kion,DIRECT
-  - DOMAIN-KEYWORD,roblox,DIRECT
-  - DOMAIN-KEYWORD,ozon,DIRECT
-  - DOMAIN-KEYWORD,wildberries,DIRECT
-  - DOMAIN-KEYWORD,aliexpress,DIRECT
+  - RULE-SET,ru-inline,DIRECT
   - RULE-SET,geosite-ru,DIRECT
   - RULE-SET,xiaomi,DIRECT
   - RULE-SET,blender,DIRECT
@@ -237,4 +208,4 @@ rules:
   - RULE-SET,canonical,DIRECT
   - RULE-SET,python,DIRECT
   - RULE-SET,geoip-ru,DIRECT
-  - MATCH,PROXY
+  - MATCH,🌍 VPN
