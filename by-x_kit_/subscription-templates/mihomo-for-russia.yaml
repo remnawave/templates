@@ -39,18 +39,21 @@ dns:
   prefer-h3: false
   use-hosts: true
   use-system-hosts: true
-  listen: 127.0.0.1:6868
   ipv6: false
   enhanced-mode: redir-host
   default-nameserver:
-    - tls://1.1.1.1
-    - tls://8.8.8.8
+    - tls://1.1.1.1#🎲 Случайный сервер
+    - https://94.140.14.14/dns-query#DIRECT
+    - https://8.8.8.8/dns-query#DIRECT
   proxy-server-nameserver:
-    - tls://1.1.1.1
-    - tls://8.8.8.8
+    - tls://1.1.1.1#🎲 Случайный сервер
+    - https://94.140.14.14/dns-query#DIRECT
+    - https://8.8.8.8/dns-query#DIRECT
   direct-nameserver:
-    - tls://77.88.8.8
-    - tls://unfiltered.dns.adguard-dns.com
+    - tls://77.88.8.8#DIRECT
+    - https://77.88.8.8/dns-query#DIRECT
+  nameserver:
+    - tls://94.140.14.14#🛰️ Глобальный
 
 proxies:
 
@@ -59,25 +62,30 @@ proxy-groups:
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png
     type: select
     proxies:
-      - ⚡️ Самый быстрый
+      - 🎲 Случайный сервер
       - 🔓 Без Proxy
-  - name: 💬 Discord
+  - name: 💬 Мессенджеры
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Discord.png
     type: select
     proxies:
-      - ⚡️ Самый быстрый
+      - 🎲 Случайный сервер
       - 🔓 Без Proxy
   - name: ▶️ YouTube
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png
     type: select
     proxies:
-      - ⚡️ Самый быстрый
+      - 🎲 Случайный сервер
       - 🔓 Без Proxy
   - name: 🤖 AI
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/AI.png
     type: select
     proxies:
-      - ⚡️ Самый быстрый
+      - 🎲 Случайный сервер
+      - 🔓 Без Proxy
+  - name: 🏠 RU сайты
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Russia.png
+    type: select
+    proxies:
       - 🔓 Без Proxy
   - name: 🔓 Без Proxy
     remnawave:
@@ -86,13 +94,14 @@ proxy-groups:
     hidden: true
     proxies:
       - DIRECT
-  - name: ⚡️ Самый быстрый
-    hidden: true
-    type: url-test
-    tolerance: 150
-    url: https://www.gstatic.com/generate_204
+  - name: 🎲 Случайный сервер # для выдачи случайного хоста необходимо отдавать список хостов в подписке в случайном порядке
+    type: fallback
+    remnawave:
+      include-proxies: true
+    url: "https://www.gstatic.com/generate_204"
     interval: 300
-    proxies:
+    hidden: true
+    lazy: true
 
 rule-providers:
   ru-inline-banned:
@@ -132,7 +141,6 @@ rule-providers:
       - DOMAIN-SUFFIX,vk.com
       - DOMAIN-SUFFIX,.ru
       - DOMAIN-SUFFIX,.su
-      - DOMAIN-SUFFIX,.by
       - DOMAIN-SUFFIX,.ru.com
       - DOMAIN-SUFFIX,.ru.net
       - DOMAIN-SUFFIX,kudago.com
@@ -165,6 +173,13 @@ rule-providers:
       - DOMAIN-KEYWORD,wildberries
       - DOMAIN-KEYWORD,aliexpress
     behavior: classical
+  ru-apps:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://github.com/legiz-ru/mihomo-rule-sets/blob/main/other/ru-app-list.yaml
+    path: ./rule-sets/ru-apps.yaml
+    interval: 86400
   geosite-ru:
     type: http
     behavior: domain
@@ -179,12 +194,12 @@ rule-providers:
     url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geoip/ru.mrs
     path: ./provider/rule-set/geoip-ru.mrs
     interval: 86400
-  geoip-by:
+  ru-outside:
     type: http
-    behavior: ipcidr
-    format: mrs
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geoip/by.mrs
-    path: ./provider/rule-set/geoip-by.mrs
+    behavior: classical
+    format: text
+    url: https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Russia/outside-clashx.lst
+    path: ./rule-sets/ru-outside.lst
     interval: 86400
   geosite-private:
     type: http
@@ -199,6 +214,13 @@ rule-providers:
     format: mrs
     url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geoip/private.mrs
     path: ./provider/rule-set/geoip-private.mrs
+    interval: 86400
+  discord_voiceips:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/discord-voice-ip-list.mrs
+    path: ./rule-sets/discord_voiceips.mrs
     interval: 86400
   discord_domains:
     type: http
@@ -290,25 +312,74 @@ rule-providers:
     url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/twitch.mrs
     path: ./provider/rule-set/geo/geosite/twitch.mrs
     interval: 86400
+  telegram:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/telegram.mrs
+    path: ./provider/rule-set/geo/geosite/telegram.mrs
+    interval: 86400
+  telegram-ip:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geoip/telegram.mrs
+    path: ./provider/rule-set/telegram-ip.mrs
+    interval: 86400
+  whatsapp:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/whatsapp.mrs
+    path: ./provider/rule-set/geo/geosite/whatsapp.mrs
+    interval: 86400
+  quic:
+    type: inline
+    behavior: classical
+    payload:
+      - AND,((NETWORK,udp),(DST-PORT,443))
 
 rules:
-  - AND,((NETWORK,udp),(DST-PORT,443)),REJECT
-  - AND,((NETWORK,udp),(DST-PORT,853)),REJECT
-  - OR,((DOMAIN,ads.twitch.tv),(DOMAIN,playlist.ttvnw.net)),DIRECT
-  - RULE-SET,twitch,⚡️ Самый быстрый
-  - RULE-SET,geosite-private,DIRECT,no-resolve
-  - RULE-SET,geoip-private,DIRECT
-  - OR,((RULE-SET,torrent-clients),(RULE-SET,torrent-trackers)),DIRECT
+  # Локальную сеть в директ
+  - RULE-SET,geosite-private,DIRECT
+  - RULE-SET,geoip-private,DIRECT,no-resolve
+
+  # Роутинг Twitch, чтобы вернуть качество и избавиться от рекламы
+  - OR,((DOMAIN-SUFFIX,ads.twitch.tv),(DOMAIN-SUFFIX,playlist.ttvnw.net)),DIRECT
+  - RULE-SET,twitch,🎲 Случайный сервер
+  # Отправляем торренты в DIRECT
+  - OR,((RULE-SET,torrent-clients),(RULE-SET,torrent-trackers),(PROCESS-NAME-REGEX,(?i).*torrent.*)),DIRECT
+  # Определялки IP пускаем в прокси, чтобы пользователь видел
   - OR,((DOMAIN,ipwho.is),(DOMAIN,api.ip.sb),(DOMAIN,ipapi.co),(DOMAIN,ipinfo.io),(DOMAIN-SUFFIX,2ip.io),(DOMAIN-SUFFIX,2ipcore.com)),🛰️ Глобальный
-  - OR,((RULE-SET,discord_domains),(RULE-SET,discord_vc),(PROCESS-NAME,Discord.exe)),💬 Discord
+
+  # Делаем REJECT QUIC (для VLESS REALITY)
+  - RULE-SET,quic,REJECT
+  
+  # 💬 Мессенджеры
+  - AND,((RULE-SET,discord_voiceips),(NETWORK,udp),(DST-PORT,50000-50100)),💬 Мессенджеры
+  - RULE-SET,discord_vc,💬 Мессенджеры
+  - RULE-SET,discord_domains,💬 Мессенджеры
+  - PROCESS-NAME-REGEX,(?i).*discord.*,💬 Мессенджеры
+  - PROCESS-NAME,Discord.exe,💬 Мессенджеры
+  - OR,((RULE-SET,telegram),(RULE-SET,telegram-ip),(RULE-SET,whatsapp)),💬 Мессенджеры
+
+  # 🤖 AI
   - OR,((RULE-SET,ai-bundle),(RULE-SET,gemini),(RULE-SET,openai)),🤖 AI
+
+  # ▶️ YouTube
   - RULE-SET,youtube,▶️ YouTube
+  - PROCESS-NAME-REGEX,(?i).*youtube.*,▶️ YouTube
+
+  # РУ-сайты по умолчанию в DIRECT
+  - RULE-SET,ru-inline,🏠 RU сайты
+  - RULE-SET,geosite-ru,🏠 RU сайты
+  - RULE-SET,geoip-ru,🏠 RU сайты
+  - RULE-SET,ru-apps,🏠 RU сайты
+  - RULE-SET,ru-outside,🏠 RU сайты
+
+  # 🛰️ Глобальный
   - RULE-SET,ru-bundle,🛰️ Глобальный
-  - RULE-SET,refilter_domains,🛰️ Глобальный
   - RULE-SET,refilter_ipsum,🛰️ Глобальный
   - RULE-SET,ru-inline-banned,🛰️ Глобальный
-  - RULE-SET,ru-inline,DIRECT
-  - RULE-SET,geosite-ru,DIRECT
-  - RULE-SET,geoip-ru,DIRECT
-  - RULE-SET,geoip-by,DIRECT
+
   - MATCH,🛰️ Глобальный
