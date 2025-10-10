@@ -14,30 +14,18 @@
 #
 # Списки доменов re:filter и itdog — для прокси-группы «Недоступные сайты». Подробнее смотрите в rules.
 
-# Большое спасибо Legiz, PentiumB и itdog, чьи списки используются для правил.
+# Большое спасибо Legiz и itdog, чьи списки используются для правил.
 # Также спасибо за пояснения и идеи для конфигов. Отдельное спасибо сообществу Remnawave и её разработчику.
 
 mixed-port: 7890
 allow-lan: true
 lan-allowed-ips: # Разрешенные ip для подключения к lan
-  - 0.0.0.0/8
-  - 10.0.0.0/8
-  - 100.64.0.0/10
   - 127.0.0.0/8
-  - 169.254.0.0/16
+  - 10.0.0.0/8
   - 172.16.0.0/12
-  - 192.0.0.0/24
-  - 192.0.2.0/24
-  - 192.88.99.0/24
   - 192.168.0.0/16
-  - 198.18.0.0/15
-  - 198.51.100.0/24
-  - 203.0.113.0/24
-  - 224.0.0.0/3
-  - ::/127
+  - ::1/128
   - fc00::/7
-  - fe80::/10
-  - ff00::/8
 tcp-concurrent: true
 enable-process: true
 find-process-mode: always
@@ -102,8 +90,29 @@ tun:
     - tcp://any:53
   strict-route: true
   route-exclude-address:
-    - 127.0.0.0/8
-    - ::1/128
+     # Не пускаем адреса (служебные, приватные, не маршрутизируемые в Интернете) в TUN
+    - 0.0.0.0/8          # 'This' network — текущая сеть; зарезервировано, не маршрутизируется
+    - 10.0.0.0/8         # Local network — частная сеть (RFC1918)
+    - 100.64.0.0/10      # Carrier-grade NAT (CGNAT) — используется операторами связи
+    - 127.0.0.0/8        # Loopback — обратный интерфейс (localhost)
+    - 169.254.0.0/16     # Link-local — автоконфигурация без DHCP
+    - 172.16.0.0/12      # Local network — частная сеть (RFC1918)
+    - 192.0.0.0/24       # IETF protocol assignments — служебные назначения IETF
+    - 192.0.2.0/24       # TEST-NET-1 — используется в документации
+    - 192.88.99.0/24     # 6to4 relay — устаревший IPv6 шлюз, больше не используется
+    - 192.168.0.0/16     # Local network — домашние и офисные сети (RFC1918)
+
+    # Внимание, если планируете использовать fake-ip в dns, то обратите внимание на fake-ip-range
+    # Обычно для fake-ip-range используется именно этот диапазон, если включаете fake-ip, то подумайте внимательно над конфигурацией
+    - 198.18.0.0/15      # Network interconnect device benchmark testing   
+
+    - 198.51.100.0/24    # TEST-NET-2 — используется в документации
+    - 203.0.113.0/24     # TEST-NET-3 — используется в документации
+    - 224.0.0.0/3        # Multicast и future reserved — широковещательные/служебные сети
+    - ::/127             # Loopback — обратный интерфейс (localhost)
+    - fc00::/7           # Unique local addresses (ULA)
+    - fe80::/10          # Link-local unicast — локальные адреса на интерфейсе
+    - ff00::/8           # Multicast — многоадресная рассылка
 
 dns:
   enable: true
@@ -509,13 +518,6 @@ rule-providers:
     url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/cloudflare.mrs
     path: ./rule-sets/cloudflare-domains.mrs
     interval: 86400
-  cloudflare-PentiumB:
-    type: http
-    behavior: ipcidr
-    format: text
-    url: https://raw.githubusercontent.com/PentiumB/CDN-RuleSet/refs/heads/main/source/cloudflare.lst
-    path: ./rule-sets/cloudflare-PentiumB.lst
-    interval: 86400
   quic:
     type: inline
     behavior: classical
@@ -573,7 +575,6 @@ rules:
 
   # 💬 Discord
   - AND,((RULE-SET,cloudflare-ips),(NETWORK,udp),(DST-PORT,19200-19500)),💬 Discord
-  - AND,((RULE-SET,cloudflare-PentiumB),(NETWORK,udp),(DST-PORT,19200-19500)),💬 Discord
   - AND,((RULE-SET,discord_voiceips),(NETWORK,udp),(DST-PORT,50000-50100)),💬 Discord
   - RULE-SET,discord_vc,💬 Discord
   - RULE-SET,discord_domains,💬 Discord
@@ -592,7 +593,6 @@ rules:
   # 🟠 Cloudflare
   - RULE-SET,cloudflare-ips,🟠 Cloudflare # Список ip MetaCubeX
   - RULE-SET,cloudflare-domains,🟠 Cloudflare # Домены сервисов Cloudflare
-  - RULE-SET,cloudflare-PentiumB,🟠 Cloudflare # Список ip от PentiumB
 
   # ⚪🔵🔴 RU сайты
   - RULE-SET,ru-inline,⚪🔵🔴 RU сайты # Списки набитые вручную (смотрите выше)
