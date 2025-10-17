@@ -28,7 +28,7 @@
                     "type": {
                         "type": "string",
                         "enum": [
-                            "RESPONSE_RULES"
+                            "SRR"
                         ],
                         "description": "Type of the subscription template"
                     }

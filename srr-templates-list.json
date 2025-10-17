@@ -5,7 +5,7 @@
             "name": "Default Response Rules",
             "author": "remnawave",
             "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/remnawave-default/response-rules/srr-default-config.json",
-            "type": "RESPONSE_RULES"
+            "type": "SRR"
         }
     ]
 }
