@@ -24,12 +24,20 @@
                         "type": "string",
                         "format": "uri",
                         "description": "URL to download the template"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "RESPONSE_RULES"
+                        ],
+                        "description": "Type of the subscription template"
                     }
                 },
                 "required": [
                     "author",
                     "name",
-                    "url"
+                    "url",
+                    "type"
                 ],
                 "additionalProperties": false
             }
