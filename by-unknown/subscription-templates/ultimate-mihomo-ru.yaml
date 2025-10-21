@@ -55,10 +55,6 @@ sniffer:
       ports:
         - 443
         - 8443
-    # Для VLESS REALITY не имеет смысла, так как всё равно делаем REJECT в rules. В противном случае, используем.
-    #QUIC:
-    #  ports:
-    #    - 443
 
   skip-dst-address: # Пропуск перехвата для целевых IP
     - 0.0.0.0/8
@@ -90,29 +86,29 @@ tun:
     - tcp://any:53
   strict-route: true
   route-exclude-address:
-    # Не пускаем адреса (служебные, приватные, не маршрутизируемые в Интернете) в TUN
-    - 0.0.0.0/8 # 'This' network — текущая сеть; зарезервировано, не маршрутизируется
-    - 10.0.0.0/8 # Local network — частная сеть (RFC1918)
-    - 100.64.0.0/10 # Carrier-grade NAT (CGNAT) — используется операторами связи
-    - 127.0.0.0/8 # Loopback — обратный интерфейс (localhost)
-    - 169.254.0.0/16 # Link-local — автоконфигурация без DHCP
-    - 172.16.0.0/12 # Local network — частная сеть (RFC1918)
-    - 192.0.0.0/24 # IETF protocol assignments — служебные назначения IETF
-    - 192.0.2.0/24 # TEST-NET-1 — используется в документации
-    - 192.88.99.0/24 # 6to4 relay — устаревший IPv6 шлюз, больше не используется
-    - 192.168.0.0/16 # Local network — домашние и офисные сети (RFC1918)
+    # Не пускаем адреса (служебные, приватные) в TUN
+    - 0.0.0.0/8
+    - 10.0.0.0/8
+    - 100.64.0.0/10
+    - 127.0.0.0/8
+    - 169.254.0.0/16
+    - 172.16.0.0/12
+    - 192.0.0.0/24
+    - 192.0.2.0/24
+    - 192.88.99.0/24
+    - 192.168.0.0/16
 
     # Внимание, если планируете использовать fake-ip в dns, то обратите внимание на fake-ip-range
     # Обычно для fake-ip-range используется именно этот диапазон, если включаете fake-ip, то подумайте внимательно над конфигурацией
-    - 198.18.0.0/15 # Network interconnect device benchmark testing
+    - 198.18.0.0/15
 
-    - 198.51.100.0/24 # TEST-NET-2 — используется в документации
-    - 203.0.113.0/24 # TEST-NET-3 — используется в документации
-    - 224.0.0.0/3 # Multicast и future reserved — широковещательные/служебные сети
-    - ::/127 # Loopback — обратный интерфейс (localhost)
-    - fc00::/7 # Unique local addresses (ULA)
-    - fe80::/10 # Link-local unicast — локальные адреса на интерфейсе
-    - ff00::/8 # Multicast — многоадресная рассылка
+    - 198.51.100.0/24
+    - 203.0.113.0/24
+    - 224.0.0.0/3
+    - ::/127
+    - fc00::/7
+    - fe80::/10
+    - ff00::/8
 
 dns:
   enable: true
@@ -122,61 +118,62 @@ dns:
   ipv6: false #true - если хотите резолвить в ipv6
   enhanced-mode: redir-host
   # ----
-  # Опционально выбираем DNS сервера. На ваш выбор с большим запасом, на случай недоступности
+  # Опционально выбираем DNS сервера - меняйте на ваш вкус.
   default-nameserver:
     # DNS для доменов DNS серверов
-    - tls://1.1.1.1#🎲 Любой доступный сервер
-    - https://94.140.14.14/dns-query#DIRECT
+    - https://94.140.14.14/dns-query#DIRECT #Adguard DNS
     - https://8.8.8.8/dns-query#DIRECT
-    #- https://9.9.9.9/dns-query#DIRECT
-    #- https://1.1.1.1/dns-query#DIRECT
-    #- https://1.0.0.1/dns-query#DIRECT
-    #- https://208.67.222.222/dns-query#DIRECT
-    #- https://208.67.220.220/dns-query#DIRECT
-    #- https://77.88.8.8/dns-query#DIRECT
   proxy-server-nameserver:
     # DNS для доменов прокси из раздела proxies
-    - tls://1.1.1.1#🎲 Любой доступный сервер
     - https://94.140.14.14/dns-query#DIRECT
     - https://8.8.8.8/dns-query#DIRECT
-    #- https://8.8.4.4/dns-query#DIRECT
-    #- https://208.67.222.222/dns-query#DIRECT
-    #- https://208.67.220.220/dns-query#DIRECT
-    #- https://9.9.9.9/dns-query#DIRECT
-    #- https://1.1.1.1/dns-query#DIRECT
-    #- https://1.0.0.1/dns-query#DIRECT
-    #- https://dns.opendns.com/dns-query#DIRECT
-    #- https://doh.sb/dns-query#DIRECT
-    #- https://doh.mullvad.net/dns-query#DIRECT
-    #- https://dns.nextdns.io/dns-query#DIRECT
-    #- https://doh.libredns.gr/dns-query#DIRECT
-    #- https://cloudflare-dns.com/dns-query#DIRECT
   direct-nameserver:
     # DNS для сайтов идущих через DIRECT
-    - 77.88.8.8#DIRECT # Yandex DNS
-    - 77.88.8.1#DIRECT # Yandex DNS
-    - 8.8.8.8#DIRECT # Google DNS
+    - https://77.88.8.8/dns-query#DIRECT # Yandex DNS
+    - https://8.8.8.8/dns-query#DIRECT # Google DNS
   nameserver:
-    # Сервер по умолчанию, в данном случае используется для доменов, идущих через прокси
-    - tls://94.140.14.14#🚫 Недоступные сайты
-    - tls://94.140.14.14#🎲 Любой доступный сервер
-    - tls://94.140.15.15#🎲 Любой доступный сервер
+    # Сервер по умолчанию, DNS запросы будут идти через то, что выбрано в "Остальные сайты"
+    - https://8.8.8.8/dns-query#🌍 Остальные сайты
+    - https://94.140.14.14/dns-query#🌍 Остальные сайты
   nameserver-policy:
-    # DNS для сайтов идущих через DIRECT
-    rule-set:ru-inline,ru-outside,yandex,mailru,drweb,geosite-ru:
-      - tls://77.88.8.8#DIRECT
-      - tls://77.88.8.1#DIRECT
-      - tls://8.8.8.8#DIRECT
-    # DNS для сайтов идущих через DIRECT
+    # Блокировка рекламы
+    rule-set:oisd_big:
+      - rcode://refused # Код отклонённого DNS
+    # DNS для сайтов с файлами правил
     raw.githubusercontent.com,cdn.jsdelivr.net,github.com:
-      - tls://77.88.8.8#DIRECT
-      - tls://77.88.8.1#DIRECT
-      - tls://8.8.8.8#DIRECT
-      
+      - https://8.8.8.8/dns-query#DIRECT
+      - https://94.140.14.14/dns-query#DIRECT
+    # DNS для заблоченных ресурсов, DNS запросы будут идти через то, что выбрано в "Недоступные сайты"
+    rule-set:ru-inside,refilter_domains,ru-inline-banned,category-porn,ai,google-deepmind,speedtest-net:
+      - https://1.1.1.1/dns-query#🚫 Недоступные сайты # Cloudflare DNS
+      - https://8.8.8.8/dns-query#🚫 Недоступные сайты
+    # DNS для Discord, DNS запросы будут идти через то, что выбрано в "Discord"
+    rule-set:discord_domains:
+      - https://8.8.8.8/dns-query#💬 Discord
+      - https://94.140.14.14/dns-query💬 Discord
+    # DNS для доменов Cloudflare, DNS запросы будут идти через то, что выбрано в "Cloudflare"
+    rule-set:cloudflare-domains:
+      - https://8.8.8.8/dns-query#🟠 Cloudflare
+      - https://94.140.14.14/dns-query#🟠 Cloudflare
+    # DNS для доменов Youtube, DNS запросы будут идти через то, что выбрано в "Youtube"
+    rule-set:youtube:
+      - https://8.8.8.8/dns-query#▶️ YouTube
+      - https://94.140.14.14/dns-query#▶️ YouTube
+    # DNS для доменов Telegram, DNS запросы будут идти через то, что выбрано в "Telegram"
+    rule-set:telegram-domains:
+      - https://8.8.8.8/dns-query#➤ Telegram
+      - https://94.140.14.14/dns-query#➤ Telegram
+    # DNS для RU сайтов, DNS запросы будут идти через то, что выбрано в "RU сайты", по умолчанию это DIRECT
+    rule-set:ru-inline,ru-outside,yandex,mailru,drweb,geosite-ru:
+      - https://77.88.8.8/dns-query#⚪🔵🔴 RU сайты
+      - https://8.8.8.8/dns-query#⚪🔵🔴 RU сайты
+
 proxies:
   - name: "🇷🇺 Без VPN"
     type: direct
     udp: true
+  - name: DNS-OUT
+    type: dns
 
 proxy-groups:
   - name: 🚫 Недоступные сайты
@@ -536,6 +533,9 @@ rule-providers:
       - AND,((NETWORK,udp),(DST-PORT,443))
 
 rules:
+  # DNS HIJACK, на случай если будет отключен TUN
+  - DST-PORT,53,DNS-OUT
+
   # Локальную сеть в директ
   - RULE-SET,geoip-private,DIRECT,no-resolve
   - RULE-SET,geosite-private,DIRECT
