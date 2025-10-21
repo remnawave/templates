@@ -172,6 +172,8 @@ proxies:
   - name: "🇷🇺 Без VPN"
     type: direct
     udp: true
+  - name: DNS-OUT
+    type: dns
 
 proxy-groups:
   - name: 🚫 Недоступные сайты
@@ -531,6 +533,9 @@ rule-providers:
       - AND,((NETWORK,udp),(DST-PORT,443))
 
 rules:
+  # DNS HIJACK, на случай если будет отключен TUN
+  - DST-PORT,53,DNS-OUT
+
   # Локальную сеть в директ
   - RULE-SET,geoip-private,DIRECT,no-resolve
   - RULE-SET,geosite-private,DIRECT
