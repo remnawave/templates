@@ -397,13 +397,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/discord.mrs
     path: ./rule-sets/discord_domains.mrs
     interval: 86400
-  github_domains:
-    type: http
-    behavior: domain
-    format: mrs
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs
-    path: ./rule-sets/github_domains.mrs
-    interval: 86400
   speedtest-net:
     type: http
     behavior: domain
