@@ -12,9 +12,9 @@
 # По умолчанию выбирается первый из списка, если он недоступен, выбирается второй и т.д.
 # Для прокси-группы «RU сайты» используется только один прокси — «Без ВПН» (т.е. DIRECT).
 #
-# Списки доменов re:filter и itdog — для прокси-группы «Недоступные сайты». Подробнее смотрите в rules.
+# Списки доменов re:filter — для прокси-группы «Недоступные сайты». Подробнее смотрите в rules.
 
-# Большое спасибо Legiz и itdog, чьи списки используются для правил.
+# Большое спасибо Legiz, чьи списки используются для правил.
 # Также спасибо за пояснения и идеи для конфигов. Отдельное спасибо сообществу Remnawave и её разработчику.
 
 mixed-port: 7890
@@ -177,7 +177,7 @@ proxies:
 
 proxy-groups:
   - name: 🚫 Недоступные сайты
-    icon: https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/icons/Blocked.png
+    icon: https://cdn.jsdelivr.net/gh/remnawave/templates@main/icons/Blocked.png
     type: select
     proxies:
       - 🎲 Любой доступный сервер
@@ -190,7 +190,7 @@ proxy-groups:
       - 🚫 Недоступные сайты
 
   - name: 💬 Discord
-    icon: https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/icons/Discord.png
+    icon: https://cdn.jsdelivr.net/gh/remnawave/templates@main/icons/Discord.png
     type: select
     proxies:
       - 🚫 Недоступные сайты
@@ -324,90 +324,98 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/category-ru.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ru.mrs
     path: ./rule-sets/geosite-ru.mrs
     interval: 86400
   yandex:
     type: http
     behavior: domain
     format: yaml
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/yandex.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/yandex.yaml
     path: ./rule-sets/yandex.yaml
     interval: 86400
   ai:
     type: http
     behavior: domain
     format: mrs
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-ai-!cn.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs
     path: ./rule-sets/ai.mrs
     interval: 86400
   mailru:
     type: http
     behavior: domain
     format: mrs
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/mailru.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/mailru.mrs
     path: ./rule-sets/mailru.mrs
+    interval: 86400
   category-porn:
     type: http
     behavior: domain
     format: mrs
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/category-porn.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-porn.mrs
     path: ./rule-sets/category-porn.mrs
     interval: 86400
   drweb:
     type: http
     behavior: domain
     format: mrs
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/drweb.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/drweb.mrs
     path: ./rule-sets/drweb.mrs
     interval: 86400
   geoip-ru:
     type: http
     behavior: ipcidr
     format: mrs
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geoip/ru.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/ru.mrs
     path: ./rule-sets/geoip-ru.mrs
     interval: 86400
   geoip-by:
     type: http
     behavior: ipcidr
     format: mrs
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geoip/by.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/by.mrs
     path: ./rule-sets/geoip-by.mrs
     interval: 86400
   geosite-private:
     type: http
     behavior: domain
     format: mrs
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/private.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs
     path: ./rule-sets/geosite-private.mrs
     interval: 86400
   geoip-private:
     type: http
     behavior: ipcidr
     format: mrs
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geoip/private.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs
     path: ./rule-sets/geoip-private.mrs
     interval: 86400
   discord_domains:
     type: http
     behavior: domain
     format: mrs
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/discord.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/discord.mrs
     path: ./rule-sets/discord_domains.mrs
+    interval: 86400
+  github_domains:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs
+    path: ./rule-sets/github_domains.mrs
     interval: 86400
   speedtest-net:
     type: http
     behavior: domain
     format: mrs
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/speedtest.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/speedtest.mrs
     path: ./rule-sets/speedtest-net.mrs
     interval: 86400
   remote-control:
     type: http
     behavior: domain
     format: mrs
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-remote-control.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-remote-control.mrs
     path: ./rule-sets/remote-control.mrs
     interval: 86400
   inline-blocked-ips:
@@ -419,7 +427,7 @@ rule-providers:
     type: http
     behavior: ipcidr
     format: mrs
-    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/discord-voice-ip-list.mrs
+    url: https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/main/other/discord-voice-ip-list.mrs
     path: ./rule-sets/discord_voiceips.mrs
     interval: 86400
   discord_vc:
@@ -439,7 +447,7 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/re-filter/domain-rule.mrs
+    url: https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/main/re-filter/domain-rule.mrs
     path: ./rule-sets/refilter.mrs
     interval: 86400
   youtube:
@@ -447,55 +455,55 @@ rule-providers:
     behavior: domain
     format: mrs
     interval: 86400
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/youtube.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs
     path: ./rule-sets/youtube.mrs
   google-deepmind:
     type: http
     behavior: domain
     format: mrs
     interval: 86400
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/google-gemini.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google-gemini.mrs
     path: ./rule-sets/gooogle-deepmind.mrs
   telegram-ips:
     type: http
     behavior: ipcidr
     format: mrs
     interval: 86400
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geoip/telegram.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs
     path: ./rule-sets/telegram-ips.mrs
   telegram-domains:
     type: http
     behavior: domain
     format: mrs
     interval: 86400
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/telegram.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs
     path: ./rule-sets/telegram-domains.mrs
   oisd_big:
     type: http
     behavior: domain
     format: mrs
-    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/oisd/big.mrs
+    url: https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/main/oisd/big.mrs
     path: ./rule-sets/oisd_big.mrs
     interval: 86400
   torrent-trackers:
     type: http
     behavior: domain
     format: mrs
-    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/torrent-trackers.mrs
+    url: https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/main/other/torrent-trackers.mrs
     path: ./rule-sets/torrent-trackers.mrs
     interval: 86400
   torrent-clients:
     type: http
     behavior: classical
     format: yaml
-    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/torrent-clients.yaml
+    url: https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/main/other/torrent-clients.yaml
     path: ./rule-sets/torrent-clients.yaml
     interval: 86400
   ru-apps:
     type: http
     behavior: classical
     format: yaml
-    url: https://github.com/legiz-ru/mihomo-rule-sets/blob/main/other/ru-app-list.yaml
+    url: https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/main/other/ru-app-list.yaml
     path: ./rule-sets/ru-apps.yaml
     interval: 86400
   ru-inside:
@@ -509,21 +517,21 @@ rule-providers:
     type: http
     behavior: classical
     format: text
-    url: https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Russia/outside-clashx.lst
+    url: https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/outside-clashx.lst
     path: ./rule-sets/ru-outside.lst
     interval: 86400
   cloudflare-ips:
     type: http
     behavior: ipcidr
     format: mrs
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/cloudflare.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cloudflare.mrs
     path: ./rule-sets/cloudflare-ips.mrs
     interval: 86400
   cloudflare-domains:
     type: http
     behavior: domain
     format: mrs
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/cloudflare.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cloudflare.mrs
     path: ./rule-sets/cloudflare-domains.mrs
     interval: 86400
   quic:
