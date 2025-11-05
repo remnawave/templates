@@ -455,7 +455,7 @@ rule-providers:
     behavior: domain
     format: mrs
     interval: 86400
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google-gemini.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google-deepmind.mrs
     path: ./rule-sets/google-deepmind.mrs
   telegram-ips:
     type: http
