@@ -150,7 +150,7 @@ dns:
     # DNS для Discord, DNS запросы будут идти через то, что выбрано в "Discord"
     rule-set:discord_domains:
       - https://8.8.8.8/dns-query#💬 Discord
-      - https://94.140.14.14/dns-query💬 Discord
+      - https://94.140.14.14/dns-query#💬 Discord
     # DNS для доменов Cloudflare, DNS запросы будут идти через то, что выбрано в "Cloudflare"
     rule-set:cloudflare-domains:
       - https://8.8.8.8/dns-query#🟠 Cloudflare
@@ -456,7 +456,7 @@ rule-providers:
     format: mrs
     interval: 86400
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google-gemini.mrs
-    path: ./rule-sets/gooogle-deepmind.mrs
+    path: ./rule-sets/google-deepmind.mrs
   telegram-ips:
     type: http
     behavior: ipcidr
