@@ -190,9 +190,9 @@ rule-providers:
   geoip-ru:
     type: http
     behavior: ipcidr
-    format: mrs
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geoip/ru.mrs
-    path: ./provider/rule-set/geoip-ru.mrs
+    format: text
+    url: https://raw.githubusercontent.com/Davoyan/ipinfo/main/geo/geoip/ru.lst
+    path: ./rule-sets/geoip-ru.lst
     interval: 86400
   ru-outside:
     type: http
