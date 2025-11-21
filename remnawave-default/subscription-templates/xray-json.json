@@ -31,7 +31,7 @@
             },
             "sniffing": {
                 "enabled": true,
-                "routeOnly": true,
+                "routeOnly": false,
                 "destOverride": [
                     "http",
                     "tls",
@@ -49,7 +49,7 @@
             },
             "sniffing": {
                 "enabled": true,
-                "routeOnly": true,
+                "routeOnly": false,
                 "destOverride": [
                     "http",
                     "tls",
