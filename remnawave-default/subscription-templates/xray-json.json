@@ -61,7 +61,10 @@
     "outbounds": [
         {
             "tag": "direct",
-            "protocol": "freedom"
+            "protocol": "freedom",
+            "settings": {
+                "domainStrategy": "ForceIP"
+            }
         },
         {
             "tag": "block",
