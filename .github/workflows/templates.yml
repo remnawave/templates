@@ -46,6 +46,11 @@ jobs:
         run: |
           curl -L "https://raw.githubusercontent.com/legiz-ru/sb-rule-sets/main/.github/sub2sing-box/ru-bundle-oisd-big.json" -o "by-legiz/subscription-templates/singbox-ru-bundle-oisd-big.json"
 
+      - name: Download Stash ru-bundle
+        run: |
+          curl -L "https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/refs/heads/main/examples/stash/remnawave_prod_rubundle.yaml" -o "by-legiz/subscription-templates/stash-ru-bundle.yaml"
+
+
       - name: Commit and push if there are changes
         run: |
           git config --local user.email "legiz-ru@users.noreply.github.com"
