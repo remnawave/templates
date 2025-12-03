@@ -315,7 +315,6 @@ rule-providers:
       - DOMAIN-KEYWORD,okko
       - DOMAIN-KEYWORD,wink
       - DOMAIN-KEYWORD,kion
-      - DOMAIN-KEYWORD,roblox
       - DOMAIN-KEYWORD,ozon
       - DOMAIN-KEYWORD,wildberries
       - DOMAIN-KEYWORD,aliexpress
