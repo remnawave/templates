@@ -15,9 +15,9 @@
             "sniffing": {
                 "enabled": true,
                 "destOverride": [
-                  "http", 
-                  "tls", 
-                  "quic"
+                    "http",
+                    "tls",
+                    "quic"
                 ]
             },
             "streamSettings": {
@@ -28,11 +28,11 @@
                     "show": false,
                     "xver": 0,
                     "shortIds": [
-                      ""
+                        ""
                     ],
                     "privateKey": "#REPLACE_WITH_YOUR_PRIVATE_KEY, GENERATE BELOW IN PANEL ↓",
                     "serverNames": [
-                      "#REPLACE_WITH_YOUR_SERVER_NAMES, EXAMPLE: example.com"
+                        "#REPLACE_WITH_YOUR_SERVER_NAMES, EXAMPLE: example.com"
                     ]
                 }
             }
@@ -70,8 +70,8 @@
                 "network": "raw",
                 "security": "reality",
                 "realitySettings": {
-                "serverName": "#REPLACE_WITH_YOUR_SERVER_NAMES, EXAMPLE: example.co",
-                "password": "#REPLACE_WITH_YOUR_PASSWORD_KEY, GENERATE BELOW ↓"
+                    "serverName": "#REPLACE_WITH_YOUR_SERVER_NAMES, EXAMPLE: example.co",
+                    "password": "#REPLACE_WITH_YOUR_PASSWORD_KEY, GENERATE BELOW ↓"
                 }
             }
         }
@@ -79,19 +79,27 @@
     "routing": {
         "rules": [
             {
-                "ip": ["geoip:private"],
+                "ip": [
+                    "geoip:private"
+                ],
                 "outboundTag": "BLOCK"
             },
             {
-                "domain": ["geosite:private"],
+                "domain": [
+                    "geosite:private"
+                ],
                 "outboundTag": "BLOCK"
             },
             {
-                "protocol": ["bittorrent"],
+                "protocol": [
+                    "bittorrent"
+                ],
                 "outboundTag": "BLOCK"
             },
             {
-                "inboundTag": ["VLESS_PUBLIC_INBOUND"],
+                "inboundTag": [
+                    "VLESS_PUBLIC_INBOUND"
+                ],
                 "outboundTag": "VLESS_OUTBOUND_TO_FREEDOM"
             }
         ]
