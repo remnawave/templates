@@ -1,0 +1,94 @@
+{
+    "log": {
+        "loglevel": "none"
+    },
+    "inbounds": [
+        {
+            "tag": "VLESS_PUBLIC_INBOUND",
+            "port": 443,
+            "listen": "0.0.0.0",
+            "protocol": "vless",
+            "settings": {
+                "clients": [],
+                "decryption": "none"
+            },
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls",
+                    "quic"
+                ]
+            },
+            "streamSettings": {
+                "network": "raw",
+                "security": "reality",
+                "realitySettings": {
+                    "target": "#REPLACE_WITH_YOUR_DEST, EXAMPLE: example.com:443",
+                    "show": false,
+                    "xver": 0,
+                    "shortIds": [
+                        ""
+                    ],
+                    "privateKey": "#REPLACE_WITH_YOUR_PRIVATE_KEY, GENERATE BELOW IN PANEL ↓",
+                    "serverNames": [
+                        "#REPLACE_WITH_YOUR_SERVER_NAMES, EXAMPLE: example.com"
+                    ]
+                }
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "DIRECT"
+        },
+        {
+            "protocol": "blackhole",
+            "tag": "BLOCK"
+        },
+        {
+            "tag": "SS_OUTBOUND_TO_FREEDOM",
+            "protocol": "shadowsocks",
+            "settings": {
+                "servers": [
+                    {
+                        "address": "#REPLACE_WITH_YOUR_FREEDOM_NODE_ADDRESS",
+                        "password": "#REPLACE_WITH_YOUR_PASSWORD_FROM_SERVICE_USER, USER -> MORE ACTIONS -> DETAILED INFO -> SS PASSWORD",
+                        "port": 9999,
+                        "level": 0,
+                        "method": "chacha20-ietf-poly1305"
+                    }
+                ]
+            }
+        }
+    ],
+    "routing": {
+        "rules": [
+            {
+                "ip": [
+                    "geoip:private"
+                ],
+                "outboundTag": "BLOCK"
+            },
+            {
+                "domain": [
+                    "geosite:private"
+                ],
+                "outboundTag": "BLOCK"
+            },
+            {
+                "protocol": [
+                    "bittorrent"
+                ],
+                "outboundTag": "BLOCK"
+            },
+            {
+                "inboundTag": [
+                    "VLESS_PUBLIC_INBOUND"
+                ],
+                "outboundTag": "SS_OUTBOUND_TO_FREEDOM"
+            }
+        ]
+    }
+}

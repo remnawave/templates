@@ -1,0 +1,107 @@
+{
+    "log": {
+        "loglevel": "none"
+    },
+    "inbounds": [
+        {
+            "tag": "VLESS_PUBLIC_INBOUND",
+            "port": 443,
+            "listen": "0.0.0.0",
+            "protocol": "vless",
+            "settings": {
+                "clients": [],
+                "decryption": "none"
+            },
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls",
+                    "quic"
+                ]
+            },
+            "streamSettings": {
+                "network": "raw",
+                "security": "reality",
+                "realitySettings": {
+                    "target": "#REPLACE_WITH_YOUR_DEST, EXAMPLE: example.com:443",
+                    "show": false,
+                    "xver": 0,
+                    "shortIds": [
+                        ""
+                    ],
+                    "privateKey": "#REPLACE_WITH_YOUR_PRIVATE_KEY, GENERATE BELOW IN PANEL ↓",
+                    "serverNames": [
+                        "#REPLACE_WITH_YOUR_SERVER_NAMES, EXAMPLE: example.com"
+                    ]
+                }
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "DIRECT"
+        },
+        {
+            "protocol": "blackhole",
+            "tag": "BLOCK"
+        },
+        {
+            "tag": "VLESS_OUTBOUND_TO_FREEDOM",
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "#REPLACE_WITH_YOUR_FREEDOM_NODE_ADDRESS",
+                        "port": 443,
+                        "users": [
+                            {
+                                "id": "#REPLACE_WITH_YOUR_PASSWORD_FROM_SERVICE_USER, USER -> MORE ACTIONS -> DETAILED INFO -> VLESS UUID",
+                                "level": 0,
+                                "encryption": "none",
+                                "flow": "xtls-rprx-vision"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "raw",
+                "security": "reality",
+                "realitySettings": {
+                    "serverName": "#REPLACE_WITH_YOUR_SERVER_NAMES, EXAMPLE: example.co",
+                    "password": "#REPLACE_WITH_YOUR_PASSWORD_KEY, GENERATE BELOW ↓"
+                }
+            }
+        }
+    ],
+    "routing": {
+        "rules": [
+            {
+                "ip": [
+                    "geoip:private"
+                ],
+                "outboundTag": "BLOCK"
+            },
+            {
+                "domain": [
+                    "geosite:private"
+                ],
+                "outboundTag": "BLOCK"
+            },
+            {
+                "protocol": [
+                    "bittorrent"
+                ],
+                "outboundTag": "BLOCK"
+            },
+            {
+                "inboundTag": [
+                    "VLESS_PUBLIC_INBOUND"
+                ],
+                "outboundTag": "VLESS_OUTBOUND_TO_FREEDOM"
+            }
+        ]
+    }
+}
