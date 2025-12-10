@@ -6,6 +6,12 @@
             "author": "remnawave",
             "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/remnawave-default/response-rules/srr-default-config.json",
             "type": "SRR"
+        },
+        {
+            "name": "Allow only Happ",
+            "author": "kastov",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-kastov/response-rules/srr-happ-only.json",
+            "type": "SRR"
         }
     ]
 }
