@@ -1,5 +1,4 @@
 {
-    "$schema": "https://cdn.remna.st/schemas/subpage-config-v1.schema.json",
     "version": "1",
     "additionalLocales": [
         "ru",
