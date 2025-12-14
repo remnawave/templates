@@ -16,6 +16,7 @@
             "block": "expanded"
         },
         "installationGuides": {
+            "block": "cards",
             "headerText": {
                 "en": "Installation",
                 "ru": "Установка",
