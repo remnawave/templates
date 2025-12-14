@@ -1,0 +1,73 @@
+{
+  "version": "1",
+  "rules": [
+    {
+      "name": "Browser Subscription",
+      "description": "System critical: do not delete or disable this rule.",
+      "enabled": true,
+      "operator": "AND",
+      "conditions": [
+        {
+          "headerName": "accept",
+          "operator": "CONTAINS",
+          "value": "text/html",
+          "caseSensitive": true
+        }
+      ],
+      "responseType": "BROWSER"
+    },
+    {
+      "name": "Happ",
+      "description": "Response with BASE64",
+      "enabled": true,
+      "operator": "AND",
+      "conditions": [
+        {
+          "headerName": "user-agent",
+          "operator": "CONTAINS",
+          "value": "happ",
+          "caseSensitive": false
+        }
+      ],
+      "responseType": "XRAY_BASE64"
+    },
+    {
+      "name": "Mihomo Clients",
+      "description": "Response with generated YAML config (Mihomo Template)",
+      "enabled": true,
+      "operator": "AND",
+      "conditions": [
+        {
+          "headerName": "user-agent",
+          "operator": "REGEX",
+          "value": "^(?:FlClash|FlClashX|Flowvy|[Cc]lash-[Vv]erge|[Kk]oala-[Cc]lash|[Cc]lash-?[Mm]eta|[Mm]urge|[Cc]lashX [Mm]eta|[Mm]ihomo|[Cc]lash-nyanpasu|clash.meta|prizrak-box)",
+          "caseSensitive": false
+        }
+      ],
+      "responseType": "MIHOMO"
+    },
+    {
+      "name": "Xray Checker",
+      "description": "Allow xray-checker to get a subscription",
+      "enabled": true,
+      "operator": "AND",
+      "conditions": [
+        {
+          "headerName": "user-agent",
+          "operator": "CONTAINS",
+          "value": "xray-checker",
+          "caseSensitive": false
+        }
+      ],
+      "responseType": "XRAY_BASE64"
+    },
+    {
+      "name": "Fallback",
+      "description": "Fallback",
+      "enabled": true,
+      "operator": "AND",
+      "conditions": [],
+      "responseType": "BLOCK"
+    }
+  ]
+}
