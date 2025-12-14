@@ -1,0 +1,11 @@
+{
+    "$schema": "./subpage-configs-list.schema.json",
+    "configs": [
+        {
+            "name": "Default Subscription Page Config",
+            "author": "remnawave",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/remnawave-default/subscription-page/subscription-page-default-config.json",
+            "type": "SUBPAGE_CONFIG"
+        }
+    ]
+}

@@ -1,0 +1,242 @@
+{
+    "$schema": "https://cdn.remna.st/schemas/subpage-config-v1.schema.json",
+    "version": "1",
+    "additionalLocales": [
+        "ru",
+        "zh",
+        "fa",
+        "fr"
+    ],
+    "brandingSettings": {
+        "title": "Remnawave",
+        "logoUrl": "https://docs.rw/img/logo.svg",
+        "supportUrl": "https://t.me/remnawave"
+    },
+    "uiConfig": {
+        "subscriptionInfo": {
+            "block": "expanded"
+        },
+        "installationGuides": {
+            "headerText": {
+                "en": "Installation",
+                "ru": "Установка",
+                "fa": "نصب",
+                "fr": "Installation",
+                "zh": "安装"
+            }
+        },
+        "connectionKeys": {
+            "headerText": {
+                "en": "Connection Keys",
+                "ru": "Ключи подключения",
+                "fa": "کلیدهای اتصال",
+                "fr": "Clés de connexion",
+                "zh": "连接密钥"
+            }
+        }
+    },
+    "platforms": {
+        "ios": {
+            "displayName": {
+                "en": "iOS",
+                "ru": "iOS",
+                "fa": "iOS",
+                "fr": "iOS",
+                "zh": "iOS"
+            },
+            "svgIcon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"icon icon-tabler icons-tabler-outline icon-tabler-brand-apple\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M8.286 7.008c-3.216 0 -4.286 3.23 -4.286 5.92c0 3.229 2.143 8.072 4.286 8.072c1.165 -.05 1.799 -.538 3.214 -.538c1.406 0 1.607 .538 3.214 .538s4.286 -3.229 4.286 -5.381c-.03 -.011 -2.649 -.434 -2.679 -3.23c-.02 -2.335 2.589 -3.179 2.679 -3.228c-1.096 -1.606 -3.162 -2.113 -3.75 -2.153c-1.535 -.12 -3.032 1.077 -3.75 1.077c-.729 0 -2.036 -1.077 -3.214 -1.077z\" /><path d=\"M12 4a2 2 0 0 0 2 -2a2 2 0 0 0 -2 2\" /></svg>",
+            "apps": [
+                {
+                    "name": "Happ",
+                    "featured": true,
+                    "blocks": [
+                        {
+                            "title": {
+                                "en": "App Installation",
+                                "ru": "Установка приложения",
+                                "fa": "نصب برنامه",
+                                "fr": "Installation de l’application",
+                                "zh": "应用安装"
+                            },
+                            "svgIconColor": "cyan",
+                            "svgIcon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"icon icon-tabler icons-tabler-outline icon-tabler-download\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2\" /><path d=\"M7 11l5 5l5 -5\" /><path d=\"M12 4l0 12\" /></svg>",
+                            "description": {
+                                "en": "Open the page in App Store and install the app. Launch it, in the VPN configuration permission window click Allow and enter your passcode.",
+                                "fa": "صفحه را در App Store باز کنید و برنامه را نصب کنید. آن را اجرا کنید، در پنجره مجوز پیکربندی VPN روی Allow کلیک کنید و رمز عبور خود را وارد کنید.",
+                                "ru": "Откройте страницу в App Store и установите приложение. Запустите его, в окне разрешения VPN-конфигурации нажмите Allow и введите свой пароль.",
+                                "zh": "在 App Store 打开页面并安装应用。启动应用后，在 VPN 配置权限窗口点击“允许”，并输入您的密码。",
+                                "fr": "Ouvre la page de l’App Store et installe l’app. Lance-la ; dans la fenêtre d’autorisation de configuration VPN, appuie sur « Allow » puis entre ton code."
+                            },
+                            "buttons": [
+                                {
+                                    "link": "https://apps.apple.com/ru/app/happ-proxy-utility-plus/id6746188973",
+                                    "type": "external",
+                                    "text": {
+                                        "en": "App Store (Russia)",
+                                        "fa": "اپ استور (روسیه)",
+                                        "ru": "App Store (Россия)",
+                                        "zh": "App Store（俄罗斯）",
+                                        "fr": "App Store (Russie)"
+                                    },
+                                    "svgIcon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"icon icon-tabler icons-tabler-outline icon-tabler-external-link\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6\" /><path d=\"M11 13l9 -9\" /><path d=\"M15 4h5v5\" /></svg>"
+                                },
+                                {
+                                    "link": "https://apps.apple.com/us/app/happ-proxy-utility/id6504287215",
+                                    "type": "external",
+                                    "text": {
+                                        "en": "App Store (Global)",
+                                        "fa": "اپ استور (گلوبال)",
+                                        "ru": "App Store (Глобальный)",
+                                        "zh": "App Store（全球版）",
+                                        "fr": "App Store (Global)"
+                                    },
+                                    "svgIcon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"icon icon-tabler icons-tabler-outline icon-tabler-external-link\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6\" /><path d=\"M11 13l9 -9\" /><path d=\"M15 4h5v5\" /></svg>"
+                                }
+                            ]
+                        },
+                        {
+                            "title": {
+                                "en": "Add Subscription",
+                                "ru": "Добавление подписки",
+                                "fa": "اضافه کردن اشتراک",
+                                "fr": "Ajouter une souscription",
+                                "zh": "添加订阅"
+                            },
+                            "svgIconColor": "cyan",
+                            "svgIcon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"icon icon-tabler icons-tabler-outline icon-tabler-cloud-download\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M19 18a3.5 3.5 0 0 0 0 -7h-1a5 4.5 0 0 0 -11 -2a4.6 4.4 0 0 0 -2.1 8.4\" /><path d=\"M12 13l0 9\" /><path d=\"M9 19l3 3l3 -3\" /></svg>",
+                            "description": {
+                                "en": "Click the button below — the app will open and the subscription will be added automatically",
+                                "fa": "برای افزودن خودکار اشتراک روی دکمه زیر کلیک کنید - برنامه باز خواهد شد",
+                                "ru": "Нажмите кнопку ниже — приложение откроется, и подписка добавится автоматически.",
+                                "zh": "点击下方按钮，应用将会打开，并自动添加订阅",
+                                "fr": "Clique sur le bouton ci‑dessous — l’app s’ouvrira et l’abonnement sera ajouté automatiquement."
+                            },
+                            "buttons": [
+                                {
+                                    "type": "subscriptionLink",
+                                    "link": "happ://add/{{SUBSCRIPTION_LINK}}",
+                                    "text": {
+                                        "en": "Add Subscription",
+                                        "fa": "اضافه کردن اشتراک",
+                                        "ru": "Добавить подписку",
+                                        "zh": "添加订阅",
+                                        "fr": "Ajouter une souscription"
+                                    },
+                                    "svgIcon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"icon icon-tabler icons-tabler-outline icon-tabler-plus\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M12 5v14\" /><path d=\"M5 12h14\" /></svg>"
+                                }
+                            ]
+                        },
+                        {
+                            "title": {
+                                "en": "Connect and use",
+                                "ru": "Подключение и использование",
+                                "fa": "متصل شوید و استفاده کنید",
+                                "fr": "Se connecter et utiliser",
+                                "zh": "连接并使用"
+                            },
+                            "svgIconColor": "cyan",
+                            "svgIcon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"icon icon-tabler icons-tabler-outline icon-tabler-check\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M5 12l5 5l10 -10\" /></svg>",
+                            "description": {
+                                "en": "In the main section, click the large power button in the center to connect to VPN. Don't forget to select a server from the server list. If needed, choose another server from the server list.",
+                                "fa": "در بخش اصلی، دکمه بزرگ روشن/خاموش در مرکز را برای اتصال به VPN کلیک کنید. فراموش نکنید که یک سرور را از لیست سرورها انتخاب کنید. در صورت نیاز، سرور دیگری را از لیست سرورها انتخاب کنید.",
+                                "ru": "В главном разделе нажмите большую кнопку включения в центре для подключения к VPN. Не забудьте выбрать сервер в списке серверов. При необходимости выберите другой сервер из списка серверов.",
+                                "zh": "在主界面，点击中央的大电源按钮以连接 VPN。不要忘记从服务器列表中选择服务器。如有需要，可选择其它服务器。",
+                                "fr": "Dans la section principale, appuie sur le grand bouton central pour te connecter au VPN. N’oublie pas de choisir un serveur dans la liste ; si besoin, choisis‑en un autre."
+                            },
+                            "buttons": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Stash",
+                    "featured": false,
+                    "blocks": [
+                        {
+                            "svgIconColor": "cyan",
+                            "svgIcon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"icon icon-tabler icons-tabler-outline icon-tabler-download\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2\" /><path d=\"M7 11l5 5l5 -5\" /><path d=\"M12 4l0 12\" /></svg>",
+                            "title": {
+                                "en": "App Installation",
+                                "ru": "Установка приложения",
+                                "fa": "نصب برنامه",
+                                "fr": "Installation de l’application",
+                                "zh": "应用安装"
+                            },
+                            "description": {
+                                "en": "Open the App Store page and install the app.",
+                                "fa": "صفحه App Store را باز کرده و برنامه را نصب کنید.",
+                                "ru": "Откройте страницу в App Store и установите приложение.",
+                                "zh": "打开 App Store 页面并安装应用。",
+                                "fr": "Ouvre la page de l’App Store et installe l’app."
+                            },
+                            "buttons": [
+                                {
+                                    "link": "https://apps.apple.com/us/app/stash-rule-based-proxy/id1596063349",
+                                    "type": "external",
+                                    "text": {
+                                        "en": "Open in App Store",
+                                        "fa": "باز کردن در App Store",
+                                        "ru": "Открыть в App Store",
+                                        "zh": "在 App Store 打开",
+                                        "fr": "Ouvre dans l’App Store"
+                                    },
+                                    "svgIcon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"icon icon-tabler icons-tabler-outline icon-tabler-external-link\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6\" /><path d=\"M11 13l9 -9\" /><path d=\"M15 4h5v5\" /></svg>"
+                                }
+                            ]
+                        },
+                        {
+                            "title": {
+                                "en": "Add Subscription",
+                                "ru": "Добавление подписки",
+                                "fa": "اضافه کردن اشتراک",
+                                "fr": "Ajouter une souscription",
+                                "zh": "添加订阅"
+                            },
+                            "svgIconColor": "cyan",
+                            "svgIcon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"icon icon-tabler icons-tabler-outline icon-tabler-cloud-download\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M19 18a3.5 3.5 0 0 0 0 -7h-1a5 4.5 0 0 0 -11 -2a4.6 4.4 0 0 0 -2.1 8.4\" /><path d=\"M12 13l0 9\" /><path d=\"M9 19l3 3l3 -3\" /></svg>",
+                            "description": {
+                                "en": "Tap the button below — Stash will open and the configuration will be added automatically.",
+                                "fa": "روی دکمه زیر ضربه بزنید — برنامه Stash باز می‌شود و پیکربندی به‌صورت خودکار اضافه خواهد شد.",
+                                "ru": "Нажмите кнопку ниже — приложение Stash откроется, и конфигурация будет добавлена автоматически.",
+                                "zh": "点击下方按钮，Stash 将会打开并自动添加配置。",
+                                "fr": "Appuie sur le bouton ci-dessous — Stash s’ouvrira et la configuration sera ajoutée automatiquement."
+                            },
+                            "buttons": [
+                                {
+                                    "type": "subscriptionLink",
+                                    "link": "stash://install-config?url={{SUBSCRIPTION_LINK}}",
+                                    "svgIcon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"icon icon-tabler icons-tabler-outline icon-tabler-plus\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M12 5v14\" /><path d=\"M5 12h14\" /></svg>",
+                                    "text": {
+                                        "en": "Add Subscription",
+                                        "fa": "اضافه کردن اشتراک",
+                                        "ru": "Добавить подписку",
+                                        "zh": "添加订阅",
+                                        "fr": "Ajouter une souscription"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "title": {
+                                "en": "Connect and use",
+                                "ru": "Подключение и использование",
+                                "fa": "متصل شوید و استفاده کنید",
+                                "fr": "Se connecter et utiliser",
+                                "zh": "连接并使用"
+                            },
+                            "svgIconColor": "cyan",
+                            "svgIcon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"icon icon-tabler icons-tabler-outline icon-tabler-check\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M5 12l5 5l10 -10\" /></svg>",
+                            "description": {
+                                "en": "On the main screen, tap the Start button. When prompted, allow adding VPN configurations. After the profile is activated, open the Policy section and select the country you want to connect through.",
+                                "fa": "در صفحه اصلی روی دکمه Start بزنید. در صورت نمایش درخواست، مجوز افزودن پیکربندی VPN را تأیید کنید. پس از فعال شدن پروفایل، وارد بخش Policy شوید و کشور موردنظر برای اتصال را انتخاب کنید.",
+                                "ru": "На главном экране нажмите кнопку «Запуск». В появившемся окне разрешите добавление конфигураций VPN. После активации профиля перейдите в раздел «Политика» и выберите страну подключения.",
+                                "zh": "在主界面点击「Start」按钮。在提示时允许添加 VPN 配置。配置启用后，进入「Policy（策略）」部分并选择要连接的国家。",
+                                "fr": "Sur l’écran principal, appuie sur le bouton « Start ». Autorise ensuite l’ajout de la configuration VPN. Une fois le profil activé, ouvre la section « Policy » et choisis le pays de connexion."
+                            },
+                            "buttons": []
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
