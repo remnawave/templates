@@ -3835,7 +3835,7 @@
                             },
                             "buttons": [
                                 {
-                                    "link": "sub://{{SUBSCRIPTION_LINK}}",
+                                    "link": "shadowrocket://add/{{SUBSCRIPTION_LINK}}#{{USERNAME}}",
                                     "type": "subscriptionLink",
                                     "text": {
                                         "en": "Add Subscription",
