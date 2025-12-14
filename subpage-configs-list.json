@@ -1,6 +1,6 @@
 {
     "$schema": "./subpage-configs-list.schema.json",
-    "configs": [
+    "templates": [
         {
             "name": "Default Subscription Page Config",
             "author": "remnawave",
