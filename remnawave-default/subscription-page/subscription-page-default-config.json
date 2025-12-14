@@ -58,6 +58,7 @@
                 "fr": "iOS",
                 "zh": "iOS"
             },
+            "svgIconKey": "AppleIcon",
             "apps": [
                 {
                     "name": "Happ",
@@ -427,8 +428,7 @@
                         }
                     ]
                 }
-            ],
-            "svgIconKey": "AppleIcon"
+            ]
         },
         "android": {
             "displayName": {
@@ -438,6 +438,7 @@
                 "fr": "Android",
                 "zh": "Android"
             },
+            "svgIconKey": "Android",
             "apps": [
                 {
                     "name": "Happ",
@@ -977,8 +978,7 @@
                         }
                     ]
                 }
-            ],
-            "svgIconKey": "Android"
+            ]
         },
         "linux": {
             "displayName": {
@@ -988,6 +988,7 @@
                 "fr": "Linux",
                 "zh": "Linux"
             },
+            "svgIconKey": "Ubuntu",
             "apps": [
                 {
                     "name": "FlClashX",
@@ -1459,8 +1460,7 @@
                         }
                     ]
                 }
-            ],
-            "svgIconKey": "Ubuntu"
+            ]
         },
         "macos": {
             "displayName": {
@@ -1470,6 +1470,7 @@
                 "fr": "macOS",
                 "zh": "macOS"
             },
+            "svgIconKey": "macOS",
             "apps": [
                 {
                     "name": "Happ",
@@ -1983,8 +1984,7 @@
                         }
                     ]
                 }
-            ],
-            "svgIconKey": "macOS"
+            ]
         },
         "windows": {
             "displayName": {
@@ -1994,6 +1994,7 @@
                 "fr": "Windows",
                 "zh": "Windows"
             },
+            "svgIconKey": "Windows",
             "apps": [
                 {
                     "name": "FlClashX",
@@ -2470,8 +2471,7 @@
                         }
                     ]
                 }
-            ],
-            "svgIconKey": "Windows"
+            ]
         },
         "androidTV": {
             "displayName": {
@@ -2481,6 +2481,7 @@
                 "fr": "Android TV",
                 "zh": "Android TV"
             },
+            "svgIconKey": "TV",
             "apps": [
                 {
                     "name": "Happ",
@@ -2772,8 +2773,7 @@
                         }
                     ]
                 }
-            ],
-            "svgIconKey": "TV"
+            ]
         },
         "appleTV": {
             "displayName": {
@@ -2783,6 +2783,7 @@
                 "fr": "Apple TV",
                 "zh": "Apple TV"
             },
+            "svgIconKey": "TV",
             "apps": [
                 {
                     "name": "Happ",
@@ -3095,8 +3096,7 @@
                         }
                     ]
                 }
-            ],
-            "svgIconKey": "TV"
+            ]
         }
     }
 }
