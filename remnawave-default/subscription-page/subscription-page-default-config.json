@@ -1,6 +1,7 @@
 {
     "version": "1",
-    "additionalLocales": [
+    "locales": [
+        "en",
         "ru",
         "zh",
         "fa",
@@ -33,6 +34,134 @@
                 "fr": "Clés de connexion",
                 "zh": "连接密钥"
             }
+        }
+    },
+    "baseTranslations": {
+        "linkCopied": {
+            "en": "Likn copied",
+            "ru": "Ссылка скопирована",
+            "fr": "Lien copié",
+            "fa": "لینک کپی شد",
+            "zh": "链接已复制"
+        },
+        "linkCopiedToClipboard": {
+            "en": "Link copied to clipboard",
+            "ru": "Ссылка скопирована в буфер обмена",
+            "fr": "Lien copié dans le presse-papiers",
+            "fa": "لینک به کلیپ‌بورد کپی شد",
+            "zh": "链接已复制到剪贴板"
+        },
+        "getLink": {
+            "en": "Get Link",
+            "ru": "Получение ссылки",
+            "fr": "Obtenir le lien",
+            "fa": "دریافت لینک",
+            "zh": "获取链接"
+        },
+        "scanQrCode": {
+            "en": "Scan the QR code above in the client",
+            "ru": "Отсканируйте QR-код в приложении",
+            "fr": "Scannez le code QR ci-dessus dans le client",
+            "fa": "کد QR بالا را در کلاینت اسکن کنید",
+            "zh": "在客户端中扫描上方二维码"
+        },
+        "scanQrCodeDescription": {
+            "en": "Easily add the subscription to any client. There's another option: copy the link below and paste it into the client",
+            "ru": "Простое добавление подписки в любой клиент. Есть и другой вариант: скопируйте ссылку ниже и вставьте в клиент.",
+            "fr": "Ajoutez facilement l'abonnement à n'importe quel client. Il y a une autre option : copiez le lien ci-dessous et collez-le dans le client",
+            "fa": "افزودن آسان اشتراک به هر کلاینت. گزینه دیگری هم وجود دارد: لینک زیر را کپی کرده و در کلاینت جای‌گذاری کنید",
+            "zh": "轻松将订阅添加到任何客户端。还有另一种选择：复制下面的链接并粘贴到客户端中"
+        },
+        "copyLink": {
+            "en": "Copy link",
+            "ru": "Скопировать ссылку",
+            "fr": "Copier le lien",
+            "fa": "کپی لینک",
+            "zh": "复制链接"
+        },
+        "name": {
+            "en": "Username",
+            "ru": "Имя пользователя",
+            "fr": "Nom d'utilisateur",
+            "fa": "نام کاربری",
+            "zh": "用户名"
+        },
+        "status": {
+            "en": "Status",
+            "ru": "Статус",
+            "fr": "Statut",
+            "fa": "وضعیت",
+            "zh": "状态"
+        },
+        "active": {
+            "en": "Active",
+            "ru": "Активна",
+            "fr": "Actif",
+            "fa": "فعال",
+            "zh": "活跃"
+        },
+        "inactive": {
+            "en": "Inactive",
+            "ru": "Неактивна",
+            "fr": "Inactif",
+            "fa": "غیرفعال",
+            "zh": "未激活"
+        },
+        "expires": {
+            "en": "Expires",
+            "ru": "Истекает",
+            "fr": "Expire",
+            "fa": "منقضی می‌شود",
+            "zh": "到期时间"
+        },
+        "at": {
+            "en": "At",
+            "ru": "В",
+            "fr": "À",
+            "fa": "در",
+            "zh": "于"
+        },
+        "bandwidth": {
+            "en": "Bandwidth",
+            "ru": "Трафик",
+            "fr": "Bande passante",
+            "fa": "پهنای باند",
+            "zh": "流量"
+        },
+        "scanToImport": {
+            "en": "Scan to import this key",
+            "ru": "Отсканируйте QR-код для импорта ключа",
+            "fr": "Scannez pour importer cette clé",
+            "fa": "برای وارد کردن این کلید اسکن کنید",
+            "zh": "扫描以导入此密钥"
+        },
+        "expiresIn": {
+            "en": "Expires in",
+            "ru": "Истекает",
+            "fr": "Expire",
+            "fa": "منقضی می‌شود در",
+            "zh": "后到期"
+        },
+        "expired": {
+            "en": "Expired",
+            "ru": "Истекла",
+            "fr": "Expiré",
+            "fa": "منقضی شده در",
+            "zh": "已于"
+        },
+        "unknown": {
+            "en": "Unknown",
+            "ru": "Неизвестно",
+            "fr": "Inconnu",
+            "fa": "نامعلوم",
+            "zh": "未知"
+        },
+        "indefinitely": {
+            "en": "Indefinitely",
+            "ru": "Бессрочно",
+            "fr": "Indéfiniment",
+            "fa": "هیچوقت",
+            "zh": "永久"
         }
     },
     "svgLibrary": {
