@@ -13,30 +13,24 @@
         "supportUrl": "https://t.me/remnawave"
     },
     "uiConfig": {
-        "subscriptionInfo": {
-            "block": "expanded"
-        },
-        "installationGuides": {
-            "block": "cards",
-            "headerText": {
-                "en": "Installation",
-                "ru": "Установка",
-                "fa": "نصب",
-                "fr": "Installation",
-                "zh": "安装"
-            }
-        },
-        "connectionKeys": {
-            "headerText": {
-                "en": "Connection Keys",
-                "ru": "Ключи подключения",
-                "fa": "کلیدهای اتصال",
-                "fr": "Clés de connexion",
-                "zh": "连接密钥"
-            }
-        }
+        "subscriptionInfoBlockType": "expanded",
+        "installationGuidesBlockType": "cards"
     },
     "baseTranslations": {
+        "installationGuideHeader": {
+            "en": "Installation",
+            "ru": "Установка",
+            "fa": "نصب",
+            "fr": "Installation",
+            "zh": "安装"
+        },
+        "connectionKeysHeader": {
+            "en": "Connection Keys",
+            "ru": "Ключи подключения",
+            "fa": "کلیدهای اتصال",
+            "fr": "Clés de connexion",
+            "zh": "连接密钥"
+        },
         "linkCopied": {
             "en": "Likn copied",
             "ru": "Ссылка скопирована",
