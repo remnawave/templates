@@ -6,6 +6,12 @@
             "author": "remnawave",
             "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/remnawave-default/subscription-page/subscription-page-default-config.json",
             "type": "SUBPAGE_CONFIG"
+        },
+        {
+            "name": "Happ Only Subscription Page Config",
+            "author": "kastov",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-kastov/subscription-page/happ-only.json",
+            "type": "SUBPAGE_CONFIG"
         }
     ]
 }
