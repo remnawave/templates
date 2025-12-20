@@ -557,7 +557,7 @@ rules:
   - RULE-SET,geosite-ru,⚪🔵🔴 RU сайты 
   # geosite-ru включает в себя и собирается автоматически тут (https://github.com/Davoyan/mihomo-rule-sets) - 
   # 1. category-ru из репозитория geosite MetacubeX - https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ru.list
-  # 2. itdoginfo списики Russia outside  - https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/outside-raw.lst
+  # 2. itdoginfo списки Russia outside  - https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/outside-raw.lst
   # 3. hydraponique category-ru списки - https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/master/data/category-ru
   # 4. yandex, mailru, drweb, kaspersky списки из репозитория geosite MetacubeX
 
