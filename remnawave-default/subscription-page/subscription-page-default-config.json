@@ -12,6 +12,11 @@
         "logoUrl": "https://docs.rw/img/logo.svg",
         "supportUrl": "https://t.me/remnawave"
     },
+    "baseSettings": {
+        "metaTitle": "Remnawave Subscription Page",
+        "metaDescription": "Remnawave Subscription Page",
+        "showConnectionKeys": false
+    },
     "uiConfig": {
         "subscriptionInfoBlockType": "expanded",
         "installationGuidesBlockType": "cards"
