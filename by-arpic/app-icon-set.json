@@ -98,137 +98,61 @@
     },
     "baseTranslations": {
         "installationGuideHeader": {
-            "en": "Installation",
-            "fa": "نصب",
-            "fr": "Installation",
-            "ru": "Установка",
-            "zh": "安装"
+            "en": "Installation"
         },
         "connectionKeysHeader": {
-            "en": "Connection Keys",
-            "fa": "کلیدهای اتصال",
-            "fr": "Clés de connexion",
-            "ru": "Ключи подключения",
-            "zh": "连接密钥"
+            "en": "Connection Keys"
         },
         "linkCopied": {
-            "en": "Likn copied",
-            "fa": "لینک کپی شد",
-            "fr": "Lien copié",
-            "ru": "Ссылка скопирована",
-            "zh": "链接已复制"
+            "en": "Likn copied"
         },
         "linkCopiedToClipboard": {
-            "en": "Link copied to clipboard",
-            "fa": "لینک به کلیپ‌بورد کپی شد",
-            "fr": "Lien copié dans le presse-papiers",
-            "ru": "Ссылка скопирована в буфер обмена",
-            "zh": "链接已复制到剪贴板"
+            "en": "Link copied to clipboard"
         },
         "getLink": {
-            "en": "Get Link",
-            "fa": "دریافت لینک",
-            "fr": "Obtenir le lien",
-            "ru": "Получение ссылки",
-            "zh": "获取链接"
+            "en": "Get Link"
         },
         "scanQrCode": {
-            "en": "Scan the QR code above in the client",
-            "fa": "کد QR بالا را در کلاینت اسکن کنید",
-            "fr": "Scannez le code QR ci-dessus dans le client",
-            "ru": "Отсканируйте QR-код в приложении",
-            "zh": "在客户端中扫描上方二维码"
+            "en": "Scan the QR code above in the client"
         },
         "scanQrCodeDescription": {
-            "en": "Easily add the subscription to any client. There's another option: copy the link below and paste it into the client",
-            "fa": "افزودن آسان اشتراک به هر کلاینت. گزینه دیگری هم وجود دارد: لینک زیر را کپی کرده و در کلاینت جای‌گذاری کنید",
-            "fr": "Ajoutez facilement l'abonnement à n'importe quel client. Il y a une autre option : copiez le lien ci-dessous et collez-le dans le client",
-            "ru": "Простое добавление подписки в любой клиент. Есть и другой вариант: скопируйте ссылку ниже и вставьте в клиент.",
-            "zh": "轻松将订阅添加到任何客户端。还有另一种选择：复制下面的链接并粘贴到客户端中"
+            "en": "Easily add the subscription to any client. There's another option: copy the link below and paste it into the client"
         },
         "copyLink": {
-            "en": "Copy link",
-            "fa": "کپی لینک",
-            "fr": "Copier le lien",
-            "ru": "Скопировать ссылку",
-            "zh": "复制链接"
+            "en": "Copy link"
         },
         "name": {
-            "en": "Username",
-            "fa": "نام کاربری",
-            "fr": "Nom d'utilisateur",
-            "ru": "Имя пользователя",
-            "zh": "用户名"
+            "en": "Username"
         },
         "status": {
-            "en": "Status",
-            "fa": "وضعیت",
-            "fr": "Statut",
-            "ru": "Статус",
-            "zh": "状态"
+            "en": "Status"
         },
         "active": {
-            "en": "Active",
-            "fa": "فعال",
-            "fr": "Actif",
-            "ru": "Активна",
-            "zh": "活跃"
+            "en": "Active"
         },
         "inactive": {
-            "en": "Inactive",
-            "fa": "غیرفعال",
-            "fr": "Inactif",
-            "ru": "Неактивна",
-            "zh": "未激活"
+            "en": "Inactive"
         },
         "expires": {
-            "en": "Expires",
-            "fa": "منقضی می‌شود",
-            "fr": "Expire",
-            "ru": "Истекает",
-            "zh": "到期时间"
+            "en": "Expires"
         },
         "bandwidth": {
-            "en": "Bandwidth",
-            "fa": "پهنای باند",
-            "fr": "Bande passante",
-            "ru": "Трафик",
-            "zh": "流量"
+            "en": "Bandwidth"
         },
         "scanToImport": {
-            "en": "Scan to import this key",
-            "fa": "برای وارد کردن این کلید اسکن کنید",
-            "fr": "Scannez pour importer cette clé",
-            "ru": "Отсканируйте QR-код для импорта ключа",
-            "zh": "扫描以导入此密钥"
+            "en": "Scan to import this key"
         },
         "expiresIn": {
-            "en": "Expires",
-            "fa": "منقضی می‌شود در",
-            "fr": "Expire",
-            "ru": "Истекает",
-            "zh": "后到期"
+            "en": "Expires"
         },
         "expired": {
-            "en": "Expired",
-            "fa": "منقضی شده در",
-            "fr": "Expiré",
-            "ru": "Истекла",
-            "zh": "已于"
+            "en": "Expired"
         },
         "unknown": {
-            "en": "Unknown",
-            "fa": "نامعلوم",
-            "fr": "Inconnu",
-            "ru": "Неизвестно",
-            "zh": "未知"
+            "en": "Unknown"
         },
         "indefinitely": {
-            "en": "Indefinitely",
-            "fa": "هیچوقت",
-            "fr": "Indéfiniment",
-            "ru": "Бессрочно",
-            "zh": "永久"
+            "en": "Indefinitely"
         }
     }
 }
