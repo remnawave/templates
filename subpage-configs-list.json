@@ -16,7 +16,13 @@
         {
             "name": "SVG Library Only: Icon Pack by Arpic",
             "author": "arpic",
-            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-arpic/app-icon-set.json",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-arpic/subscription-page/app-icon-set.json",
+            "type": "SUBPAGE_CONFIG"
+        },
+        {
+            "name": "15+ Locales",
+            "author": "undergut",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-undergut/subscription-page/add-more-locales.json",
             "type": "SUBPAGE_CONFIG"
         }
     ]
