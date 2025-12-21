@@ -12,6 +12,12 @@
             "author": "kastov",
             "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-kastov/subscription-page/happ-only.json",
             "type": "SUBPAGE_CONFIG"
+        },
+        {
+            "name": "SVG Library Only: Icon Pack by Arpic",
+            "author": "arpic",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-arpic/app-icon-set.json",
+            "type": "SUBPAGE_CONFIG"
         }
     ]
 }
