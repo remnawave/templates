@@ -110,7 +110,8 @@ dns:
   use-hosts: true
   use-system-hosts: true
   ipv6: false #true - если хотите резолвить в ipv6
-  enhanced-mode: redir-host
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
   # ----
   # Опционально выбираем DNS сервера - меняйте на ваш вкус.
   default-nameserver:
