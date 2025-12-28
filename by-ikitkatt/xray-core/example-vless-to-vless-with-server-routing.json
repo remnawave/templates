@@ -71,7 +71,7 @@
                 "security": "reality",
                 "realitySettings": {
                     "serverName": "#REPLACE_WITH_YOUR_SERVER_NAMES, EXAMPLE: example.co",
-                    "password": "#REPLACE_WITH_YOUR_PASSWORD_KEY, GENERATE BELOW ↓"
+                    "password": "#REPLACE_WITH_YOUR_PASSWORD_KEY_FROM_OUTBAUND_KEYPAIR, GENERATE BELOW ↓"
                 }
             }
         }
