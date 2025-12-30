@@ -8,6 +8,18 @@
             "type": "SUBPAGE_CONFIG"
         },
         {
+            "name": "Orion Multiapp SubPage Config",
+            "author": "legiz-ru",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-legiz/subscription-page/multiapp.json",
+            "type": "SUBPAGE_CONFIG"
+        },
+        {
+            "name": "Orion HWID Apps SubPage Config",
+            "author": "legiz-ru",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-legiz/subscription-page/hwid.json",
+            "type": "SUBPAGE_CONFIG"
+        },
+        {
             "name": "Happ Only Subscription Page Config",
             "author": "kastov",
             "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-kastov/subscription-page/happ-only.json",

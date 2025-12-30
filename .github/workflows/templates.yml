@@ -16,7 +16,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Create directory if not exists
-        run: mkdir -p by-legiz/subscription-templates
+        run: |
+          mkdir -p by-legiz/subscription-templates
+          mkdir -p by-legiz/subscription-page
 
       - name: Download xray-json simple without ru
         run: |
@@ -50,11 +52,20 @@ jobs:
         run: |
           curl -L "https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/refs/heads/main/examples/stash/remnawave_prod_rubundle.yaml" -o "by-legiz/subscription-templates/stash-ru-bundle.yaml"
 
+      - name: Download subpage multiapp config
+        run: |
+          curl -L "https://raw.githubusercontent.com/legiz-ru/my-remnawave/refs/heads/main/sub-page/subpage-config/multiapp.json" -o "by-legiz/subscription-page/multiapp.json"
+
+      - name: Download subpage hwid apps config
+        run: |
+          curl -L "https://raw.githubusercontent.com/legiz-ru/my-remnawave/refs/heads/main/sub-page/subpage-config/hwid.json" -o "by-legiz/subscription-page/hwid.json"
+
 
       - name: Commit and push if there are changes
         run: |
           git config --local user.email "legiz-ru@users.noreply.github.com"
           git config --local user.name "legiz-ru"
           git add by-legiz/subscription-templates/
-          git commit -m "Update subscription templates" -a || echo "No changes to commit"
+          git add by-legiz/subscription-page/
+          git commit -m "Update subscription templates and page configs" -a || echo "No changes to commit"
           git push
