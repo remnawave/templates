@@ -5570,7 +5570,6 @@
                 "tk": "Abunalyk goşulmasa",
                 "th": "หากไม่ได้เพิ่มการสมัครใช้งาน"
               },
-
               "buttons": [],
               "svgIconKey": "Gear",
               "description": {
@@ -7230,7 +7229,6 @@
         "tk": "Android TV",
         "th": "Android TV"
       }
-
     }
   },
   "svgLibrary": {
@@ -7249,9 +7247,10 @@
     "CloudDownload": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0\n          0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"\n          stroke-linejoin=\"round\"><path\n          stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M19 18a3.5 3.5 0 0\n          0 0 -7h-1a5 4.5 0 0 0 -11 -2a4.6 4.4 0 0 0 -2.1 8.4\" /><path d=\"M12 13l0\n          9\" /><path d=\"M9 19l3 3l3 -3\" /></svg>"
   },
   "baseSettings": {
-    "metaTitle": "Remnawave Subscription Page",
-    "metaDescription": "Remnawave Subscription Page",
-    "showConnectionKeys": false
+    "metaTitle": "Subscription",
+    "metaDescription": "Subscription",
+    "showConnectionKeys": false,
+    "hideGetLinkButton": false
   },
   "baseTranslations": {
     "name": {
@@ -7676,6 +7675,6 @@
   "brandingSettings": {
     "title": "Subscription",
     "logoUrl": "https://docs.rw/img/logo.svg",
-    "supportUrl": "https://t.me/remnawave"
+    "supportUrl": "https://dummy.docs.rw"
   }
 }

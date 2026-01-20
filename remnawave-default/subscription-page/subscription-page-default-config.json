@@ -10,12 +10,13 @@
     "brandingSettings": {
         "title": "Subscription",
         "logoUrl": "https://docs.rw/img/logo.svg",
-        "supportUrl": "https://t.me/remnawave"
+        "supportUrl": "https://dummy.docs.rw"
     },
     "baseSettings": {
-        "metaTitle": "Remnawave Subscription Page",
-        "metaDescription": "Remnawave Subscription Page",
-        "showConnectionKeys": false
+        "metaTitle": "Subscription",
+        "metaDescription": "Subscription",
+        "showConnectionKeys": false,
+        "hideGetLinkButton": false
     },
     "uiConfig": {
         "subscriptionInfoBlockType": "expanded",
@@ -37,7 +38,7 @@
             "zh": "连接密钥"
         },
         "linkCopied": {
-            "en": "Likn copied",
+            "en": "Link copied",
             "ru": "Ссылка скопирована",
             "fr": "Lien copié",
             "fa": "لینک کپی شد",

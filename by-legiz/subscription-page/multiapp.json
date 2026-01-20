@@ -4154,7 +4154,7 @@
       "zh": "后到期"
     },
     "linkCopied": {
-      "en": "Likn copied",
+      "en": "Link copied",
       "fa": "لینک کپی شد",
       "fr": "Lien copié",
       "ru": "Ссылка скопирована",
@@ -4213,6 +4213,6 @@
   "brandingSettings": {
     "title": "Orion multiapp",
     "logoUrl": "https://raw.githubusercontent.com/arpicme/Proxy-App-Icon-set/refs/heads/main/white_background/Prizrak-box.svg",
-    "supportUrl": "https://t.me/legiz_trashbag"
+    "supportUrl": "https://dummy.docs.rw"
   }
 }

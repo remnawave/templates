@@ -10,7 +10,8 @@
     "baseSettings": {
         "metaTitle": "Icon Pack by Arpic",
         "metaDescription": "Icon Pack by Arpic",
-        "showConnectionKeys": false
+        "showConnectionKeys": false,
+        "hideGetLinkButton": false
     },
     "version": "1",
     "uiConfig": {
@@ -105,7 +106,7 @@
             "en": "Connection Keys"
         },
         "linkCopied": {
-            "en": "Likn copied"
+            "en": "Link copied"
         },
         "linkCopiedToClipboard": {
             "en": "Link copied to clipboard"
