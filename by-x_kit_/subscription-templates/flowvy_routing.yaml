@@ -1,0 +1,398 @@
+mixed-port: 7890
+allow-lan: false
+
+mode: rule
+unified-delay: true
+log-level: warning
+ipv6: false
+tcp-concurrent: true
+
+external-controller: 127.0.0.1:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: false
+
+tun:
+  enable: true
+  stack: mixed
+  dns-hijack:
+    - 0.0.0.0:53
+  auto-route: true
+  auto-detect-interface: true
+  strict-route: true
+  route-exclude-address:
+    - 192.168.0.0/16
+    - 10.0.0.0/8
+    - 172.16.0.0/12
+
+dns:
+  enable: true
+  ipv6: false
+  use-hosts: false
+  use-system-hosts: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "dns.msftnsci.com"
+    - "www.msftnsci.com"
+    - "www.msftconnecttest.com"
+    - "+.msftconnecttest.com"
+    - "+.msftncsi.com"
+    - "captive.apple.com"
+    - "connectivitycheck.gstatic.com"
+    - "+.local"
+    - "+.lan"
+    - "+.localhost"
+    - "time.windows.com"
+    - "time.apple.com"
+    - "time.google.com"
+    - "+.ntp.org"
+    - "+.stun.*.*"
+    - "+.stun.*.*.*"
+    - "stun.*.*"
+    - "stun.*.*.*"
+  default-nameserver:
+    - 8.8.8.8
+    - 1.1.1.1
+  nameserver:
+    - https://dns.google/dns-query
+    - https://dns.adguard-dns.com/dns-query
+  proxy-server-nameserver:
+    - 8.8.8.8
+    - 1.1.1.1
+  direct-nameserver:
+    - https://dns.yandex.ru/dns-query
+    - 77.88.8.8
+
+sniffer:
+  enable: true
+  override-destination: true
+  sniff:
+    TLS:
+      ports: [443, 8443]
+    HTTP:
+      ports: [80, 8080-8880]
+
+proxies:
+
+proxy-groups:
+  - name: Заблокированные сервисы
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png
+    type: select
+    proxies:
+      - Случайный сервер
+  - name: YouTube
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png
+    type: select
+    proxies:
+      - Заблокированные сервисы
+  - name: Discord
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Discord.png
+    type: select
+    proxies:
+      - Заблокированные сервисы
+  - name: Мессенджеры
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram_X.png
+    type: select
+    proxies:
+      - Заблокированные сервисы
+  - name: AI
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/AI.png
+    type: select
+    proxies:
+      - Заблокированные сервисы
+  - name: СНГ сервисы
+    exclude-filter: # при необходимости исключи зарубежные хосты
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Direct.png
+    type: select
+    proxies:
+      - Без Proxy
+  - name: Прочие сервисы
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Available.png
+    type: select
+    proxies:
+      - Без Proxy
+      - Заблокированные сервисы
+  - name: Без Proxy
+    remnawave:
+      include-proxies: false
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bypass.png
+    type: select
+    hidden: true
+    proxies:
+      - DIRECT
+  - name: Случайный сервер
+    remnawave:
+      include-proxies: true
+      shuffle-proxies-order: true
+    type: fallback
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png
+    url: "https://www.google.com/generate_204"
+    interval: 300
+    hidden: true
+    lazy: true
+    proxies:
+
+rule-providers:
+  category-ru:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/category-ru.mrs
+    path: ./rule-sets/category-ru.mrs
+    interval: 86400
+  direct-ips:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geoip/release/mihomo/direct.mrs
+    path: ./rule-sets/direct-ips.mrs
+    interval: 86400
+  ru-apps:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/main/other/ru-app-list.yaml
+    path: ./rule-sets/ru-apps.yaml
+  apple:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/apple.mrs
+    path: ./rule-sets/apple.mrs
+    interval: 86400
+  youtube:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/youtube.mrs
+    path: ./rule-sets/youtube.mrs
+    interval: 86400
+  private-domains:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/private.mrs
+    path: ./rule-sets/geosite-private.mrs
+    interval: 86400
+  private-ips:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geoip/release/mihomo/private.mrs
+    path: ./rule-sets/geoip-private.mrs
+    interval: 86400
+  discord_domains:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/discord.mrs
+    path: ./rule-sets/discord_domains.mrs
+    interval: 86400
+  discord_voiceips:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/main/other/discord-voice-ip-list.mrs
+    path: ./rule-sets/discord_voiceips.mrs
+    interval: 86400
+  discord_vc:
+    type: inline
+    payload:
+      - AND,((IP-CIDR,138.128.136.0/21),(NETWORK,udp),(DST-PORT,50000-50100))
+      - AND,((IP-CIDR,162.158.0.0/15),(NETWORK,udp),(DST-PORT,50000-50100))
+      - AND,((IP-CIDR,172.64.0.0/13),(NETWORK,udp),(DST-PORT,50000-50100))
+      - AND,((IP-CIDR,34.0.0.0/15),(NETWORK,udp),(DST-PORT,50000-50100))
+      - AND,((IP-CIDR,34.2.0.0/15),(NETWORK,udp),(DST-PORT,50000-50100))
+      - AND,((IP-CIDR,35.192.0.0/12),(NETWORK,udp),(DST-PORT,50000-50100))
+      - AND,((IP-CIDR,35.208.0.0/12),(NETWORK,udp),(DST-PORT,50000-50100))
+      - AND,((IP-CIDR,5.200.14.128/25),(NETWORK,udp),(DST-PORT,50000-50100))
+      - AND,((IP-CIDR,66.22.192.0/18),(NETWORK,udp),(DST-PORT,50000-50100))
+    behavior: classical
+  refilter_domains:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/re-filter/domain-rule.mrs
+    path: ./rule-sets/domain-rule.mrs
+    interval: 86400
+  refilter_ipsum:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/re-filter/ip-rule.mrs
+    path: ./rule-sets/ip-rule.mrs
+    interval: 86400
+  telegram-ips:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    interval: 86400
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs
+    path: ./rule-sets/telegram-ips.mrs
+  telegram-domains:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs
+    path: ./rule-sets/telegram-domains.mrs
+  whatsapp:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/whatsapp.mrs
+    path: ./rule-sets/whatsapp.mrs
+  ai:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs
+    path: ./rule-sets/ai.mrs
+    interval: 86400
+  torrent-trackers:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/torrent-trackers.mrs
+    path: ./rule-sets/torrent-trackers.mrs
+    interval: 86400
+  torrent-websites:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/torrent-websites.mrs
+    path: ./rule-sets/torrent-websites.mrs
+    interval: 86400
+  torrent-clients:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/torrent-clients.yaml
+    path: ./rule-sets/torrent-clients.yaml
+    interval: 86400
+  games-direct:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/games-direct.yaml
+    path: ./rule-sets/games-direct.yaml
+    interval: 86400
+  akamai:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    interval: 86400
+    url: https://github.com/PentiumB/CDN-RuleSet/releases/latest/download/akamai.mrs
+    path: ./rule-sets/akamai.mrs
+  amazon:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    interval: 86400
+    url: https://github.com/PentiumB/CDN-RuleSet/releases/latest/download/amazon.mrs
+    path: ./rule-sets/amazon.mrs
+  cloudflare:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    interval: 86400
+    url: https://github.com/PentiumB/CDN-RuleSet/releases/latest/download/cloudflare.mrs
+    path: ./rule-sets/cloudflare.mrs
+  datacamp:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    interval: 86400
+    url: https://github.com/PentiumB/CDN-RuleSet/releases/latest/download/datacamp.mrs
+    path: ./rule-sets/datacamp.mrs
+  fastly:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    interval: 86400
+    url: https://github.com/PentiumB/CDN-RuleSet/releases/latest/download/fastly.mrs
+    path: ./rule-sets/fastly.mrs
+  oracle:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    interval: 86400
+    url: https://github.com/PentiumB/CDN-RuleSet/releases/latest/download/oracle.mrs
+    path: ./rule-sets/oracle.mrs
+  quic:
+    type: inline
+    behavior: classical
+    payload:
+      - AND,((NETWORK,udp),(DST-PORT,443))
+
+rules:
+  # Локальная сеть
+  - RULE-SET,private-domains,DIRECT
+  - RULE-SET,private-ips,DIRECT,no-resolve
+
+  # VPN и удалённый доступ
+  - PROCESS-NAME-REGEX,(?i).*tailscale.*,DIRECT
+  - PROCESS-NAME-REGEX,(?i).*wireguard.*,DIRECT
+  - PROCESS-NAME-REGEX,(?i).*netbird.*,DIRECT
+  - PROCESS-NAME-REGEX,(?i).*anydesk.*,DIRECT
+  - PROCESS-NAME-REGEX,(?i).*rustdesk.*,DIRECT
+  - PROCESS-NAME-REGEX,(?i).*teamviewer.*,DIRECT
+
+  # Торренты
+  - RULE-SET,torrent-clients,DIRECT
+  - RULE-SET,torrent-trackers,DIRECT
+  - PROCESS-NAME-REGEX,(?i).*torrent.*,DIRECT
+
+  # Торрент-сайты (заблокированы в РФ)
+  - RULE-SET,torrent-websites,Заблокированные сервисы
+
+  # Игры
+  - RULE-SET,games-direct,DIRECT
+
+  # Блокировка QUIC (для VLESS Reality)
+  - RULE-SET,quic,REJECT
+
+  # YouTube
+  - RULE-SET,youtube,YouTube
+  - PROCESS-NAME-REGEX,(?i).*youtube.*,YouTube
+
+  # Discord
+  - AND,((NETWORK,udp),(DST-PORT,19200-19500)),Discord
+  - AND,((RULE-SET,discord_voiceips),(NETWORK,udp),(DST-PORT,50000-50100)),Discord
+  - RULE-SET,discord_vc,Discord
+  - RULE-SET,discord_domains,Discord
+  - PROCESS-NAME-REGEX,(?i).*discord.*,Discord
+
+  # Мессенджеры
+  - RULE-SET,telegram-ips,Мессенджеры
+  - RULE-SET,telegram-domains,Мессенджеры
+  - PROCESS-NAME-REGEX,(?i).*ayugram.*,Мессенджеры
+  - PROCESS-NAME-REGEX,(?i).*telegram.*,Мессенджеры
+  - RULE-SET,whatsapp,Мессенджеры
+  - PROCESS-NAME-REGEX,(?i).*whatsapp.*,Мессенджеры
+
+  # AI
+  - RULE-SET,ai,AI
+
+  # Заблокированные сервисы
+  - RULE-SET,refilter_domains,Заблокированные сервисы
+  - RULE-SET,refilter_ipsum,Заблокированные сервисы,no-resolve
+
+  # СНГ сервисы
+  - RULE-SET,category-ru,СНГ сервисы
+  - RULE-SET,ru-apps,СНГ сервисы
+  - RULE-SET,apple,СНГ сервисы
+  - RULE-SET,direct-ips,СНГ сервисы,no-resolve
+
+  # CDN (подстраховка для неизвестных доменов за CDN)
+  - RULE-SET,cloudflare,Прочие сервисы
+  - RULE-SET,akamai,Прочие сервисы
+  - RULE-SET,amazon,Прочие сервисы
+  - RULE-SET,fastly,Прочие сервисы
+  - RULE-SET,datacamp,Прочие сервисы
+  - RULE-SET,oracle,Прочие сервисы
+
+  # Всё остальное
+  - MATCH,Прочие сервисы
