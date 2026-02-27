@@ -112,6 +112,9 @@ dns:
   ipv6: false #true - если хотите резолвить в ipv6
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.msftncsi.com"
   # ----
   # Опционально выбираем DNS сервера - меняйте на ваш вкус.
   default-nameserver:
@@ -324,19 +327,12 @@ rule-providers:
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-porn.mrs
     path: ./rule-sets/category-porn.mrs
     interval: 86400
-  geoip-ru:
+  geoip-for-ru:
     type: http
     behavior: ipcidr
     format: mrs
-    url: https://raw.githubusercontent.com/Davoyan/ipinfo/main/geo/geoip/ru.mrs
-    path: ./rule-sets/geoip-ru.mrs
-    interval: 86400
-  geoip-by:
-    type: http
-    behavior: ipcidr
-    format: mrs
-    url: https://raw.githubusercontent.com/Davoyan/ipinfo/main/geo/geoip/by.mrs
-    path: ./rule-sets/geoip-by.mrs
+    url: https://raw.githubusercontent.com/Davoyan/mihomo-rule-sets/main/ip-for-ru/lists/ips-for-ru.mrs
+    path: ./rule-sets/geoip-for-ru.mrs
     interval: 86400
   geosite-private:
     type: http
@@ -536,6 +532,7 @@ rules:
 
   # 💬 Discord
   - AND,((RULE-SET,cloudflare-ips),(NETWORK,udp),(DST-PORT,19200-19500)),💬 Discord
+  - AND,((RULE-SET,cloudflare-ips),(NETWORK,udp),(DST-PORT,50000-50100)),💬 Discord
   - AND,((RULE-SET,discord_voiceips),(NETWORK,udp),(DST-PORT,50000-50100)),💬 Discord
   - RULE-SET,discord_vc,💬 Discord
   - RULE-SET,discord_domains,💬 Discord
@@ -552,19 +549,25 @@ rules:
   - RULE-SET,speedtest-net,🚫 Недоступные сайты # speedtest.net
 
   # ⚪🔵🔴 RU сайты
-  - RULE-SET,ru-inline,⚪🔵🔴 RU сайты # Списки набитые вручную (смотрите выше)
+  - RULE-SET,ru-inline,⚪🔵🔴 RU сайты # Списки набитые вручную (смотрите выше в rule-providers)
   - RULE-SET,ru-apps,⚪🔵🔴 RU сайты # Списки РУ приложений от Legiz
 
-  - RULE-SET,geosite-ru,⚪🔵🔴 RU сайты 
+
   # geosite-ru включает в себя и собирается автоматически тут (https://github.com/Davoyan/mihomo-rule-sets) - 
   # 1. category-ru из репозитория geosite MetacubeX - https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ru.list
   # 2. itdoginfo списки Russia outside  - https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/outside-raw.lst
   # 3. hydraponique category-ru списки - https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/master/data/category-ru
   # 4. yandex, mailru, drweb, kaspersky списки из репозитория geosite MetacubeX
+  - RULE-SET,geosite-ru,⚪🔵🔴 RU сайты 
 
-  # geo-ip собираются из баз ipinfo автоматически тут (https://github.com/Davoyan/ipinfo)
-  - RULE-SET,geoip-ru,⚪🔵🔴 RU сайты
-  - RULE-SET,geoip-by,⚪🔵🔴 RU сайты # Опционально
+
+  # geo-ip-for-ru (https://github.com/Davoyan/mihomo-rule-sets/tree/main/ip-for-ru/lists)
+  # Компилируется из двух гео баз - Ipinfo и Maxmind
+  # В список входят IP, если в одной из баз страна подсети RU или BY.
+  # А так же зарубежные подсети российских CDN и некоторых провайдеров (например Yandex)
+  # Warning! В список входит так же подсети AS, которые могут быть ограничены в России. Например у Cloudflare есть ip адреса с гео RU.
+  - RULE-SET,geoip-for-ru,⚪🔵🔴 RU сайты
+
 
   # 🌍 Остальные сайты
   - MATCH,🌍 Остальные сайты
