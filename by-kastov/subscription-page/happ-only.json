@@ -1,0 +1,919 @@
+{
+    "locales": [
+        "ru",
+        "en",
+        "zh",
+        "fr",
+        "fa"
+    ],
+    "version": "1",
+    "uiConfig": {
+        "subscriptionInfoBlockType": "expanded",
+        "installationGuidesBlockType": "cards"
+    },
+    "baseSettings": {
+        "metaTitle": "Subscription",
+        "metaDescription": "Subscription",
+        "showConnectionKeys": false,
+        "hideGetLinkButton": false
+    },
+    "svgLibrary": {
+        "TV": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0\n      0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"\n      stroke-linejoin=\"round\"><path\n      stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M3 7m0 2a2 2 0 0 1 2 -2h14a2\n      2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z\" /><path d=\"M16 3l-4 4l-4\n      -4\" /></svg>",
+        "Gear": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0\n          0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"\n          stroke-linejoin=\"round\"><path\n          stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M10.325 4.317c.426\n          -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31\n          .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724\n          1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0\n          0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573\n          -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756\n          -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826\n          -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z\" /><path d=\"M9 12a3 3 0\n          1 0 6 0a3 3 0 0 0 -6 0\" /></svg>",
+        "Plus": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\"\n            viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"\n            stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\"\n            fill=\"none\"/><path d=\"M12 5v14\" /><path d=\"M5 12h14\" /></svg>",
+        "Star": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z\" /></svg>",
+        "Check": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0\n          0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"\n          stroke-linejoin=\"round\"><path\n          stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M5 12l5 5l10 -10\"\n          /></svg>",
+        "macOS": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0\n      0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"\n      stroke-linejoin=\"round\"><path\n      stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M3 4m0 1a1 1 0 0 1 1 -1h16a1\n      1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1z\" /><path d=\"M7 8v1\" /><path\n      d=\"M17 8v1\" /><path d=\"M12.5 4c-.654 1.486 -1.26 3.443 -1.5 9h2.5c-.19 2.867\n      .094 5.024 .5 7\" /><path d=\"M7 15.5c3.667 2 6.333 2 10 0\" /></svg>",
+        "Ubuntu": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M12 5m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0\" /><path d=\"M17.723 7.41a7.992 7.992 0 0 0 -3.74 -2.162m-3.971 0a7.993 7.993 0 0 0 -3.789 2.216m-1.881 3.215a8 8 0 0 0 -.342 2.32c0 .738 .1 1.453 .287 2.132m1.96 3.428a7.993 7.993 0 0 0 3.759 2.19m4 0a7.993 7.993 0 0 0 3.747 -2.186m1.962 -3.43a8.008 8.008 0 0 0 .287 -2.131c0 -.764 -.107 -1.503 -.307 -2.203\" /><path d=\"M5 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0\" /><path d=\"M19 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0\" /></svg>",
+        "Android": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0\n      0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"\n      stroke-linejoin=\"round\"><path\n      stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M4 10l0 6\" /><path d=\"M20\n      10l0 6\" /><path d=\"M7 9h10v8a1 1 0 0 1 -1 1h-8a1 1 0 0 1 -1 -1v-8a5 5 0 0 1\n      10 0\" /><path d=\"M8 3l1 2\" /><path d=\"M16 3l-1 2\" /><path d=\"M9 18l0 3\" /><path\n      d=\"M15 18l0 3\" /></svg>",
+        "Windows": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0\n      0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"\n      stroke-linejoin=\"round\"><path\n      stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M17.8 20l-12 -1.5c-1 -.1\n      -1.8 -.9 -1.8 -1.9v-9.2c0 -1 .8 -1.8 1.8 -1.9l12 -1.5c1.2 -.1 2.2 .8 2.2 1.9v12.1c0\n      1.2 -1.1 2.1 -2.2 1.9z\" /><path d=\"M12 5l0 14\" /><path d=\"M4 12l16 0\" /></svg>",
+        "AppleIcon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0\n      0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"\n      stroke-linejoin=\"round\"><path\n      stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M8.286 7.008c-3.216 0\n      -4.286 3.23 -4.286 5.92c0 3.229 2.143 8.072 4.286 8.072c1.165 -.05 1.799 -.538\n      3.214 -.538c1.406 0 1.607 .538 3.214 .538s4.286 -3.229 4.286 -5.381c-.03 -.011\n      -2.649 -.434 -2.679 -3.23c-.02 -2.335 2.589 -3.179 2.679 -3.228c-1.096 -1.606\n      -3.162 -2.113 -3.75 -2.153c-1.535 -.12 -3.032 1.077 -3.75 1.077c-.729 0 -2.036\n      -1.077 -3.214 -1.077z\" /><path d=\"M12 4a2 2 0 0 0 2 -2a2 2 0 0 0 -2 2\" /></svg>",
+        "DownloadIcon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0\n          0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"\n          stroke-linejoin=\"round\"><path\n          stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M4 17v2a2 2 0 0 0\n          2 2h12a2 2 0 0 0 2 -2v-2\" /><path d=\"M7 11l5 5l5 -5\" /><path d=\"M12 4l0\n          12\" /></svg>",
+        "ExternalLink": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\"\n            viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"\n            stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0\n            0h24v24H0z\" fill=\"none\"/><path d=\"M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0\n            2 2h10a2 2 0 0 0 2 -2v-6\" /><path d=\"M11 13l9 -9\" /><path d=\"M15 4h5v5\"\n            /></svg>",
+        "CloudDownload": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0\n          0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"\n          stroke-linejoin=\"round\"><path\n          stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M19 18a3.5 3.5 0 0\n          0 0 -7h-1a5 4.5 0 0 0 -11 -2a4.6 4.4 0 0 0 -2.1 8.4\" /><path d=\"M12 13l0\n          9\" /><path d=\"M9 19l3 3l3 -3\" /></svg>"
+    },
+    "baseTranslations": {
+        "name": {
+            "en": "Username",
+            "fa": "نام کاربری",
+            "fr": "Nom d'utilisateur",
+            "ru": "Имя пользователя",
+            "zh": "用户名"
+        },
+        "active": {
+            "en": "Active",
+            "fa": "فعال",
+            "fr": "Actif",
+            "ru": "Активна",
+            "zh": "活跃"
+        },
+        "status": {
+            "en": "Status",
+            "fa": "وضعیت",
+            "fr": "Statut",
+            "ru": "Статус",
+            "zh": "状态"
+        },
+        "expired": {
+            "en": "Expired",
+            "fa": "منقضی شده در",
+            "fr": "Expiré",
+            "ru": "Истекла",
+            "zh": "已于"
+        },
+        "expires": {
+            "en": "Expires",
+            "fa": "منقضی می‌شود",
+            "fr": "Expire",
+            "ru": "Истекает",
+            "zh": "到期时间"
+        },
+        "getLink": {
+            "en": "Get Link",
+            "fa": "دریافت لینک",
+            "fr": "Obtenir le lien",
+            "ru": "Получение ссылки",
+            "zh": "获取链接"
+        },
+        "unknown": {
+            "en": "Unknown",
+            "fa": "نامعلوم",
+            "fr": "Inconnu",
+            "ru": "Неизвестно",
+            "zh": "未知"
+        },
+        "copyLink": {
+            "en": "Copy link",
+            "fa": "کپی لینک",
+            "fr": "Copier le lien",
+            "ru": "Скопировать ссылку",
+            "zh": "复制链接"
+        },
+        "inactive": {
+            "en": "Inactive",
+            "fa": "غیرفعال",
+            "fr": "Inactif",
+            "ru": "Неактивна",
+            "zh": "未激活"
+        },
+        "bandwidth": {
+            "en": "Bandwidth",
+            "fa": "پهنای باند",
+            "fr": "Bande passante",
+            "ru": "Трафик",
+            "zh": "流量"
+        },
+        "expiresIn": {
+            "en": "Expires in",
+            "fa": "منقضی می‌شود در",
+            "fr": "Expire",
+            "ru": "Истекает",
+            "zh": "后到期"
+        },
+        "linkCopied": {
+            "en": "Link copied",
+            "fa": "لینک کپی شد",
+            "fr": "Lien copié",
+            "ru": "Ссылка скопирована",
+            "zh": "链接已复制"
+        },
+        "scanQrCode": {
+            "en": "Scan the QR code above in the client",
+            "fa": "کد QR بالا را در کلاینت اسکن کنید",
+            "fr": "Scannez le code QR ci-dessus dans le client",
+            "ru": "Отсканируйте QR-код в приложении",
+            "zh": "在客户端中扫描上方二维码"
+        },
+        "indefinitely": {
+            "en": "Indefinitely",
+            "fa": "هیچوقت",
+            "fr": "Indéfiniment",
+            "ru": "Бессрочно",
+            "zh": "永久"
+        },
+        "scanToImport": {
+            "en": "Scan to import this key",
+            "fa": "برای وارد کردن این کلید اسکن کنید",
+            "fr": "Scannez pour importer cette clé",
+            "ru": "Отсканируйте QR-код для импорта ключа",
+            "zh": "扫描以导入此密钥"
+        },
+        "connectionKeysHeader": {
+            "en": "Connection Keys",
+            "fa": "کلیدهای اتصال",
+            "fr": "Clés de connexion",
+            "ru": "Ключи подключения",
+            "zh": "连接密钥"
+        },
+        "linkCopiedToClipboard": {
+            "en": "Link copied to clipboard",
+            "fa": "لینک به کلیپ‌بورد کپی شد",
+            "fr": "Lien copié dans le presse-papiers",
+            "ru": "Ссылка скопирована в буфер обмена",
+            "zh": "链接已复制到剪贴板"
+        },
+        "scanQrCodeDescription": {
+            "en": "Easily add the subscription to any client. There's another option: copy the link below and paste it into the client",
+            "fa": "افزودن آسان اشتراک به هر کلاینت. گزینه دیگری هم وجود دارد: لینک زیر را کپی کرده و در کلاینت جای‌گذاری کنید",
+            "fr": "Ajoutez facilement l'abonnement à n'importe quel client. Il y a une autre option : copiez le lien ci-dessous et collez-le dans le client",
+            "ru": "Простое добавление подписки в любой клиент. Есть и другой вариант: скопируйте ссылку ниже и вставьте в клиент.",
+            "zh": "轻松将订阅添加到任何客户端。还有另一种选择：复制下面的链接并粘贴到客户端中"
+        },
+        "installationGuideHeader": {
+            "en": "Installation",
+            "fa": "نصب",
+            "fr": "Installation",
+            "ru": "Установка",
+            "zh": "安装"
+        }
+    },
+    "brandingSettings": {
+        "title": "RW <3",
+        "logoUrl": "https://docs.rw/img/logo.svg",
+        "supportUrl": "https://dummy.docs.rw"
+    },
+    "platforms": {
+        "ios": {
+            "apps": [
+                {
+                    "name": "Happ",
+                    "blocks": [
+                        {
+                            "title": {
+                                "en": "App Installation",
+                                "fa": "نصب برنامه",
+                                "fr": "Installation de l'application",
+                                "ru": "Установка приложения",
+                                "zh": "应用安装"
+                            },
+                            "buttons": [
+                                {
+                                    "link": "https://apps.apple.com/ru/app/happ-proxy-utility-plus/id6746188973",
+                                    "text": {
+                                        "en": "App Store (RU)",
+                                        "fa": "اپ استور (RU)",
+                                        "fr": "App Store (RU)",
+                                        "ru": "App Store (RU)",
+                                        "zh": "App Store (RU)"
+                                    },
+                                    "type": "external",
+                                    "svgIconKey": "ExternalLink"
+                                },
+                                {
+                                    "link": "https://apps.apple.com/us/app/happ-proxy-utility/id6504287215",
+                                    "text": {
+                                        "en": "App Store (Global)",
+                                        "fa": "اپ استور (جهانی)",
+                                        "fr": "App Store (Global)",
+                                        "ru": "App Store (Global)",
+                                        "zh": "App Store (Global)"
+                                    },
+                                    "type": "external",
+                                    "svgIconKey": "ExternalLink"
+                                }
+                            ],
+                            "svgIconKey": "DownloadIcon",
+                            "description": {
+                                "en": "Open the page in App Store and install the app. Launch it, in the VPN configuration permission window click Allow and enter your passcode.",
+                                "fa": "صفحه را در App Store باز کنید و برنامه را نصب کنید. آن را اجرا کنید، در پنجره مجوز پیکربندی VPN روی Allow کلیک کنید و رمز عبور خود را وارد کنید.",
+                                "fr": "Ouvre la page de l’App Store et installe l’app. Lance-la ; dans la fenêtre d’autorisation de configuration VPN, appuie sur « Allow » puis entre ton code.",
+                                "ru": "Откройте страницу в App Store и установите приложение. Запустите его, в окне разрешения VPN-конфигурации нажмите Allow и введите свой пароль.",
+                                "zh": "在 App Store 打开页面并安装应用。启动应用后，在 VPN 配置权限窗口点击“允许”，并输入您的密码。"
+                            },
+                            "svgIconColor": "violet"
+                        },
+                        {
+                            "title": {
+                                "en": "Add Subscription",
+                                "fa": "اضافه کردن اشتراک",
+                                "fr": "Ajouter une souscription",
+                                "ru": "Добавление подписки",
+                                "zh": "添加订阅"
+                            },
+                            "buttons": [
+                                {
+                                    "link": "happ://add/{{SUBSCRIPTION_LINK}}",
+                                    "text": {
+                                        "en": "Add Subscription",
+                                        "fa": "اضافه کردن اشتراک",
+                                        "fr": "Ajouter une souscription",
+                                        "ru": "Добавить подписку",
+                                        "zh": "添加订阅"
+                                    },
+                                    "type": "subscriptionLink",
+                                    "svgIconKey": "Plus"
+                                }
+                            ],
+                            "svgIconKey": "CloudDownload",
+                            "description": {
+                                "en": "Click the button below — the app will open and the subscription will be added automatically",
+                                "fa": "برای افزودن خودکار اشتراک روی دکمه زیر کلیک کنید - برنامه باز خواهد شد",
+                                "fr": "Clique sur le bouton ci‑dessous — l’app s’ouvrira et l’abonnement sera ajouté automatiquement.",
+                                "ru": "Нажмите кнопку ниже — приложение откроется, и подписка добавится автоматически.",
+                                "zh": "点击下方按钮，应用将会打开，并自动添加订阅"
+                            },
+                            "svgIconColor": "cyan"
+                        },
+                        {
+                            "title": {
+                                "en": "Connect and use",
+                                "fa": "متصل شوید و استفاده کنید",
+                                "fr": "Se connecter et utiliser",
+                                "ru": "Подключение и использование",
+                                "zh": "连接并使用"
+                            },
+                            "buttons": [],
+                            "svgIconKey": "Check",
+                            "description": {
+                                "en": "In the main section, click the large power button in the center to connect to VPN. Don't forget to select a server from the server list. If needed, choose another server from the server list.",
+                                "fa": "در بخش اصلی، دکمه بزرگ روشن/خاموش در مرکز را برای اتصال به VPN کلیک کنید. فراموش نکنید که یک سرور را از لیست سرورها انتخاب کنید. در صورت نیاز، سرور دیگری را از لیست سرورها انتخاب کنید.",
+                                "fr": "Dans la section principale, appuie sur le grand bouton central pour te connecter au VPN. N’oublie pas de choisir un serveur dans la liste ; si besoin, choisis‑en un autre.",
+                                "ru": "В главном разделе нажмите большую кнопку включения в центре для подключения к VPN. Не забудьте выбрать сервер в списке серверов. При необходимости выберите другой сервер из списка серверов.",
+                                "zh": "在主界面，点击中央的大电源按钮以连接 VPN。不要忘记从服务器列表中选择服务器。如有需要，可选择其它服务器。"
+                            },
+                            "svgIconColor": "teal"
+                        }
+                    ],
+                    "featured": false
+                }
+            ],
+            "svgIconKey": "AppleIcon",
+            "displayName": {
+                "en": "iOS",
+                "fa": "iOS",
+                "fr": "iOS",
+                "ru": "iOS",
+                "zh": "iOS"
+            }
+        },
+        "macos": {
+            "apps": [
+                {
+                    "name": "Happ",
+                    "blocks": [
+                        {
+                            "title": {
+                                "en": "App Installation",
+                                "fa": "نصب برنامه",
+                                "fr": "Installation de l'application",
+                                "ru": "Установка приложения",
+                                "zh": "应用安装"
+                            },
+                            "buttons": [
+                                {
+                                    "link": "https://apps.apple.com/ru/app/happ-proxy-utility-plus/id6746188973",
+                                    "text": {
+                                        "en": "App Store (RU)",
+                                        "fa": "اپ استور (RU)",
+                                        "fr": "App Store (RU)",
+                                        "ru": "App Store (RU)",
+                                        "zh": "App Store (RU)"
+                                    },
+                                    "type": "external",
+                                    "svgIconKey": "ExternalLink"
+                                },
+                                {
+                                    "link": "https://apps.apple.com/us/app/happ-proxy-utility/id6504287215",
+                                    "text": {
+                                        "en": "App Store (Global)",
+                                        "fa": "اپ استور (جهانی)",
+                                        "fr": "App Store (Global)",
+                                        "ru": "App Store (Global)",
+                                        "zh": "App Store (Global)"
+                                    },
+                                    "type": "external",
+                                    "svgIconKey": "ExternalLink"
+                                }
+                            ],
+                            "svgIconKey": "DownloadIcon",
+                            "description": {
+                                "en": "Choose the version for your device, click the button below and install the app.",
+                                "fa": "نسخه مناسب برای دستگاه خود را انتخاب کنید، دکمه زیر را فشار دهید و برنامه را نصب کنید",
+                                "fr": "Choisis la version pour ton appareil, clique sur le bouton ci‑dessous et installe l’app.",
+                                "ru": "Выберите подходящую версию для вашего устройства, нажмите на кнопку ниже и установите приложение.",
+                                "zh": "选择适合您设备的版本，点击下方按钮并安装应用程序。"
+                            },
+                            "svgIconColor": "cyan"
+                        },
+                        {
+                            "title": {
+                                "en": "Add Subscription",
+                                "fa": "اضافه کردن اشتراک",
+                                "fr": "Ajouter une souscription",
+                                "ru": "Добавление подписки",
+                                "zh": "添加订阅"
+                            },
+                            "buttons": [
+                                {
+                                    "link": "happ://add/{{SUBSCRIPTION_LINK}}",
+                                    "text": {
+                                        "en": "Add Subscription",
+                                        "fa": "اضافه کردن اشتراک",
+                                        "fr": "Ajouter une souscription",
+                                        "ru": "Добавить подписку",
+                                        "zh": "添加订阅"
+                                    },
+                                    "type": "subscriptionLink",
+                                    "svgIconKey": "Plus"
+                                }
+                            ],
+                            "svgIconKey": "CloudDownload",
+                            "description": {
+                                "en": "Click the button below — the app will open and the subscription will be added automatically",
+                                "fa": "برای افزودن خودکار اشتراک روی دکمه زیر کلیک کنید - برنامه باز خواهد شد",
+                                "fr": "Clique sur le bouton ci‑dessous — l’app s’ouvrira et l’abonnement sera ajouté automatiquement.",
+                                "ru": "Нажмите кнопку ниже — приложение откроется, и подписка добавится автоматически.",
+                                "zh": "点击下方按钮——应用将会打开，订阅会自动添加。"
+                            },
+                            "svgIconColor": "cyan"
+                        },
+                        {
+                            "title": {
+                                "en": "Connect and use",
+                                "fa": "متصل شوید و استفاده کنید",
+                                "fr": "Se connecter et utiliser",
+                                "ru": "Подключение и использование",
+                                "zh": "连接并使用"
+                            },
+                            "buttons": [],
+                            "svgIconKey": "Check",
+                            "description": {
+                                "en": "In the main section, click the large power button in the center to connect to VPN. Don't forget to select a server from the server list. If needed, choose another server from the server list.",
+                                "fa": "در بخش اصلی، دکمه بزرگ روشن/خاموش در مرکز را برای اتصال به VPN کلیک کنید. فراموش نکنید که یک سرور را از لیست سرورها انتخاب کنید. در صورت نیاز، سرور دیگری را از لیست سرورها انتخاب کنید.",
+                                "fr": "Dans la section principale, appuie sur le grand bouton central pour te connecter au VPN. N’oublie pas de choisir un serveur dans la liste ; si besoin, choisis‑en un autre.",
+                                "ru": "В главном разделе нажмите большую кнопку включения в центре для подключения к VPN. Не забудьте выбрать сервер в списке серверов. При необходимости выберите другой сервер из списка серверов.",
+                                "zh": "在主界面，点击中央的大电源按钮以连接 VPN。不要忘记从服务器列表中选择服务器。如有需要，可选择其它服务器。"
+                            },
+                            "svgIconColor": "teal"
+                        }
+                    ],
+                    "featured": false
+                }
+            ],
+            "svgIconKey": "macOS",
+            "displayName": {
+                "en": "macOS",
+                "fa": "macOS",
+                "fr": "macOS",
+                "ru": "macOS",
+                "zh": "macOS"
+            }
+        },
+        "android": {
+            "apps": [
+                {
+                    "name": "Happ",
+                    "blocks": [
+                        {
+                            "title": {
+                                "en": "App Installation",
+                                "fa": "نصب برنامه",
+                                "fr": "Installation de l'application",
+                                "ru": "Установка приложения",
+                                "zh": "应用安装"
+                            },
+                            "buttons": [
+                                {
+                                    "link": "https://play.google.com/store/apps/details?id=com.happproxy",
+                                    "text": {
+                                        "en": "Open in Google Play",
+                                        "fa": "باز کردن در Google Play",
+                                        "fr": "Ouvre dans Google Play",
+                                        "ru": "Открыть в Google Play",
+                                        "zh": "在 Google Play 打开"
+                                    },
+                                    "type": "external",
+                                    "svgIconKey": "ExternalLink"
+                                },
+                                {
+                                    "link": "https://github.com/Happ-proxy/happ-android/releases/latest/download/Happ.apk",
+                                    "text": {
+                                        "en": "Download APK",
+                                        "fa": "دانلود APK",
+                                        "fr": "Télécharge l’APK",
+                                        "ru": "Скачать APK",
+                                        "zh": "下载 APK"
+                                    },
+                                    "type": "external",
+                                    "svgIconKey": "ExternalLink"
+                                }
+                            ],
+                            "svgIconKey": "DownloadIcon",
+                            "description": {
+                                "en": "Open the page in Google Play and install the app. Or install the app directly from the APK file if Google Play is not working.",
+                                "fa": "صفحه را در Google Play باز کنید و برنامه را نصب کنید. یا برنامه را مستقیماً از فایل APK نصب کنید، اگر Google Play کار نمی کند.",
+                                "fr": "Ouvre la page dans Google Play et installe l’app. Si Google Play ne fonctionne pas, installe‑la directement via l’APK.",
+                                "ru": "Откройте страницу в Google Play и установите приложение. Или установите приложение из APK файла напрямую, если Google Play не работает.",
+                                "zh": "在 Google Play 打开页面并安装应用。如果 Google Play 无法使用，也可以直接通过 APK 文件安装此应用。"
+                            },
+                            "svgIconColor": "cyan"
+                        },
+                        {
+                            "title": {
+                                "en": "Add Subscription",
+                                "fa": "اضافه کردن اشتراک",
+                                "fr": "Ajouter une souscription",
+                                "ru": "Добавление подписки",
+                                "zh": "添加订阅"
+                            },
+                            "buttons": [
+                                {
+                                    "link": "happ://add/{{SUBSCRIPTION_LINK}}",
+                                    "text": {
+                                        "en": "Add Subscription",
+                                        "fa": "اضافه کردن اشتراک",
+                                        "fr": "Ajouter une souscription",
+                                        "ru": "Добавить подписку",
+                                        "zh": "添加订阅"
+                                    },
+                                    "type": "subscriptionLink",
+                                    "svgIconKey": "Plus"
+                                }
+                            ],
+                            "svgIconKey": "CloudDownload",
+                            "description": {
+                                "en": "Click the button below to add subscription",
+                                "fa": "برای افزودن اشتراک روی دکمه زیر کلیک کنید",
+                                "fr": "Clique sur le bouton ci‑dessous pour ajouter l’abonnement.",
+                                "ru": "Нажмите кнопку ниже, чтобы добавить подписку",
+                                "zh": "点击下方按钮以添加订阅"
+                            },
+                            "svgIconColor": "cyan"
+                        },
+                        {
+                            "title": {
+                                "en": "Connect and use",
+                                "fa": "متصل شوید و استفاده کنید",
+                                "fr": "Se connecter et utiliser",
+                                "ru": "Подключение и использование",
+                                "zh": "连接并使用"
+                            },
+                            "buttons": [],
+                            "svgIconKey": "Check",
+                            "description": {
+                                "en": "Open the app and connect to the server",
+                                "fa": "برنامه را باز کنید و به سرور متصل شوید",
+                                "fr": "Ouvre l’app et connecte‑toi au serveur.",
+                                "ru": "Откройте приложение и подключитесь к серверу",
+                                "zh": "打开应用并连接到服务器"
+                            },
+                            "svgIconColor": "teal"
+                        }
+                    ],
+                    "featured": false
+                }
+            ],
+            "svgIconKey": "Android",
+            "displayName": {
+                "en": "Android",
+                "fa": "Android",
+                "fr": "Android",
+                "ru": "Android",
+                "zh": "Android"
+            }
+        },
+        "appleTV": {
+            "apps": [
+                {
+                    "name": "Happ",
+                    "blocks": [
+                        {
+                            "title": {
+                                "en": "App Installation",
+                                "fa": "نصب برنامه",
+                                "fr": "Installation de l'application",
+                                "ru": "Установка приложения",
+                                "zh": "应用安装"
+                            },
+                            "buttons": [
+                                {
+                                    "link": "https://apps.apple.com/us/app/happ-proxy-utility-for-tv/id6748297274",
+                                    "text": {
+                                        "en": "App Store",
+                                        "fa": "App Store",
+                                        "fr": "App Store",
+                                        "ru": "App Store",
+                                        "zh": "App Store"
+                                    },
+                                    "type": "external",
+                                    "svgIconKey": "ExternalLink"
+                                }
+                            ],
+                            "svgIconKey": "DownloadIcon",
+                            "description": {
+                                "en": "Open the page in the App Store on your Apple TV and install the app. Launch it, allow VPN configuration if prompted, and enter your passcode if required.",
+                                "fa": "صفحه را در App Store بر روی Apple TV باز کنید و برنامه را نصب کنید. آن را اجرا کنید، در صورت درخواست مجوز پیکربندی VPN را بدهید و در صورت نیاز رمز عبور خود را وارد کنید.",
+                                "fr": "Open the page in the App Store on your Apple TV and install the app. Launch it, allow VPN configuration if prompted, and enter your passcode if required.",
+                                "ru": "Откройте страницу в App Store на Apple TV и установите приложение. Запустите его, предоставьте разрешение на VPN-конфигурацию, если потребуется, и введите свой пароль.",
+                                "zh": "在 Apple TV 的 App Store 打开页面并安装应用。启动后，如有提示请允许 VPN 配置，并在需要时输入您的密码。"
+                            },
+                            "svgIconColor": "cyan"
+                        },
+                        {
+                            "title": {
+                                "en": "Installation instructions",
+                                "fa": "دستورالعمل نصب",
+                                "fr": "Installation instructions",
+                                "ru": "Инструкции по установке",
+                                "zh": "安装说明"
+                            },
+                            "buttons": [
+                                {
+                                    "link": "https://www.happ.su/main/ru/faq/android-tv",
+                                    "text": {
+                                        "en": "In Russian",
+                                        "fa": "به زبان روسی",
+                                        "fr": "In Russian",
+                                        "ru": "На русском",
+                                        "zh": "俄语"
+                                    },
+                                    "type": "external",
+                                    "svgIconKey": "ExternalLink"
+                                },
+                                {
+                                    "link": "https://www.happ.su/main/faq/android-tv",
+                                    "text": {
+                                        "en": "In English",
+                                        "fa": "به زبان انگلیسی",
+                                        "fr": "In English",
+                                        "ru": "На английском",
+                                        "zh": "英语"
+                                    },
+                                    "type": "external",
+                                    "svgIconKey": "ExternalLink"
+                                }
+                            ],
+                            "svgIconKey": "Gear",
+                            "description": {
+                                "en": "Detailed instructions to help you set up Happ on your device.",
+                                "fa": "راهنمای دقیق برای کمک به تنظیم Happ روی دستگاه شما.",
+                                "fr": "Detailed instructions to help you set up Happ on your device.",
+                                "ru": "Подробные инструкции, чтобы помочь вам настроить Happ на вашем устройстве.",
+                                "zh": "详细说明，帮助您在设备上设置 Happ。"
+                            },
+                            "svgIconColor": "cyan"
+                        },
+                        {
+                            "title": {
+                                "en": "Add Subscription",
+                                "fa": "اضافه کردن اشتراک",
+                                "fr": "Ajouter une souscription",
+                                "ru": "Добавление подписки",
+                                "zh": "添加订阅"
+                            },
+                            "buttons": [
+                                {
+                                    "link": "happ://add/{{SUBSCRIPTION_LINK}}",
+                                    "text": {
+                                        "en": "Add Subscription",
+                                        "fa": "اضافه کردن اشتراک",
+                                        "fr": "Ajouter une souscription",
+                                        "ru": "Добавить подписку",
+                                        "zh": "添加订阅"
+                                    },
+                                    "type": "subscriptionLink",
+                                    "svgIconKey": "Plus"
+                                }
+                            ],
+                            "svgIconKey": "CloudDownload",
+                            "description": {
+                                "en": "Click the button below to add subscription, if you opened the subscription page on your TV",
+                                "fa": "برای افزودن اشتراک روی دکمه زیر کلیک کنید، اگر صفحه اشتراک را روی تلویزیون باز کرده‌اید",
+                                "fr": "Click the button below to add subscription, if you opened the subscription page on your TV.",
+                                "ru": "Нажмите кнопку ниже, чтобы добавить подписку, если вы открыли страницу подписки на телевизоре",
+                                "zh": "如果你已在电视上打开订阅页面，点击下方按钮以添加订阅"
+                            },
+                            "svgIconColor": "cyan"
+                        },
+                        {
+                            "title": {
+                                "en": "Connect and use",
+                                "fa": "متصل شوید و استفاده کنید",
+                                "fr": "Se connecter et utiliser",
+                                "ru": "Подключение и использование",
+                                "zh": "连接并使用"
+                            },
+                            "buttons": [],
+                            "svgIconKey": "Check",
+                            "description": {
+                                "en": "Open the app and connect to the server",
+                                "fa": "برنامه را باز کنید و به سرور متصل شوید",
+                                "fr": "Ouvre l’app et connecte‑toi au serveur.",
+                                "ru": "Откройте приложение и подключитесь к серверу",
+                                "zh": "打开应用并连接到服务器"
+                            },
+                            "svgIconColor": "teal"
+                        }
+                    ],
+                    "featured": false
+                }
+            ],
+            "svgIconKey": "TV",
+            "displayName": {
+                "en": "Apple TV",
+                "fa": "Apple TV",
+                "fr": "Apple TV",
+                "ru": "Apple TV",
+                "zh": "Apple TV"
+            }
+        },
+        "windows": {
+            "apps": [
+                {
+                    "name": "Happ",
+                    "blocks": [
+                        {
+                            "title": {
+                                "en": "App Installation",
+                                "fa": "نصب برنامه",
+                                "fr": "Installation de l'application",
+                                "ru": "Установка приложения",
+                                "zh": "应用安装"
+                            },
+                            "buttons": [
+                                {
+                                    "link": "https://github.com/Happ-proxy/happ-desktop/releases/latest/download/setup-Happ.x64.exe",
+                                    "text": {
+                                        "en": "Windows",
+                                        "fa": "ویندوز",
+                                        "fr": "Windows",
+                                        "ru": "Windows",
+                                        "zh": "Windows"
+                                    },
+                                    "type": "external",
+                                    "svgIconKey": "ExternalLink"
+                                }
+                            ],
+                            "svgIconKey": "DownloadIcon",
+                            "description": {
+                                "en": "Choose the version for your device, click the button below and install the app.",
+                                "fa": "نسخه مناسب برای دستگاه خود را انتخاب کنید، دکمه زیر را فشار دهید و برنامه را نصب کنید",
+                                "fr": "Choisis la version pour ton appareil, clique sur le bouton ci‑dessous et installe l’app.",
+                                "ru": "Выберите подходящую версию для вашего устройства, нажмите на кнопку ниже и установите приложение.",
+                                "zh": "选择适合您设备的版本，点击下方按钮并安装应用程序。"
+                            },
+                            "svgIconColor": "cyan"
+                        },
+                        {
+                            "title": {
+                                "en": "Add Subscription",
+                                "fa": "اضافه کردن اشتراک",
+                                "fr": "Ajouter une souscription",
+                                "ru": "Добавление подписки",
+                                "zh": "添加订阅"
+                            },
+                            "buttons": [
+                                {
+                                    "link": "happ://add/{{SUBSCRIPTION_LINK}}",
+                                    "text": {
+                                        "en": "Add Subscription",
+                                        "fa": "اضافه کردن اشتراک",
+                                        "fr": "Ajouter une souscription",
+                                        "ru": "Добавить подписку",
+                                        "zh": "添加订阅"
+                                    },
+                                    "type": "subscriptionLink",
+                                    "svgIconKey": "Plus"
+                                }
+                            ],
+                            "svgIconKey": "CloudDownload",
+                            "description": {
+                                "en": "Click the button below — the app will open and the subscription will be added automatically",
+                                "fa": "برای افزودن خودکار اشتراک روی دکمه زیر کلیک کنید - برنامه باز خواهد شد",
+                                "fr": "Clique sur le bouton ci‑dessous — l’app s’ouvrira et l’abonnement sera ajouté automatiquement.",
+                                "ru": "Нажмите кнопку ниже — приложение откроется, и подписка добавится автоматически.",
+                                "zh": "点击下方按钮——应用将会打开，订阅会自动添加。"
+                            },
+                            "svgIconColor": "cyan"
+                        },
+                        {
+                            "title": {
+                                "en": "Connect and use",
+                                "fa": "متصل شوید و استفاده کنید",
+                                "fr": "Se connecter et utiliser",
+                                "ru": "Подключение и использование",
+                                "zh": "连接并使用"
+                            },
+                            "buttons": [],
+                            "svgIconKey": "Check",
+                            "description": {
+                                "en": "In the main section, click the large power button in the center to connect to VPN. Don't forget to select a server from the server list. If needed, choose another server from the server list.",
+                                "fa": "در بخش اصلی، دکمه بزرگ روشن/خاموش در مرکز را برای اتصال به VPN کلیک کنید. فراموش نکنید که یک سرور را از لیست سرورها انتخاب کنید. در صورت نیاز، سرور دیگری را از لیست سرورها انتخاب کنید.",
+                                "fr": "Dans la section principale, appuie sur le grand bouton central pour te connecter au VPN. N’oublie pas de choisir un serveur dans la liste ; si besoin, choisis‑en un autre.",
+                                "ru": "В главном разделе нажмите большую кнопку включения в центре для подключения к VPN. Не забудьте выбрать сервер в списке серверов. При необходимости выберите другой сервер из списка серверов.",
+                                "zh": "在主界面，点击中央的大电源按钮以连接 VPN。不要忘记从服务器列表中选择服务器。如有需要，可选择其它服务器。"
+                            },
+                            "svgIconColor": "teal"
+                        }
+                    ],
+                    "featured": false
+                }
+            ],
+            "svgIconKey": "Windows",
+            "displayName": {
+                "en": "Windows",
+                "fa": "Windows",
+                "fr": "Windows",
+                "ru": "Windows",
+                "zh": "Windows"
+            }
+        },
+        "androidTV": {
+            "apps": [
+                {
+                    "name": "Happ",
+                    "blocks": [
+                        {
+                            "title": {
+                                "en": "App Installation",
+                                "fa": "نصب برنامه",
+                                "fr": "Installation de l'application",
+                                "ru": "Установка приложения",
+                                "zh": "应用安装"
+                            },
+                            "buttons": [
+                                {
+                                    "link": "https://play.google.com/store/apps/details?id=com.happproxy",
+                                    "text": {
+                                        "en": "Open in Google Play",
+                                        "fa": "باز کردن در Google Play",
+                                        "fr": "Ouvre dans Google Play",
+                                        "ru": "Открыть в Google Play",
+                                        "zh": "在 Google Play 打开"
+                                    },
+                                    "type": "external",
+                                    "svgIconKey": "ExternalLink"
+                                },
+                                {
+                                    "link": "https://github.com/Happ-proxy/happ-android/releases/latest/download/Happ.apk",
+                                    "text": {
+                                        "en": "Download APK",
+                                        "fa": "دانلود APK",
+                                        "fr": "Télécharge l’APK",
+                                        "ru": "Скачать APK",
+                                        "zh": "下载 APK"
+                                    },
+                                    "type": "external",
+                                    "svgIconKey": "ExternalLink"
+                                }
+                            ],
+                            "svgIconKey": "DownloadIcon",
+                            "description": {
+                                "en": "Open the page in Google Play and install the app. Or install the app directly from the APK file if Google Play is not working.",
+                                "fa": "صفحه را در Google Play باز کنید و برنامه را نصب کنید. یا برنامه را مستقیماً از فایل APK نصب کنید، اگر Google Play کار نمی کند.",
+                                "fr": "Ouvre la page dans Google Play et installe l’app. Si Google Play ne fonctionne pas, installe‑la directement via l’APK.",
+                                "ru": "Откройте страницу в Google Play и установите приложение. Или установите приложение из APK файла напрямую, если Google Play не работает.",
+                                "zh": "在 Google Play 打开页面并安装应用。如果 Google Play 无法使用，可直接通过 APK 文件安装应用。"
+                            },
+                            "svgIconColor": "cyan"
+                        },
+                        {
+                            "title": {
+                                "en": "Installation instructions",
+                                "fa": "دستورالعمل نصب",
+                                "fr": "Installation instructions",
+                                "ru": "Инструкции по установке",
+                                "zh": "安装说明"
+                            },
+                            "buttons": [
+                                {
+                                    "link": "https://www.happ.su/main/ru/faq/android-tv",
+                                    "text": {
+                                        "en": "In Russian",
+                                        "fa": "به زبان روسی",
+                                        "fr": "In Russian",
+                                        "ru": "На русском",
+                                        "zh": "俄语"
+                                    },
+                                    "type": "external",
+                                    "svgIconKey": "ExternalLink"
+                                },
+                                {
+                                    "link": "https://www.happ.su/main/faq/android-tv",
+                                    "text": {
+                                        "en": "In English",
+                                        "fa": "به زبان انگلیسی",
+                                        "fr": "In English",
+                                        "ru": "На английском",
+                                        "zh": "英语"
+                                    },
+                                    "type": "external",
+                                    "svgIconKey": "ExternalLink"
+                                }
+                            ],
+                            "svgIconKey": "Gear",
+                            "description": {
+                                "en": "Detailed instructions to help you set up Happ on your device.",
+                                "fa": "راهنمای دقیق برای کمک به تنظیم Happ روی دستگاه شما.",
+                                "fr": "Detailed instructions to help you set up Happ on your device.",
+                                "ru": "Подробные инструкции, чтобы помочь вам настроить Happ на вашем устройстве.",
+                                "zh": "详细说明，帮助您在设备上设置 Happ。"
+                            },
+                            "svgIconColor": "cyan"
+                        },
+                        {
+                            "title": {
+                                "en": "Add Subscription",
+                                "fa": "اضافه کردن اشتراک",
+                                "fr": "Ajouter une souscription",
+                                "ru": "Добавление подписки",
+                                "zh": "添加订阅"
+                            },
+                            "buttons": [
+                                {
+                                    "link": "happ://add/{{SUBSCRIPTION_LINK}}",
+                                    "text": {
+                                        "en": "Add Subscription",
+                                        "fa": "اضافه کردن اشتراک",
+                                        "fr": "Ajouter une souscription",
+                                        "ru": "Добавить подписку",
+                                        "zh": "添加订阅"
+                                    },
+                                    "type": "subscriptionLink",
+                                    "svgIconKey": "Plus"
+                                }
+                            ],
+                            "svgIconKey": "CloudDownload",
+                            "description": {
+                                "en": "Click the button below to add subscription, if you opened the subscription page on your TV",
+                                "fa": "برای افزودن اشتراک روی دکمه زیر کلیک کنید، اگر صفحه اشتراک را روی تلویزیون باز کرده‌اید",
+                                "fr": "Click the button below to add subscription, if you opened the subscription page on your TV.",
+                                "ru": "Нажмите кнопку ниже, чтобы добавить подписку, если вы открыли страницу подписки на телевизоре",
+                                "zh": "如果你已在电视上打开订阅页面，点击下方按钮以添加订阅"
+                            },
+                            "svgIconColor": "cyan"
+                        },
+                        {
+                            "title": {
+                                "en": "Connect and use",
+                                "fa": "متصل شوید و استفاده کنید",
+                                "fr": "Se connecter et utiliser",
+                                "ru": "Подключение и использование",
+                                "zh": "连接并使用"
+                            },
+                            "buttons": [],
+                            "svgIconKey": "Check",
+                            "description": {
+                                "en": "Open the app and connect to the server",
+                                "fa": "برنامه را باز کنید و به سرور متصل شوید",
+                                "fr": "Ouvre l’app et connecte‑toi au serveur.",
+                                "ru": "Откройте приложение и подключитесь к серверу",
+                                "zh": "打开应用并连接到服务器"
+                            },
+                            "svgIconColor": "teal"
+                        }
+                    ],
+                    "featured": false
+                }
+            ],
+            "svgIconKey": "TV",
+            "displayName": {
+                "en": "Android TV",
+                "fa": "Android TV",
+                "fr": "Android TV",
+                "ru": "Android TV",
+                "zh": "Android TV"
+            }
+        }
+    }
+}

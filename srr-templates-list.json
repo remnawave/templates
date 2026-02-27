@@ -1,0 +1,23 @@
+{
+    "$schema": "./srr-templates-list.schema.json",
+    "templates": [
+        {
+            "name": "Default Response Rules",
+            "author": "remnawave",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/remnawave-default/response-rules/srr-default-config.json",
+            "type": "SRR"
+        },
+        {
+            "name": "Allow only Happ",
+            "author": "kastov",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-kastov/response-rules/srr-happ-only.json",
+            "type": "SRR"
+        },
+        {
+            "name": "Allow only Mihomo and Happ",
+            "author": "zuckerhalo",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-zuckerhalo/response-rules/allow-only-mihomo-and-happ.json",
+            "type": "SRR"
+        }
+    ]
+}

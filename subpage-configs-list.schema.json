@@ -1,0 +1,50 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Subscription Page Configs List",
+    "type": "object",
+    "properties": {
+        "$schema": {
+            "type": "string",
+            "description": "JSON Schema reference"
+        },
+        "templates": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "author": {
+                        "type": "string",
+                        "description": "Author of the subscription page config"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the subscription page config"
+                    },
+                    "url": {
+                        "type": "string",
+                        "format": "uri",
+                        "description": "URL to download the subscription page config"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "SUBPAGE_CONFIG"
+                        ],
+                        "description": "Type of the subscription page config"
+                    }
+                },
+                "required": [
+                    "author",
+                    "name",
+                    "url",
+                    "type"
+                ],
+                "additionalProperties": false
+            }
+        }
+    },
+    "required": [
+        "templates"
+    ],
+    "additionalProperties": false
+}

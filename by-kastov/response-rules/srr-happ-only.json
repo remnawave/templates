@@ -1,0 +1,28 @@
+{
+    "version": "1",
+    "rules": [
+        {
+            "name": "Only Happ",
+            "description": "Serve subscription only for Happ and response with Xray Json template format.",
+            "enabled": true,
+            "operator": "AND",
+            "conditions": [
+                {
+                    "headerName": "user-agent",
+                    "operator": "STARTS_WITH",
+                    "value": "happ/",
+                    "caseSensitive": false
+                }
+            ],
+            "responseType": "XRAY_JSON"
+        },
+        {
+            "name": "Block others",
+            "description": "Block others requests.",
+            "enabled": true,
+            "operator": "AND",
+            "conditions": [],
+            "responseType": "BLOCK"
+        }
+    ]
+}

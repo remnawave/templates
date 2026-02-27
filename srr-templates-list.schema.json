@@ -1,0 +1,50 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Subscription Response Rules Templates List",
+    "type": "object",
+    "properties": {
+        "$schema": {
+            "type": "string",
+            "description": "JSON Schema reference"
+        },
+        "templates": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "author": {
+                        "type": "string",
+                        "description": "Author of the subscription template"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the subscription template"
+                    },
+                    "url": {
+                        "type": "string",
+                        "format": "uri",
+                        "description": "URL to download the template"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "SRR"
+                        ],
+                        "description": "Type of the subscription template"
+                    }
+                },
+                "required": [
+                    "author",
+                    "name",
+                    "url",
+                    "type"
+                ],
+                "additionalProperties": false
+            }
+        }
+    },
+    "required": [
+        "templates"
+    ],
+    "additionalProperties": false
+}

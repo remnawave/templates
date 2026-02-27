@@ -94,8 +94,14 @@
         {
             "name": "Ultimate Mihomo RU",
             "type": "MIHOMO",
-            "author": "unknown",
-            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-unknown/subscription-templates/ultimate-mihomo-ru.yaml"
+            "author": "Davoyan",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-davoyan/subscription-templates/ultimate-mihomo-ru.yaml"
+        },
+        {
+            "name": "Stash (RU bundle)",
+            "type": "STASH",
+            "author": "legiz-ru",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-legiz/subscription-templates/stash-ru-bundle.yaml"
         }
     ]
 }
