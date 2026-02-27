@@ -26,6 +26,12 @@
             "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-ikitkatt/xray-core/example-vless-to-vless-with-server-routing.json"
         },
         {
+            "name": "Example Vless Encryption",
+            "author": "ikitkatt",
+            "type": "XRAY_JSON",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-ikitkatt/xray-core/example-vless-tcp-enc.json"
+        },
+        {
             "name": "Example Server Routing: VLESS IN → SS OUT",
             "author": "kastov",
             "type": "XRAY_JSON",
