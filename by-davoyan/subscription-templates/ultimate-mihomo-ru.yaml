@@ -112,6 +112,9 @@ dns:
   ipv6: false #true - если хотите резолвить в ipv6
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.msftncsi.com"
   # ----
   # Опционально выбираем DNS сервера - меняйте на ваш вкус.
   default-nameserver:
@@ -529,6 +532,7 @@ rules:
 
   # 💬 Discord
   - AND,((RULE-SET,cloudflare-ips),(NETWORK,udp),(DST-PORT,19200-19500)),💬 Discord
+  - AND,((RULE-SET,cloudflare-ips),(NETWORK,udp),(DST-PORT,50000-50100)),💬 Discord
   - AND,((RULE-SET,discord_voiceips),(NETWORK,udp),(DST-PORT,50000-50100)),💬 Discord
   - RULE-SET,discord_vc,💬 Discord
   - RULE-SET,discord_domains,💬 Discord
