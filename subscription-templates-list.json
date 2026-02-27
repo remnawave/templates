@@ -86,10 +86,10 @@
             "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-avsba001/subscription-templates/xray-json-cn-bundle.json"
         },
         {
-            "name": "Mihomo for Russia",
+            "name": "Flowy Routing",
             "type": "MIHOMO",
             "author": "x_kit_",
-            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-x_kit_/subscription-templates/mihomo-for-russia.yaml"
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-x_kit_/subscription-templates/flowvy_routing.yaml"
         },
         {
             "name": "Ultimate Mihomo RU",
