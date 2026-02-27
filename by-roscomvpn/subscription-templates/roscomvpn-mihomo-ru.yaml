@@ -1,0 +1,456 @@
+# ============================================================
+# ШАБЛОН MIHOMO ДЛЯ REMNAWAVE ОТ ROSCOMVPN
+# ============================================================
+# Набор правил RoscomVPN, адаптированный для Mihomo
+#
+# Режим:       rule
+# Инбаунды:    TUN (system, strict-route), mixed-port 7890
+#              Приватные и зарезервированные IP исключены из TUN и сниффера
+# DNS:         fake-ip, Yandex DNS (direct) + Google DNS (proxy)
+#              IPv6 в DNS отключён, весь IPv6-трафик ядра блокируется на уровне правил
+#
+# Группы прокси:
+#   🛡️ VPN       — основная группа (по умолчанию)
+#   ⚡️ Авто      — автовыбор по задержке (url-test, интервал 5 мин)
+#   📺 Youtube   — отдельный выбор узла для YouTube
+#   💬 Discord   — отдельный выбор узла для Discord / Vesktop
+#   🎮 Игры      — игровые сервисы (Steam, Epic, Origin, Riot, EfT, FaceIT…)
+#   🔓 Без VPN   — принудительный прямой доступ (DIRECT)
+#   ⛔ Блок      — блокировка (REJECT)
+#   ⏭️ Пропуск   — PASS (передать следующему правилу)
+#
+# Rule-sets (репозитории hydraponique / RoscomVPN на GitHub):
+#   • Реклама и слежка Windows              → REJECT-DROP
+#   • Торренты (домены/клиенты)             → DIRECT
+#   • Microsoft, Apple, Google Play         → DIRECT
+#   • Российские домены (category-ru), ru-apps → DIRECT
+#   • Twitch, Pinterest                     → DIRECT
+#   • YouTube, Telegram, GitHub             → PROXY
+#   • Игровые сервисы                       → 🎮 Игры
+#   • Остальное                             → PROXY
+#
+# UDP-порт 443/853 (QUIC/DoQ) блокируется глобально.
+#
+# Разработка: ristavor
+# Благодарности: hydraponique & fatyzzz
+# Группа RoscomVPN в Telegram: https://t.me/vpnrouting
+#
+# Будем благодарны любой поддержке:
+# USDT TRC20 — TMu3N2ZjK5omJ7n3WAj5MNCSM5querBXsR
+# ============================================================
+
+mixed-port: 7890
+mode: rule
+log-level: silent
+allow-lan: false
+ipv6: true # для перехвата ipv6 трафика в ядро
+unified-delay: true
+tcp-concurrent: true
+tun:
+  enable: true
+  stack: system
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - any:53
+  strict-route: true
+  route-exclude-address: # исключаем из перехвата приватные и зарезервированные IP-адреса
+    - 224.0.0.0/3
+    - 10.0.0.0/8
+    - 127.0.0.0/8
+    - 100.64.0.0/10
+    - 172.16.0.0/12
+    - 169.254.0.0/16
+    - 192.168.0.0/16
+    - 192.0.0.0/24
+    - 192.0.2.0/24
+    - 192.88.99.0/24
+    - 198.51.100.0/24
+    - 203.0.113.0/24
+    - fc00::/7
+    - ff00::/8
+    - fe80::/10
+    - ::/127
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip # fake-ip/redir-host
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - rule-set:private-domains # исключить из fake-ip приватные домены
+  default-nameserver:
+    - 77.88.8.8
+    - 8.8.8.8
+  proxy-server-nameserver:
+    - 77.88.8.8
+    - 8.8.8.8
+  direct-nameserver:
+    - 77.88.8.8
+    - 8.8.8.8
+  nameserver:
+    - 8.8.8.8#PROXY
+sniffer:
+  enable: true
+  override-destination: false
+  parse-pure-ip: true
+  sniff:
+    HTTP:
+      ports:
+        - 80
+        - 8080-8880
+    TLS:
+      ports:
+        - 443
+        - 8443
+  skip-dst-address: # исключить из сниффера приватные и зарезервированные IP-адреса
+    - 224.0.0.0/3
+    - 10.0.0.0/8
+    - 127.0.0.0/8
+    - 100.64.0.0/10
+    - 172.16.0.0/12
+    - 198.18.0.0/15
+    - 169.254.0.0/16
+    - 192.168.0.0/16
+    - 192.0.0.0/24
+    - 192.0.2.0/24
+    - 192.88.99.0/24
+    - 198.51.100.0/24
+    - 203.0.113.0/24
+    - fc00::/7
+    - ff00::/8
+    - fe80::/10
+    - ::/127
+find-process-mode: strict
+profile:
+  store-selected: true
+  store-fake-ip: true
+proxies: # LEAVE THIS LINE!
+proxy-groups:
+  - name: 🛡️ VPN
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hijacking.png
+    type: select
+    proxies:
+      - ⚡️ Авто
+    # LEAVE THIS LINE!
+    url: https://www.gstatic.com/generate_204
+  - name: 📺 Youtube
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png
+    type: select
+    remnawave:
+      include-proxies: false
+    include-all: true
+    # filter: '🇫🇮 Finland' # Filter connections containing this value (hosts should be named like 🇫🇮 Finland1, 🇫🇮 Finland2, etc.)
+    proxies:
+      - 🛡️ VPN
+      # Если хотите оставить на выбор только определенные узлы, воспользуйтесь filter
+  - name: 💬 Discord.exe
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Discord.png
+    type: select
+    remnawave:
+      include-proxies: false
+    include-all: true
+    proxies:
+      - 🛡️ VPN
+  - name: 🎮 Игры
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Game.png
+    type: select
+    remnawave:
+      include-proxies: false
+    include-all: true
+    proxies:
+      - 🔓 Без VPN
+      - 🛡️ VPN
+  - name: ⚡️ Авто
+    type: url-test
+    tolerance: 150
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    # exclude-filter: прокси, которые хотите исключить
+    remnawave:
+      include-proxies: false
+    include-all: true
+    hidden: true
+  - name: PROXY
+    type: select
+    hidden: true
+    remnawave:
+      include-proxies: false
+    proxies:
+      - 🛡️ VPN
+  - name: 🔓 Без VPN
+    type: select
+    hidden: true
+    remnawave:
+      include-proxies: false
+    proxies:
+      - DIRECT
+  - name: ⛔ Блок
+    type: select
+    hidden: true
+    remnawave:
+      include-proxies: false
+    proxies:
+      - REJECT
+  - name: ⏭️ Пропуск
+    type: select
+    hidden: true
+    remnawave:
+      include-proxies: false
+    proxies:
+      - PASS
+rule-providers:
+  private-domains:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/private.mrs
+    path: ./ruleset/geosite-private.mrs
+    proxy: PROXY
+    interval: 2592000
+  category-ru:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/category-ru.mrs
+    path: ./ruleset/category-ru.mrs
+    proxy: PROXY
+    interval: 86400
+  microsoft:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/microsoft.mrs
+    path: ./ruleset/microsoft.mrs
+    proxy: PROXY
+    interval: 86400
+  apple:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/apple.mrs
+    path: ./ruleset/apple.mrs
+    proxy: PROXY
+    interval: 86400
+  google-play:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/google-play.mrs
+    path: ./ruleset/google-play.mrs
+    proxy: PROXY
+    interval: 86400
+  epicgames:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/epicgames.mrs
+    path: ./ruleset/epicgames.mrs
+    proxy: PROXY
+    interval: 86400
+  origin:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/origin.mrs
+    path: ./ruleset/origin.mrs
+    proxy: PROXY
+    interval: 86400
+  riot:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/riot.mrs
+    path: ./ruleset/riot.mrs
+    proxy: PROXY
+    interval: 86400
+  escapefromtarkov:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/escapefromtarkov.mrs
+    path: ./ruleset/escapefromtarkov.mrs
+    proxy: PROXY
+    interval: 86400
+  steam:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/steam.mrs
+    path: ./ruleset/steam.mrs
+    proxy: PROXY
+    interval: 86400
+  twitch:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/twitch.mrs
+    path: ./ruleset/twitch.mrs
+    proxy: PROXY
+    interval: 86400
+  pinterest:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/pinterest.mrs
+    path: ./ruleset/pinterest.mrs
+    proxy: PROXY
+    interval: 86400
+  faceit:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/faceit.mrs
+    path: ./ruleset/faceit.mrs
+    proxy: PROXY
+    interval: 86400
+  private-ips:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geoip/release/mihomo/private.mrs
+    path: ./ruleset/geoip-private.mrs
+    proxy: PROXY
+    interval: 2592000
+  direct-ips:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geoip/release/mihomo/direct.mrs
+    path: ./ruleset/direct-ips.mrs
+    proxy: PROXY
+    interval: 86400
+  github:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/github.mrs
+    path: ./ruleset/github.mrs
+    proxy: PROXY
+    interval: 86400
+  twitch-ads:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/twitch-ads.mrs
+    path: ./ruleset/twitch-ads.mrs
+    proxy: PROXY
+    interval: 86400
+  youtube:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/youtube.mrs
+    path: ./ruleset/youtube.mrs
+    proxy: PROXY
+    interval: 86400
+  telegram:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/telegram.mrs
+    path: ./ruleset/telegram.mrs
+    proxy: PROXY
+    interval: 86400
+  win-spy:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/win-spy.mrs
+    path: ./ruleset/win-spy.mrs
+    proxy: PROXY
+    interval: 86400
+  torrent-domains:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/torrent.mrs
+    path: ./ruleset/torrent-domains.mrs
+    proxy: PROXY
+    interval: 86400
+  category-ads:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/category-ads.mrs
+    path: ./ruleset/category-ads.mrs
+    proxy: PROXY
+    interval: 86400
+  torrent-clients:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/main/other/torrent-clients.yaml
+    path: ./ruleset/torrent-clients.yaml
+    proxy: PROXY
+    interval: 86400
+  games:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/roscomvpn/custom-category/release/mihomo/games.yaml
+    path: ./ruleset/games.yaml
+    proxy: PROXY
+    interval: 86400
+  ru-apps:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/roscomvpn/custom-category/release/mihomo/ru-apps.yaml
+    path: ./ruleset/ru-apps.yaml
+    proxy: PROXY
+    interval: 86400
+
+rules:
+  # --- Системные / приватные адреса ---
+  - RULE-SET,private-ips,DIRECT,no-resolve         # приватные IP — всегда напрямую, без DNS
+  - IP-CIDR,::/0,REJECT-DROP,no-resolve            # весь IPv6-трафик, не попавший в fake-ip — блок
+  - AND,((NETWORK,UDP),(DST-PORT,443/853)),REJECT-DROP # QUIC/DoQ — принудительно через TCP
+  - RULE-SET,private-domains,DIRECT                # локальные домены — напрямую
+
+  # --- Блокировки ---
+  - RULE-SET,category-ads,REJECT-DROP              # реклама
+  - RULE-SET,win-spy,REJECT-DROP                   # телеметрия Windows
+
+  # --- Торренты ---
+  - RULE-SET,torrent-domains,DIRECT                # торрент-трекеры — напрямую
+
+  # --- Сервисы через PROXY ---
+  - RULE-SET,twitch-ads,PROXY                      # домены Twitch Ads — через PROXY (фикс качества)
+  - RULE-SET,youtube,📺 Youtube
+  - RULE-SET,telegram,PROXY
+  - RULE-SET,github,PROXY
+
+  # --- Игровые платформы и сервисы → 🎮 Игры (по умолчанию DIRECT, можно переключить) ---
+  - RULE-SET,epicgames,🎮 Игры
+  - RULE-SET,origin,🎮 Игры
+  - RULE-SET,riot,🎮 Игры
+  - RULE-SET,escapefromtarkov,🎮 Игры
+  - RULE-SET,steam,🎮 Игры
+  - RULE-SET,faceit,🎮 Игры
+
+  # --- Сервисы в DIRECT ---
+  - RULE-SET,twitch,DIRECT
+  - RULE-SET,microsoft,DIRECT
+  - RULE-SET,apple,DIRECT
+  - RULE-SET,google-play,DIRECT
+  - RULE-SET,pinterest,DIRECT
+
+  # --- DIRECT ---
+  - RULE-SET,category-ru,DIRECT                    # RU-домены
+
+  # --- Торренты ---
+  - RULE-SET,torrent-clients,DIRECT                # торрент-клиенты по процессу
+
+  # --- Приложения по имени процесса ---
+  - PROCESS-NAME-REGEX,discord,💬 Discord.exe
+  - PROCESS-NAME-REGEX,vesktop,💬 Discord.exe
+
+  # --- Широкие категории ---
+  - RULE-SET,games,🎮 Игры                         # общая игровая категория
+  - RULE-SET,ru-apps,DIRECT                        # RU-приложения Android
+
+  # --- IP-адреса → DIRECT ---
+  - RULE-SET,direct-ips,DIRECT
+
+  # --- Всё остальное → PROXY ---
+  - MATCH,PROXY

@@ -102,6 +102,12 @@
             "type": "STASH",
             "author": "legiz-ru",
             "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-legiz/subscription-templates/stash-ru-bundle.yaml"
+        },
+        {
+            "name": "RoscomVPN Mihomo RU",
+            "type": "MIHOMO",
+            "author": "roscomvpn",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-roscomvpn/subscription-templates/roscomvpn-mihomo-ru.yaml"
         }
     ]
 }
