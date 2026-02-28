@@ -14,7 +14,7 @@
 #
 # Списки доменов re:filter — для прокси-группы «Недоступные сайты». Подробнее смотрите в rules.
 
-# Большое спасибо Legiz, чьи списки используются для правил.
+# Большое спасибо Legiz, hydraponique, чьи списки используются для правил.
 # Также спасибо за пояснения и идеи для конфигов. Отдельное спасибо сообществу Remnawave и её разработчику.
 
 mixed-port: 7890
@@ -50,7 +50,6 @@ sniffer:
       ports:
         - 80
         - 8080-8880
-      override-destination: true
     TLS:
       ports:
         - 443
@@ -113,6 +112,7 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
+    - rule-set:geosite-private
     - "*.lan"
     - "*.msftncsi.com"
   # ----
@@ -139,8 +139,8 @@ dns:
       - rcode://refused # Код отклонённого DNS
     # DNS для сайтов с файлами правил
     raw.githubusercontent.com,cdn.jsdelivr.net,github.com:
-      - https://8.8.8.8/dns-query#DIRECT
-      - https://94.140.14.14/dns-query#DIRECT
+      - https://8.8.8.8/dns-query#🚫 Недоступные сайты
+      - https://94.140.14.14/dns-query#🚫 Недоступные сайты
     # DNS для заблоченных ресурсов, DNS запросы будут идти через то, что выбрано в "Недоступные сайты"
     rule-set:ru-inside,refilter_domains,ru-inline-banned,category-porn,ai,google-deepmind,speedtest-net:
       - https://1.1.1.1/dns-query#🚫 Недоступные сайты # Cloudflare DNS
@@ -313,6 +313,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/Davoyan/mihomo-rule-sets/main/rules/category-ru.mrs
     path: ./rule-sets/geosite-ru.mrs
     interval: 86400
+    proxy: 🚫 Недоступные сайты
   ai:
     type: http
     behavior: domain
@@ -320,6 +321,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs
     path: ./rule-sets/ai.mrs
     interval: 86400
+    proxy: 🚫 Недоступные сайты
   category-porn:
     type: http
     behavior: domain
@@ -327,6 +329,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-porn.mrs
     path: ./rule-sets/category-porn.mrs
     interval: 86400
+    proxy: 🚫 Недоступные сайты
   geoip-for-ru:
     type: http
     behavior: ipcidr
@@ -334,6 +337,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/Davoyan/mihomo-rule-sets/main/ip-for-ru/lists/ips-for-ru.mrs
     path: ./rule-sets/geoip-for-ru.mrs
     interval: 86400
+    proxy: 🚫 Недоступные сайты
   geosite-private:
     type: http
     behavior: domain
@@ -341,13 +345,29 @@ rule-providers:
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs
     path: ./rule-sets/geosite-private.mrs
     interval: 86400
+    proxy: 🚫 Недоступные сайты
   geoip-private:
-    type: http
-    behavior: ipcidr
-    format: mrs
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs
-    path: ./rule-sets/geoip-private.mrs
-    interval: 86400
+    type: inline
+    payload:
+      - IP-CIDR,0.0.0.0/8
+      - IP-CIDR,10.0.0.0/8
+      - IP-CIDR,100.64.0.0/10
+      - IP-CIDR,127.0.0.0/8
+      - IP-CIDR,169.254.0.0/16
+      - IP-CIDR,172.16.0.0/12
+      - IP-CIDR,192.0.0.0/24
+      - IP-CIDR,192.0.2.0/24
+      - IP-CIDR,192.88.99.0/24
+      - IP-CIDR,192.168.0.0/16
+      - IP-CIDR,198.18.0.0/15
+      - IP-CIDR,198.51.100.0/24
+      - IP-CIDR,203.0.113.0/24
+      - IP-CIDR,224.0.0.0/3
+      - IP-CIDR,::/127
+      - IP-CIDR,fc00::/7
+      - IP-CIDR,fe80::/10
+      - IP-CIDR,ff00::/8
+    behavior: classical
   discord_domains:
     type: http
     behavior: domain
@@ -355,6 +375,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/discord.mrs
     path: ./rule-sets/discord_domains.mrs
     interval: 86400
+    proxy: 🚫 Недоступные сайты
   speedtest-net:
     type: http
     behavior: domain
@@ -362,6 +383,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/speedtest.mrs
     path: ./rule-sets/speedtest-net.mrs
     interval: 86400
+    proxy: 🚫 Недоступные сайты
   remote-control:
     type: http
     behavior: domain
@@ -369,6 +391,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-remote-control.mrs
     path: ./rule-sets/remote-control.mrs
     interval: 86400
+    proxy: 🚫 Недоступные сайты
   inline-blocked-ips:
     type: inline
     payload:
@@ -381,6 +404,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/main/other/discord-voice-ip-list.mrs
     path: ./rule-sets/discord_voiceips.mrs
     interval: 86400
+    proxy: 🚫 Недоступные сайты
   discord_vc:
     type: inline
     payload:
@@ -401,11 +425,13 @@ rule-providers:
     url: https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/main/re-filter/domain-rule.mrs
     path: ./rule-sets/refilter.mrs
     interval: 86400
+    proxy: 🚫 Недоступные сайты
   youtube:
     type: http
     behavior: domain
     format: mrs
     interval: 86400
+    proxy: 🚫 Недоступные сайты
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs
     path: ./rule-sets/youtube.mrs
   google-deepmind:
@@ -413,6 +439,7 @@ rule-providers:
     behavior: domain
     format: mrs
     interval: 86400
+    proxy: 🚫 Недоступные сайты
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google-deepmind.mrs
     path: ./rule-sets/google-deepmind.mrs
   telegram-ips:
@@ -420,6 +447,7 @@ rule-providers:
     behavior: ipcidr
     format: mrs
     interval: 86400
+    proxy: 🚫 Недоступные сайты
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs
     path: ./rule-sets/telegram-ips.mrs
   telegram-domains:
@@ -427,6 +455,7 @@ rule-providers:
     behavior: domain
     format: mrs
     interval: 86400
+    proxy: 🚫 Недоступные сайты
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs
     path: ./rule-sets/telegram-domains.mrs
   oisd_big:
@@ -436,6 +465,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/main/oisd/big.mrs
     path: ./rule-sets/oisd_big.mrs
     interval: 86400
+    proxy: 🚫 Недоступные сайты
   torrent-trackers:
     type: http
     behavior: domain
@@ -443,6 +473,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/main/other/torrent-trackers.mrs
     path: ./rule-sets/torrent-trackers.mrs
     interval: 86400
+    proxy: 🚫 Недоступные сайты
   torrent-clients:
     type: http
     behavior: classical
@@ -450,6 +481,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/main/other/torrent-clients.yaml
     path: ./rule-sets/torrent-clients.yaml
     interval: 86400
+    proxy: 🚫 Недоступные сайты
   ru-apps:
     type: http
     behavior: classical
@@ -457,6 +489,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/main/other/ru-app-list.yaml
     path: ./rule-sets/ru-apps.yaml
     interval: 86400
+    proxy: 🚫 Недоступные сайты
   ru-inside:
     type: http
     behavior: classical
@@ -464,6 +497,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-clashx.lst
     path: ./rule-sets/ru-inside.lst
     interval: 86400
+    proxy: 🚫 Недоступные сайты
   cloudflare-ips:
     type: http
     behavior: ipcidr
@@ -471,6 +505,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cloudflare.mrs
     path: ./rule-sets/cloudflare-ips.mrs
     interval: 86400
+    proxy: 🚫 Недоступные сайты
   quic:
     type: inline
     behavior: classical
@@ -485,14 +520,14 @@ rules:
   - RULE-SET,geoip-private,DIRECT,no-resolve
   - RULE-SET,geosite-private,DIRECT
 
-  # ВПН и всякие Anydesk, Rustdesk, Teamviewer в директ (опционально, можно убрать)
+  # ВПН и всякие Anydesk, Rustdesk, Teamviewer в директ (опционально)
   - PROCESS-NAME-REGEX,(?i).*tailscale.*,DIRECT
   - PROCESS-NAME-REGEX,(?i).*wireguard.*,DIRECT
   - PROCESS-NAME-REGEX,(?i).*netbird.*,DIRECT
-  - PROCESS-NAME-REGEX,(?i).*anydesk.*,DIRECT
-  - PROCESS-NAME-REGEX,(?i).*rustdesk.*,DIRECT
-  - PROCESS-NAME-REGEX,(?i).*teamviewer.*,DIRECT
-  - RULE-SET,remote-control,DIRECT
+  #- PROCESS-NAME-REGEX,(?i).*anydesk.*,DIRECT
+  #- PROCESS-NAME-REGEX,(?i).*rustdesk.*,DIRECT
+  #- PROCESS-NAME-REGEX,(?i).*teamviewer.*,DIRECT
+  #- RULE-SET,remote-control,DIRECT
 
   # Блокировка рекламы (опционально)
   - RULE-SET,oisd_big,REJECT # Списки скомпилированные Legiz
@@ -537,6 +572,8 @@ rules:
   - RULE-SET,discord_vc,💬 Discord
   - RULE-SET,discord_domains,💬 Discord
   - PROCESS-NAME-REGEX,(?i).*discord.*,💬 Discord
+  - PROCESS-NAME-REGEX,(?i).*vesktop.*,💬 Discord
+
 
   # 🚫 Недоступные сайты
   - RULE-SET,ru-inside,🚫 Недоступные сайты # ITDog списки доменов недоступные из РФ
