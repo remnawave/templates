@@ -205,7 +205,7 @@ rule-providers:
     format: mrs
     url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/private.mrs
     path: ./ruleset/geosite-private.mrs
-    proxy: PROXY
+    proxy: ⚡️ Авто
     interval: 2592000
   category-ru:
     type: http
@@ -213,7 +213,7 @@ rule-providers:
     format: mrs
     url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/category-ru.mrs
     path: ./ruleset/category-ru.mrs
-    proxy: PROXY
+    proxy: ⚡️ Авто
     interval: 86400
   microsoft:
     type: http
@@ -221,7 +221,7 @@ rule-providers:
     format: mrs
     url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/microsoft.mrs
     path: ./ruleset/microsoft.mrs
-    proxy: PROXY
+    proxy: ⚡️ Авто
     interval: 86400
   apple:
     type: http
@@ -229,7 +229,7 @@ rule-providers:
     format: mrs
     url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/apple.mrs
     path: ./ruleset/apple.mrs
-    proxy: PROXY
+    proxy: ⚡️ Авто
     interval: 86400
   google-play:
     type: http
@@ -237,7 +237,7 @@ rule-providers:
     format: mrs
     url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/google-play.mrs
     path: ./ruleset/google-play.mrs
-    proxy: PROXY
+    proxy: ⚡️ Авто
     interval: 86400
   epicgames:
     type: http
@@ -245,7 +245,7 @@ rule-providers:
     format: mrs
     url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/epicgames.mrs
     path: ./ruleset/epicgames.mrs
-    proxy: PROXY
+    proxy: ⚡️ Авто
     interval: 86400
   origin:
     type: http
@@ -253,7 +253,7 @@ rule-providers:
     format: mrs
     url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/origin.mrs
     path: ./ruleset/origin.mrs
-    proxy: PROXY
+    proxy: ⚡️ Авто
     interval: 86400
   riot:
     type: http
@@ -261,7 +261,7 @@ rule-providers:
     format: mrs
     url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/riot.mrs
     path: ./ruleset/riot.mrs
-    proxy: PROXY
+    proxy: ⚡️ Авто
     interval: 86400
   escapefromtarkov:
     type: http
@@ -269,7 +269,7 @@ rule-providers:
     format: mrs
     url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/escapefromtarkov.mrs
     path: ./ruleset/escapefromtarkov.mrs
-    proxy: PROXY
+    proxy: ⚡️ Авто
     interval: 86400
   steam:
     type: http
@@ -277,7 +277,7 @@ rule-providers:
     format: mrs
     url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/steam.mrs
     path: ./ruleset/steam.mrs
-    proxy: PROXY
+    proxy: ⚡️ Авто
     interval: 86400
   twitch:
     type: http
@@ -285,7 +285,7 @@ rule-providers:
     format: mrs
     url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/twitch.mrs
     path: ./ruleset/twitch.mrs
-    proxy: PROXY
+    proxy: ⚡️ Авто
     interval: 86400
   pinterest:
     type: http
@@ -293,7 +293,7 @@ rule-providers:
     format: mrs
     url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/pinterest.mrs
     path: ./ruleset/pinterest.mrs
-    proxy: PROXY
+    proxy: ⚡️ Авто
     interval: 86400
   faceit:
     type: http
@@ -301,7 +301,7 @@ rule-providers:
     format: mrs
     url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/faceit.mrs
     path: ./ruleset/faceit.mrs
-    proxy: PROXY
+    proxy: ⚡️ Авто
     interval: 86400
   private-ips:
     type: http
@@ -309,7 +309,7 @@ rule-providers:
     format: mrs
     url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geoip/release/mihomo/private.mrs
     path: ./ruleset/geoip-private.mrs
-    proxy: PROXY
+    proxy: ⚡️ Авто
     interval: 2592000
   direct-ips:
     type: http
@@ -317,7 +317,7 @@ rule-providers:
     format: mrs
     url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geoip/release/mihomo/direct.mrs
     path: ./ruleset/direct-ips.mrs
-    proxy: PROXY
+    proxy: ⚡️ Авто
     interval: 86400
   github:
     type: http
@@ -325,7 +325,7 @@ rule-providers:
     format: mrs
     url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/github.mrs
     path: ./ruleset/github.mrs
-    proxy: PROXY
+    proxy: ⚡️ Авто
     interval: 86400
   twitch-ads:
     type: http
@@ -333,7 +333,7 @@ rule-providers:
     format: mrs
     url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/twitch-ads.mrs
     path: ./ruleset/twitch-ads.mrs
-    proxy: PROXY
+    proxy: ⚡️ Авто
     interval: 86400
   youtube:
     type: http
@@ -341,7 +341,7 @@ rule-providers:
     format: mrs
     url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/youtube.mrs
     path: ./ruleset/youtube.mrs
-    proxy: PROXY
+    proxy: ⚡️ Авто
     interval: 86400
   telegram:
     type: http
@@ -349,7 +349,7 @@ rule-providers:
     format: mrs
     url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/telegram.mrs
     path: ./ruleset/telegram.mrs
-    proxy: PROXY
+    proxy: ⚡️ Авто
     interval: 86400
   win-spy:
     type: http
@@ -357,7 +357,7 @@ rule-providers:
     format: mrs
     url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/win-spy.mrs
     path: ./ruleset/win-spy.mrs
-    proxy: PROXY
+    proxy: ⚡️ Авто
     interval: 86400
   torrent-domains:
     type: http
@@ -365,7 +365,7 @@ rule-providers:
     format: mrs
     url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/torrent.mrs
     path: ./ruleset/torrent-domains.mrs
-    proxy: PROXY
+    proxy: ⚡️ Авто
     interval: 86400
   category-ads:
     type: http
@@ -373,7 +373,7 @@ rule-providers:
     format: mrs
     url: https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/mihomo/category-ads.mrs
     path: ./ruleset/category-ads.mrs
-    proxy: PROXY
+    proxy: ⚡️ Авто
     interval: 86400
   torrent-clients:
     type: http
@@ -381,7 +381,7 @@ rule-providers:
     format: yaml
     url: https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/main/other/torrent-clients.yaml
     path: ./ruleset/torrent-clients.yaml
-    proxy: PROXY
+    proxy: ⚡️ Авто
     interval: 86400
   games:
     type: http
@@ -389,7 +389,7 @@ rule-providers:
     format: yaml
     url: https://raw.githubusercontent.com/roscomvpn/custom-category/release/mihomo/games.yaml
     path: ./ruleset/games.yaml
-    proxy: PROXY
+    proxy: ⚡️ Авто
     interval: 86400
   ru-apps:
     type: http
@@ -397,7 +397,7 @@ rule-providers:
     format: yaml
     url: https://raw.githubusercontent.com/roscomvpn/custom-category/release/mihomo/ru-apps.yaml
     path: ./ruleset/ru-apps.yaml
-    proxy: PROXY
+    proxy: ⚡️ Авто
     interval: 86400
 
 rules:
