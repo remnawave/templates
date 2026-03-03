@@ -247,7 +247,6 @@ rule-providers:
       - DOMAIN-SUFFIX,novayagazeta.ru
       - DOMAIN-SUFFIX,moscowtimes.ru
       - DOMAIN-SUFFIX,natribu.org
-      - DOMAIN-KEYWORD,animego
       - DOMAIN-KEYWORD,yummyanime
       - DOMAIN-KEYWORD,yummy-anime
       - DOMAIN-KEYWORD,animeportal
