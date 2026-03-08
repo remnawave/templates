@@ -394,7 +394,7 @@ rule-providers:
   inline-blocked-ips:
     type: inline
     payload:
-      - IP-CIDR,172.232.25.131/32 #IP для чата Warframe
+      - IP-CIDR,172.232.25.131/32 #IP для чата Warframe (Пример)
     behavior: classical
   discord_voiceips:
     type: http
@@ -530,15 +530,13 @@ rules:
 
   # Блокировка рекламы (опционально)
   - RULE-SET,oisd_big,REJECT # Списки скомпилированные Legiz
-
-  # Пускаем эти домены твича в директ, чтобы избавиться от рекламы (опционально)
-  - OR,((DOMAIN-SUFFIX,ads.twitch.tv),(DOMAIN-SUFFIX,playlist.ttvnw.net)),DIRECT
+  
   # Отправляем торренты в DIRECT (опционально)
   - RULE-SET,torrent-clients,DIRECT
   - RULE-SET,torrent-trackers,DIRECT
   - PROCESS-NAME-REGEX,(?i).*torrent.*,DIRECT
 
-  # Делаем REJECT QUIC (для VLESS REALITY)
+  # Делаем REJECT QUIC
   - RULE-SET,quic,REJECT
 
   # Определялки IP пускаем в прокси, чтобы пользователь видел
