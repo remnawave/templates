@@ -1,0 +1,33 @@
+name: Download Templates by Davoyan
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create directory if not exists
+        run: |
+          mkdir -p by-davoyan/subscription-templates
+
+      - name: Download ultimate mihomo ru template
+        run: |
+          curl -L "https://raw.githubusercontent.com/Davoyan/mihomo-rule-sets/main/remnawave-templates/ultimate-mihomo-ru.yaml" \
+          -o "by-davoyan/subscription-templates/ultimate-mihomo-ru.yaml"         
+
+      - name: Commit and push if there are changes
+        run: |
+          git config --local user.email "20373889+Davoyan@users.noreply.github.com"
+          git config --local user.name "Davoyan"
+          git add by-davoyan/subscription-templates/
+          git commit -m "Update Davoyan templates" -a || echo "No changes to commit"
+          git push
