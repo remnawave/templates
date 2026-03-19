@@ -125,10 +125,11 @@ dns:
     # DNS для доменов прокси из раздела proxies
     - https://94.140.14.14/dns-query#DIRECT
     - https://8.8.8.8/dns-query#DIRECT
+  direct-nameserver-follow-policy: true  #DNS из nameserver-policy в приоритете над direct-nameserver
   direct-nameserver:
     # DNS для сайтов идущих через DIRECT
-    - https://77.88.8.8/dns-query#DIRECT # Yandex DNS
     - https://8.8.8.8/dns-query#DIRECT # Google DNS
+    - https://77.88.8.8/dns-query#DIRECT # Yandex DNS
   nameserver:
     # Сервер по умолчанию, DNS запросы будут идти через то, что выбрано в "Остальные сайты"
     - https://8.8.8.8/dns-query#🌍 Остальные сайты
