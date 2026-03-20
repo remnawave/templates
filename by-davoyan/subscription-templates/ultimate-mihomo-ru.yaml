@@ -562,6 +562,8 @@ rules:
   - RULE-SET,telegram-domains,➤ Telegram
   - PROCESS-NAME-REGEX,(?i).*ayugram.*,➤ Telegram
   - PROCESS-NAME-REGEX,(?i).*telegram.*,➤ Telegram
+  - PROCESS-NAME-REGEX,(?i).*nekogram.*,➤ Telegram
+  - PROCESS-NAME-REGEX,(?i).*nagram.*,➤ Telegram
 
   # 💬 Discord
   - AND,((RULE-SET,cloudflare-ips),(NETWORK,udp),(DST-PORT,19200-19500)),💬 Discord
