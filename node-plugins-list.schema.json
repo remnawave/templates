@@ -1,0 +1,50 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Node Plugins List",
+    "type": "object",
+    "properties": {
+        "$schema": {
+            "type": "string",
+            "description": "JSON Schema reference"
+        },
+        "nodePlugins": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "author": {
+                        "type": "string",
+                        "description": "Author of the Node Plugin"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Node Plugin"
+                    },
+                    "url": {
+                        "type": "string",
+                        "format": "uri",
+                        "description": "URL to download the Node Plugin"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "NODE_PLUGIN"
+                        ],
+                        "description": "Type of the Node Plugin"
+                    }
+                },
+                "required": [
+                    "author",
+                    "name",
+                    "url",
+                    "type"
+                ],
+                "additionalProperties": false
+            }
+        }
+    },
+    "required": [
+        "nodePlugins"
+    ],
+    "additionalProperties": false
+}
