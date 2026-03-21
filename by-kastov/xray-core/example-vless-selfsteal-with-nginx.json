@@ -29,7 +29,6 @@
                 "network": "raw",
                 "security": "reality",
                 "realitySettings": {
-                    "show": false,
                     "xver": 1,
                     "target": "/dev/shm/nginx.sock",
                     "spiderX": "",
@@ -60,22 +59,19 @@
                 "ip": [
                     "geoip:private"
                 ],
-                "outboundTag": "BLOCK",
-                "type": "field"
+                "outboundTag": "BLOCK"
             },
             {
                 "domain": [
                     "geosite:private"
                 ],
-                "outboundTag": "BLOCK",
-                "type": "field"
+                "outboundTag": "BLOCK"
             },
             {
                 "protocol": [
                     "bittorrent"
                 ],
-                "outboundTag": "BLOCK",
-                "type": "field"
+                "outboundTag": "BLOCK"
             }
         ]
     }
