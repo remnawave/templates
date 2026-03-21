@@ -3,20 +3,29 @@
         "servers": [
             "1.1.1.1",
             "1.0.0.1"
-        ],
-        "queryStrategy": "UseIP"
+        ]
     },
     "routing": {
         "rules": [
             {
-                "type": "field",
                 "protocol": [
                     "bittorrent"
                 ],
                 "outboundTag": "direct"
+            },
+            {
+                "ip": [
+                  "geoip:private"
+                ],
+                "outboundTag": "direct"
+            },
+            {
+                "domain": [
+                  "geosite:private"
+                ],
+                "outboundTag": "direct"
             }
         ],
-        "domainMatcher": "hybrid",
         "domainStrategy": "IPIfNonMatch"
     },
     "inbounds": [
@@ -26,12 +35,10 @@
             "listen": "127.0.0.1",
             "protocol": "socks",
             "settings": {
-                "udp": true,
-                "auth": "noauth"
+                "udp": true
             },
             "sniffing": {
                 "enabled": true,
-                "routeOnly": false,
                 "destOverride": [
                     "http",
                     "tls",
@@ -44,9 +51,6 @@
             "port": 10809,
             "listen": "127.0.0.1",
             "protocol": "http",
-            "settings": {
-                "allowTransparent": false
-            },
             "sniffing": {
                 "enabled": true,
                 "routeOnly": false,
