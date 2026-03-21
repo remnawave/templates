@@ -125,11 +125,11 @@ dns:
     # DNS для доменов прокси из раздела proxies
     - https://94.140.14.14/dns-query#DIRECT
     - https://8.8.8.8/dns-query#DIRECT
-  direct-nameserver-follow-policy: true  #DNS из nameserver-policy в приоритете над direct-nameserver
   direct-nameserver:
     # DNS для сайтов идущих через DIRECT
-    - https://8.8.8.8/dns-query#DIRECT # Google DNS
     - https://77.88.8.8/dns-query#DIRECT # Yandex DNS
+    - https://8.8.8.8/dns-query#DIRECT # Google DNS
+    - 77.88.8.8#DIRECT
   nameserver:
     # Сервер по умолчанию, DNS запросы будут идти через то, что выбрано в "Остальные сайты"
     - https://8.8.8.8/dns-query#🌍 Остальные сайты
@@ -155,13 +155,9 @@ dns:
       - https://8.8.8.8/dns-query#▶️ YouTube
       - https://94.140.14.14/dns-query#▶️ YouTube
     # DNS для доменов Telegram, DNS запросы будут идти через то, что выбрано в "Telegram"
-    rule-set:telegram-domains:
+    rule-set:telegram-domains,additional-telegram-domains:
       - https://8.8.8.8/dns-query#➤ Telegram
       - https://94.140.14.14/dns-query#➤ Telegram
-    # DNS для RU сайтов, DNS запросы будут идти через то, что выбрано в "RU сайты", по умолчанию это DIRECT
-    rule-set:ru-inline,geosite-ru:
-      - https://77.88.8.8/dns-query#⚪🔵🔴 RU сайты
-      - https://8.8.8.8/dns-query#⚪🔵🔴 RU сайты
 
 proxies:
   - name: "🇷🇺 Без VPN"
@@ -458,6 +454,15 @@ rule-providers:
     proxy: 🚫 Недоступные сайты
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs
     path: ./rule-sets/telegram-domains.mrs
+  additional-telegram-domains:
+    type: inline
+    payload:
+      - DOMAIN-SUFFIX,exteragram.app
+      - DOMAIN-SUFFIX,swiftgram.app
+      - DOMAIN-KEYWORD,nicegram
+      - DOMAIN-SUFFIX,stel.com
+      - DOMAIN-SUFFIX,legra.ph
+    behavior: classical
   oisd_big:
     type: http
     behavior: domain
@@ -560,10 +565,17 @@ rules:
   # ➤ Telegram
   - RULE-SET,telegram-ips,➤ Telegram
   - RULE-SET,telegram-domains,➤ Telegram
+  - RULE-SET,additional-telegram-domains,➤ Telegram
+  - IP-CIDR,5.28.192.0/18,➤ Telegram,no-resolve        # Vodaphone, точно есть
+  - IP-CIDR,91.108.0.0/16,➤ Telegram,no-resolve        # Более широкий оригинал
+  - IP-CIDR,109.239.140.0/24,➤ Telegram,no-resolve     # Telegram Network (RU)
+  - IP-CIDR,2001:b28:f23c::/47,➤ Telegram,no-resolve   # Более широкий оригинал
+  - IP-CIDR,2a0a:f280::/29,➤ Telegram,no-resolve       # Более широкий оригинал
   - PROCESS-NAME-REGEX,(?i).*ayugram.*,➤ Telegram
   - PROCESS-NAME-REGEX,(?i).*telegram.*,➤ Telegram
   - PROCESS-NAME-REGEX,(?i).*nekogram.*,➤ Telegram
   - PROCESS-NAME-REGEX,(?i).*nagram.*,➤ Telegram
+  - PROCESS-NAME-REGEX,(?i).*nekox.*,➤ Telegram
 
   # 💬 Discord
   - AND,((RULE-SET,cloudflare-ips),(NETWORK,udp),(DST-PORT,19200-19500)),💬 Discord
