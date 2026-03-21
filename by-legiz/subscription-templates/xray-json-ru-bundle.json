@@ -1742,17 +1742,15 @@
       "port": 10808,
       "protocol": "socks",
       "settings": {
-        "auth": "noauth",
-        "udp": true,
-        "userLevel": 8
+        "udp": true
       },
       "sniffing": {
         "destOverride": [
           "http",
-          "tls"
+          "tls",
+          "quic"
         ],
-        "enabled": true,
-        "routeOnly": false
+        "enabled": true
       },
       "tag": "socks"
     }
@@ -1763,9 +1761,6 @@
   "outbounds": [
     {
       "protocol": "freedom",
-      "settings": {
-        "domainStrategy": "UseIP"
-      },
       "tag": "direct"
     },
     {
@@ -1786,36 +1781,43 @@
           "1.1.1.1"
         ],
         "outboundTag": "proxy",
-        "port": "53",
-        "type": "field"
+        "port": "53"
       },
+      {
+        "ip": [
+          "geoip:private"
+        ],
+        "outboundTag": "direct"
+      },
+      {
+        "domain": [
+          "geosite:private"
+        ],
+        "outboundTag": "direct"
+      }
       {
         "outboundTag": "direct",
         "protocol": [
           "bittorrent"
-        ],
-        "type": "field"
+        ]
       },
       {
         "domain": [
           "domain:gstatic.com"
         ],
-        "outboundTag": "proxy",
-        "type": "field"
+        "outboundTag": "proxy"
       },
       {
         "network": "udp",
         "outboundTag": "block",
-        "port": "443",
-        "type": "field"
+        "port": "443"
       },
       {
         "ip": [
           "1.1.1.1",
           "1.0.0.1"
         ],
-        "outboundTag": "proxy",
-        "type": "field"
+        "outboundTag": "proxy"
       },
       {
         "domain": [
@@ -3536,13 +3538,11 @@
           "zona.media",
           "zoosk.com"
         ],
-        "outboundTag": "proxy",
-        "type": "field"
+        "outboundTag": "proxy"
       },
       {
         "outboundTag": "direct",
-        "port": "0-65535",
-        "type": "field"
+        "port": "0-65535"
       }
     ]
   }
