@@ -1,6 +1,6 @@
 {
     "$schema": "./node-plugins-list.schema.json",
-    "nodePlugins": [
+    "templates": [
         {
             "name": "Default Plugins Config",
             "author": "remnawave",

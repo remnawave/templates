@@ -7,7 +7,7 @@
             "type": "string",
             "description": "JSON Schema reference"
         },
-        "nodePlugins": {
+        "templates": {
             "type": "array",
             "items": {
                 "type": "object",
@@ -44,7 +44,7 @@
         }
     },
     "required": [
-        "nodePlugins"
+        "templates"
     ],
     "additionalProperties": false
 }
