@@ -25,8 +25,6 @@
                 "security": "reality",
                 "realitySettings": {
                     "target": "#REPLACE_WITH_YOUR_DEST, EXAMPLE: example.com:443",
-                    "show": false,
-                    "xver": 0,
                     "shortIds": [
                         ""
                     ],
@@ -54,22 +52,19 @@
                 "ip": [
                     "geoip:private"
                 ],
-                "outboundTag": "BLOCK",
-                "type": "field"
+                "outboundTag": "BLOCK"
             },
             {
                 "domain": [
                     "geosite:private"
                 ],
-                "outboundTag": "BLOCK",
-                "type": "field"
+                "outboundTag": "BLOCK"
             },
             {
                 "protocol": [
                     "bittorrent"
                 ],
-                "outboundTag": "BLOCK",
-                "type": "field"
+                "outboundTag": "BLOCK"
             }
         ]
     }
