@@ -20,31 +20,26 @@
         ]
       },
       "https://dns.google/dns-query"
-    ],
-    "queryStrategy": "UseIP"
+    ]
   },
   "routing": {
     "rules": [
       {
-        "type": "field",
         "protocol": [
           "bittorrent"
         ],
         "outboundTag": "direct"
       },
       {
-        "port": "",
         "domain": [
           "domain:googleapis.cn",
           "domain:gstatic.com"
         ],
-        "enabled": true,
         "remarks": "Google cn",
         "outboundTag": "proxy"
       },
       {
         "port": "443",
-        "enabled": true,
         "network": "udp",
         "remarks": "阻断udp443",
         "outboundTag": "block"
@@ -53,16 +48,13 @@
         "ip": [
           "geoip:private"
         ],
-        "enabled": true,
         "remarks": "绕过局域网IP",
         "outboundTag": "direct"
       },
       {
-        "port": "",
         "domain": [
           "geosite:private"
         ],
-        "enabled": true,
         "remarks": "绕过局域网域名",
         "outboundTag": "direct"
       },
@@ -104,13 +96,10 @@
           "117.50.60.30",
           "52.80.60.30"
         ],
-        "port": "",
-        "enabled": true,
         "remarks": "绕过中国公共DNSIP",
         "outboundTag": "direct"
       },
       {
-        "port": "",
         "domain": [
           "domain:alidns.com",
           "domain:doh.pub",
@@ -118,7 +107,6 @@
           "domain:360.cn",
           "domain:onedns.net"
         ],
-        "enabled": true,
         "remarks": "绕过中国公共DNS域名",
         "outboundTag": "direct"
       },
@@ -126,13 +114,10 @@
         "ip": [
           "geoip:cn"
         ],
-        "port": "",
-        "enabled": true,
         "remarks": "绕过中国IP",
         "outboundTag": "direct"
       },
       {
-        "port": "",
         "domain": [
           "geosite:cn",
           "geosite:steam@cn",
@@ -140,12 +125,10 @@
           "domain:download.epicgames.com",
           "domain:msftncsi.com"
         ],
-        "enabled": true,
         "remarks": "绕过中国域名",
         "outboundTag": "direct"
       }
     ],
-    "domainMatcher": "hybrid",
     "domainStrategy": "IPIfNonMatch"
   },
   "inbounds": [
@@ -155,8 +138,7 @@
       "listen": "127.0.0.1",
       "protocol": "socks",
       "settings": {
-        "udp": true,
-        "auth": "noauth"
+        "udp": true
       },
       "sniffing": {
         "enabled": true,
@@ -173,12 +155,8 @@
       "port": 10809,
       "listen": "127.0.0.1",
       "protocol": "http",
-      "settings": {
-        "allowTransparent": false
-      },
       "sniffing": {
         "enabled": true,
-        "routeOnly": false,
         "destOverride": [
           "http",
           "tls",
