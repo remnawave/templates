@@ -53,7 +53,6 @@
             "protocol": "http",
             "sniffing": {
                 "enabled": true,
-                "routeOnly": false,
                 "destOverride": [
                     "http",
                     "tls",
