@@ -52,7 +52,6 @@
         "outboundTag": "direct"
       },
       {
-        "port": "",
         "domain": [
           "geosite:private"
         ],
