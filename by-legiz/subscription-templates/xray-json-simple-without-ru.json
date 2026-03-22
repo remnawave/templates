@@ -5,8 +5,10 @@
   "dns": {
       "queryStrategy": "IPIfNonMatch",
       "servers": [
-          "1.1.1.1",
-          "1.0.0.1"
+          {
+              "address": "1.1.1.1",
+              "skipFallback": false
+          }
       ],
       "tag": "dns_out"
   },
@@ -54,18 +56,26 @@
           }
       ]
   },
+  "policy": {
+      "system": {
+          "statsOutboundDownlink": true,
+          "statsOutboundUplink": true
+      }
+  },
   "inbounds": [
       {
           "port": 10808,
           "protocol": "socks",
           "settings": {
-              "udp": true
+              "auth": "noauth",
+              "udp": true,
+              "userLevel": 8
           },
           "sniffing": {
               "destOverride": [
                   "http",
                   "tls",
-                  "quic"
+                  "fakedns"
               ],
               "enabled": true
           },
@@ -74,6 +84,9 @@
       {
           "port": 10809,
           "protocol": "http",
+          "settings": {
+              "userLevel": 8
+          },
           "tag": "http"
       }
   ],
@@ -86,5 +99,6 @@
           "tag": "block",
           "protocol": "blackhole"
       }
-  ]
+  ],
+  "stats": {}
 }
