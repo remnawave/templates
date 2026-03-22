@@ -158,7 +158,12 @@ dns:
     rule-set:telegram-domains,additional-telegram-domains:
       - https://8.8.8.8/dns-query#➤ Telegram
       - https://94.140.14.14/dns-query#➤ Telegram
-
+    # DNS для RU сайтов, DNS запросы будут через DNS указанные в direct-nameserver, если конечные ресурсы попадают в DIRECT. 
+    # Если вы добавите в селектор "⚪🔵🔴 RU сайты" какой-то прокси, то DNS запросы будут идти через указанные тут DNS сервера через этот прокси.
+    rule-set:ru-inline,geosite-ru:
+      - https://77.88.8.8/dns-query#⚪🔵🔴 RU сайты
+      - https://8.8.8.8/dns-query#⚪🔵🔴 RU сайты
+      
 proxies:
   - name: "🇷🇺 Без VPN"
     type: direct
