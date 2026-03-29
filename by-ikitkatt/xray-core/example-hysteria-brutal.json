@@ -18,8 +18,7 @@
         "finalmask": {
           "quicParams": {
             "debug": false,
-            "brutalUp": "#PLACE YOUR TARGET SPEED",
-            "congestion": "force-brutal"
+            "congestion": "bbr"
           }
         },
         "tlsSettings": {
