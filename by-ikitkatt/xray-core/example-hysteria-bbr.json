@@ -4,7 +4,7 @@
   },
   "inbounds": [
     {
-      "tag": "HYSTERIA-BRUTAL",
+      "tag": "HYSTERIA-BBR",
       "port": 443,
       "listen": "0.0.0.0",
       "protocol": "hysteria",
