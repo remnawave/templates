@@ -1,0 +1,58 @@
+{
+  "log": {
+    "loglevel": "none"
+  },
+  "inbounds": [
+    {
+      "tag": "SHADOWSOCKS-2022",
+      "port": 1234,
+      "protocol": "shadowsocks",
+      "settings": {
+        "method": "2022-blake3-aes-256-gcm",
+        "clients": [],
+        "network": "tcp,udp",
+        "password": "#PLACE YOUR 32 BIT PASSWORD (openssl rand -base64 32 FROM TERMINAL)"
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "DIRECT",
+      "protocol": "freedom"
+    },
+    {
+      "tag": "BLOCK",
+      "protocol": "blackhole"
+    }
+  ],
+  "routing": {
+    "rules": [
+      {
+        "ip": [
+          "geoip:private"
+        ],
+        "outboundTag": "BLOCK"
+      },
+      {
+        "domain": [
+          "geosite:private"
+        ],
+        "outboundTag": "BLOCK"
+      },
+      {
+        "protocol": [
+          "bittorrent"
+        ],
+        "outboundTag": "BLOCK"
+      }
+    ]
+  }
+}
