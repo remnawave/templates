@@ -32,6 +32,18 @@
             "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-ikitkatt/xray-core/example-vless-tcp-enc.json"
         },
         {
+            "name": "Example Hysteria-BBR config (2.7.0+)",
+            "author": "ikitkatt",
+            "type": "XRAY_JSON",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-ikitkatt/xray-core/example-hysteria-bbr.json"
+        },
+        {
+            "name": "Example Shadowsocks-2022 config (2.7.0+)",
+            "author": "ikitkatt",
+            "type": "XRAY_JSON",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-ikitkatt/xray-core/example-shadowsocks-2022.json"
+        },
+        {
             "name": "Example Server Routing: VLESS IN → SS OUT",
             "author": "kastov",
             "type": "XRAY_JSON",
