@@ -9,15 +9,15 @@
         },
         {
             "name": "Example VLESS-TCP-REALITY config",
-            "author": "kastov",
+            "author": "unknown",
             "type": "XRAY_JSON",
-            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-kastov/xray-core/example-vless-tcp-reality.json"
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-unknown/xray-core/example-vless-tcp-reality.json"
         },
         {
             "name": "Example VLESS-SELFSTEAL-WITH-NGINX config",
-            "author": "kastov",
+            "author": "unknown",
             "type": "XRAY_JSON",
-            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-kastov/xray-core/example-vless-selfsteal-with-nginx.json"
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-unknown/xray-core/example-vless-selfsteal-with-nginx.json"
         },
         {
             "name": "Example Server Routing: VLESS IN → VLESS OUT",
@@ -45,21 +45,21 @@
         },
         {
             "name": "Example Server Routing: VLESS IN → SS OUT",
-            "author": "kastov",
+            "author": "unknown",
             "type": "XRAY_JSON",
-            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-kastov/xray-core/example-vless-to-ss-with-server-routing.json"
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-unknown/xray-core/example-vless-to-ss-with-server-routing.json"
         },
         {
             "name": "Example TROJAN-TCP-TLS config",
-            "author": "kastov",
+            "author": "unknown",
             "type": "XRAY_JSON",
-            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-kastov/xray-core/example-trojan-tcp-tls.json"
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-unknown/xray-core/example-trojan-tcp-tls.json"
         },
         {
             "name": "Example TROJAN-WS-TLS config",
-            "author": "kastov",
+            "author": "unknown",
             "type": "XRAY_JSON",
-            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-kastov/xray-core/example-trojan-ws-tls.json"
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-unknown/xray-core/example-trojan-ws-tls.json"
         }
     ]
 }
