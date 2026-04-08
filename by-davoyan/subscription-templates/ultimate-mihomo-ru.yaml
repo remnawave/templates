@@ -608,18 +608,12 @@ rules:
 
 
   # geosite-ru включает в себя и собирается автоматически тут (https://github.com/Davoyan/mihomo-rule-sets) - 
-  # 1. category-ru из репозитория geosite MetacubeX - https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ru.list
-  # 2. itdoginfo списки Russia outside  - https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/outside-raw.lst
-  # 3. hydraponique category-ru списки - https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/master/data/category-ru
-  # 4. yandex, mailru, drweb, kaspersky списки из репозитория geosite MetacubeX
+  # Подробнее о том, из чего формируются списки, читайте в readme https://github.com/Davoyan/mihomo-rule-sets
   - RULE-SET,geosite-ru,⚪🔵🔴 RU сайты 
 
 
   # geo-ip-for-ru (https://github.com/Davoyan/mihomo-rule-sets/tree/main/ip-for-ru/lists)
-  # Компилируется из двух гео баз - Ipinfo и Maxmind
-  # В список входят IP, если в одной из баз страна подсети RU или BY.
-  # А так же зарубежные подсети российских CDN и некоторых провайдеров (например Yandex)
-  # Warning! В список входит так же подсети AS, которые могут быть ограничены в России. Например у Cloudflare есть ip адреса с гео RU.
+  # Подробнее о том, из чего формируются списки, читайте в readme https://github.com/Davoyan/mihomo-rule-sets
   - RULE-SET,geoip-for-ru,⚪🔵🔴 RU сайты
 
 
