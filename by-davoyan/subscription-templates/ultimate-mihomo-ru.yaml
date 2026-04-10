@@ -121,20 +121,26 @@ dns:
     # DNS для доменов DNS серверов
     - https://94.140.14.14/dns-query#DIRECT #Adguard DNS
     - https://8.8.8.8/dns-query#DIRECT
+    - https://77.88.8.8/dns-query#DIRECT
   proxy-server-nameserver:
     # DNS для доменов прокси из раздела proxies
     - https://94.140.14.14/dns-query#DIRECT
     - https://8.8.8.8/dns-query#DIRECT
+    - https://77.88.8.8/dns-query#DIRECT
   direct-nameserver:
     # DNS для сайтов идущих через DIRECT
     - https://77.88.8.8/dns-query#DIRECT # Yandex DNS
     - https://8.8.8.8/dns-query#DIRECT # Google DNS
     - 77.88.8.8#DIRECT
+    - system
   nameserver:
     # Сервер по умолчанию, DNS запросы будут идти через то, что выбрано в "Остальные сайты"
     - https://8.8.8.8/dns-query#🌍 Остальные сайты
     - https://94.140.14.14/dns-query#🌍 Остальные сайты
   nameserver-policy:
+    # Приватные домены через системный ДНС
+    rule-set:geosite-private:
+      - system
     # Блокировка рекламы (опционально)
     rule-set:oisd_big:
       - rcode://refused # Код отклонённого DNS
@@ -272,11 +278,11 @@ rule-providers:
       - DOMAIN-SUFFIX,jivosite.com
       - DOMAIN-SUFFIX,vk.com
       - DOMAIN-SUFFIX,avira.com
-      - DOMAIN-SUFFIX,.ru
-      - DOMAIN-SUFFIX,.su
-      - DOMAIN-SUFFIX,.by
-      - DOMAIN-SUFFIX,.ru.com
-      - DOMAIN-SUFFIX,.ru.net
+      - DOMAIN-SUFFIX,ru
+      - DOMAIN-SUFFIX,su
+      - DOMAIN-SUFFIX,by
+      - DOMAIN-SUFFIX,ru.com
+      - DOMAIN-SUFFIX,ru.net
       - DOMAIN-SUFFIX,kudago.com
       - DOMAIN-SUFFIX,kinescope.io
       - DOMAIN-SUFFIX,redheadsound.studio
