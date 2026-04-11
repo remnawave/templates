@@ -1,0 +1,662 @@
+{
+  "locales": [
+    "ru",
+    "en",
+    "fr"
+  ],
+  "version": "1",
+  "uiConfig": {
+    "subscriptionInfoBlockType": "expanded",
+    "installationGuidesBlockType": "cards"
+  },
+  "platforms": {
+    "ios": {
+      "displayName": {
+        "en": "iOS",
+        "fr": "iOS",
+        "ru": "iOS"
+      },
+      "svgIconKey": "AppleIcon",
+      "apps": [
+        {
+          "name": "INCY",
+          "featured": true,
+          "blocks": [
+            {
+              "svgIconKey": "DownloadIcon",
+              "svgIconColor": "violet",
+              "title": {
+                "en": "App Installation",
+                "fr": "Installation de l'application",
+                "ru": "Установка приложения"
+              },
+              "description": {
+                "en": "Open the page in App Store and install INCY.",
+                "fr": "Ouvre la page de l’App Store et installe INCY.",
+                "ru": "Откройте страницу в App Store и установите современный клиент INCY."
+              },
+              "buttons": [
+                {
+                  "link": "https://apps.apple.com/ru/app/incy/id6756943388",
+                  "type": "external",
+                  "text": {
+                    "en": "App Store",
+                    "fr": "App Store",
+                    "ru": "App Store"
+                  },
+                  "svgIconKey": "ExternalLink"
+                }
+              ]
+            },
+            {
+              "svgIconKey": "CloudDownload",
+              "svgIconColor": "cyan",
+              "title": {
+                "en": "Add Subscription",
+                "fr": "Ajouter une souscription",
+                "ru": "Добавление подписки"
+              },
+              "description": {
+                "en": "Click the button below. INCY will open automatically and the subscription will be added.",
+                "fr": "Cliquez sur le bouton. L'abonnement sera ajouté automatiquement à INCY.",
+                "ru": "Нажмите кнопку ниже — приложение INCY откроется, и подписка добавится автоматически!"
+              },
+              "buttons": [
+                {
+                  "link": "incy://import/{{SUBSCRIPTION_LINK}}",
+                  "type": "subscriptionLink",
+                  "text": {
+                    "en": "Add Subscription",
+                    "fr": "Ajouter une souscription",
+                    "ru": "Добавить подписку"
+                  },
+                  "svgIconKey": "Plus"
+                }
+              ]
+            },
+            {
+              "svgIconKey": "Check",
+              "svgIconColor": "teal",
+              "title": {
+                "en": "Connect and use",
+                "fr": "Se connecter et utiliser",
+                "ru": "Подключение и использование"
+              },
+              "description": {
+                "en": "Open the app, select a server from the list, and tap connect.",
+                "fr": "Ouvrez l'application, sélectionnez un serveur et connectez-vous.",
+                "ru": "Откройте приложение, выберите сервер из списка и включите VPN. Готово!"
+              },
+              "buttons": []
+            }
+          ]
+        }
+      ]
+    },
+    "macos": {
+      "displayName": {
+        "en": "macOS",
+        "fr": "macOS",
+        "ru": "macOS"
+      },
+      "svgIconKey": "macOS",
+      "apps": [
+        {
+          "name": "INCY",
+          "featured": true,
+          "blocks": [
+            {
+              "svgIconKey": "DownloadIcon",
+              "svgIconColor": "cyan",
+              "title": {
+                "en": "App Installation",
+                "fr": "Installation de l'application",
+                "ru": "Установка приложения"
+              },
+              "description": {
+                "en": "Choose the version for your Mac, click the button below and install the INCY app.",
+                "fr": "Choisis la version pour ton Mac, clique sur le bouton ci‑dessous et installe l’app INCY.",
+                "ru": "Выберите версию, подходящую для процессора вашего Mac, скачайте и установите приложение INCY."
+              },
+              "buttons": [
+                {
+                  "link": "https://github.com/INCY-DEV/incy-platforms/releases/latest/download/incy-macos-arm64.dmg",
+                  "type": "external",
+                  "text": {
+                    "en": "Apple Silicon",
+                    "fr": "Apple Silicon",
+                    "ru": "Apple Silicon (M-процессоры)"
+                  },
+                  "svgIconKey": "ExternalLink"
+                },
+                {
+                  "link": "https://github.com/INCY-DEV/incy-platforms/releases/latest/download/incy-macos-intel.dmg",
+                  "type": "external",
+                  "text": {
+                    "en": "Mac Intel",
+                    "fr": "Mac Intel",
+                    "ru": "Mac Intel"
+                  },
+                  "svgIconKey": "ExternalLink"
+                }
+              ]
+            },
+            {
+              "svgIconKey": "CloudDownload",
+              "svgIconColor": "cyan",
+              "title": {
+                "en": "Add Subscription",
+                "fr": "Ajouter une souscription",
+                "ru": "Добавление подписки"
+              },
+              "description": {
+                "en": "Click the button below. INCY will open automatically and the subscription will be added.",
+                "fr": "Cliquez sur le bouton. L'abonnement sera ajouté automatiquement à INCY.",
+                "ru": "Нажмите кнопку ниже — приложение INCY откроется, и подписка добавится автоматически!"
+              },
+              "buttons": [
+                {
+                  "link": "incy://import/{{SUBSCRIPTION_LINK}}",
+                  "type": "subscriptionLink",
+                  "text": {
+                    "en": "Add Subscription",
+                    "fr": "Ajouter une souscription",
+                    "ru": "Добавить подписку"
+                  },
+                  "svgIconKey": "Plus"
+                }
+              ]
+            },
+            {
+              "svgIconKey": "Check",
+              "svgIconColor": "teal",
+              "title": {
+                "en": "Connect and use",
+                "fr": "Se connecter et utiliser",
+                "ru": "Подключение и использование"
+              },
+              "description": {
+                "en": "Open the app, choose a server, and turn on the VPN.",
+                "fr": "Ouvrez l'application, choisissez un serveur et activez le VPN.",
+                "ru": "Откройте приложение INCY, выберите сервер и нажмите кнопку подключения."
+              },
+              "buttons": []
+            }
+          ]
+        }
+      ]
+    },
+    "android": {
+      "displayName": {
+        "en": "Android",
+        "fr": "Android",
+        "ru": "Android"
+      },
+      "svgIconKey": "Android",
+      "apps": [
+        {
+          "name": "INCY",
+          "featured": true,
+          "blocks": [
+            {
+              "svgIconKey": "DownloadIcon",
+              "svgIconColor": "violet",
+              "title": {
+                "en": "App Installation",
+                "fr": "Installation de l'application",
+                "ru": "Установка приложения"
+              },
+              "description": {
+                "en": "Install INCY from Google Play or download the APK directly.",
+                "fr": "Installez INCY depuis Google Play ou téléchargez l'APK directement.",
+                "ru": "Установите INCY из Google Play или скачайте APK-файл напрямую."
+              },
+              "buttons": [
+                {
+                  "link": "https://play.google.com/store/apps/details?id=llc.itdev.incy",
+                  "type": "external",
+                  "text": {
+                    "en": "Google Play",
+                    "fr": "Google Play",
+                    "ru": "Google Play"
+                  },
+                  "svgIconKey": "ExternalLink"
+                },
+                {
+                  "link": "https://github.com/INCY-DEV/incy-platforms/releases/latest/download/Incy.apk",
+                  "type": "external",
+                  "text": {
+                    "en": "Download APK",
+                    "fr": "Télécharger l'APK",
+                    "ru": "Скачать APK"
+                  },
+                  "svgIconKey": "ExternalLink"
+                }
+              ]
+            },
+            {
+              "svgIconKey": "CloudDownload",
+              "svgIconColor": "cyan",
+              "title": {
+                "en": "Add Subscription",
+                "fr": "Ajouter une souscription",
+                "ru": "Добавление подписки"
+              },
+              "description": {
+                "en": "Click the button below. INCY will open automatically and the subscription will be added.",
+                "fr": "Cliquez sur le bouton. L'abonnement sera ajouté automatiquement à INCY.",
+                "ru": "Нажмите кнопку ниже — приложение INCY откроется, и подписка добавится автоматически!"
+              },
+              "buttons": [
+                {
+                  "link": "incy://import/{{SUBSCRIPTION_LINK}}",
+                  "type": "subscriptionLink",
+                  "text": {
+                    "en": "Add Subscription",
+                    "fr": "Ajouter une souscription",
+                    "ru": "Добавить подписку"
+                  },
+                  "svgIconKey": "Plus"
+                }
+              ]
+            },
+            {
+              "svgIconKey": "Check",
+              "svgIconColor": "teal",
+              "title": {
+                "en": "Connect and use",
+                "fr": "Se connecter et utiliser",
+                "ru": "Подключение и использование"
+              },
+              "description": {
+                "en": "Open the app, select a server from the list, and tap connect.",
+                "fr": "Ouvrez l'application, sélectionnez un serveur et connectez-vous.",
+                "ru": "Откройте приложение, выберите сервер из списка и включите VPN. Готово!"
+              },
+              "buttons": []
+            }
+          ]
+        }
+      ]
+    },
+    "windows": {
+      "displayName": {
+        "en": "Windows",
+        "fr": "Windows",
+        "ru": "Windows"
+      },
+      "svgIconKey": "Windows",
+      "apps": [
+        {
+          "name": "INCY",
+          "featured": true,
+          "blocks": [
+            {
+              "svgIconKey": "DownloadIcon",
+              "svgIconColor": "cyan",
+              "title": {
+                "en": "App Installation",
+                "fr": "Installation de l'application",
+                "ru": "Установка приложения"
+              },
+              "description": {
+                "en": "Download and run the installer to set up INCY on your PC.",
+                "fr": "Téléchargez et exécutez l'installateur pour configurer INCY sur votre PC.",
+                "ru": "Скачайте и запустите установщик для настройки INCY на вашем ПК."
+              },
+              "buttons": [
+                {
+                  "link": "https://github.com/INCY-DEV/incy-platforms/releases/latest/download/incy-windows-setup.exe",
+                  "type": "external",
+                  "text": {
+                    "en": "Windows Installer",
+                    "fr": "Installateur Windows",
+                    "ru": "Установщик Windows"
+                  },
+                  "svgIconKey": "ExternalLink"
+                }
+              ]
+            },
+            {
+              "svgIconKey": "CloudDownload",
+              "svgIconColor": "cyan",
+              "title": {
+                "en": "Add Subscription",
+                "fr": "Ajouter une souscription",
+                "ru": "Добавление подписки"
+              },
+              "description": {
+                "en": "Click the button below. INCY will open automatically and the subscription will be added.",
+                "fr": "Cliquez sur le bouton. L'abonnement sera ajouté automatiquement à INCY.",
+                "ru": "Нажмите кнопку ниже — приложение INCY откроется, и подписка добавится автоматически!"
+              },
+              "buttons": [
+                {
+                  "link": "incy://import/{{SUBSCRIPTION_LINK}}",
+                  "type": "subscriptionLink",
+                  "text": {
+                    "en": "Add Subscription",
+                    "fr": "Ajouter une souscription",
+                    "ru": "Добавить подписку"
+                  },
+                  "svgIconKey": "Plus"
+                }
+              ]
+            },
+            {
+              "svgIconKey": "Check",
+              "svgIconColor": "teal",
+              "title": {
+                "en": "Connect and use",
+                "fr": "Se connecter et utiliser",
+                "ru": "Подключение и использование"
+              },
+              "description": {
+                "en": "Open the app, choose a server, and turn on the VPN.",
+                "fr": "Ouvrez l'application, choisissez un serveur et activez le VPN.",
+                "ru": "Откройте приложение INCY, выберите сервер и нажмите кнопку подключения."
+              },
+              "buttons": []
+            }
+          ]
+        }
+      ]
+    },
+    "appleTV": {
+      "displayName": {
+        "en": "Apple TV",
+        "fr": "Apple TV",
+        "ru": "Apple TV"
+      },
+      "svgIconKey": "TV",
+      "apps": [
+        {
+          "name": "INCY",
+          "featured": true,
+          "blocks": [
+            {
+              "svgIconKey": "DownloadIcon",
+              "svgIconColor": "violet",
+              "title": {
+                "en": "App Installation",
+                "fr": "Installation de l'application",
+                "ru": "Установка приложения"
+              },
+              "description": {
+                "en": "Open the page in the App Store on your Apple TV and install INCY.",
+                "fr": "Ouvrez la page dans l'App Store sur votre Apple TV et installez INCY.",
+                "ru": "Откройте поиск в App Store на вашем Apple TV, найдите приложение INCY и установите его."
+              },
+              "buttons": [
+                {
+                  "link": "https://apps.apple.com/ru/app/incy/id6756943388",
+                  "type": "external",
+                  "text": {
+                    "en": "App Store",
+                    "fr": "App Store",
+                    "ru": "App Store"
+                  },
+                  "svgIconKey": "ExternalLink"
+                }
+              ]
+            },
+            {
+              "svgIconKey": "CloudDownload",
+              "svgIconColor": "cyan",
+              "title": {
+                "en": "Add Subscription",
+                "fr": "Ajouter une souscription",
+                "ru": "Добавление подписки"
+              },
+              "description": {
+                "en": "Click the button below to add your subscription to INCY.",
+                "fr": "Cliquez sur le bouton pour ajouter l'abonnement à INCY.",
+                "ru": "Нажмите кнопку ниже, чтобы скопировать или передать подписку на ваш Apple TV."
+              },
+              "buttons": [
+                {
+                  "link": "incy://import/{{SUBSCRIPTION_LINK}}",
+                  "type": "subscriptionLink",
+                  "text": {
+                    "en": "Add Subscription",
+                    "fr": "Ajouter une souscription",
+                    "ru": "Добавить подписку"
+                  },
+                  "svgIconKey": "Plus"
+                }
+              ]
+            },
+            {
+              "svgIconKey": "Check",
+              "svgIconColor": "teal",
+              "title": {
+                "en": "Connect and use",
+                "fr": "Se connecter et utiliser",
+                "ru": "Подключение и использование"
+              },
+              "description": {
+                "en": "Open the app, select a server, and turn on the VPN.",
+                "fr": "Ouvrez l'application, sélectionnez un serveur et connectez-vous.",
+                "ru": "Откройте приложение на ТВ, выберите нужную страну и нажмите кнопку подключения."
+              },
+              "buttons": []
+            }
+          ]
+        }
+      ]
+    },
+    "androidTV": {
+      "displayName": {
+        "en": "Android TV",
+        "fr": "Android TV",
+        "ru": "Android TV"
+      },
+      "svgIconKey": "TV",
+      "apps": [
+        {
+          "name": "INCY",
+          "featured": true,
+          "blocks": [
+            {
+              "svgIconKey": "DownloadIcon",
+              "svgIconColor": "violet",
+              "title": {
+                "en": "App Installation",
+                "fr": "Installation de l'application",
+                "ru": "Установка приложения"
+              },
+              "description": {
+                "en": "Install INCY from Google Play or download the APK directly.",
+                "fr": "Installez INCY depuis Google Play ou téléchargez l'APK directement.",
+                "ru": "Установите INCY из Google Play или скачайте APK-файл напрямую."
+              },
+              "buttons": [
+                {
+                  "link": "https://play.google.com/store/apps/details?id=llc.itdev.incy",
+                  "type": "external",
+                  "text": {
+                    "en": "Google Play",
+                    "fr": "Google Play",
+                    "ru": "Google Play"
+                  },
+                  "svgIconKey": "ExternalLink"
+                },
+                {
+                  "link": "https://github.com/INCY-DEV/incy-platforms/releases/latest/download/Incy.apk",
+                  "type": "external",
+                  "text": {
+                    "en": "Download APK",
+                    "fr": "Télécharger l'APK",
+                    "ru": "Скачать APK"
+                  },
+                  "svgIconKey": "ExternalLink"
+                }
+              ]
+            },
+            {
+              "svgIconKey": "CloudDownload",
+              "svgIconColor": "cyan",
+              "title": {
+                "en": "Add Subscription",
+                "fr": "Ajouter une souscription",
+                "ru": "Добавление подписки"
+              },
+              "description": {
+                "en": "Click the button below. INCY will open automatically and the subscription will be added.",
+                "fr": "Cliquez sur le bouton. L'abonnement sera ajouté automatiquement à INCY.",
+                "ru": "Нажмите кнопку ниже — приложение INCY откроется, и подписка добавится автоматически!"
+              },
+              "buttons": [
+                {
+                  "link": "incy://import/{{SUBSCRIPTION_LINK}}",
+                  "type": "subscriptionLink",
+                  "text": {
+                    "en": "Add Subscription",
+                    "fr": "Ajouter une souscription",
+                    "ru": "Добавить подписку"
+                  },
+                  "svgIconKey": "Plus"
+                }
+              ]
+            },
+            {
+              "svgIconKey": "Check",
+              "svgIconColor": "teal",
+              "title": {
+                "en": "Connect and use",
+                "fr": "Se connecter et utiliser",
+                "ru": "Подключение и использование"
+              },
+              "description": {
+                "en": "Open the app, select a server from the list, and tap connect.",
+                "fr": "Ouvrez l'application, sélectionnez un serveur et connectez-vous.",
+                "ru": "Откройте приложение, выберите сервер из списка и включите VPN. Готово!"
+              },
+              "buttons": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "svgLibrary": {
+    "TV": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z\" /><path d=\"M16 3l-4 4l-4 -4\" /></svg>",
+    "Plus": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M12 5v14\" /><path d=\"M5 12h14\" /></svg>",
+    "Check": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M5 12l5 5l10 -10\"/></svg>",
+    "macOS": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M3 4m0 1a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1z\" /><path d=\"M7 8v1\" /><path d=\"M17 8v1\" /><path d=\"M12.5 4c-.654 1.486 -1.26 3.443 -1.5 9h2.5c-.19 2.867 .094 5.024 .5 7\" /><path d=\"M7 15.5c3.667 2 6.333 2 10 0\" /></svg>",
+    "Android": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M4 10l0 6\" /><path d=\"M20 10l0 6\" /><path d=\"M7 9h10v8a1 1 0 0 1 -1 1h-8a1 1 0 0 1 -1 -1v-8a5 5 0 0 1 10 0\" /><path d=\"M8 3l1 2\" /><path d=\"M16 3l-1 2\" /><path d=\"M9 18l0 3\" /><path d=\"M15 18l0 3\" /></svg>",
+    "Windows": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M17.8 20l-12 -1.5c-1 -.1 -1.8 -.9 -1.8 -1.9v-9.2c0 -1 .8 -1.8 1.8 -1.9l12 -1.5c1.2 -.1 2.2 .8 2.2 1.9v12.1c0 1.2 -1.1 2.1 -2.2 1.9z\" /><path d=\"M12 5l0 14\" /><path d=\"M4 12l16 0\" /></svg>",
+    "AppleIcon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M8.286 7.008c-3.216 0 -4.286 3.23 -4.286 5.92c0 3.229 2.143 8.072 4.286 8.072c1.165 -.05 1.799 -.538 3.214 -.538c1.406 0 1.607 .538 3.214 .538s4.286 -3.229 4.286 -5.381c-.03 -.011 -2.649 -.434 -2.679 -3.23c-.02 -2.335 2.589 -3.179 2.679 -3.228c-1.096 -1.606 -3.162 -2.113 -3.75 -2.153c-1.535 -.12 -3.032 1.077 -3.75 1.077c-.729 0 -2.036 -1.077 -3.214 -1.077z\" /><path d=\"M12 4a2 2 0 0 0 2 -2a2 2 0 0 0 -2 2\" /></svg>",
+    "DownloadIcon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2\" /><path d=\"M7 11l5 5l5 -5\" /><path d=\"M12 4l0 12\" /></svg>",
+    "ExternalLink": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6\" /><path d=\"M11 13l9 -9\" /><path d=\"M15 4h5v5\" /></svg>",
+    "CloudDownload": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M19 18a3.5 3.5 0 0 0 0 -7h-1a5 4.5 0 0 0 -11 -2a4.6 4.4 0 0 0 -2.1 8.4\" /><path d=\"M12 13l0 9\" /><path d=\"M9 19l3 3l3 -3\" /></svg>"
+  },
+  "baseSettings": {
+    "metaTitle": "Subscription",
+    "metaDescription": "Subscription",
+    "showConnectionKeys": false,
+    "hideGetLinkButton": false
+  },
+  "baseTranslations": {
+    "installationGuideHeader": {
+      "en": "Installation",
+      "fr": "Installation",
+      "ru": "Установка"
+    },
+    "connectionKeysHeader": {
+      "en": "Connection Keys",
+      "fr": "Clés de connexion",
+      "ru": "Ключи подключения"
+    },
+    "linkCopied": {
+      "en": "Likn copied",
+      "fr": "Lien copié",
+      "ru": "Ссылка скопирована"
+    },
+    "linkCopiedToClipboard": {
+      "en": "Link copied to clipboard",
+      "fr": "Lien copié dans le presse-papiers",
+      "ru": "Ссылка скопирована в буфер обмена"
+    },
+    "getLink": {
+      "en": "Get Link",
+      "fr": "Obtenir le lien",
+      "ru": "Получение ссылки"
+    },
+    "scanQrCode": {
+      "en": "Scan the QR code above in the client",
+      "fr": "Scannez le code QR ci-dessus dans le client",
+      "ru": "Отсканируйте QR-код в приложении"
+    },
+    "scanQrCodeDescription": {
+      "en": "Easily add the subscription to any client. There's another option: copy the link below and paste it into the client",
+      "fr": "Ajoutez facilement l'abonnement à n'importe quel client. Il y a une autre option : copiez le lien ci-dessous et collez-le dans le client",
+      "ru": "Простое добавление подписки в любой клиент. Есть и другой вариант: скопируйте ссылку ниже и вставьте в клиент."
+    },
+    "copyLink": {
+      "en": "Copy link",
+      "fr": "Copier le lien",
+      "ru": "Скопировать ссылку"
+    },
+    "name": {
+      "en": "Username",
+      "fr": "Nom d'utilisateur",
+      "ru": "Имя пользователя"
+    },
+    "status": {
+      "en": "Status",
+      "fr": "Statut",
+      "ru": "Статус"
+    },
+    "active": {
+      "en": "Active",
+      "fr": "Actif",
+      "ru": "Активна"
+    },
+    "inactive": {
+      "en": "Inactive",
+      "fr": "Inactif",
+      "ru": "Неактивна"
+    },
+    "expires": {
+      "en": "Expires",
+      "fr": "Expire",
+      "ru": "Истекает"
+    },
+    "bandwidth": {
+      "en": "Bandwidth",
+      "fr": "Bande passante",
+      "ru": "Трафик"
+    },
+    "scanToImport": {
+      "en": "Scan to import this key",
+      "fr": "Scannez pour importer cette clé",
+      "ru": "Отсканируйте QR-код для импорта ключа"
+    },
+    "expiresIn": {
+      "en": "Expires in",
+      "fr": "Expire",
+      "ru": "Истекает"
+    },
+    "expired": {
+      "en": "Expired",
+      "fr": "Expiré",
+      "ru": "Истекла"
+    },
+    "unknown": {
+      "en": "Unknown",
+      "fr": "Inconnu",
+      "ru": "Неизвестно"
+    },
+    "indefinitely": {
+      "en": "Indefinitely",
+      "fr": "Indéfiniment",
+      "ru": "Бессрочно"
+    }
+  },
+  "brandingSettings": {
+    "title": "Subscription",
+    "logoUrl": "https://docs.rw/img/logo.svg",
+    "supportUrl": "https://dummy.docs.rw"
+  }
+}
