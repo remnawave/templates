@@ -286,6 +286,131 @@
                 "zh": "iOS"
             }
         },
+        "linux": {
+            "apps": [
+                {
+                    "name": "Happ",
+                    "blocks": [
+                        {
+                            "title": {
+                                "en": "App Installation",
+                                "fa": "نصب برنامه",
+                                "fr": "Installation de l'application",
+                                "ru": "Установка приложения",
+                                "zh": "应用安装"
+                            },
+                            "buttons": [
+                                {
+                                    "link": "https://github.com/Happ-proxy/happ-desktop/releases/latest/download/Happ.linux.x64.deb",
+                                    "text": {
+                                        "en": "deb",
+                                        "fa": "deb",
+                                        "fr": "deb",
+                                        "ru": "deb",
+                                        "zh": "deb"
+                                    },
+                                    "type": "external",
+                                    "svgIconKey": "ExternalLink"
+                                },
+                                {
+                                    "link": "https://github.com/Happ-proxy/happ-desktop/releases/latest/download/Happ.linux.x64.rpm",
+                                    "text": {
+                                        "en": "rpm",
+                                        "fa": "rpm",
+                                        "fr": "rpm",
+                                        "ru": "rpm",
+                                        "zh": "rpm"
+                                    },
+                                    "type": "external",
+                                    "svgIconKey": "ExternalLink"
+                                },
+                                {
+                                    "link": "https://github.com/Happ-proxy/happ-desktop/releases/latest/download/Happ.linux.x64.pkg.tar.zst",
+                                    "text": {
+                                        "en": "pkg",
+                                        "fa": "pkg",
+                                        "fr": "pkg",
+                                        "ru": "pkg",
+                                        "zh": "pkg"
+                                    },
+                                    "type": "external",
+                                    "svgIconKey": "ExternalLink"
+                                }
+                            ],
+                            "svgIconKey": "DownloadIcon",
+                            "description": {
+                                "en": "Choose the version for your device, click the button below and install the app.",
+                                "fa": "نسخه مناسب برای دستگاه خود را انتخاب کنید، دکمه زیر را فشار دهید و برنامه را نصب کنید",
+                                "fr": "Choisis la version pour ton appareil, clique sur le bouton ci‑dessous et installe l’app.",
+                                "ru": "Выберите подходящую версию для вашего устройства, нажмите на кнопку ниже и установите приложение.",
+                                "zh": "选择适合您设备的版本，点击下方按钮并安装应用程序。"
+                            },
+                            "svgIconColor": "cyan"
+                        },
+                        {
+                            "title": {
+                                "en": "Add Subscription",
+                                "fa": "اضافه کردن اشتراک",
+                                "fr": "Ajouter une souscription",
+                                "ru": "Добавление подписки",
+                                "zh": "添加订阅"
+                            },
+                            "buttons": [
+                                {
+                                    "link": "happ://add/{{SUBSCRIPTION_LINK}}",
+                                    "text": {
+                                        "en": "Add Subscription",
+                                        "fa": "اضافه کردن اشتراک",
+                                        "fr": "Ajouter une souscription",
+                                        "ru": "Добавить подписку",
+                                        "zh": "添加订阅"
+                                    },
+                                    "type": "subscriptionLink",
+                                    "svgIconKey": "Plus"
+                                }
+                            ],
+                            "svgIconKey": "CloudDownload",
+                            "description": {
+                                "en": "Click the button below — the app will open and the subscription will be added automatically",
+                                "fa": "برای افزودن خودکار اشتراک روی دکمه زیر کلیک کنید - برنامه باز خواهد شد",
+                                "fr": "Clique sur le bouton ci‑dessous — l’app s’ouvrira et l’abonnement sera ajouté automatiquement.",
+                                "ru": "Нажмите кнопку ниже — приложение откроется, и подписка добавится автоматически.",
+                                "zh": "点击下方按钮——应用将会打开，订阅会自动添加。"
+                            },
+                            "svgIconColor": "cyan"
+                        },
+                        {
+                            "title": {
+                                "en": "Connect and use",
+                                "fa": "متصل شوید و استفاده کنید",
+                                "fr": "Se connecter et utiliser",
+                                "ru": "Подключение и использование",
+                                "zh": "连接并使用"
+                            },
+                            "buttons": [],
+                            "svgIconKey": "Check",
+                            "description": {
+                                "en": "In the main section, click the large power button in the center to connect to VPN. Don't forget to select a server from the server list. If needed, choose another server from the server list.",
+                                "fa": "در بخش اصلی، دکمه بزرگ روشن/خاموش در مرکز را برای اتصال به VPN کلیک کنید. فراموش نکنید که یک سرور را از لیست سرورها انتخاب کنید. در صورت نیاز، سرور دیگری را از لیست سرورها انتخاب کنید.",
+                                "fr": "Dans la section principale, appuie sur le grand bouton central pour te connecter au VPN. N’oublie pas de choisir un serveur dans la liste ; si besoin, choisis‑en un autre.",
+                                "ru": "В главном разделе нажмите большую кнопку включения в центре для подключения к VPN. Не забудьте выбрать сервер в списке серверов. При необходимости выберите другой сервер из списка серверов.",
+                                "zh": "在主界面，点击中央的大电源按钮以连接 VPN。不要忘记从服务器列表中选择服务器。如有需要，可选择其它服务器。"
+                            },
+                            "svgIconColor": "teal"
+                        }
+                    ],
+                    "featured": false
+                }
+            ],
+            "svgIconKey": "Ubuntu",
+            "displayName": {
+                "en": "Linux",
+                "fa": "Linux",
+                "fr": "Linux",
+                "ru": "Linux",
+                "zh": "Linux",
+            }
+        },
         "macos": {
             "apps": [
                 {
