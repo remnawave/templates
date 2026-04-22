@@ -60,6 +60,12 @@
             "author": "unknown",
             "type": "XRAY_JSON",
             "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-unknown/xray-core/example-trojan-ws-tls.json"
+        },
+        {
+            "name": "Example VLESS TLS AND HY2 config",
+            "author": "x1roko",
+            "type": "XRAY_JSON",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-x1roko/xray-core/example-vless-tls-hy2-443-combo.json"
         }
     ]
 }
