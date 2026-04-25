@@ -173,7 +173,7 @@ dns:
       - system
     # Блокировка рекламы (опционально)
     rule-set:oisd_big:
-      - rcode://refused # Код отклонённого DNS
+      - rcode://success # Код отклонённого DNS
     # DNS для сайтов с файлами правил
     raw.githubusercontent.com,cdn.jsdelivr.net,github.com:
       - https://8.8.8.8/dns-query#🚫 Недоступные сайты
