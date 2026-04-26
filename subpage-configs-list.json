@@ -36,6 +36,18 @@
             "author": "undergut",
             "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-undergut/subscription-page/add-more-locales.json",
             "type": "SUBPAGE_CONFIG"
+        },
+        {
+            "name": "INCY Only Subscription Page Config",
+            "author": "vasyan4ik01",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-vasyan/subscription-page/incy-only.json",
+            "type": "SUBPAGE_CONFIG"
+        },
+        {
+            "name": "INCY and Happ Subscription Page Config",
+            "author": "vasyan4ik01",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-vasyan/subscription-page/incy-happ.json",
+            "type": "SUBPAGE_CONFIG"
         }
     ]
 }
