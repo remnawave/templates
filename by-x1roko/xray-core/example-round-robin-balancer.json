@@ -1,0 +1,153 @@
+{
+  "log": {
+    "loglevel": "none"
+  },
+  "inbounds": [
+    {
+      "tag": "MAIN-INBOUND-443",
+      "port": 443,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "decryption": "none"
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      },
+      "streamSettings": {
+        "network": "raw",
+        "security": "reality",
+        "realitySettings": {
+          "target": "#REPLACE_WITH_YOUR_DEST, EXAMPLE: domain.com:443",
+          "shortIds": [
+            ""
+          ],
+          "privateKey": "#REPLACE_WITH_YOUR_PRIVATE_KEY",
+          "serverNames": [
+            "#REPLACE_WITH_YOUR_SERVER_NAMES, EXAMPLE: domain.com"
+          ]
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "DIRECT",
+      "protocol": "freedom"
+    },
+    {
+      "tag": "BLOCK",
+      "protocol": "blackhole"
+    },
+    {
+      "tag": "bridge-out-FirstOutNode",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "port": 443,
+            "users": [
+              {
+                "id": "#REPLACE_WITH_YOUR_PASSWORD_FROM_SERVICE_USER, USER -> MORE ACTIONS -> DETAILED INFO -> VLESS UUID",
+                "flow": "xtls-rprx-vision",
+                "level": 0,
+                "encryption": "none"
+              }
+            ],
+            "address": "#REPLACE_WITH_YOUR_FREEDOM_NODE_ADDRESS"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "raw",
+        "security": "reality",
+        "realitySettings": {
+          "password": "#REPLACE_WITH_YOUR_PUBLIC_KEY_FROM_OUTBAUND_KEYPAIR",
+          "serverName": "#REPLACE_WITH_YOUR_SERVER_NAMES, EXAMPLE: domain.com"
+        }
+      }
+    },
+    {
+      "tag": "bridge-out-SecondOutNode",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "port": 443,
+            "users": [
+              {
+                "id": "#REPLACE_WITH_YOUR_PASSWORD_FROM_SERVICE_USER, USER -> MORE ACTIONS -> DETAILED INFO -> VLESS UUID",
+                "flow": "xtls-rprx-vision",
+                "level": 0,
+                "encryption": "none"
+              }
+            ],
+            "address": "#REPLACE_WITH_YOUR_FREEDOM_NODE_ADDRESS"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "raw",
+        "security": "reality",
+        "realitySettings": {
+          "password": "#REPLACE_WITH_YOUR_PUBLIC_KEY_FROM_OUTBAUND_KEYPAIR",
+          "serverName": "#REPLACE_WITH_YOUR_SERVER_NAMES, EXAMPLE: domain.com"
+        }
+      }
+    }
+  ],
+  "routing": {
+    "rules": [
+      {
+        "ip": [
+          "geoip:private"
+        ],
+        "type": "field",
+        "outboundTag": "BLOCK"
+      },
+      {
+        "type": "field",
+        "domain": [
+          "geosite:private"
+        ],
+        "outboundTag": "BLOCK"
+      },
+      {
+        "type": "field",
+        "protocol": [
+          "bittorrent"
+        ],
+        "outboundTag": "BLOCK"
+      },
+      {
+        "type": "field",
+        "network": "tcp,udp",
+        "balancerTag": "all-bridges-bal"
+      }
+    ],
+    "balancers": [
+      {
+        "tag": "all-bridges-bal",
+        "selector": [
+          "bridge-out-"
+        ],
+        "strategy": {
+          "type": "roundRobin"
+        }
+      }
+    ]
+  },
+  "observatory": {
+    "probeURL": "https://www.google.com/generate_204",
+    "probeInterval": "30s",
+    "subjectSelector": [
+      "bridge-out-"
+    ]
+  }
+}

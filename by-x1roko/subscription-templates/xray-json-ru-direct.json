@@ -1,0 +1,165 @@
+{
+  "dns": {
+    "servers": [
+      "1.1.1.1",
+      "1.0.0.1"
+    ],
+    "queryStrategy": "UseIP"
+  },
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "domain": [
+          "regexp:^.*yandex\\.(ru|com|net|st|by|kz|uz|lt|lv|ee|tm|tj|az|fr|de|eu|jobs|mobi|org|sx|tr|ua|aero|asia|cloud)$",
+          "regexp:^.*(ya\\.ru|ya\\.cc|yastat\\.net|yastatic\\.net|yastatic-net\\.ru|yandex-team\\.ru|yandexcloud\\.net|yandex-bank\\.net)$",
+          "regexp:^.*(kinopoisk\\.ru|clck\\.ru|adfox\\.ru|shedevrum\\.ai|meteum\\.ai|elama\\.ru|turbopages\\.org|berizaryad\\.ru)$",
+          "regexp:^.*yango\\.(com|taxi|tech|africa|ao|bh|fi|qa)$",
+          "regexp:^.+\\.yandex$",
+          "regexp:^xn--d1acpjx3f\\.xn--p1ai$",
+          "regexp:^.*(vk|mail|ok|odnoklassniki|my\\.games|rustore|youla|dzen|rutube|tamtam|sferum|skillbox|gb|skillfactory|uchi|yaklass|tarantool|boosty|donationalerts|yclients|viqeo)\\.(ru|com|me|us|net|io|tv|team|company|app|chat|online|pro|st)$",
+          "regexp:^.*(bk\\.ru|inbox\\.ru|internet\\.ru|list\\.ru|xmail\\.ru|ya\\.cc|ya\\.ru|clck\\.ru)$",
+          "regexp:^.*(imgsmail|cdnmail|attachmail|mrgcdn|mycdn|staticmy|vmailru|bizmrg|datacloudmy|mradx|mytopf|smailru|vk-portal|userapi|vkcs)\\.(ru|net|me|com|cloud)$",
+          "regexp:^.*(icq|mirabilis|mirandaicq|ciciq|goicq)\\.(com|net|org|ru|asia|at|biz|de|fr|eu|im|lt|mobi|sg)$",
+          "regexp:^.*(algoritmika\\.org|code-class\\.ru|lerna\\.ru|umschool\\.net|cybersport\\.ru|ruhub\\.tv|uma\\.media)$",
+          "regexp:^xn--80asgb\\.xn--p1ai$",
+          "regexp:^xn--e1aigb\\.xn--p1ai$",
+          "regexp:^xn--.*\\.com$",
+          "domain:armgs.team",
+          "domain:bargipsy.com",
+          "domain:boom.ru",
+          "domain:hrtek.ru",
+          "domain:koddobra.ru",
+          "domain:lovina.app",
+          "domain:mediumquality.ru",
+          "domain:memealerts.com",
+          "domain:movika.com",
+          "domain:summerstage.ru",
+          "domain:tech-mail.ru",
+          "domain:vk-apps.com",
+          "domain:vk-apps.ru",
+          "domain:vk-records.ru",
+          "domain:vk-stadium.ru",
+          "domain:vkclips.app",
+          "domain:vkgo.app",
+          "domain:vklive.app",
+          "domain:vkvideo.ru",
+          "regexp:^.*\\.gov\\.ru$",
+          "regexp:^.*\\.mil\\.ru$",
+          "regexp:^.*(gosuslugi\\.ru|gu-st\\.ru|emias\\.info|mgfoms\\.ru|edu\\.ru|cbr\\.ru|cikrf\\.ru|ebs\\.ru|goskey\\.ru|grfc\\.ru|izbirkom\\.ru|kremlin\\.ru|nalog\\.ru)$",
+          "regexp:^.*(mos\\.ru|mosreg\\.ru|spb\\.ru|sevastopol\\.ru|adygeya\\.ru|bashkiria\\.ru|buryatia\\.ru|chuvashia\\.ru|crimea\\.ru|dagestan\\.ru|grozny\\.ru|i-ola\\.ru|izhevsk\\.ru|kalmykia\\.ru|karelia\\.ru|kazan\\.ru|kchr\\.ru|khakassia\\.ru|mari-el\\.ru|mari\\.ru|mordovia\\.ru|nalchik\\.ru|ptz\\.ru|rkomi\\.ru|tatarstan\\.ru|tuva\\.ru|udm\\.ru|udmurtia\\.ru|ulan-ude\\.ru|vladikavkaz\\.ru|yakutia\\.ru)$",
+          "regexp:^.*(altai\\.ru|chita\\.ru|kamchatka\\.ru|khabarovsk\\.ru|khv\\.ru|krasnodar\\.su|krasnoyarsk\\.ru|kuban\\.ru|marine\\.ru|perm\\.ru|stavropol\\.ru|stv\\.ru|vl\\.ru|vladivostok\\.ru|amur\\.ru|arkhangelsk\\.ru|astrakhan\\.ru|belgorod\\.ru|bir\\.ru|bryansk\\.ru|cbg\\.ru|chel\\.ru|chelyabinsk\\.ru|ekburg\\.ru|irk\\.ru|irkutsk\\.ru|ivanovo\\.ru|jar\\.ru|kaluga\\.ru|kemerovo\\.ru|kirov\\.ru|koenig\\.ru|kostroma\\.ru|kurgan\\.ru|kursk\\.ru|lipetsk\\.ru|magadan\\.ru|murmansk\\.ru|nn\\.ru|nov\\.ru|novosibirsk\\.ru|nsk\\.ru|omsk\\.ru|orb\\.ru|oryol\\.ru|penza\\.ru|psk\\.ru|pskov\\.ru|rnd\\.ru|ryazan\\.ru|sakhalin\\.ru|samara\\.ru|saratov\\.ru|simbirsk\\.ru|smolensk\\.ru|tambov\\.ru|tom\\.ru|tomsk\\.ru|tsaritsyn\\.ru|tsk\\.ru|tula\\.ru|tver\\.ru|tyumen\\.ru|vladimir\\.ru|vlg\\.ru|volgograd\\.ru|vologda\\.ru|voronezh\\.ru|vrn\\.ru|vyatka\\.ru|yaroslavl\\.ru|yuzhno-sakhalinsk\\.ru|chukotka\\.ru|jamal\\.ru|surgut\\.ru|yamal\\.ru|zdrav10\\.ru)$",
+          "regexp:^xn--80ajghhoc2aj1c8b\\.xn--p1ai$",
+          "regexp:^xn--80acgfbsl1azdqr\\.xn--p1ai$",
+          "full:psk",
+          "regexp:^.*(alfabank\\.(ru|st)|alfadirect\\.ru|myapelsin\\.ru)$",
+          "domain:alfabank.oavdo.amc",
+          "regexp:^.*(sberbank\\.ru|sber\\.ru|sber-bank\\.ru|sberclass\\.ru|sberdevices\\.ru|sbermarketing\\.ru|sbergraduate\\.ru|sbersecurities\\.ru)$",
+          "regexp:^.*(tbank\\.ru|tinkoff\\.ru|t-bank\\.ru|t-capital\\.ru|rosbank\\.ru)$",
+          "regexp:^.*(gazprombank\\.(ru|com|investments)|gid\\.ru|gpb\\.ru)$",
+          "regexp:^.*(vtb\\.ru|vtb\\.com|vtbconnect\\.ru|pochtabank\\.ru)$",
+          "regexp:^.*(psbank\\.ru|psb\\.ru|payment\\.ru|psb-ocenka\\.ru|rshb\\.ru|abr\\.ru|mkb\\.ru)$",
+          "regexp:^.*(tochka\\.com|tochka-tech\\.com|bcs\\.ru|bcs-bank\\.ru|broker\\.ru|mtsdengi\\.ru|dbo-dengi\\.online)$",
+          "regexp:^.*(wildberries\\.ru|wb\\.ru|ozon\\.ru|ozon\\.kz|ozon\\.by|avito\\.ru|avito\\.st)$",
+          "regexp:^.*(x5\\.ru|5ka\\.ru|perekrestok\\.ru|chizhik\\.ru|vprok\\.ru|magnit\\.ru|dixy\\.ru)$",
+          "regexp:^.*(mvideo\\.ru|eldorado\\.ru|citilink\\.ru)$",
+          "regexp:^.*(oskelly\\.ru|sokolov\\.ru|sokolov\\.io)$",
+          "regexp:^.*(av\\.ru|auchan\\.ru|bristol\\.ru|detmir\\.ru|fix-price\\.com|lenta\\.com|lenta\\.tech|metro-cc\\.ru|krasnoeibeloe\\.ru|myspar\\.ru|winelab\\.ru|vkusvill\\.ru)$",
+          "regexp:^.*(dodo(is|pizza|static)\\.(com|ru|net|io))$",
+          "regexp:^.*(vkusnoitochka\\.ru|rostics\\.ru|uni\\.rest|unirest\\.tech|dostaevsky\\.ru|evrasia\\.rest|ilovesakura\\.ru|sushiwok\\.ru)$",
+          "regexp:^.*(rzd\\.ru|rzd-bonus\\.ru|aviasales\\.ru|tutu\\.ru|ostrovok\\.ru)$",
+          "regexp:^.*(gorodpay\\.ru|rrtp\\.ru|mosmetro\\.ru|nspk\\.ru|podorozhnik\\.spb\\.ru)$",
+          "regexp:^.*(2gis\\.ru|otello\\.ru|blablacar\\.ru|avtovokzaly\\.ru|fasten\\.ru)$",
+          "full:bilet.nspk.ru",
+          "full:metro.spb.ru",
+          "full:mos.transport.vtb.ru",
+          "full:transport.mos.ru",
+          "full:arenda.yandex.ru",
+          "full:taxi.yandex.ru",
+          "domain:mts.ru",
+          "domain:mts.by",
+          "domain:mtsmobile.ru",
+          "domain:kion.ru",
+          "domain:megafon.ru",
+          "domain:beeline.ru",
+          "domain:tele2.ru",
+          "domain:t2.ru",
+          "domain:rt.ru",
+          "domain:beeline.ru",
+          "domain:domru.ru",
+          "domain:ertelecom.ru"
+        ],
+        "outboundTag": "direct"
+      },
+      {
+        "type": "field",
+        "domain": [
+          "domain:doubleclick.net",
+          "regexp:^.*(adjust\\.com|clearbit\\.com|growingio\\.com|ogury\\.io|openx\\.net|pubmatic\\.com|segment\\.com|supersonic\\.com|taboola\\.com)$",
+          "regexp:^.*(1rx\\.io|7box\\.vip|ad-delivery\\.net|adcolony\\.com|adinplay\\.com|adnxs\\.com|advertserve\\.com|adview\\.cn|casalemedia\\.com|contextual\\.media\\.net|cpmstar\\.com|demdex\\.net|httpool\\.com|lijit\\.com|mfadsrvr\\.com|mgid\\.com|ns1p\\.net|sigmob\\.com|spotxchange\\.com|unimhk\\.com|upapi\\.net)$",
+          "domain:ads.trafficjunky.net",
+          "regexp:^.*(doubleclick\\.net|adservice\\.google\\.com|adform\\.net|applovin\\.com|bidswitch\\.net|criteo\\.com|rubiconproject\\.com|scorecardresearch\\.com)$"
+        ],
+        "outboundTag": "block"
+      },
+      {
+        "type": "field",
+        "protocol": [
+          "bittorrent"
+        ],
+        "outboundTag": "direct"
+      }
+    ],
+    "domainMatcher": "hybrid",
+    "domainStrategy": "IPIfNonMatch"
+  },
+  "inbounds": [
+    {
+      "tag": "socks",
+      "port": 10808,
+      "listen": "127.0.0.1",
+      "protocol": "socks",
+      "settings": {
+        "udp": true,
+        "auth": "noauth"
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": false,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      }
+    },
+    {
+      "tag": "http",
+      "port": 10809,
+      "listen": "127.0.0.1",
+      "protocol": "http",
+      "settings": {
+        "allowTransparent": false
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": false,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "direct",
+      "protocol": "freedom"
+    },
+    {
+      "tag": "block",
+      "protocol": "blackhole"
+    }
+  ]
+}
