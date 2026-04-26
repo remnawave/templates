@@ -68,7 +68,7 @@
         "network": "raw",
         "security": "reality",
         "realitySettings": {
-          "password": "#REPLACE_WITH_YOUR_PUBLIC_KEY_FROM_OUTBAUND_KEYPAIR",
+          "password": "#REPLACE_WITH_YOUR_PUBLIC_KEY_FROM_OUTBOUND_KEYPAIR",
           "serverName": "#REPLACE_WITH_YOUR_SERVER_NAMES, EXAMPLE: domain.com"
         }
       }
@@ -96,7 +96,7 @@
         "network": "raw",
         "security": "reality",
         "realitySettings": {
-          "password": "#REPLACE_WITH_YOUR_PUBLIC_KEY_FROM_OUTBAUND_KEYPAIR",
+          "password": "#REPLACE_WITH_YOUR_PUBLIC_KEY_FROM_OUTBOUND_KEYPAIR",
           "serverName": "#REPLACE_WITH_YOUR_SERVER_NAMES, EXAMPLE: domain.com"
         }
       }
