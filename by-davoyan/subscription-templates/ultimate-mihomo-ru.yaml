@@ -585,6 +585,7 @@ rules:
   - RULE-SET,quic,REJECT
 
   # Определялки IP пускаем в прокси, чтобы пользователь видел
+  - DOMAIN,flclashx.app,🚫 Недоступные сайты
   - DOMAIN,ipwho.is,🚫 Недоступные сайты
   - DOMAIN,api.myip.com,🚫 Недоступные сайты
   - DOMAIN,ipapi.co,🚫 Недоступные сайты
