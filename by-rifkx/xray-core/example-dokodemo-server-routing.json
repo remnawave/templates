@@ -1,0 +1,108 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "tag": "dokodemo-door",
+      "port": 443,
+      "listen": "0.0.0.0",
+      "protocol": "dokodemo-door",
+      "settings": {
+        "port": 443,
+        "address": "0.0.0.0",
+        "network": "tcp",
+        "followRedirect": false
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": false,
+        "destOverride": [
+          "tls"
+        ]
+      }
+    },
+    {
+      "tag": "fake-inbound",
+      "port": 1337,
+      "listen": "127.0.0.1",
+      "protocol": "shadowsocks",
+      "settings": {
+        "clients": []
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "blackhole",
+      "protocol": "blackhole"
+    },
+    {
+      "tag": "antarctica",
+      "protocol": "freedom",
+      "settings": {
+        "redirect": "# ADDRESS OF AN EXIT NODE, e.g. 1.1.1.1:443"
+      }
+    },
+    {
+      "tag": "northkorea",
+      "protocol": "freedom",
+      "settings": {
+        "redirect": "# ADDRESS OF AN EXIT NODE, e.g. 2.2.2.2:443"
+      }
+    }
+  ],
+  "routing": {
+    "rules": [
+      {
+        "ip": [
+          "geoip:private"
+        ],
+        "outboundTag": "blackhole"
+      },
+      {
+        "domain": [
+          "geosite:private"
+        ],
+        "outboundTag": "blackhole"
+      },
+      {
+        "protocol": [
+          "bittorrent"
+        ],
+        "outboundTag": "blackhole"
+      },
+      {
+        "domain": [
+          "# SNIFFED SNI, SET IN HOST -> ADVANCED -> SNI, e.g. full:antarctica.domain.tld"
+        ],
+        "inboundTag": [
+          "dokodemo-door"
+        ],
+        "outboundTag": "antarctica"
+      },
+      {
+        "domain": [
+          "# SNIFFED SNI, SET IN HOST -> ADVANCED -> SNI, e.g. full:northkorea.domain.tld"
+        ],
+        "inboundTag": [
+          "dokodemo-door"
+        ],
+        "outboundTag": "northkorea"
+      },
+      {
+        "inboundTag": [
+          "dokodemo-door"
+        ],
+        "outboundTag": "blackhole"
+      },
+      {
+        "inboundTag": [
+          "fake-inbound"
+        ],
+        "outboundTag": "blackhole"
+      }
+    ],
+    "domainStrategy": "AsIs"
+  }
+}
