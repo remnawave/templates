@@ -3102,11 +3102,11 @@
                 "zh": "应用安装"
               },
               "description": {
-                "en": "Download and install Throne. Run the application with administrator rights.",
-                "fa": "Throne را دانلود و نصب کنید. برنامه را با دسترسی مدیر اجرا کنید.",
-                "fr": "Téléchargez et installez Throne. Lancez l'application avec les droits administrateur.",
-                "ru": "Скачайте и установите Throne. Запустите приложение с правами администратора.",
-                "zh": "下载并安装 Throne。以管理员权限运行应用程序。"
+                "en": "Download and install NyameBox. Run the application with administrator rights.",
+                "fa": "NyameBox را دانلود و نصب کنید. برنامه را با دسترسی مدیر اجرا کنید.",
+                "fr": "Téléchargez et installez NyameBox. Lancez l'application avec les droits administrateur.",
+                "ru": "Скачайте и установите NyameBox. Запустите приложение с правами администратора.",
+                "zh": "下载并安装 NyameBox。以管理员权限运行应用程序。"
               },
               "buttons": [
                 {
