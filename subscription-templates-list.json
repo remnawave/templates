@@ -108,6 +108,12 @@
             "type": "MIHOMO",
             "author": "roscomvpn",
             "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-roscomvpn/subscription-templates/roscomvpn-mihomo-ru.yaml"
+        },
+        {
+            "name": "Xray JSON (RU DIRECT)",
+            "type": "XRAY_JSON",
+            "author": "x1roko",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-x1roko/subscription-templates/xray-json-ru-direct.json"
         }
     ]
 }
