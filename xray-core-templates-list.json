@@ -66,6 +66,12 @@
             "author": "x1roko",
             "type": "XRAY_JSON",
             "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-x1roko/xray-core/example-vless-tls-hy2-443-combo.json"
+        },
+        {
+            "name": "Example Server Routing: dokodemo-door + SNI routing",
+            "author": "rifkx",
+            "type": "XRAY_JSON",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-rifkx/xray-core/example-dokodemo-server-routing.json"
         }
     ]
 }
