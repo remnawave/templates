@@ -537,7 +537,6 @@ rule-providers:
       - DOMAIN-KEYWORD,kaspersky
       - DOMAIN-KEYWORD,stepik
       - DOMAIN-KEYWORD,likee
-      - DOMAIN-KEYWORD,snapchat
       - DOMAIN-KEYWORD,yappy
       - DOMAIN-KEYWORD,pikabu
       - DOMAIN-KEYWORD,okko
