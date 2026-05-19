@@ -15,7 +15,8 @@
       "displayName": {
         "en": "iOS",
         "fr": "iOS",
-        "ru": "iOS"
+        "ru": "iOS",
+        "zh": "iOS"
       },
       "svgIconKey": "AppleIcon",
       "apps": [
@@ -29,12 +30,14 @@
               "title": {
                 "en": "App Installation",
                 "fr": "Installation de l'application",
-                "ru": "Установка приложения"
+                "ru": "Установка приложения",
+                "zh": "应用安装"
               },
               "description": {
                 "en": "Open the page in App Store and install INCY.",
                 "fr": "Ouvre la page de l’App Store et installe INCY.",
-                "ru": "Откройте страницу в App Store и установите современный клиент INCY."
+                "ru": "Откройте страницу в App Store и установите современный клиент INCY.",
+                "zh": "在 App Store 打开页面并安装 INCY。"
               },
               "buttons": [
                 {
@@ -43,7 +46,8 @@
                   "text": {
                     "en": "App Store",
                     "fr": "App Store",
-                    "ru": "App Store"
+                    "ru": "App Store",
+                    "zh": "App Store"
                   },
                   "svgIconKey": "ExternalLink"
                 }
@@ -55,12 +59,14 @@
               "title": {
                 "en": "Add Subscription",
                 "fr": "Ajouter une souscription",
-                "ru": "Добавление подписки"
+                "ru": "Добавление подписки",
+                "zh": "添加订阅"
               },
               "description": {
                 "en": "Click the button below. INCY will open automatically and the subscription will be added.",
                 "fr": "Cliquez sur le bouton. L'abonnement sera ajouté automatiquement à INCY.",
-                "ru": "Нажмите кнопку ниже — приложение INCY откроется, и подписка добавится автоматически!"
+                "ru": "Нажмите кнопку ниже — приложение INCY откроется, и подписка добавится автоматически!",
+                "zh": "点击下方按钮，INCY 将自动打开并添加订阅。"
               },
               "buttons": [
                 {
@@ -69,7 +75,8 @@
                   "text": {
                     "en": "Add Subscription",
                     "fr": "Ajouter une souscription",
-                    "ru": "Добавить подписку"
+                    "ru": "Добавить подписку",
+                    "zh": "添加订阅"
                   },
                   "svgIconKey": "Plus"
                 }
@@ -81,12 +88,14 @@
               "title": {
                 "en": "Connect and use",
                 "fr": "Se connecter et utiliser",
-                "ru": "Подключение и использование"
+                "ru": "Подключение и использование",
+                "zh": "连接并使用"
               },
               "description": {
                 "en": "Open the app, select a server from the list, and tap connect.",
                 "fr": "Ouvrez l'application, sélectionnez un serveur et connectez-vous.",
-                "ru": "Откройте приложение, выберите сервер из списка и включите VPN. Готово!"
+                "ru": "Откройте приложение, выберите сервер из списка и включите VPN. Готово!",
+                "zh": "打开应用，从列表中选择服务器并点击连接。"
               },
               "buttons": []
             }
@@ -102,12 +111,14 @@
               "title": {
                 "en": "App Installation",
                 "fr": "Installation de l'application",
-                "ru": "Установка приложения"
+                "ru": "Установка приложения",
+                "zh": "应用安装"
               },
               "description": {
                 "en": "Open the page in App Store and install the app. Launch it, in the VPN configuration permission window click Allow and enter your passcode.",
                 "fr": "Ouvre la page de l’App Store et installe l’app. Lance-la ; dans la fenêtre d’autorisation de configuration VPN, appuie sur « Allow » puis entre ton code.",
-                "ru": "Откройте страницу в App Store и установите приложение. Запустите его, в окне разрешения VPN-конфигурации нажмите Allow и введите свой пароль."
+                "ru": "Откройте страницу в App Store и установите приложение. Запустите его, в окне разрешения VPN-конфигурации нажмите Allow и введите свой пароль.",
+                "zh": "在 App Store 打开页面并安装应用。启动应用后，在 VPN 配置权限窗口点击“允许”，并输入您的密码。"
               },
               "buttons": [
                 {
@@ -116,7 +127,8 @@
                   "text": {
                     "en": "App Store (RU)",
                     "fr": "App Store (RU)",
-                    "ru": "App Store (RU)"
+                    "ru": "App Store (RU)",
+                    "zh": "App Store (RU)"
                   },
                   "svgIconKey": "ExternalLink"
                 },
@@ -126,7 +138,8 @@
                   "text": {
                     "en": "App Store (Global)",
                     "fr": "App Store (Global)",
-                    "ru": "App Store (Global)"
+                    "ru": "App Store (Global)",
+                    "zh": "App Store (Global)"
                   },
                   "svgIconKey": "ExternalLink"
                 }
@@ -138,12 +151,14 @@
               "title": {
                 "en": "Add Subscription",
                 "fr": "Ajouter une souscription",
-                "ru": "Добавление подписки"
+                "ru": "Добавление подписки",
+                "zh": "添加订阅"
               },
               "description": {
                 "en": "Click the button below — the app will open and the subscription will be added automatically",
                 "fr": "Clique sur le bouton ci‑dessous — l’app s’ouvrira et l’abonnement sera ajouté automatiquement.",
-                "ru": "Нажмите кнопку ниже — приложение откроется, и подписка добавится автоматически."
+                "ru": "Нажмите кнопку ниже — приложение откроется, и подписка добавится автоматически.",
+                "zh": "点击下方按钮——应用将会打开，订阅会自动添加。"
               },
               "buttons": [
                 {
@@ -152,7 +167,8 @@
                   "text": {
                     "en": "Add Subscription",
                     "fr": "Ajouter une souscription",
-                    "ru": "Добавить подписку"
+                    "ru": "Добавить подписку",
+                    "zh": "添加订阅"
                   },
                   "svgIconKey": "Plus"
                 }
@@ -164,12 +180,14 @@
               "title": {
                 "en": "Connect and use",
                 "fr": "Se connecter et utiliser",
-                "ru": "Подключение и использование"
+                "ru": "Подключение и использование",
+                "zh": "连接并使用"
               },
               "description": {
                 "en": "In the main section, click the large power button in the center to connect to VPN. Don't forget to select a server from the server list. If needed, choose another server from the server list.",
                 "fr": "Dans la section principale, appuie sur le grand bouton central pour te connecter au VPN. N’oublie pas de choisir un serveur dans la liste ; si besoin, choisis‑en un autre.",
-                "ru": "В главном разделе нажмите большую кнопку включения в центре для подключения к VPN. Не забудьте выбрать сервер в списке серверов. При необходимости выберите другой сервер из списка серверов."
+                "ru": "В главном разделе нажмите большую кнопку включения в центре для подключения к VPN. Не забудьте выбрать сервер в списке серверов. При необходимости выберите другой сервер из списка серверов.",
+                "zh": "在主界面，点击中央的大电源按钮以连接 VPN。不要忘记从服务器列表中选择服务器。如有需要，可选择其它服务器。"
               },
               "buttons": []
             }
@@ -181,7 +199,8 @@
       "displayName": {
         "en": "macOS",
         "fr": "macOS",
-        "ru": "macOS"
+        "ru": "macOS",
+        "zh": "macOS"
       },
       "svgIconKey": "macOS",
       "apps": [
@@ -195,12 +214,14 @@
               "title": {
                 "en": "App Installation",
                 "fr": "Installation de l'application",
-                "ru": "Установка приложения"
+                "ru": "Установка приложения",
+                "zh": "应用安装"
               },
               "description": {
                 "en": "Choose the version for your Mac, click the button below and install the INCY app.",
                 "fr": "Choisis la version pour ton Mac, clique sur le bouton ci‑dessous et installe l’app INCY.",
-                "ru": "Выберите версию, подходящую для процессора вашего Mac, скачайте и установите приложение INCY."
+                "ru": "Выберите версию, подходящую для процессора вашего Mac, скачайте и установите приложение INCY.",
+                "zh": "选择适合您 Mac 的版本，点击下方按钮并安装 INCY 应用。"
               },
               "buttons": [
                 {
@@ -209,7 +230,8 @@
                   "text": {
                     "en": "Apple Silicon (M1/M2/M3)",
                     "fr": "Apple Silicon",
-                    "ru": "Apple Silicon (M-процессоры)"
+                    "ru": "Apple Silicon (M-процессоры)",
+                    "zh": "Apple Silicon (M1/M2/M3)"
                   },
                   "svgIconKey": "ExternalLink"
                 },
@@ -219,7 +241,8 @@
                   "text": {
                     "en": "Mac Intel",
                     "fr": "Mac Intel",
-                    "ru": "Mac Intel"
+                    "ru": "Mac Intel",
+                    "zh": "Mac Intel"
                   },
                   "svgIconKey": "ExternalLink"
                 }
@@ -231,12 +254,14 @@
               "title": {
                 "en": "Add Subscription",
                 "fr": "Ajouter une souscription",
-                "ru": "Добавление подписки"
+                "ru": "Добавление подписки",
+                "zh": "添加订阅"
               },
               "description": {
                 "en": "Click the button below. INCY will open automatically and the subscription will be added.",
                 "fr": "Cliquez sur le bouton. L'abonnement sera ajouté automatiquement à INCY.",
-                "ru": "Нажмите кнопку ниже — приложение INCY откроется, и подписка добавится автоматически!"
+                "ru": "Нажмите кнопку ниже — приложение INCY откроется, и подписка добавится автоматически!",
+                "zh": "点击下方按钮，INCY 将自动打开并添加订阅。"
               },
               "buttons": [
                 {
@@ -245,7 +270,8 @@
                   "text": {
                     "en": "Add Subscription",
                     "fr": "Ajouter une souscription",
-                    "ru": "Добавить подписку"
+                    "ru": "Добавить подписку",
+                    "zh": "添加订阅"
                   },
                   "svgIconKey": "Plus"
                 }
@@ -257,12 +283,14 @@
               "title": {
                 "en": "Connect and use",
                 "fr": "Se connecter et utiliser",
-                "ru": "Подключение и использование"
+                "ru": "Подключение и использование",
+                "zh": "连接并使用"
               },
               "description": {
                 "en": "Open the app, choose a server, and turn on the VPN.",
                 "fr": "Ouvrez l'application, choisissez un serveur et activez le VPN.",
-                "ru": "Откройте приложение INCY, выберите сервер и нажмите кнопку подключения."
+                "ru": "Откройте приложение INCY, выберите сервер и нажмите кнопку подключения.",
+                "zh": "打开应用，选择服务器并开启 VPN。"
               },
               "buttons": []
             }
@@ -278,12 +306,14 @@
               "title": {
                 "en": "App Installation",
                 "fr": "Installation de l'application",
-                "ru": "Установка приложения"
+                "ru": "Установка приложения",
+                "zh": "应用安装"
               },
               "description": {
                 "en": "Choose the version for your device, click the button below and install the app.",
                 "fr": "Choisis la version pour ton appareil, clique sur le bouton ci‑dessous et installe l’app.",
-                "ru": "Выберите подходящую версию для вашего устройства, нажмите на кнопку ниже и установите приложение."
+                "ru": "Выберите подходящую версию для вашего устройства, нажмите на кнопку ниже и установите приложение.",
+                "zh": "选择适合您设备的版本，点击下方按钮并安装应用程序。"
               },
               "buttons": [
                 {
@@ -292,7 +322,8 @@
                   "text": {
                     "en": "App Store (RU)",
                     "fr": "App Store (RU)",
-                    "ru": "App Store (RU)"
+                    "ru": "App Store (RU)",
+                    "zh": "App Store (RU)"
                   },
                   "svgIconKey": "ExternalLink"
                 },
@@ -302,7 +333,8 @@
                   "text": {
                     "en": "App Store (Global)",
                     "fr": "App Store (Global)",
-                    "ru": "App Store (Global)"
+                    "ru": "App Store (Global)",
+                    "zh": "App Store (Global)"
                   },
                   "svgIconKey": "ExternalLink"
                 }
@@ -314,12 +346,14 @@
               "title": {
                 "en": "Add Subscription",
                 "fr": "Ajouter une souscription",
-                "ru": "Добавление подписки"
+                "ru": "Добавление подписки",
+                "zh": "添加订阅"
               },
               "description": {
                 "en": "Click the button below — the app will open and the subscription will be added automatically",
                 "fr": "Clique sur le bouton ci‑dessous — l’app s’ouvrira et l’abonnement sera ajouté automatiquement.",
-                "ru": "Нажмите кнопку ниже — приложение откроется, и подписка добавится автоматически."
+                "ru": "Нажмите кнопку ниже — приложение откроется, и подписка добавится автоматически.",
+                "zh": "点击下方按钮——应用将会打开，订阅会自动添加。"
               },
               "buttons": [
                 {
@@ -328,7 +362,8 @@
                   "text": {
                     "en": "Add Subscription",
                     "fr": "Ajouter une souscription",
-                    "ru": "Добавить подписку"
+                    "ru": "Добавить подписку",
+                    "zh": "添加订阅"
                   },
                   "svgIconKey": "Plus"
                 }
@@ -340,12 +375,14 @@
               "title": {
                 "en": "Connect and use",
                 "fr": "Se connecter et utiliser",
-                "ru": "Подключение и использование"
+                "ru": "Подключение и использование",
+                "zh": "连接并使用"
               },
               "description": {
                 "en": "In the main section, click the large power button in the center to connect to VPN. Don't forget to select a server from the server list. If needed, choose another server from the server list.",
                 "fr": "Dans la section principale, appuie sur le grand bouton central pour te connecter au VPN. N’oublie pas de choisir un serveur dans la liste ; si besoin, choisis‑en un autre.",
-                "ru": "В главном разделе нажмите большую кнопку включения в центре для подключения к VPN. Не забудьте выбрать сервер в списке серверов. При необходимости выберите другой сервер из списка серверов."
+                "ru": "В главном разделе нажмите большую кнопку включения в центре для подключения к VPN. Не забудьте выбрать сервер в списке серверов. При необходимости выберите другой сервер из списка серверов.",
+                "zh": "在主界面，点击中央的大电源按钮以连接 VPN。不要忘记从服务器列表中选择服务器。如有需要，可选择其它服务器。"
               },
               "buttons": []
             }
@@ -357,7 +394,8 @@
       "displayName": {
         "en": "Android",
         "fr": "Android",
-        "ru": "Android"
+        "ru": "Android",
+        "zh": "Android"
       },
       "svgIconKey": "Android",
       "apps": [
@@ -371,12 +409,14 @@
               "title": {
                 "en": "App Installation",
                 "fr": "Installation de l'application",
-                "ru": "Установка приложения"
+                "ru": "Установка приложения",
+                "zh": "应用安装"
               },
               "description": {
                 "en": "Install INCY from Google Play or download the APK directly.",
                 "fr": "Installez INCY depuis Google Play ou téléchargez l'APK directement.",
-                "ru": "Установите INCY из Google Play или скачайте APK-файл напрямую."
+                "ru": "Установите INCY из Google Play или скачайте APK-файл напрямую.",
+                "zh": "从 Google Play 安装 INCY，或直接下载 APK。"
               },
               "buttons": [
                 {
@@ -385,7 +425,8 @@
                   "text": {
                     "en": "Google Play",
                     "fr": "Google Play",
-                    "ru": "Google Play"
+                    "ru": "Google Play",
+                    "zh": "Google Play"
                   },
                   "svgIconKey": "ExternalLink"
                 },
@@ -395,7 +436,8 @@
                   "text": {
                     "en": "Download APK",
                     "fr": "Télécharger l'APK",
-                    "ru": "Скачать APK"
+                    "ru": "Скачать APK",
+                    "zh": "下载 APK"
                   },
                   "svgIconKey": "ExternalLink"
                 }
@@ -407,12 +449,14 @@
               "title": {
                 "en": "Add Subscription",
                 "fr": "Ajouter une souscription",
-                "ru": "Добавление подписки"
+                "ru": "Добавление подписки",
+                "zh": "添加订阅"
               },
               "description": {
                 "en": "Click the button below. INCY will open automatically and the subscription will be added.",
                 "fr": "Cliquez sur le bouton. L'abonnement sera ajouté automatiquement à INCY.",
-                "ru": "Нажмите кнопку ниже — приложение INCY откроется, и подписка добавится автоматически!"
+                "ru": "Нажмите кнопку ниже — приложение INCY откроется, и подписка добавится автоматически!",
+                "zh": "点击下方按钮，INCY 将自动打开并添加订阅。"
               },
               "buttons": [
                 {
@@ -421,7 +465,8 @@
                   "text": {
                     "en": "Add Subscription",
                     "fr": "Ajouter une souscription",
-                    "ru": "Добавить подписку"
+                    "ru": "Добавить подписку",
+                    "zh": "添加订阅"
                   },
                   "svgIconKey": "Plus"
                 }
@@ -433,12 +478,14 @@
               "title": {
                 "en": "Connect and use",
                 "fr": "Se connecter et utiliser",
-                "ru": "Подключение и использование"
+                "ru": "Подключение и использование",
+                "zh": "连接并使用"
               },
               "description": {
                 "en": "Open the app, select a server from the list, and tap connect.",
                 "fr": "Ouvrez l'application, sélectionnez un serveur et connectez-vous.",
-                "ru": "Откройте приложение, выберите сервер из списка и включите VPN. Готово!"
+                "ru": "Откройте приложение, выберите сервер из списка и включите VPN. Готово!",
+                "zh": "打开应用，从列表中选择服务器并点击连接。"
               },
               "buttons": []
             }
@@ -454,12 +501,14 @@
               "title": {
                 "en": "App Installation",
                 "fr": "Installation de l'application",
-                "ru": "Установка приложения"
+                "ru": "Установка приложения",
+                "zh": "应用安装"
               },
               "description": {
                 "en": "Open the page in Google Play and install the app. Or install the app directly from the APK file if Google Play is not working.",
                 "fr": "Ouvre la page dans Google Play et installe l’app. Si Google Play ne fonctionne pas, installe‑la directement via l’APK.",
-                "ru": "Откройте страницу в Google Play и установите приложение. Или установите приложение из APK файла напрямую, если Google Play не работает."
+                "ru": "Откройте страницу в Google Play и установите приложение. Или установите приложение из APK файла напрямую, если Google Play не работает.",
+                "zh": "在 Google Play 打开页面并安装应用。如果 Google Play 无法使用，可直接通过 APK 文件安装应用。"
               },
               "buttons": [
                 {
@@ -468,7 +517,8 @@
                   "text": {
                     "en": "Open in Google Play",
                     "fr": "Ouvre dans Google Play",
-                    "ru": "Открыть в Google Play"
+                    "ru": "Открыть в Google Play",
+                    "zh": "在 Google Play 打开"
                   },
                   "svgIconKey": "ExternalLink"
                 },
@@ -478,7 +528,8 @@
                   "text": {
                     "en": "Download APK",
                     "fr": "Télécharge l’APK",
-                    "ru": "Скачать APK"
+                    "ru": "Скачать APK",
+                    "zh": "下载 APK"
                   },
                   "svgIconKey": "ExternalLink"
                 }
@@ -490,12 +541,14 @@
               "title": {
                 "en": "Add Subscription",
                 "fr": "Ajouter une souscription",
-                "ru": "Добавление подписки"
+                "ru": "Добавление подписки",
+                "zh": "添加订阅"
               },
               "description": {
                 "en": "Click the button below to add subscription",
                 "fr": "Clique sur le bouton ci‑dessous pour ajouter l’abonnement.",
-                "ru": "Нажмите кнопку ниже, чтобы добавить подписку"
+                "ru": "Нажмите кнопку ниже, чтобы добавить подписку",
+                "zh": "点击下方按钮以添加订阅"
               },
               "buttons": [
                 {
@@ -504,7 +557,8 @@
                   "text": {
                     "en": "Add Subscription",
                     "fr": "Ajouter une souscription",
-                    "ru": "Добавить подписку"
+                    "ru": "Добавить подписку",
+                    "zh": "添加订阅"
                   },
                   "svgIconKey": "Plus"
                 }
@@ -516,12 +570,14 @@
               "title": {
                 "en": "Connect and use",
                 "fr": "Se connecter et utiliser",
-                "ru": "Подключение и использование"
+                "ru": "Подключение и использование",
+                "zh": "连接并使用"
               },
               "description": {
                 "en": "Open the app and connect to the server",
                 "fr": "Ouvre l’app et connecte‑toi au serveur.",
-                "ru": "Откройте приложение и подключитесь к серверу"
+                "ru": "Откройте приложение и подключитесь к серверу",
+                "zh": "打开应用并连接到服务器"
               },
               "buttons": []
             }
@@ -533,7 +589,8 @@
       "displayName": {
         "en": "Apple TV",
         "fr": "Apple TV",
-        "ru": "Apple TV"
+        "ru": "Apple TV",
+        "zh": "Apple TV"
       },
       "svgIconKey": "TV",
       "apps": [
@@ -547,12 +604,14 @@
               "title": {
                 "en": "App Installation",
                 "fr": "Installation de l'application",
-                "ru": "Установка приложения"
+                "ru": "Установка приложения",
+                "zh": "应用安装"
               },
               "description": {
                 "en": "Open the page in the App Store on your Apple TV and install INCY.",
                 "fr": "Ouvrez la page dans l'App Store sur votre Apple TV et installez INCY.",
-                "ru": "Откройте поиск в App Store на вашем Apple TV, найдите приложение INCY и установите его."
+                "ru": "Откройте поиск в App Store на вашем Apple TV, найдите приложение INCY и установите его.",
+                "zh": "在 Apple TV 的 App Store 中打开页面并安装 INCY。"
               },
               "buttons": [
                 {
@@ -561,7 +620,8 @@
                   "text": {
                     "en": "App Store",
                     "fr": "App Store",
-                    "ru": "App Store"
+                    "ru": "App Store",
+                    "zh": "App Store"
                   },
                   "svgIconKey": "ExternalLink"
                 }
@@ -573,12 +633,14 @@
               "title": {
                 "en": "Add Subscription",
                 "fr": "Ajouter une souscription",
-                "ru": "Добавление подписки"
+                "ru": "Добавление подписки",
+                "zh": "添加订阅"
               },
               "description": {
                 "en": "Click the button below to add your subscription to INCY.",
                 "fr": "Cliquez sur le bouton pour ajouter l'abonnement à INCY.",
-                "ru": "Нажмите кнопку ниже, чтобы скопировать или передать подписку на ваш Apple TV."
+                "ru": "Нажмите кнопку ниже, чтобы скопировать или передать подписку на ваш Apple TV.",
+                "zh": "点击下方按钮，将订阅添加到 INCY。"
               },
               "buttons": [
                 {
@@ -587,7 +649,8 @@
                   "text": {
                     "en": "Add Subscription",
                     "fr": "Ajouter une souscription",
-                    "ru": "Добавить подписку"
+                    "ru": "Добавить подписку",
+                    "zh": "添加订阅"
                   },
                   "svgIconKey": "Plus"
                 }
@@ -599,12 +662,14 @@
               "title": {
                 "en": "Connect and use",
                 "fr": "Se connecter et utiliser",
-                "ru": "Подключение и использование"
+                "ru": "Подключение и использование",
+                "zh": "连接并使用"
               },
               "description": {
                 "en": "Open the app, select a server, and turn on the VPN.",
                 "fr": "Ouvrez l'application, sélectionnez un serveur et connectez-vous.",
-                "ru": "Откройте приложение на ТВ, выберите нужную страну и нажмите кнопку подключения."
+                "ru": "Откройте приложение на ТВ, выберите нужную страну и нажмите кнопку подключения.",
+                "zh": "打开应用，选择服务器并开启 VPN。"
               },
               "buttons": []
             }
@@ -620,12 +685,14 @@
               "title": {
                 "en": "App Installation",
                 "fr": "Installation de l'application",
-                "ru": "Установка приложения"
+                "ru": "Установка приложения",
+                "zh": "应用安装"
               },
               "description": {
                 "en": "Open the page in the App Store on your Apple TV and install the app. Launch it, allow VPN configuration if prompted, and enter your passcode if required.",
                 "fr": "Open the page in the App Store on your Apple TV and install the app. Launch it, allow VPN configuration if prompted, and enter your passcode if required.",
-                "ru": "Откройте страницу в App Store на Apple TV и установите приложение. Запустите его, предоставьте разрешение на VPN-конфигурацию, если потребуется, и введите свой пароль."
+                "ru": "Откройте страницу в App Store на Apple TV и установите приложение. Запустите его, предоставьте разрешение на VPN-конфигурацию, если потребуется, и введите свой пароль.",
+                "zh": "在 Apple TV 的 App Store 打开页面并安装应用。启动后，如有提示请允许 VPN 配置，并在需要时输入您的密码。"
               },
               "buttons": [
                 {
@@ -634,7 +701,8 @@
                   "text": {
                     "en": "App Store",
                     "fr": "App Store",
-                    "ru": "App Store"
+                    "ru": "App Store",
+                    "zh": "App Store"
                   },
                   "svgIconKey": "ExternalLink"
                 }
@@ -646,12 +714,14 @@
               "title": {
                 "en": "Installation instructions",
                 "fr": "Installation instructions",
-                "ru": "Инструкции по установке"
+                "ru": "Инструкции по установке",
+                "zh": "安装说明"
               },
               "description": {
                 "en": "Detailed instructions to help you set up Happ on your device.",
                 "fr": "Detailed instructions to help you set up Happ on your device.",
-                "ru": "Подробные инструкции, чтобы помочь вам настроить Happ на вашем устройстве."
+                "ru": "Подробные инструкции, чтобы помочь вам настроить Happ на вашем устройстве.",
+                "zh": "详细说明，帮助您在设备上设置 Happ。"
               },
               "buttons": [
                 {
@@ -660,7 +730,8 @@
                   "text": {
                     "en": "In Russian",
                     "fr": "In Russian",
-                    "ru": "На русском"
+                    "ru": "На русском",
+                    "zh": "俄语"
                   },
                   "svgIconKey": "ExternalLink"
                 },
@@ -670,7 +741,8 @@
                   "text": {
                     "en": "In English",
                     "fr": "In English",
-                    "ru": "На английском"
+                    "ru": "На английском",
+                    "zh": "英语"
                   },
                   "svgIconKey": "ExternalLink"
                 }
@@ -682,12 +754,14 @@
               "title": {
                 "en": "Add Subscription",
                 "fr": "Ajouter une souscription",
-                "ru": "Добавление подписки"
+                "ru": "Добавление подписки",
+                "zh": "添加订阅"
               },
               "description": {
                 "en": "Click the button below to add subscription, if you opened the subscription page on your TV",
                 "fr": "Click the button below to add subscription, if you opened the subscription page on your TV.",
-                "ru": "Нажмите кнопку ниже, чтобы добавить подписку, если вы открыли страницу подписки на телевизоре"
+                "ru": "Нажмите кнопку ниже, чтобы добавить подписку, если вы открыли страницу подписки на телевизоре",
+                "zh": "如果你已在电视上打开订阅页面，点击下方按钮以添加订阅"
               },
               "buttons": [
                 {
@@ -696,7 +770,8 @@
                   "text": {
                     "en": "Add Subscription",
                     "fr": "Ajouter une souscription",
-                    "ru": "Добавить подписку"
+                    "ru": "Добавить подписку",
+                    "zh": "添加订阅"
                   },
                   "svgIconKey": "Plus"
                 }
@@ -708,12 +783,14 @@
               "title": {
                 "en": "Connect and use",
                 "fr": "Se connecter et utiliser",
-                "ru": "Подключение и использование"
+                "ru": "Подключение и использование",
+                "zh": "连接并使用"
               },
               "description": {
                 "en": "Open the app and connect to the server",
                 "fr": "Ouvre l’app et connecte‑toi au serveur.",
-                "ru": "Откройте приложение и подключитесь к серверу"
+                "ru": "Откройте приложение и подключитесь к серверу",
+                "zh": "打开应用并连接到服务器"
               },
               "buttons": []
             }
@@ -725,7 +802,8 @@
       "displayName": {
         "en": "Windows",
         "fr": "Windows",
-        "ru": "Windows"
+        "ru": "Windows",
+        "zh": "Windows"
       },
       "svgIconKey": "Windows",
       "apps": [
@@ -739,12 +817,14 @@
               "title": {
                 "en": "App Installation",
                 "fr": "Installation de l'application",
-                "ru": "Установка приложения"
+                "ru": "Установка приложения",
+                "zh": "应用安装"
               },
               "description": {
                 "en": "Download and run the installer to set up INCY on your PC.",
                 "fr": "Téléchargez et exécutez l'installateur pour configurer INCY sur votre PC.",
-                "ru": "Скачайте и запустите установщик для настройки INCY на вашем ПК."
+                "ru": "Скачайте и запустите установщик для настройки INCY на вашем ПК.",
+                "zh": "下载并运行安装程序，在电脑上安装 INCY。"
               },
               "buttons": [
                 {
@@ -753,7 +833,8 @@
                   "text": {
                     "en": "Windows Installer",
                     "fr": "Installateur Windows",
-                    "ru": "Установщик Windows"
+                    "ru": "Установщик Windows",
+                    "zh": "Windows 安装程序"
                   },
                   "svgIconKey": "ExternalLink"
                 }
@@ -765,12 +846,14 @@
               "title": {
                 "en": "Add Subscription",
                 "fr": "Ajouter une souscription",
-                "ru": "Добавление подписки"
+                "ru": "Добавление подписки",
+                "zh": "添加订阅"
               },
               "description": {
                 "en": "Click the button below. INCY will open automatically and the subscription will be added.",
                 "fr": "Cliquez sur le bouton. L'abonnement sera ajouté automatiquement à INCY.",
-                "ru": "Нажмите кнопку ниже — приложение INCY откроется, и подписка добавится автоматически!"
+                "ru": "Нажмите кнопку ниже — приложение INCY откроется, и подписка добавится автоматически!",
+                "zh": "点击下方按钮，INCY 将自动打开并添加订阅。"
               },
               "buttons": [
                 {
@@ -779,7 +862,8 @@
                   "text": {
                     "en": "Add Subscription",
                     "fr": "Ajouter une souscription",
-                    "ru": "Добавить подписку"
+                    "ru": "Добавить подписку",
+                    "zh": "添加订阅"
                   },
                   "svgIconKey": "Plus"
                 }
@@ -791,12 +875,14 @@
               "title": {
                 "en": "Connect and use",
                 "fr": "Se connecter et utiliser",
-                "ru": "Подключение и использование"
+                "ru": "Подключение и использование",
+                "zh": "连接并使用"
               },
               "description": {
                 "en": "Open the app, choose a server, and turn on the VPN.",
                 "fr": "Ouvrez l'application, choisissez un serveur et activez le VPN.",
-                "ru": "Откройте приложение INCY, выберите сервер и нажмите кнопку подключения."
+                "ru": "Откройте приложение INCY, выберите сервер и нажмите кнопку подключения.",
+                "zh": "打开应用，选择服务器并开启 VPN。"
               },
               "buttons": []
             }
@@ -812,12 +898,14 @@
               "title": {
                 "en": "App Installation",
                 "fr": "Installation de l'application",
-                "ru": "Установка приложения"
+                "ru": "Установка приложения",
+                "zh": "应用安装"
               },
               "description": {
                 "en": "Choose the version for your device, click the button below and install the app.",
                 "fr": "Choisis la version pour ton appareil, clique sur le bouton ci‑dessous et installe l’app.",
-                "ru": "Выберите подходящую версию для вашего устройства, нажмите на кнопку ниже и установите приложение."
+                "ru": "Выберите подходящую версию для вашего устройства, нажмите на кнопку ниже и установите приложение.",
+                "zh": "选择适合您设备的版本，点击下方按钮并安装应用程序。"
               },
               "buttons": [
                 {
@@ -826,7 +914,8 @@
                   "text": {
                     "en": "Windows",
                     "fr": "Windows",
-                    "ru": "Windows"
+                    "ru": "Windows",
+                    "zh": "Windows"
                   },
                   "svgIconKey": "ExternalLink"
                 }
@@ -838,12 +927,14 @@
               "title": {
                 "en": "Add Subscription",
                 "fr": "Ajouter une souscription",
-                "ru": "Добавление подписки"
+                "ru": "Добавление подписки",
+                "zh": "添加订阅"
               },
               "description": {
                 "en": "Click the button below — the app will open and the subscription will be added automatically",
                 "fr": "Clique sur le bouton ci‑dessous — l’app s’ouvrira et l’abonnement sera ajouté automatiquement.",
-                "ru": "Нажмите кнопку ниже — приложение откроется, и подписка добавится автоматически."
+                "ru": "Нажмите кнопку ниже — приложение откроется, и подписка добавится автоматически.",
+                "zh": "点击下方按钮——应用将会打开，订阅会自动添加。"
               },
               "buttons": [
                 {
@@ -852,7 +943,8 @@
                   "text": {
                     "en": "Add Subscription",
                     "fr": "Ajouter une souscription",
-                    "ru": "Добавить подписку"
+                    "ru": "Добавить подписку",
+                    "zh": "添加订阅"
                   },
                   "svgIconKey": "Plus"
                 }
@@ -864,12 +956,14 @@
               "title": {
                 "en": "Connect and use",
                 "fr": "Se connecter et utiliser",
-                "ru": "Подключение и использование"
+                "ru": "Подключение и использование",
+                "zh": "连接并使用"
               },
               "description": {
                 "en": "In the main section, click the large power button in the center to connect to VPN. Don't forget to select a server from the server list. If needed, choose another server from the server list.",
                 "fr": "Dans la section principale, appuie sur le grand bouton central pour te connecter au VPN. N’oublie pas de choisir un serveur dans la liste ; si besoin, choisis‑en un autre.",
-                "ru": "В главном разделе нажмите большую кнопку включения в центре для подключения к VPN. Не забудьте выбрать сервер в списке серверов. При необходимости выберите другой сервер из списка серверов."
+                "ru": "В главном разделе нажмите большую кнопку включения в центре для подключения к VPN. Не забудьте выбрать сервер в списке серверов. При необходимости выберите другой сервер из списка серверов.",
+                "zh": "在主界面，点击中央的大电源按钮以连接 VPN。不要忘记从服务器列表中选择服务器。如有需要，可选择其它服务器。"
               },
               "buttons": []
             }
@@ -881,7 +975,8 @@
       "displayName": {
         "en": "Android TV",
         "fr": "Android TV",
-        "ru": "Android TV"
+        "ru": "Android TV",
+        "zh": "Android TV"
       },
       "svgIconKey": "TV",
       "apps": [
@@ -895,12 +990,14 @@
               "title": {
                 "en": "App Installation",
                 "fr": "Installation de l'application",
-                "ru": "Установка приложения"
+                "ru": "Установка приложения",
+                "zh": "应用安装"
               },
               "description": {
                 "en": "Install INCY from Google Play or download the APK directly.",
                 "fr": "Installez INCY depuis Google Play ou téléchargez l'APK directement.",
-                "ru": "Установите INCY из Google Play или скачайте APK-файл напрямую."
+                "ru": "Установите INCY из Google Play или скачайте APK-файл напрямую.",
+                "zh": "从 Google Play 安装 INCY，或直接下载 APK。"
               },
               "buttons": [
                 {
@@ -909,7 +1006,8 @@
                   "text": {
                     "en": "Google Play",
                     "fr": "Google Play",
-                    "ru": "Google Play"
+                    "ru": "Google Play",
+                    "zh": "Google Play"
                   },
                   "svgIconKey": "ExternalLink"
                 },
@@ -919,7 +1017,8 @@
                   "text": {
                     "en": "Download APK",
                     "fr": "Télécharger l'APK",
-                    "ru": "Скачать APK"
+                    "ru": "Скачать APK",
+                    "zh": "下载 APK"
                   },
                   "svgIconKey": "ExternalLink"
                 }
@@ -931,12 +1030,14 @@
               "title": {
                 "en": "Add Subscription",
                 "fr": "Ajouter une souscription",
-                "ru": "Добавление подписки"
+                "ru": "Добавление подписки",
+                "zh": "添加订阅"
               },
               "description": {
                 "en": "Click the button below. INCY will open automatically and the subscription will be added.",
                 "fr": "Cliquez sur le bouton. L'abonnement sera ajouté automatiquement à INCY.",
-                "ru": "Нажмите кнопку ниже — приложение INCY откроется, и подписка добавится автоматически!"
+                "ru": "Нажмите кнопку ниже — приложение INCY откроется, и подписка добавится автоматически!",
+                "zh": "点击下方按钮，INCY 将自动打开并添加订阅。"
               },
               "buttons": [
                 {
@@ -945,7 +1046,8 @@
                   "text": {
                     "en": "Add Subscription",
                     "fr": "Ajouter une souscription",
-                    "ru": "Добавить подписку"
+                    "ru": "Добавить подписку",
+                    "zh": "添加订阅"
                   },
                   "svgIconKey": "Plus"
                 }
@@ -957,12 +1059,14 @@
               "title": {
                 "en": "Connect and use",
                 "fr": "Se connecter et utiliser",
-                "ru": "Подключение и использование"
+                "ru": "Подключение и использование",
+                "zh": "连接并使用"
               },
               "description": {
                 "en": "Open the app, select a server from the list, and tap connect.",
                 "fr": "Ouvrez l'application, sélectionnez un serveur et connectez-vous.",
-                "ru": "Откройте приложение, выберите сервер из списка и включите VPN. Готово!"
+                "ru": "Откройте приложение, выберите сервер из списка и включите VPN. Готово!",
+                "zh": "打开应用，从列表中选择服务器并点击连接。"
               },
               "buttons": []
             }
@@ -978,12 +1082,14 @@
               "title": {
                 "en": "App Installation",
                 "fr": "Installation de l'application",
-                "ru": "Установка приложения"
+                "ru": "Установка приложения",
+                "zh": "应用安装"
               },
               "description": {
                 "en": "Open the page in Google Play and install the app. Or install the app directly from the APK file if Google Play is not working.",
                 "fr": "Ouvre la page dans Google Play et installe l’app. Si Google Play ne fonctionne pas, installe‑la directement via l’APK.",
-                "ru": "Откройте страницу в Google Play и установите приложение. Или установите приложение из APK файла напрямую, если Google Play не работает."
+                "ru": "Откройте страницу в Google Play и установите приложение. Или установите приложение из APK файла напрямую, если Google Play не работает.",
+                "zh": "在 Google Play 打开页面并安装应用。如果 Google Play 无法使用，可直接通过 APK 文件安装应用。"
               },
               "buttons": [
                 {
@@ -992,7 +1098,8 @@
                   "text": {
                     "en": "Open in Google Play",
                     "fr": "Ouvre dans Google Play",
-                    "ru": "Открыть в Google Play"
+                    "ru": "Открыть в Google Play",
+                    "zh": "在 Google Play 打开"
                   },
                   "svgIconKey": "ExternalLink"
                 },
@@ -1002,7 +1109,8 @@
                   "text": {
                     "en": "Download APK",
                     "fr": "Télécharge l’APK",
-                    "ru": "Скачать APK"
+                    "ru": "Скачать APK",
+                    "zh": "下载 APK"
                   },
                   "svgIconKey": "ExternalLink"
                 }
@@ -1014,12 +1122,14 @@
               "title": {
                 "en": "Installation instructions",
                 "fr": "Installation instructions",
-                "ru": "Инструкции по установке"
+                "ru": "Инструкции по установке",
+                "zh": "安装说明"
               },
               "description": {
                 "en": "Detailed instructions to help you set up Happ on your device.",
                 "fr": "Detailed instructions to help you set up Happ on your device.",
-                "ru": "Подробные инструкции, чтобы помочь вам настроить Happ на вашем устройстве."
+                "ru": "Подробные инструкции, чтобы помочь вам настроить Happ на вашем устройстве.",
+                "zh": "详细说明，帮助您在设备上设置 Happ。"
               },
               "buttons": [
                 {
@@ -1028,7 +1138,8 @@
                   "text": {
                     "en": "In Russian",
                     "fr": "In Russian",
-                    "ru": "На русском"
+                    "ru": "На русском",
+                    "zh": "俄语"
                   },
                   "svgIconKey": "ExternalLink"
                 },
@@ -1038,7 +1149,8 @@
                   "text": {
                     "en": "In English",
                     "fr": "In English",
-                    "ru": "На английском"
+                    "ru": "На английском",
+                    "zh": "英语"
                   },
                   "svgIconKey": "ExternalLink"
                 }
@@ -1050,12 +1162,14 @@
               "title": {
                 "en": "Add Subscription",
                 "fr": "Ajouter une souscription",
-                "ru": "Добавление подписки"
+                "ru": "Добавление подписки",
+                "zh": "添加订阅"
               },
               "description": {
                 "en": "Click the button below to add subscription, if you opened the subscription page on your TV",
                 "fr": "Click the button below to add subscription, if you opened the subscription page on your TV.",
-                "ru": "Нажмите кнопку ниже, чтобы добавить подписку, если вы открыли страницу подписки на телевизоре"
+                "ru": "Нажмите кнопку ниже, чтобы добавить подписку, если вы открыли страницу подписки на телевизоре",
+                "zh": "如果你已在电视上打开订阅页面，点击下方按钮以添加订阅"
               },
               "buttons": [
                 {
@@ -1064,7 +1178,8 @@
                   "text": {
                     "en": "Add Subscription",
                     "fr": "Ajouter une souscription",
-                    "ru": "Добавить подписку"
+                    "ru": "Добавить подписку",
+                    "zh": "添加订阅"
                   },
                   "svgIconKey": "Plus"
                 }
@@ -1076,12 +1191,14 @@
               "title": {
                 "en": "Connect and use",
                 "fr": "Se connecter and utiliser",
-                "ru": "Подключение и использование"
+                "ru": "Подключение и использование",
+                "zh": "连接并使用"
               },
               "description": {
                 "en": "Open the app and connect to the server",
                 "fr": "Ouvre l’app et connecte‑toi au serveur.",
-                "ru": "Откройте приложение и подключитесь к серверу"
+                "ru": "Откройте приложение и подключитесь к серверу",
+                "zh": "打开应用并连接到服务器"
               },
               "buttons": []
             }
@@ -1101,104 +1218,125 @@
     "DownloadIcon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2\" /><path d=\"M7 11l5 5l5 -5\" /><path d=\"M12 4l0 12\" /></svg>",
     "ExternalLink": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6\" /><path d=\"M11 13l9 -9\" /><path d=\"M15 4h5v5\" /></svg>",
     "CloudDownload": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M19 18a3.5 3.5 0 0 0 0 -7h-1a5 4.5 0 0 0 -11 -2a4.6 4.4 0 0 0 -2.1 8.4\" /><path d=\"M12 13l0 9\" /><path d=\"M9 19l3 3l3 -3\" /></svg>",
-    "Gear": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 
+    "Gear": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z\" /><path d=\"M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0\" /></svg>"
+  },
+  "baseSettings": {
     "showConnectionKeys": false
   },
   "baseTranslations": {
     "installationGuideHeader": {
       "en": "Installation",
       "fr": "Installation",
-      "ru": "Установка"
+      "ru": "Установка",
+      "zh": "安装"
     },
     "connectionKeysHeader": {
       "en": "Connection Keys",
       "fr": "Clés de connexion",
-      "ru": "Ключи подключения"
+      "ru": "Ключи подключения",
+      "zh": "连接密钥"
     },
     "linkCopied": {
       "en": "Likn copied",
       "fr": "Lien copié",
-      "ru": "Ссылка скопирована"
+      "ru": "Ссылка скопирована",
+      "zh": "链接已复制"
     },
     "linkCopiedToClipboard": {
       "en": "Link copied to clipboard",
       "fr": "Lien copié dans le presse-papiers",
-      "ru": "Ссылка скопирована в буфер обмена"
+      "ru": "Ссылка скопирована в буфер обмена",
+      "zh": "链接已复制到剪贴板"
     },
     "getLink": {
       "en": "Get Link",
       "fr": "Obtenir le lien",
-      "ru": "Получение ссылки"
+      "ru": "Получение ссылки",
+      "zh": "获取链接"
     },
     "scanQrCode": {
       "en": "Scan the QR code above in the client",
       "fr": "Scannez le code QR ci-dessus dans le client",
-      "ru": "Отсканируйте QR-код в приложении"
+      "ru": "Отсканируйте QR-код в приложении",
+      "zh": "在客户端中扫描上方二维码"
     },
     "scanQrCodeDescription": {
       "en": "Easily add the subscription to any client. There's another option: copy the link below and paste it into the client",
       "fr": "Ajoutez facilement l'abonnement à n'importe quel client. Il y a une autre option : copiez le lien ci-dessous et collez-le dans le client",
-      "ru": "Простое добавление подписки в любой клиент. Есть и другой вариант: скопируйте ссылку ниже и вставьте в клиент."
+      "ru": "Простое добавление подписки в любой клиент. Есть и другой вариант: скопируйте ссылку ниже и вставьте в клиент.",
+      "zh": "轻松将订阅添加到任何客户端。还有另一种选择：复制下面的链接并粘贴到客户端中"
     },
     "copyLink": {
       "en": "Copy link",
       "fr": "Copier le lien",
-      "ru": "Скопировать ссылку"
+      "ru": "Скопировать ссылку",
+      "zh": "复制链接"
     },
     "name": {
       "en": "Username",
       "fr": "Nom d'utilisateur",
-      "ru": "Имя пользователя"
+      "ru": "Имя пользователя",
+      "zh": "用户名"
     },
     "status": {
       "en": "Status",
       "fr": "Statut",
-      "ru": "Статус"
+      "ru": "Статус",
+      "zh": "状态"
     },
     "active": {
       "en": "Active",
       "fr": "Actif",
-      "ru": "Активна"
+      "ru": "Активна",
+      "zh": "活跃"
     },
     "inactive": {
       "en": "Inactive",
       "fr": "Inactif",
-      "ru": "Неактивна"
+      "ru": "Неактивна",
+      "zh": "未激活"
     },
     "expires": {
       "en": "Expires",
       "fr": "Expire",
-      "ru": "Истекает"
+      "ru": "Истекает",
+      "zh": "到期时间"
     },
     "bandwidth": {
       "en": "Bandwidth",
       "fr": "Bande passante",
-      "ru": "Трафик"
+      "ru": "Трафик",
+      "zh": "流量"
     },
     "scanToImport": {
       "en": "Scan to import this key",
       "fr": "Scannez pour importer cette clé",
-      "ru": "Отсканируйте QR-код для импорта ключа"
+      "ru": "Отсканируйте QR-код для импорта ключа",
+      "zh": "扫描以导入此密钥"
     },
     "expiresIn": {
       "en": "Expires in",
       "fr": "Expire",
-      "ru": "Истекает"
+      "ru": "Истекает",
+      "zh": "后到期"
     },
     "expired": {
       "en": "Expired",
       "fr": "Expiré",
-      "ru": "Истекла"
+      "ru": "Истекла",
+      "zh": "已于"
     },
     "unknown": {
       "en": "Unknown",
       "fr": "Inconnu",
-      "ru": "Неизвестно"
+      "ru": "Неизвестно",
+      "zh": "未知"
     },
     "indefinitely": {
       "en": "Indefinitely",
       "fr": "Indéfiniment",
-      "ru": "Бессрочно"
+      "ru": "Бессрочно",
+      "zh": "永久"
     }
   },
   "brandingSettings": {
