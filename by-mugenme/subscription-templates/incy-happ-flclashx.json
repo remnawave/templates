@@ -1,0 +1,766 @@
+{
+  "locales": ["ru", "en"],
+  "version": "1",
+  "uiConfig": {
+    "subscriptionInfoBlockType": "expanded",
+    "installationGuidesBlockType": "cards"
+  },
+  "platforms": {
+    "ios": {
+      "displayName": {
+        "en": "iOS",
+        "ru": "iOS"
+      },
+      "svgIconKey": "AppleIcon",
+      "apps": [
+        {
+          "name": "INCY",
+          "featured": true,
+          "blocks": [
+            {
+              "svgIconKey": "DownloadIcon",
+              "svgIconColor": "violet",
+              "title": {
+                "en": "App Installation",
+                "ru": "Установка приложения"
+              },
+              "description": {
+                "en": "Open the page in App Store and install INCY.",
+                "ru": "Откройте страницу в App Store и установите клиент INCY."
+              },
+              "buttons": [
+                {
+                  "link": "https://apps.apple.com/ru/app/incy/id6756943388",
+                  "type": "external",
+                  "text": {
+                    "en": "App Store",
+                    "ru": "App Store"
+                  },
+                  "svgIconKey": "ExternalLink"
+                }
+              ]
+            },
+            {
+              "svgIconKey": "CloudDownload",
+              "svgIconColor": "cyan",
+              "title": {
+                "en": "Add Subscription",
+                "ru": "Добавление подписки"
+              },
+              "description": {
+                "en": "Click the button below. INCY will open automatically and the subscription will be added.",
+                "ru": "Нажмите кнопку ниже — приложение INCY откроется, и подписка добавится автоматически."
+              },
+              "buttons": [
+                {
+                  "link": "incy://import/{{SUBSCRIPTION_LINK}}",
+                  "type": "subscriptionLink",
+                  "text": {
+                    "en": "Add Subscription",
+                    "ru": "Добавить подписку"
+                  },
+                  "svgIconKey": "Plus"
+                }
+              ]
+            },
+            {
+              "svgIconKey": "Check",
+              "svgIconColor": "teal",
+              "title": {
+                "en": "Connect and use",
+                "ru": "Подключение и использование"
+              },
+              "description": {
+                "en": "Open the app, select a server from the list, and tap connect.",
+                "ru": "Откройте приложение, выберите сервер из списка и включите VPN."
+              },
+              "buttons": []
+            }
+          ]
+        },
+        {
+          "name": "Happ",
+          "featured": false,
+          "blocks": [
+            {
+              "svgIconKey": "DownloadIcon",
+              "svgIconColor": "violet",
+              "title": {
+                "en": "App Installation",
+                "ru": "Установка приложения"
+              },
+              "description": {
+                "en": "Open the page in App Store and install Happ.",
+                "ru": "Откройте страницу в App Store и установите Happ."
+              },
+              "buttons": [
+                {
+                  "link": "https://apps.apple.com/ru/app/happ-proxy-utility-plus/id6746188973",
+                  "type": "external",
+                  "text": {
+                    "en": "App Store (RU)",
+                    "ru": "App Store (RU)"
+                  },
+                  "svgIconKey": "ExternalLink"
+                },
+                {
+                  "link": "https://apps.apple.com/us/app/happ-proxy-utility/id6504287215",
+                  "type": "external",
+                  "text": {
+                    "en": "App Store (Global)",
+                    "ru": "App Store (Global)"
+                  },
+                  "svgIconKey": "ExternalLink"
+                }
+              ]
+            },
+            {
+              "svgIconKey": "CloudDownload",
+              "svgIconColor": "cyan",
+              "title": {
+                "en": "Add Subscription",
+                "ru": "Добавление подписки"
+              },
+              "description": {
+                "en": "Click the button below — the app will open and the subscription will be added automatically.",
+                "ru": "Нажмите кнопку ниже — приложение откроется, и подписка добавится автоматически."
+              },
+              "buttons": [
+                {
+                  "link": "{{HAPP_CRYPT4_LINK}}",
+                  "type": "subscriptionLink",
+                  "text": {
+                    "en": "Add Subscription",
+                    "ru": "Добавить подписку"
+                  },
+                  "svgIconKey": "Plus"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "FlClash",
+          "featured": false,
+          "blocks": [
+            {
+              "svgIconKey": "DownloadIcon",
+              "svgIconColor": "violet",
+              "title": {
+                "en": "App Installation",
+                "ru": "Установка приложения"
+              },
+              "description": {
+                "en": "Open App Store and install FlClash.",
+                "ru": "Установите приложение FlClash из App Store."
+              },
+              "buttons": [
+                {
+                  "link": "https://apps.apple.com/us/app/flclash/id6502633008",
+                  "type": "external",
+                  "text": {
+                    "en": "App Store",
+                    "ru": "App Store"
+                  },
+                  "svgIconKey": "ExternalLink"
+                }
+              ]
+            },
+            {
+              "svgIconKey": "CloudDownload",
+              "svgIconColor": "cyan",
+              "title": {
+                "en": "Add Subscription",
+                "ru": "Добавление подписки"
+              },
+              "description": {
+                "en": "Click the button to import config into FlClash.",
+                "ru": "Нажмите кнопку для импорта конфигурации в FlClash."
+              },
+              "buttons": [
+                {
+                  "link": "clash://install-config?url={{SUBSCRIPTION_LINK}}",
+                  "type": "subscriptionLink",
+                  "text": {
+                    "en": "Import to FlClash",
+                    "ru": "Импорт в FlClash"
+                  },
+                  "svgIconKey": "Plus"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "android": {
+      "displayName": {
+        "en": "Android",
+        "ru": "Android"
+      },
+      "svgIconKey": "Android",
+      "apps": [
+        {
+          "name": "INCY",
+          "featured": true,
+          "blocks": [
+            {
+              "svgIconKey": "DownloadIcon",
+              "svgIconColor": "violet",
+              "title": {
+                "en": "App Installation",
+                "ru": "Установка приложения"
+              },
+              "description": {
+                "en": "Install INCY from Google Play or download the APK directly.",
+                "ru": "Установите INCY из Google Play или скачайте APK-файл напрямую."
+              },
+              "buttons": [
+                {
+                  "link": "https://play.google.com/store/apps/details?id=llc.itdev.incy",
+                  "type": "external",
+                  "text": {
+                    "en": "Google Play",
+                    "ru": "Google Play"
+                  },
+                  "svgIconKey": "ExternalLink"
+                },
+                {
+                  "link": "https://github.com/INCY-DEV/incy-platforms/releases/latest/download/Incy.apk",
+                  "type": "external",
+                  "text": {
+                    "en": "Download APK",
+                    "ru": "Скачать APK"
+                  },
+                  "svgIconKey": "ExternalLink"
+                }
+              ]
+            },
+            {
+              "svgIconKey": "CloudDownload",
+              "svgIconColor": "cyan",
+              "title": {
+                "en": "Add Subscription",
+                "ru": "Добавление подписки"
+              },
+              "description": {
+                "en": "Click the button below. INCY will open automatically and the subscription will be added.",
+                "ru": "Нажмите кнопку ниже — приложение INCY откроется, и подписка добавится автоматически!"
+              },
+              "buttons": [
+                {
+                  "link": "incy://import/{{SUBSCRIPTION_LINK}}",
+                  "type": "subscriptionLink",
+                  "text": {
+                    "en": "Add Subscription",
+                    "ru": "Добавить подписку"
+                  },
+                  "svgIconKey": "Plus"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Happ",
+          "featured": false,
+          "blocks": [
+            {
+              "svgIconKey": "DownloadIcon",
+              "svgIconColor": "cyan",
+              "title": {
+                "en": "App Installation",
+                "ru": "Установка приложения"
+              },
+              "description": {
+                "en": "Open Google Play and install Happ. Or download APK directly.",
+                "ru": "Установите приложение из Google Play или напрямую через APK."
+              },
+              "buttons": [
+                {
+                  "link": "https://play.google.com/store/apps/details?id=com.happproxy",
+                  "type": "external",
+                  "text": {
+                    "en": "Google Play",
+                    "ru": "Google Play"
+                  },
+                  "svgIconKey": "ExternalLink"
+                },
+                {
+                  "link": "https://github.com/Happ-proxy/happ-android/releases/latest/download/Happ.apk",
+                  "type": "external",
+                  "text": {
+                    "en": "Download APK",
+                    "ru": "Скачать APK"
+                  },
+                  "svgIconKey": "ExternalLink"
+                }
+              ]
+            },
+            {
+              "svgIconKey": "CloudDownload",
+              "svgIconColor": "cyan",
+              "title": {
+                "en": "Add Subscription",
+                "ru": "Добавление подписки"
+              },
+              "description": {
+                "en": "Click the button below to add subscription.",
+                "ru": "Нажмите кнопку ниже, чтобы добавить подписку."
+              },
+              "buttons": [
+                {
+                  "link": "{{HAPP_CRYPT4_LINK}}",
+                  "type": "subscriptionLink",
+                  "text": {
+                    "en": "Add Subscription",
+                    "ru": "Добавить подписку"
+                  },
+                  "svgIconKey": "Plus"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "FlClash",
+          "featured": false,
+          "blocks": [
+            {
+              "svgIconKey": "DownloadIcon",
+              "svgIconColor": "cyan",
+              "title": {
+                "en": "App Installation",
+                "ru": "Установка приложения"
+              },
+              "description": {
+                "en": "Download FlClash APK from GitHub.",
+                "ru": "Скачайте FlClash APK с GitHub."
+              },
+              "buttons": [
+                {
+                  "link": "https://github.com/chen08209/FlClash/releases/latest",
+                  "type": "external",
+                  "text": {
+                    "en": "GitHub Releases",
+                    "ru": "GitHub Releases"
+                  },
+                  "svgIconKey": "ExternalLink"
+                }
+              ]
+            },
+            {
+              "svgIconKey": "CloudDownload",
+              "svgIconColor": "cyan",
+              "title": {
+                "en": "Add Subscription",
+                "ru": "Добавление подписки"
+              },
+              "description": {
+                "en": "Click to import config into FlClash.",
+                "ru": "Нажмите для импорта конфигурации в FlClash."
+              },
+              "buttons": [
+                {
+                  "link": "clash://install-config?url={{SUBSCRIPTION_LINK}}",
+                  "type": "subscriptionLink",
+                  "text": {
+                    "en": "Import to FlClash",
+                    "ru": "Импорт в FlClash"
+                  },
+                  "svgIconKey": "Plus"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "windows": {
+      "displayName": {
+        "en": "Windows",
+        "ru": "Windows"
+      },
+      "svgIconKey": "Windows",
+      "apps": [
+        {
+          "name": "INCY",
+          "featured": true,
+          "blocks": [
+            {
+              "svgIconKey": "DownloadIcon",
+              "svgIconColor": "cyan",
+              "title": {
+                "en": "App Installation",
+                "ru": "Установка приложения"
+              },
+              "description": {
+                "en": "Download and run the installer to set up INCY on your PC.",
+                "ru": "Скачайте и запустите установщик для настройки INCY на ПК."
+              },
+              "buttons": [
+                {
+                  "link": "https://github.com/INCY-DEV/incy-platforms/releases/latest/download/incy-windows-setup.exe",
+                  "type": "external",
+                  "text": {
+                    "en": "Windows Installer",
+                    "ru": "Установщик Windows"
+                  },
+                  "svgIconKey": "ExternalLink"
+                }
+              ]
+            },
+            {
+              "svgIconKey": "CloudDownload",
+              "svgIconColor": "cyan",
+              "title": {
+                "en": "Add Subscription",
+                "ru": "Добавление подписки"
+              },
+              "description": {
+                "en": "Click the button below. INCY will open automatically and the subscription will be added.",
+                "ru": "Нажмите кнопку ниже — приложение INCY откроется, и подписка добавится автоматически."
+              },
+              "buttons": [
+                {
+                  "link": "incy://import/{{SUBSCRIPTION_LINK}}",
+                  "type": "subscriptionLink",
+                  "text": {
+                    "en": "Add Subscription",
+                    "ru": "Добавить подписку"
+                  },
+                  "svgIconKey": "Plus"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "FlClash",
+          "featured": false,
+          "blocks": [
+            {
+              "svgIconKey": "DownloadIcon",
+              "svgIconColor": "cyan",
+              "title": {
+                "en": "App Installation",
+                "ru": "Установка приложения"
+              },
+              "description": {
+                "en": "Download FlClash for Windows from GitHub.",
+                "ru": "Скачайте FlClash для Windows с GitHub."
+              },
+              "buttons": [
+                {
+                  "link": "https://github.com/chen08209/FlClash/releases/latest",
+                  "type": "external",
+                  "text": {
+                    "en": "Download FlClash",
+                    "ru": "Скачать FlClash"
+                  },
+                  "svgIconKey": "ExternalLink"
+                }
+              ]
+            },
+            {
+              "svgIconKey": "CloudDownload",
+              "svgIconColor": "cyan",
+              "title": {
+                "en": "Add Subscription",
+                "ru": "Добавление подписки"
+              },
+              "description": {
+                "en": "Click the button below to import config.",
+                "ru": "Нажмите кнопку ниже для автоматического импорта конфигурации."
+              },
+              "buttons": [
+                {
+                  "link": "clash://install-config?url={{SUBSCRIPTION_LINK}}",
+                  "type": "subscriptionLink",
+                  "text": {
+                    "en": "Import to FlClash",
+                    "ru": "Импорт в FlClash"
+                  },
+                  "svgIconKey": "Plus"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Happ",
+          "featured": false,
+          "blocks": [
+            {
+              "svgIconKey": "DownloadIcon",
+              "svgIconColor": "cyan",
+              "title": {
+                "en": "App Installation",
+                "ru": "Установка приложения"
+              },
+              "description": {
+                "en": "Download Happ for Windows.",
+                "ru": "Скачайте установщик Happ для Windows."
+              },
+              "buttons": [
+                {
+                  "link": "https://github.com/Happ-proxy/happ-desktop/releases/latest/download/setup-Happ.x64.exe",
+                  "type": "external",
+                  "text": {
+                    "en": "Windows Installer",
+                    "ru": "Установщик Windows"
+                  },
+                  "svgIconKey": "ExternalLink"
+                }
+              ]
+            },
+            {
+              "svgIconKey": "CloudDownload",
+              "svgIconColor": "cyan",
+              "title": {
+                "en": "Add Subscription",
+                "ru": "Добавление подписки"
+              },
+              "description": {
+                "en": "Click to add subscription.",
+                "ru": "Нажмите для добавления подписки."
+              },
+              "buttons": [
+                {
+                  "link": "{{HAPP_CRYPT4_LINK}}",
+                  "type": "subscriptionLink",
+                  "text": {
+                    "en": "Add Subscription",
+                    "ru": "Добавить подписку"
+                  },
+                  "svgIconKey": "Plus"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "macos": {
+      "displayName": {
+        "en": "macOS",
+        "ru": "macOS"
+      },
+      "svgIconKey": "macOS",
+      "apps": [
+        {
+          "name": "INCY",
+          "featured": true,
+          "blocks": [
+            {
+              "svgIconKey": "DownloadIcon",
+              "svgIconColor": "cyan",
+              "title": {
+                "en": "App Installation",
+                "ru": "Установка приложения"
+              },
+              "description": {
+                "en": "Choose the version for your Mac and install INCY.",
+                "ru": "Выберите версию, подходящую для процессора вашего Mac."
+              },
+              "buttons": [
+                {
+                  "link": "https://github.com/INCY-DEV/incy-platforms/releases/latest/download/incy-macos-arm64.dmg",
+                  "type": "external",
+                  "text": {
+                    "en": "Apple Silicon (M1/M2/M3)",
+                    "ru": "Apple Silicon (M-процессоры)"
+                  },
+                  "svgIconKey": "ExternalLink"
+                },
+                {
+                  "link": "https://github.com/INCY-DEV/incy-platforms/releases/latest/download/incy-macos-intel.dmg",
+                  "type": "external",
+                  "text": {
+                    "en": "Mac Intel",
+                    "ru": "Mac Intel"
+                  },
+                  "svgIconKey": "ExternalLink"
+                }
+              ]
+            },
+            {
+              "svgIconKey": "CloudDownload",
+              "svgIconColor": "cyan",
+              "title": {
+                "en": "Add Subscription",
+                "ru": "Добавление подписки"
+              },
+              "description": {
+                "en": "Click the button below. INCY will open automatically.",
+                "ru": "Нажмите кнопку ниже — приложение INCY откроется автоматически."
+              },
+              "buttons": [
+                {
+                  "link": "incy://import/{{SUBSCRIPTION_LINK}}",
+                  "type": "subscriptionLink",
+                  "text": {
+                    "en": "Add Subscription",
+                    "ru": "Добавить подписку"
+                  },
+                  "svgIconKey": "Plus"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "FlClash",
+          "featured": false,
+          "blocks": [
+            {
+              "svgIconKey": "DownloadIcon",
+              "svgIconColor": "cyan",
+              "title": {
+                "en": "App Installation",
+                "ru": "Установка приложения"
+              },
+              "description": {
+                "en": "Download FlClash for macOS from GitHub.",
+                "ru": "Скачайте FlClash для macOS с GitHub."
+              },
+              "buttons": [
+                {
+                  "link": "https://github.com/chen08209/FlClash/releases/latest",
+                  "type": "external",
+                  "text": {
+                    "en": "Download FlClash",
+                    "ru": "Скачать FlClash"
+                  },
+                  "svgIconKey": "ExternalLink"
+                }
+              ]
+            },
+            {
+              "svgIconKey": "CloudDownload",
+              "svgIconColor": "cyan",
+              "title": {
+                "en": "Add Subscription",
+                "ru": "Добавление подписки"
+              },
+              "description": {
+                "en": "Click the button below to import config.",
+                "ru": "Нажмите кнопку ниже для автоматического импорта конфигурации."
+              },
+              "buttons": [
+                {
+                  "link": "clash://install-config?url={{SUBSCRIPTION_LINK}}",
+                  "type": "subscriptionLink",
+                  "text": {
+                    "en": "Import to FlClash",
+                    "ru": "Импорт в FlClash"
+                  },
+                  "svgIconKey": "Plus"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "svgLibrary": {
+    "TV": "",
+    "Plus": "",
+    "Check": "",
+    "macOS": "",
+    "Android": "",
+    "Windows": "",
+    "AppleIcon": "",
+    "DownloadIcon": "",
+    "ExternalLink": "",
+    "CloudDownload": "",
+    "Gear": ""
+  },
+  "baseSettings": {
+    "showConnectionKeys": false
+  },
+  "baseTranslations": {
+    "installationGuideHeader": {
+      "en": "Installation",
+      "ru": "Установка"
+    },
+    "connectionKeysHeader": {
+      "en": "Connection Keys",
+      "ru": "Ключи подключения"
+    },
+    "linkCopied": {
+      "en": "Link copied",
+      "ru": "Ссылка скопирована"
+    },
+    "linkCopiedToClipboard": {
+      "en": "Link copied to clipboard",
+      "ru": "Ссылка скопирована в буфер обмена"
+    },
+    "getLink": {
+      "en": "Get Link",
+      "ru": "Получение ссылки"
+    },
+    "scanQrCode": {
+      "en": "Scan the QR code above in the client",
+      "ru": "Отсканируйте QR-код в приложении"
+    },
+    "scanQrCodeDescription": {
+      "en": "Easily add the subscription to any client.",
+      "ru": "Простое добавление подписки в любой клиент."
+    },
+    "copyLink": {
+      "en": "Copy link",
+      "ru": "Скопировать ссылку"
+    },
+    "name": {
+      "en": "Username",
+      "ru": "Имя пользователя"
+    },
+    "status": {
+      "en": "Status",
+      "ru": "Статус"
+    },
+    "active": {
+      "en": "Active",
+      "ru": "Активна"
+    },
+    "inactive": {
+      "en": "Inactive",
+      "ru": "Неактивна"
+    },
+    "expires": {
+      "en": "Expires",
+      "ru": "Истекает"
+    },
+    "bandwidth": {
+      "en": "Bandwidth",
+      "ru": "Трафик"
+    },
+    "scanToImport": {
+      "en": "Scan to import this key",
+      "ru": "Отсканируйте QR-код для импорта ключа"
+    },
+    "expiresIn": {
+      "en": "Expires in",
+      "ru": "Истекает через"
+    },
+    "expired": {
+      "en": "Expired",
+      "ru": "Истекла"
+    },
+    "unknown": {
+      "en": "Unknown",
+      "ru": "Неизвестно"
+    },
+    "indefinitely": {
+      "en": "Indefinitely",
+      "ru": "Бессрочно"
+    }
+  },
+  "brandingSettings": {
+    "title": "Subscription",
+    "logoUrl": "https://docs.rw/img/logo.svg",
+    "supportUrl": ""
+  }
+}
