@@ -48,6 +48,12 @@
             "author": "vasyan4ik01",
             "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-vasyan/subscription-page/incy-happ.json",
             "type": "SUBPAGE_CONFIG"
+        },
+        {
+            "name": "INCY, Happ and FlClashX Subscription Page",
+            "author": "mugenme",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-mugenme/subscription-page/incy-happ-flclashx.json",
+            "type": "SUBPAGE_CONFIG"
         }
     ]
 }
