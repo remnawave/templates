@@ -25,6 +25,7 @@
           "alpn": [
             "h3"
           ],
+          "serverName": "#REPLACE WITH YOUR SERVER NAME, EXAMPLE: example.com",
           "certificates": [
             {
               "keyFile": "#PLACE YOUR SSL CERTIFICATE KEY FILE INSIDE REMNAWAVE PANEL, EXAMPLE: /var/lib/remnawave/configs/xray/ssl/cert.key",
