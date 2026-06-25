@@ -60,7 +60,7 @@
                 "security": "reality",
                 "realitySettings": {
                     "serverName": "#REPLACE_WITH_YOUR_SERVER_NAMES, EXAMPLE: example.co",
-                    "password": "#REPLACE_WITH_YOUR_PUBLIC_KEY_FROM_OUTBAUND_KEYPAIR, GENERATE BELOW ↓"
+                    "password": "#REPLACE_WITH_YOUR_PUBLIC_KEY_FROM_OUTBOUND_KEYPAIR, GENERATE BELOW ↓"
                 }
             }
         }
