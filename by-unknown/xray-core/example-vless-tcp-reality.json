@@ -9,6 +9,7 @@
             "listen": "0.0.0.0",
             "protocol": "vless",
             "settings": {
+                "flow": "xtls-rprx-vision",
                 "clients": [],
                 "decryption": "none"
             },
