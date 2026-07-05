@@ -10,12 +10,14 @@
     },
     "inbounds": [
         {
-            "tag": "TROJAN_TCP_TLS",
+            "tag": "VLESS_TCP_TLS",
             "port": 443,
             "listen": "0.0.0.0",
-            "protocol": "trojan",
+            "protocol": "vless",
             "settings": {
-                "clients": []
+                "flow": "xtls-rprx-vision",
+                "clients": [],
+                "decryption": "none"
             },
             "sniffing": {
                 "enabled": true,
@@ -28,7 +30,7 @@
                 "network": "raw",
                 "security": "tls",
                 "tlsSettings": {
-                    "minVersion": "1.2",
+                    "minVersion": "1.3",
                     "certificates": [
                         {
                             "keyFile": "#PLACE YOUR SSL CERTIFICATE KEY FILE INSIDE REMNAWAVE PANEL, EXAMPLE: /var/lib/remnawave/configs/xray/ssl/cert.key",

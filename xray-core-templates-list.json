@@ -50,16 +50,10 @@
             "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-unknown/xray-core/example-vless-to-ss-with-server-routing.json"
         },
         {
-            "name": "Example TROJAN-TCP-TLS config",
+            "name": "Example VLESS-TCP-TLS config",
             "author": "unknown",
             "type": "XRAY_JSON",
-            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-unknown/xray-core/example-trojan-tcp-tls.json"
-        },
-        {
-            "name": "Example TROJAN-WS-TLS config",
-            "author": "unknown",
-            "type": "XRAY_JSON",
-            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-unknown/xray-core/example-trojan-ws-tls.json"
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-unknown/xray-core/example-vless-tcp-tls.json"
         },
         {
             "name": "Example VLESS TLS AND HY2 config",
