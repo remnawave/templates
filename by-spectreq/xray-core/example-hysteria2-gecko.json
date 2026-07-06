@@ -1,0 +1,75 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "tag": "HYSTERIA_GECKO",
+      "port": 443,
+      "listen": "0.0.0.0",
+      "protocol": "hysteria",
+      "settings": {
+        "clients": [],
+        "version": 2
+      },
+      "streamSettings": {
+        "network": "hysteria",
+        "security": "tls",
+        "finalmask": {
+          "udp": [
+            {
+              "type": "salamander",
+              "settings": {
+                "password": "#REPLACE WITH YOUR PASSWORD. ANY PASSPHRASE",
+                "packetSize": "900-1400"
+              }
+            }
+          ],
+          "quicParams": {
+            "debug": false,
+            "congestion": "bbr"
+          }
+        },
+        "tlsSettings": {
+          "alpn": ["h3"],
+          "serverName": "#REPLACE WITH YOUR SERVER NAME, EXAMPLE: example.com",
+          "certificates": [
+            {
+              "keyFile": "#PLACE YOUR SSL CERTIFICATE KEY FILE INSIDE REMNAWAVE PANEL, EXAMPLE: /var/lib/remnawave/configs/xray/ssl/cert.key",
+              "certificateFile": "#PLACE YOUR SSL CERTIFICATE FILE INSIDE REMNAWAVE PANEL, EXAMPLE: /var/lib/remnawave/configs/xray/ssl/cert.pem"
+            }
+          ]
+        },
+        "hysteriaSettings": {
+          "version": 2
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "DIRECT",
+      "protocol": "freedom"
+    },
+    {
+      "tag": "BLOCK",
+      "protocol": "blackhole"
+    }
+  ],
+  "routing": {
+    "rules": [
+      {
+        "ip": ["geoip:private"],
+        "outboundTag": "BLOCK"
+      },
+      {
+        "domain": ["geosite:private"],
+        "outboundTag": "BLOCK"
+      },
+      {
+        "protocol": ["bittorrent"],
+        "outboundTag": "BLOCK"
+      }
+    ]
+  }
+}
