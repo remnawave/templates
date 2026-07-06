@@ -59,15 +59,21 @@
   "routing": {
     "rules": [
       {
-        "ip": ["geoip:private"],
+        "ip": [
+          "geoip:private"
+        ],
         "outboundTag": "BLOCK"
       },
       {
-        "domain": ["geosite:private"],
+        "domain": [
+          "geosite:private"
+        ],
         "outboundTag": "BLOCK"
       },
       {
-        "protocol": ["bittorrent"],
+        "protocol": [
+          "bittorrent"
+        ],
         "outboundTag": "BLOCK"
       }
     ]
