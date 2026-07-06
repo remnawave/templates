@@ -1,65 +1,71 @@
 {
-    "$schema": "./templates-list.schema.json",
-    "templates": [
-        {
-            "name": "Default Xray Core config",
-            "author": "remnawave",
-            "type": "XRAY_JSON",
-            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/remnawave-default/xray-core/config.json"
-        },
-        {
-            "name": "Example VLESS-TCP-REALITY config",
-            "author": "unknown",
-            "type": "XRAY_JSON",
-            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-unknown/xray-core/example-vless-tcp-reality.json"
-        },
-        {
-            "name": "Example VLESS-SELFSTEAL-WITH-NGINX config",
-            "author": "unknown",
-            "type": "XRAY_JSON",
-            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-unknown/xray-core/example-vless-selfsteal-with-nginx.json"
-        },
-        {
-            "name": "Example Server Routing: VLESS IN → VLESS OUT",
-            "author": "ikitkatt",
-            "type": "XRAY_JSON",
-            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-ikitkatt/xray-core/example-vless-to-vless-with-server-routing.json"
-        },
-        {
-            "name": "Example Vless Encryption",
-            "author": "ikitkatt",
-            "type": "XRAY_JSON",
-            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-ikitkatt/xray-core/example-vless-tcp-enc.json"
-        },
-        {
-            "name": "Example Hysteria-BBR config (2.7.0+)",
-            "author": "ikitkatt",
-            "type": "XRAY_JSON",
-            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-ikitkatt/xray-core/example-hysteria-bbr.json"
-        },
-        {
-            "name": "Example Shadowsocks-2022 config (2.7.0+)",
-            "author": "ikitkatt",
-            "type": "XRAY_JSON",
-            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-ikitkatt/xray-core/example-shadowsocks-2022.json"
-        },
-        {
-            "name": "Example Server Routing: VLESS IN → SS OUT",
-            "author": "unknown",
-            "type": "XRAY_JSON",
-            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-unknown/xray-core/example-vless-to-ss-with-server-routing.json"
-        },
-        {
-            "name": "Example VLESS-TCP-TLS config",
-            "author": "unknown",
-            "type": "XRAY_JSON",
-            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-unknown/xray-core/example-vless-tcp-tls.json"
-        },
-        {
-            "name": "Example VLESS TLS AND HY2 config",
-            "author": "x1roko",
-            "type": "XRAY_JSON",
-            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-x1roko/xray-core/example-vless-tls-hy2-443-combo.json"
-        }
-    ]
+  "$schema": "./templates-list.schema.json",
+  "templates": [
+    {
+      "name": "Default Xray Core config",
+      "author": "remnawave",
+      "type": "XRAY_JSON",
+      "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/remnawave-default/xray-core/config.json"
+    },
+    {
+      "name": "Example VLESS-TCP-REALITY config",
+      "author": "unknown",
+      "type": "XRAY_JSON",
+      "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-unknown/xray-core/example-vless-tcp-reality.json"
+    },
+    {
+      "name": "Example VLESS-SELFSTEAL-WITH-NGINX config",
+      "author": "unknown",
+      "type": "XRAY_JSON",
+      "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-unknown/xray-core/example-vless-selfsteal-with-nginx.json"
+    },
+    {
+      "name": "Example Server Routing: VLESS IN → VLESS OUT",
+      "author": "ikitkatt",
+      "type": "XRAY_JSON",
+      "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-ikitkatt/xray-core/example-vless-to-vless-with-server-routing.json"
+    },
+    {
+      "name": "Example Vless Encryption",
+      "author": "ikitkatt",
+      "type": "XRAY_JSON",
+      "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-ikitkatt/xray-core/example-vless-tcp-enc.json"
+    },
+    {
+      "name": "Example Hysteria-BBR config (2.7.0+)",
+      "author": "ikitkatt",
+      "type": "XRAY_JSON",
+      "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-ikitkatt/xray-core/example-hysteria-bbr.json"
+    },
+    {
+      "name": "Example Shadowsocks-2022 config (2.7.0+)",
+      "author": "ikitkatt",
+      "type": "XRAY_JSON",
+      "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-ikitkatt/xray-core/example-shadowsocks-2022.json"
+    },
+    {
+      "name": "Example Server Routing: VLESS IN → SS OUT",
+      "author": "unknown",
+      "type": "XRAY_JSON",
+      "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-unknown/xray-core/example-vless-to-ss-with-server-routing.json"
+    },
+    {
+      "name": "Example VLESS-TCP-TLS config",
+      "author": "unknown",
+      "type": "XRAY_JSON",
+      "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-unknown/xray-core/example-vless-tcp-tls.json"
+    },
+    {
+      "name": "Example VLESS TLS AND HY2 config",
+      "author": "x1roko",
+      "type": "XRAY_JSON",
+      "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-x1roko/xray-core/example-vless-tls-hy2-443-combo.json"
+    },
+    {
+      "name": "Example Hysteria2 Gecko",
+      "author": "spectreq",
+      "type": "XRAY_JSON",
+      "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-spectreq/xray-core/example-hysteria2-gecko.json"
+    }
+  ]
 }
