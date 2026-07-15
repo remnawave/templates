@@ -169,6 +169,14 @@ proxies:
     type: dns
 
 proxy-groups:
+  - name: GLOBAL
+    type: select
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png
+    include-all-proxies: true
+    proxies:
+      - 🚫 Недоступные сайты
+      - 🎲 Любой доступный сервер
+
   - name: 🚫 Недоступные сайты
     icon: https://cdn.jsdelivr.net/gh/remnawave/templates@main/icons/Blocked.png
     type: select
