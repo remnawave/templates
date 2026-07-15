@@ -182,6 +182,7 @@ proxy-groups:
       - 🌍 Остальные сайты
       - 🇷🇺 Без VPN
       - PROXY
+      - DIRECT
       - REJECT
       - DNS-OUT
 
