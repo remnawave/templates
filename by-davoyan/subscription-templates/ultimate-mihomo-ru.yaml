@@ -181,10 +181,7 @@ proxy-groups:
       - ⚪🔵🔴 RU сайты
       - 🌍 Остальные сайты
       - 🇷🇺 Без VPN
-      - PROXY
-      - DIRECT
       - REJECT
-      - DNS-OUT
 
   - name: 🚫 Недоступные сайты
     icon: https://cdn.jsdelivr.net/gh/remnawave/templates@main/icons/Blocked.png
