@@ -173,14 +173,15 @@ proxy-groups:
     type: select
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png
     proxies:
-      - 🚫 Недоступные сайты
       - 🎲 Любой доступный сервер
+      - 🚫 Недоступные сайты
       - ▶️ YouTube
       - 💬 Discord
       - ➤ Telegram
       - ⚪🔵🔴 RU сайты
       - 🌍 Остальные сайты
       - 🇷🇺 Без VPN
+      - PROXY
       - REJECT
       - DNS-OUT
 
