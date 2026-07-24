@@ -1,0 +1,1036 @@
+# ============================================================
+# Mihomo / Clash Meta — шаблон для Remnawave (RU bridge architecture)
+#
+# Архитектура: клиент → RU-нода (dialer-proxy) → exit-ноды через мост
+#   с smux:h2mux поверх VLESS-Reality.
+#
+# Требования к Remnawave:
+#   • Одна RU-нода (по флагу 🇷🇺 в имени хоста)
+#   • Одна или несколько exit-нод (любая страна кроме РФ)
+#   • Все ноды привязаны к одному Internal Squad
+#
+# Никаких ручных правок под себя не требуется. Remnawave автоматически
+# проставляет флаг страны в имя хоста по геолокации IP, а exclude-filter
+# в bridge-провайдере по этому флагу отличает мост от exit-нод.
+#
+# Что внутри:
+#   • Защита нод от утечки IP через российский софт (apps_ipcheck → DIRECT)
+#   • Маршрутизация Apple Push / FCM в DIRECT (чтобы пуши не теряли)
+#   • Discord-правила под миграцию на Cloudflare (февраль 2026)
+#   • mixed-port: 0 + allow-lan: false — антидетект сканерами вроде RKNHardering
+#   • Smart routing: по умолчанию DIRECT, через VPN — только нужное
+#
+# UI клиента: одна кнопка «🌍 VPN» с выбором региона. Внутри url-test
+# выбирает быстрейший хост региона.
+# ============================================================
+
+remnawave:
+  includeHiddenHosts: true
+
+x-anchors:
+  reserved_ips: &reserved_ips
+    - 0.0.0.0/8
+    - 10.0.0.0/8
+    - 100.64.0.0/10
+    - 127.0.0.0/8
+    - 169.254.0.0/16
+    - 172.16.0.0/12
+    - 192.0.0.0/24
+    - 192.0.2.0/24
+    - 192.88.99.0/24
+    - 192.168.0.0/16
+    - 198.51.100.0/24
+    - 203.0.113.0/24
+    - 224.0.0.0/3
+
+  dns_ru: &dns_ru
+    - tls://77.88.8.8
+
+  dns_proxy: &dns_proxy
+    - https://cloudflare-dns.com/dns-query#🌍 VPN
+
+  pr_http: &pr_http
+    type: http
+    interval: 86400
+
+  rp_classical: &rp_classical
+    <<: *pr_http
+    behavior: classical
+    format: yaml
+    proxy: 🌍 VPN
+
+  rp_domain: &rp_domain
+    <<: *pr_http
+    behavior: domain
+    format: mrs
+    proxy: 🌍 VPN
+
+  rp_ipcidr: &rp_ipcidr
+    <<: *pr_http
+    behavior: ipcidr
+    format: mrs
+    proxy: 🌍 VPN
+
+# === Core ===
+# mixed-port: 0 — никакого открытого HTTP/SOCKS5 на localhost. Это критично:
+# открытый порт палится сканерами (типа RKNHardering) как индикатор VPN-клиента
+# и попадает в раздел Split-tunnel bypass отчёта. На Android TUN перехватывает
+# весь трафик — внешний прокси-порт там не нужен. На Windows если требуется
+# системный HTTP/SOCKS прокси (Koala Clash / FlClashX), порт поднимается через
+# UI клиента независимо от значения в конфиге, либо используется TUN-режим
+# (рекомендуется — он перехватывает всё без необходимости настраивать прокси
+# в каждом приложении отдельно).
+mixed-port: 0
+allow-lan: false
+tcp-concurrent: true
+enable-process: true
+find-process-mode: strict
+mode: rule
+log-level: info
+ipv6: true
+keep-alive-interval: 15
+keep-alive-idle: 30
+unified-delay: true
+geodata-loader: memconservative
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+# === Sniffer ===
+sniffer:
+  enable: true
+  force-dns-mapping: true
+  parse-pure-ip: true
+  sniff:
+    HTTP:
+      ports:
+        - 80
+        - 8080-8880
+      override-destination: true
+    TLS:
+      ports:
+        - 443
+        - 8443
+    QUIC:
+      ports:
+        - 443
+  skip-dst-address: *reserved_ips
+
+# === TUN ===
+tun:
+  exclude-package:
+    [
+      "air.ru.obi.mobile",
+      "az.vtb.android",
+      "biz.growapp.winline",
+      "business.gid.hero",
+      "business.gid.universe",
+      "by.advasoft.android.troika.app",
+      "centrida.neftmagistral",
+      "chat.strelka",
+      "club.chizhik",
+      "club.skllzz.fitness",
+      "com.allgoritm.youla",
+      "com.apegroup.mcdonaldsrussia",
+      "com.apteka.sklad",
+      "com.asmo.infometeos",
+      "com.avito.android",
+      "com.bankffin.portfolio",
+      "com.bastion",
+      "com.bifit.rncbbeta",
+      "com.birzha_rt",
+      "com.bogg.art.vkt",
+      "com.carshering",
+      "com.citymobil",
+      "com.coolclever.app",
+      "com.dartit.RTcabinet",
+      "com.dartit.mobileagent",
+      "com.dartit.rtcabinet",
+      "com.deliveryclub",
+      "com.discover.moscow.lite",
+      "com.edadeal.android",
+      "com.equeo.megafondraiv",
+      "com.evrasiar",
+      "com.gloriajeans.mobile",
+      "com.gmeteos.infometeos",
+      "com.gnivts.ausn",
+      "com.gnivts.selfemployed",
+      "com.goodok.mts",
+      "com.gpn.azs",
+      "com.grotem.match",
+      "com.horosho.tips",
+      "com.icemobile.lenta.prod",
+      "com.idamob.tinkoff.android",
+      "com.indygomobi.detifm",
+      "com.indygomobi.relaxfm",
+      "com.indygomobi.zenit",
+      "com.invitro.app",
+      "com.iwedia.ui.beeline.atv",
+      "com.kazanexpress.ke_app",
+      "com.keenetic.kn",
+      "com.kms.free",
+      "com.lamoda.lite",
+      "com.lenta.employee",
+      "com.lenta.lentochka_service",
+      "com.leroymerlin.mobile",
+      "com.logistic.sdek",
+      "com.loyaltyplant.partner.subway",
+      "com.magnit.delivery.courier",
+      "com.match.club",
+      "com.matchtv.rustore",
+      "com.maxxt.recordradio",
+      "com.mcd.superapp",
+      "com.mcptt",
+      "com.megafon.kk",
+      "com.megafon.maps",
+      "com.megafon.mcca.android.store",
+      "com.megafon.rk",
+      "com.mobium12580.app",
+      "com.moex.finuslugi",
+      "com.moscowsport",
+      "com.mts.who_calls",
+      "com.my.mygamesapp",
+      "com.national.lottery",
+      "com.navplatform.navigator.public",
+      "com.notissimus.allinstruments.android",
+      "com.octopod.russianpost.client.android",
+      "com.onecwearable.keyboard.rustore",
+      "com.orgp.spbpodorozhnik",
+      "com.platfomni.gorzdrav",
+      "com.pobeda.anniversary",
+      "com.pogoda.infometeos",
+      "com.premiumbonus.jamm.ramen",
+      "com.programmisty.emiasapp",
+      "com.punicapp.whoosh",
+      "com.rostelecom.printservice",
+      "com.ru.dixy",
+      "com.rzd.eventsrzd",
+      "com.salute.smarthome.prod",
+      "com.sberauto.mobile",
+      "com.sberbank.sberpravo",
+      "com.sdkit.search.app",
+      "com.spbtv.rosing",
+      "com.svoi.bank",
+      "com.taxsee.taxsee",
+      "com.tdm.messenger",
+      "com.teremok.keys",
+      "com.tjuraniaapp",
+      "com.tseh85",
+      "com.uchi.app",
+      "com.uip.gosuslugi2",
+      "com.uma.musicvk",
+      "com.vk.admin",
+      "com.vk.calls",
+      "com.vk.clips",
+      "com.vk.im",
+      "com.vk.love",
+      "com.vk.mail",
+      "com.vk.tv",
+      "com.vk.vkvideo",
+      "com.vkontakte.android",
+      "com.vkusvill.courier",
+      "com.vkusvill.vacancy",
+      "com.wbextdelivery",
+      "com.wbpoint.android.prod.release",
+      "com.wbstream_app",
+      "com.whsd.whsdapp",
+      "com.wildberries.consultations",
+      "com.wildberries.ru",
+      "com.wildberries.wbkey",
+      "com.wms_mm_point.mm_delivery_point",
+      "com.yandex.aliceapp",
+      "com.yandex.bank",
+      "com.yandex.bluecollars",
+      "com.yandex.browser",
+      "com.yandex.browser.lite",
+      "com.yandex.iot",
+      "com.yandex.lavka",
+      "com.yandex.mobile.drive",
+      "com.yandex.mobile.realty",
+      "com.yandex.plus.game.city",
+      "com.yandex.searchapp",
+      "com.yandex.shedevrus",
+      "com.yandex.shedevrus2",
+      "com.yandex.tasks.androidapp",
+      "com.yandex.yamb",
+      "com.zvooq.openplay",
+      "es.hol.ing.zagsr",
+      "games.my.cloud",
+      "games.my.cloud.tv",
+      "goldapple.ru.goldapple.customers",
+      "gpm.tnt_premier",
+      "im.dlg.dialogx",
+      "im.dlg.enterprise",
+      "intech.global.com.beeline",
+      "io.github.dovecoteescapee.byedpi",
+      "io.itforces.android.timetable",
+      "level.travel",
+      "live.vkplay.app",
+      "logo.com.mbanking",
+      "me.membrana.kids.parent.app",
+      "megafon.transport.mobile",
+      "one.premier.rustoretv",
+      "org.orange.mobile",
+      "org.rtk.cleaning",
+      "otello.dgis.ru",
+      "pro.arora.mobile.maradi",
+      "pro.arora.mobile.pizza_milana",
+      "pro.rocketTech.rocket.rocketapp",
+      "pro.sber_zvuk",
+      "ru.abrr.gas",
+      "ru.aisa.android.ekpv2",
+      "ru.akbars.mobile",
+      "ru.alfabank.mobile.android",
+      "ru.alfabank.oavdo.amc",
+      "ru.alfadirect.app",
+      "ru.alfastrah.app",
+      "ru.aliexpress.buyer",
+      "ru.altarix.mos.pgu",
+      "ru.amina.moscow",
+      "ru.auto.ara",
+      "ru.aviasales",
+      "ru.bankuralsib.mb.android",
+      "ru.bcs.bcsbank",
+      "ru.beeline.beebookreader",
+      "ru.beeline.cloud",
+      "ru.beeline.dol",
+      "ru.beeline.messengerx",
+      "ru.beeline.mwpsapp",
+      "ru.beeline.pro",
+      "ru.beeline.services",
+      "ru.beeline.tve.android",
+      "ru.beru.android",
+      "ru.bkfon",
+      "ru.bristol.bristol_app",
+      "ru.bspb",
+      "ru.burgerking",
+      "ru.cardsmobile.mw3",
+      "ru.cdek.courier",
+      "ru.cdek.ek5",
+      "ru.chitaigorod.mobile",
+      "ru.cian.main",
+      "ru.citilink",
+      "ru.compass.tag",
+      "ru.crptech.b2bmark",
+      "ru.crptech.mark",
+      "ru.dahl.messenger",
+      "ru.datapax.mosobl",
+      "ru.detmir.dmbonus",
+      "ru.diftechsvc",
+      "ru.dikidi",
+      "ru.dit.smartstaff",
+      "ru.dns.shop.android",
+      "ru.dodopizza.app",
+      "ru.domclick.mortgage",
+      "ru.domopult.mosobleirc.android",
+      "ru.drclinics.app.sovcom",
+      "ru.dublgis.dgismobile",
+      "ru.dublgis.dgismobile4preview",
+      "ru.fanid",
+      "ru.filit.mvideo.b2c",
+      "ru.finassist",
+      "ru.fns.billchecker",
+      "ru.fns.billchecker.mobile.android",
+      "ru.fns.lkfl",
+      "ru.foodfox.client",
+      "ru.ftc.tc",
+      "ru.gazprombank.android.mobilebank.app",
+      "ru.gazprompay.android",
+      "ru.getpharma.eapteka",
+      "ru.gibdd_pay.app",
+      "ru.gid.app",
+      "ru.gid.eventsapp",
+      "ru.gid.most",
+      "ru.gnivc.lkip",
+      "ru.goods.marketplace",
+      "ru.gosuslugi.auto",
+      "ru.gosuslugi.culture",
+      "ru.gosuslugi.goskey",
+      "ru.gosuslugi.migrant",
+      "ru.gosuslugi.pos",
+      "ru.gosuslugi.pos.executor",
+      "ru.gosuslugi.school",
+      "ru.gosuslugi.volunteer",
+      "ru.hh.android",
+      "ru.hh.employer.android",
+      "ru.ideast.championat",
+      "ru.ideast.humor",
+      "ru.ideast.nrj",
+      "ru.ideast.romantika",
+      "ru.ideast.ru101.rustore",
+      "ru.imteleport.plp2",
+      "ru.instamart",
+      "ru.intech.lki",
+      "ru.kari.android",
+      "ru.kfc.kfc_delivery",
+      "ru.kinopoisk",
+      "ru.lenta.lentochka",
+      "ru.leonardo.leonardoshop",
+      "ru.leroymerlin.employee",
+      "ru.leroymerlin.mobile",
+      "ru.letobank.prometheus",
+      "ru.lewis.dbo",
+      "ru.lifepay.pos.alfapos",
+      "ru.lifepay.pos.vtb",
+      "ru.litres.android",
+      "ru.litres.android.readfree",
+      "ru.litres.androidtv",
+      "ru.livelib.client",
+      "ru.m2.squaremeter",
+      "ru.m4bank.softpos.alfaru",
+      "ru.m4bank.softpos.rshb",
+      "ru.m4bank.softpos.vtbpos",
+      "ru.magnit.hrtest.android",
+      "ru.magnit.mesmag",
+      "ru.magnit.tag",
+      "ru.magnit.tms.armhde",
+      "ru.magnit.vendorapp",
+      "ru.mail.biz.avocado",
+      "ru.mail.cloud",
+      "ru.mail.horo.android",
+      "ru.mail.intranet",
+      "ru.mail.mailapp",
+      "ru.mail.my",
+      "ru.mail.search.electroscope",
+      "ru.maxidom.ecomm",
+      "ru.megafon.mlk",
+      "ru.megafon.vn.client",
+      "ru.megalabs.multifon",
+      "ru.megamarket.marketplace",
+      "ru.mes.dnevnik",
+      "ru.mes.sputnik",
+      "ru.mgfoms.pandora",
+      "ru.mntk.dostavka.prod",
+      "ru.more.play",
+      "ru.mos.app",
+      "ru.mos.ed",
+      "ru.mos.gz",
+      "ru.mos.myid",
+      "ru.mos.ourcity",
+      "ru.mos.polls",
+      "ru.mos.um",
+      "ru.mos.zaryadye",
+      "ru.mosgorpass",
+      "ru.mosmetro.metro",
+      "ru.mosoblgaz",
+      "ru.mosparking.appnew",
+      "ru.mosreg.easuz.portal",
+      "ru.mosreg.ekjp",
+      "ru.mosreg.mingos.mdp.app",
+      "ru.mosreg.mo112",
+      "ru.mosreg.uslugi.mobile.beta",
+      "ru.mts.bank",
+      "ru.mts.books.droid",
+      "ru.mts.live.app",
+      "ru.mts.mtscode",
+      "ru.mts.mtstv",
+      "ru.mts.music.android",
+      "ru.mts.mymts",
+      "ru.mts.pay",
+      "ru.mts.twomem",
+      "ru.mts.vdome.resident",
+      "ru.mvm.eldo",
+      "ru.mybook",
+      "ru.myspar",
+      "ru.nalog.rmr.client",
+      "ru.netbynet.app.personal_cabinet",
+      "ru.netcraze.app",
+      "ru.nspk.mir.loyalty",
+      "ru.nspk.mirpay",
+      "ru.nspk.sbpay",
+      "ru.ntv.client",
+      "ru.ntv.client.tv",
+      "ru.ntv.today",
+      "ru.ntvplus.service",
+      "ru.ok.android",
+      "ru.ok.dating",
+      "ru.okbmei.gosservice",
+      "ru.oneme.app",
+      "ru.onlime.my.app",
+      "ru.ostrovok.android",
+      "ru.otpbank.mobile",
+      "ru.ozon.app.android",
+      "ru.ozon.chatzone",
+      "ru.ozon.fintech.apvz",
+      "ru.ozon.fintech.finance",
+      "ru.ozon.fintech.sme",
+      "ru.ozon.flex",
+      "ru.ozon.fresh",
+      "ru.ozon.hire",
+      "ru.ozon.magistral",
+      "ru.ozon.maple_app",
+      "ru.ozon.ozon_pvz",
+      "ru.ozon.profit",
+      "ru.ozon.select",
+      "ru.ozon.seller_app",
+      "ru.ozon.tv",
+      "ru.paribet",
+      "ru.perekrestok.app",
+      "ru.pichesky.rosneft",
+      "ru.pikabu.android",
+      "ru.plazius.cofix",
+      "ru.plus.bookmate",
+      "ru.profmedia.avtoradio",
+      "ru.profmedia.likefm",
+      "ru.pyaterochka.app.browser",
+      "ru.rabota.app2",
+      "ru.raiffeisennews",
+      "ru.rambler.horoscopes.twa",
+      "ru.rambler.mail",
+      "ru.reksoft.okey",
+      "ru.rgs.lk",
+      "ru.ritmmedia.yappy",
+      "ru.rolf.rolf",
+      "ru.rosbank.android.beta",
+      "ru.rostel",
+      "ru.rostelecom.ideas",
+      "ru.rostelecom.vatsmobilelk",
+      "ru.rshb.dbo",
+      "ru.rshb.dboul",
+      "ru.rshb.digitalcoworkeroffice",
+      "ru.rshb.ips_qr",
+      "ru.rshb.privatebusiness",
+      "ru.rshb.svoe_rodnoe",
+      "ru.rshb.svoedom_android",
+      "ru.rshb.svojfermer",
+      "ru.rt.key",
+      "ru.rt.life",
+      "ru.rt.masterkey",
+      "ru.rt.mb_installer",
+      "ru.rt.mobileoffice",
+      "ru.rt.ritm",
+      "ru.rt.smarthome",
+      "ru.rt.video.app.mobile",
+      "ru.rt.video.app.mobile.b2b",
+      "ru.rt.video.app.tv",
+      "ru.rt.videocomfort",
+      "ru.rt.wfm",
+      "ru.rtdc.kakdela",
+      "ru.russianhighways.mobile",
+      "ru.russianpost.pechkin",
+      "ru.rutube.RutubeKids",
+      "ru.rutube.app",
+      "ru.rutube.app.tv",
+      "ru.rutube.studio",
+      "ru.rzd.cargolk",
+      "ru.rzd.newsdo.skills",
+      "ru.rzd.pass",
+      "ru.salute.b2b.prod",
+      "ru.sbcs.store",
+      "ru.sber.csradar",
+      "ru.sber.telecom",
+      "ru.sberbank.investor",
+      "ru.sberbank.onlineencashment",
+      "ru.sberbank.sberkids",
+      "ru.sberbank.sbersign",
+      "ru.sberbank_sbbol",
+      "ru.sberbankmobile",
+      "ru.sberins.insureapp.android",
+      "ru.sbermegamarket.pro",
+      "ru.serebryakovas.lukoilmobileapp",
+      "ru.setka",
+      "ru.sigma.gisgkh",
+      "ru.sima_land.spb.market",
+      "ru.smclinic.app.lk",
+      "ru.smmd.superdelivery",
+      "ru.sovcombank.dms",
+      "ru.sovcombank.investor",
+      "ru.sovcomcard.halva.v1",
+      "ru.spb.dnevnik",
+      "ru.spb.iac.dnevnikspb_new",
+      "ru.spb.parking",
+      "ru.sportmaster.app",
+      "ru.start.androidmobile",
+      "ru.stoloto.mobile",
+      "ru.sunlight.sunlight",
+      "ru.systtech.megafon.mobile",
+      "ru.tander.magnit",
+      "ru.tander.mobile_scout_flutter",
+      "ru.tatneft.gasstations",
+      "ru.taxovichkof.android",
+      "ru.tbank.online",
+      "ru.technokad.digitalkey",
+      "ru.tele2.mytele2",
+      "ru.tii.lkcomu",
+      "ru.tinkoff.bnpl",
+      "ru.tinkoff.invest.course",
+      "ru.tinkoff.investing",
+      "ru.tinkoff.magent",
+      "ru.tinkoff.mvno",
+      "ru.tinkoff.posterminal",
+      "ru.tinkoff.sme",
+      "ru.tntmusic.tv",
+      "ru.tokyocity.tokyocity",
+      "ru.troika.regional",
+      "ru.tutu.etrains",
+      "ru.tutu.tutu_emp",
+      "ru.ues.users_personal_account",
+      "ru.ufanet.myufanet",
+      "ru.urentbike.app",
+      "ru.usetech.velobike.v2",
+      "ru.utk.dostavka",
+      "ru.vk.hrtek",
+      "ru.vk.store",
+      "ru.vk.video",
+      "ru.vkmusic.audio",
+      "ru.vkpm.comedy",
+      "ru.vkusvill",
+      "ru.vseapteki",
+      "ru.vtb.corporate.android.main_application",
+      "ru.vtb.invest",
+      "ru.vtb.smb",
+      "ru.vtb24.mobilebanking.android",
+      "ru.wb.courier",
+      "ru.wb.go",
+      "ru.wb.guru",
+      "ru.wb.wband",
+      "ru.wildberries.books",
+      "ru.wildberries.manager",
+      "ru.wildberries.team",
+      "ru.wildberries.team2",
+      "ru.wildberries.wbpayclient",
+      "ru.winelab",
+      "ru.wink.music",
+      "ru.wink.music.tv",
+      "ru.x5.foodru.rs",
+      "ru.x5.key",
+      "ru.x5.mfpnew",
+      "ru.x5.mrm_android.personaldevice",
+      "ru.x5.omni",
+      "ru.x5.opermax.aura",
+      "ru.x5.rooms",
+      "ru.x5.wl.slata",
+      "ru.x5.wrs2",
+      "ru.x5.x5job",
+      "ru.yandex.androidkeyboard",
+      "ru.yandex.disk",
+      "ru.yandex.games",
+      "ru.yandex.key",
+      "ru.yandex.mail",
+      "ru.yandex.market.partner",
+      "ru.yandex.metro",
+      "ru.yandex.mobile.fmradio",
+      "ru.yandex.mobile.gasstations",
+      "ru.yandex.music",
+      "ru.yandex.practicum.flutter_practicum",
+      "ru.yandex.searchplugin",
+      "ru.yandex.subtitles",
+      "ru.yandex.taxi",
+      "ru.yandex.taximeter",
+      "ru.yandex.telemost",
+      "ru.yandex.translate",
+      "ru.yandex.travel",
+      "ru.yandex.uber",
+      "ru.yandex.weatherplugin",
+      "ru.yandex.yandexmaps",
+      "ru.yandex.yandexnavi",
+      "ru.yandex_team.calendar_app",
+      "ru.yoo.business",
+      "ru.yoo.kassa",
+      "ru.yoo.money",
+      "ru.yoo.sdk.kassa.payments.example.release",
+      "ru.yota.android",
+      "ru.yozhka",
+      "ru.zen.android",
+      "ru.zhuck.webapp",
+      "ru.zolotoy585.customer",
+      "ruagro.start.tech",
+      "su.azure.paymaster",
+      "team.rtds.checkcontrol",
+      "tech.clink.emias.emiasqrcode",
+      "travel.ozon.mobile",
+      "tv.lfstrm.smotreshka",
+      "tv.ntvplus.app",
+      "tv.ntvplus.app.tv",
+      "wb.partners",
+      "wildberries.business",
+      "www.metro.com",
+      "youdrive.today",
+    ]
+  enable: true
+  stack: mixed
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - any:53
+    - tcp://any:53
+  strict-route: true
+  route-exclude-address: *reserved_ips
+
+# === DNS ===
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  cache-algorithm: arc
+  prefer-h3: false
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - rule-set:geosite-private
+    - "+.lan"
+    - "+.local"
+    - "+.msftncsi.com"
+    - "+.msftconnecttest.com"
+    - "captive.apple.com"
+    - "connectivitycheck.gstatic.com"
+    - "+.stun.*.*"
+    - "+.stun.*.*.*"
+    - "time.windows.com"
+    - "time.apple.com"
+    - "time.google.com"
+    - "+.ntp.org"
+    # IP-чекеры — исключаем из fake-IP, чтобы mihomo матчил их по
+    # реальному домену в момент TCP-connect, а не по fake-IP. Это
+    # критично: иначе IP-rule cloudflare,🌍 VPN срабатывает раньше
+    # apps_ipcheck (потому что endpoint = fake-IP, домена в пакете нет
+    # до TLS-SNI-снифа), и чекеры утекают через VPN-ноду.
+    - "+.ipify.org"
+    - "+.ifconfig.me"
+    - "+.ifconfig.io"
+    - "+.ifconfig.co"
+    - "+.icanhazip.com"
+    - "+.checkip.amazonaws.com"
+    - "+.dyndns.org"
+    - "+.ip.sb"
+    - "ipinfo.io"
+    - "ipapi.co"
+    - "ip-api.com"
+    - "api.myip.com"
+    - "ident.me"
+    - "ipwho.is"
+    - "api.ipquery.io"
+    - "api.iplocation.net"
+    - "whatismyip.com"
+    - "+.whatismyipaddress.com"
+    - "ipleak.net"
+    - "+.2ip.ru"
+    - "+.2ip.io"
+    - "2ipcore.com"
+    - "ipv4-internet.yandex.net"
+    - "ipv6-internet.yandex.net"
+    - "ip.mail.ru"
+    - "api.sypexgeo.net"
+    - "api.ipapi.is"
+    - "iplocate.io"
+    - "+.bash.ws"
+  default-nameserver: *dns_ru
+  proxy-server-nameserver: *dns_ru
+  direct-nameserver: *dns_ru
+  nameserver:
+    - https://cloudflare-dns.com/dns-query
+  nameserver-policy:
+    rule-set:geosite-private:
+      - system
+    rule-set:ads-all:
+      - rcode://refused
+    # IP-чекеры — DNS через Yandex DoT (DIRECT), чтобы не палить ноду через
+    # DNS-запрос. Без этой policy DNS-запросы для apps_ipcheck шли бы через
+    # default nameserver (Cloudflare DoH), который сам ходит через VPN.
+    "rule-set:apps_ipcheck": *dns_ru
+    "rule-set:youtube,telegram_domains,discord_domains,whatsapp_domains,instagram_domains,facebook_domains,ai,ru-bundle,refilter_domains": *dns_proxy
+
+# === Proxies (плейсхолдер для Remnawave: сюда инжектятся все хосты) ===
+proxies: # LEAVE THIS LINE!
+
+# === Proxy providers (мост через RU-ноду к exit-нодам) ===
+# Bridge-провайдер берёт все хосты подписки кроме RU (по флагу 🇷🇺) и
+# заворачивает их в RU-ноду как dialer-proxy с smux:h2mux поверх.
+# То есть к клиенту приходит конструкция:
+#   user → RU-нода (Reality TCP) → exit-нода (Reality TCP внутри smux)
+proxy-providers:
+  bridge:
+    type: inline
+    # Исключаем сам мост — он используется как dialer, не как exit
+    exclude-filter: '🇷🇺'
+    remnawave:
+      include-proxies: true
+    health-check:
+      enable: true
+      url: https://cp.cloudflare.com/generate_204
+      interval: 300
+    override:
+      # RU-нода используется как dialer (мост). Имя группы должно
+      # совпадать с тем что отдаёт Remnawave в подписке для RU-хоста.
+      # Remnawave по умолчанию добавляет флаг страны в имя хоста.
+      dialer-proxy: 🇷🇺 Russia
+      additional-prefix: '🇷🇺➡️'
+      smux:
+        enabled: true
+        protocol: h2mux
+        max-connections: 2
+        min-streams: 8
+        padding: true
+        statistic: true
+        only-tcp: true
+    payload:
+
+# === Proxy groups ===
+# 🌍 VPN — селектор который видит юзер.
+# 🌐 Exit — url-test группа, выбирает быстрейшую exit-ноду через мост.
+#   Если у тебя несколько exit-нод разных стран — все они попадут сюда
+#   автоматически (bridge-провайдер инжектит их через `use:`).
+# ♻️ БезVPN — скрытая группа для маршрутизации в DIRECT.
+proxy-groups:
+  - name: 🌍 VPN
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png
+    type: select
+    remnawave:
+      include-proxies: false
+    proxies:
+      - 🌐 Exit
+      # LEAVE THIS LINE!
+
+  - name: 🌐 Exit
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png
+    type: url-test
+    lazy: true
+    tolerance: 150
+    url: https://cp.cloudflare.com/generate_204
+    interval: 120
+    remnawave:
+      include-proxies: false
+    proxies:
+      # LEAVE THIS LINE!
+    use:
+      - bridge
+
+  - name: ♻️ БезVPN
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Direct.png
+    type: select
+    hidden: true
+    remnawave:
+      include-proxies: false
+    proxies:
+      - DIRECT
+
+# === Rule providers ===
+rule-providers:
+  geosite-private:
+    <<: *rp_domain
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/private.mrs
+    path: ./rule-sets/geosite-private.mrs
+  geoip-private:
+    <<: *rp_ipcidr
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geoip/private.mrs
+    path: ./rule-sets/geoip-private.mrs
+  ads-all:
+    <<: *rp_domain
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/category-ads-all.mrs
+    path: ./rule-sets/ads-all.mrs
+  torrent-trackers:
+    <<: *rp_domain
+    url: https://cdn.jsdelivr.net/gh/legiz-ru/mihomo-rule-sets@main/other/torrent-trackers.mrs
+    path: ./rule-sets/torrent-trackers.mrs
+  torrent-clients:
+    <<: *rp_classical
+    url: https://cdn.jsdelivr.net/gh/legiz-ru/mihomo-rule-sets@main/other/torrent-clients.yaml
+    path: ./rule-sets/torrent-clients.yaml
+  games-direct:
+    <<: *rp_classical
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/games-direct.yaml
+    path: ./rule-sets/games-direct.yaml
+  ru-app-list:
+    <<: *rp_classical
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/ru-app-list.yaml
+    path: ./rule-sets/ru-app-list.yaml
+  youtube:
+    <<: *rp_domain
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/youtube.mrs
+    path: ./rule-sets/youtube.mrs
+  whatsapp_domains:
+    <<: *rp_domain
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/whatsapp.mrs
+    path: ./rule-sets/whatsapp_domains.mrs
+  facebook_domains:
+    <<: *rp_domain
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/facebook.mrs
+    path: ./rule-sets/facebook_domains.mrs
+  instagram_domains:
+    <<: *rp_domain
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/instagram.mrs
+    path: ./rule-sets/instagram_domains.mrs
+  meta_ips:
+    <<: *rp_ipcidr
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geoip/facebook.mrs
+    path: ./rule-sets/meta_ips.mrs
+  telegram_domains:
+    <<: *rp_domain
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/telegram.mrs
+    path: ./rule-sets/telegram_domains.mrs
+  telegram_ips:
+    <<: *rp_ipcidr
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geoip/telegram.mrs
+    path: ./rule-sets/telegram_ips.mrs
+  discord_domains:
+    <<: *rp_domain
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/discord.mrs
+    path: ./rule-sets/discord_domains.mrs
+  discord_voiceips:
+    <<: *rp_ipcidr
+    url: https://cdn.jsdelivr.net/gh/legiz-ru/mihomo-rule-sets@main/other/discord-voice-ip-list.mrs
+    path: ./rule-sets/discord_voiceips.mrs
+  discord_vc:
+    type: inline
+    behavior: classical
+    payload:
+      - AND,((IP-CIDR,138.128.136.0/21),(NETWORK,udp),(DST-PORT,50000-50100))
+      - AND,((IP-CIDR,162.158.0.0/15),(NETWORK,udp),(DST-PORT,50000-50100))
+      - AND,((IP-CIDR,172.64.0.0/13),(NETWORK,udp),(DST-PORT,50000-50100))
+      - AND,((IP-CIDR,34.0.0.0/15),(NETWORK,udp),(DST-PORT,50000-50100))
+      - AND,((IP-CIDR,34.2.0.0/15),(NETWORK,udp),(DST-PORT,50000-50100))
+      - AND,((IP-CIDR,35.192.0.0/12),(NETWORK,udp),(DST-PORT,50000-50100))
+      - AND,((IP-CIDR,35.208.0.0/12),(NETWORK,udp),(DST-PORT,50000-50100))
+      - AND,((IP-CIDR,5.200.14.128/25),(NETWORK,udp),(DST-PORT,50000-50100))
+      - AND,((IP-CIDR,66.22.192.0/18),(NETWORK,udp),(DST-PORT,50000-50100))
+  ai:
+    <<: *rp_domain
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs
+    path: ./rule-sets/ai.mrs
+  refilter_domains:
+    <<: *rp_domain
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/re-filter/domain-rule.mrs
+    path: ./rule-sets/refilter_domains.mrs
+  refilter_ipsum:
+    <<: *rp_ipcidr
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/re-filter/ip-rule.mrs
+    path: ./rule-sets/refilter_ipsum.mrs
+  cloudflare:
+    <<: *rp_ipcidr
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geoip/cloudflare.mrs
+    path: ./rule-sets/cloudflare.mrs
+  ru-bundle:
+    <<: *rp_domain
+    url: https://cdn.jsdelivr.net/gh/legiz-ru/mihomo-rule-sets@main/ru-bundle/rule.mrs
+    path: ./rule-sets/ru-bundle.mrs
+  rknasnblock:
+    <<: *rp_ipcidr
+    url: https://cdn.jsdelivr.net/gh/legiz-ru/mihomo-rule-sets@main/ru-bundle/rknasnblock.mrs
+    path: ./rule-sets/rknasnblock.mrs
+  # IP-чекеры. Маршрутизируем в DIRECT, чтобы российские приложения, идущие
+  # через VPN, при попытке узнать свой внешний IP видели реальный IP юзера, а
+  # не IP западной ноды. Это защищает ноду от детекта и попадания в банлист
+  # РКН через телеметрию российского ПО. Минус: пользователю эти сайты больше
+  # не подойдут для проверки VPN — для проверки используй встроенный
+  # health-check в клиенте mihomo или открой любой сайт не из этого списка.
+  apps_ipcheck:
+    type: inline
+    behavior: classical
+    payload:
+      - DOMAIN-SUFFIX,ipify.org
+      - DOMAIN-SUFFIX,ifconfig.me
+      - DOMAIN-SUFFIX,ifconfig.io
+      - DOMAIN-SUFFIX,ifconfig.co
+      - DOMAIN-SUFFIX,icanhazip.com
+      - DOMAIN-SUFFIX,checkip.amazonaws.com
+      - DOMAIN,checkip.dyndns.org
+      - DOMAIN-SUFFIX,ip.sb
+      - DOMAIN,api-ipv4.ip.sb
+      - DOMAIN,api-ipv6.ip.sb
+      - DOMAIN,ipinfo.io
+      - DOMAIN,ipapi.co
+      - DOMAIN,ip-api.com
+      - DOMAIN,api.myip.com
+      - DOMAIN,ident.me
+      - DOMAIN,ipwho.is
+      - DOMAIN,api.ipquery.io
+      - DOMAIN,api.iplocation.net
+      - DOMAIN,whatismyip.com
+      - DOMAIN-SUFFIX,whatismyipaddress.com
+      - DOMAIN,ipleak.net
+      - DOMAIN-SUFFIX,2ip.ru
+      - DOMAIN-SUFFIX,2ip.io
+      - DOMAIN,2ipcore.com
+      - DOMAIN,ipv4-internet.yandex.net
+      - DOMAIN,ipv6-internet.yandex.net
+      - DOMAIN,ip.mail.ru
+      - DOMAIN,api.sypexgeo.net
+      - DOMAIN,api.ipapi.is
+      - DOMAIN,iplocate.io
+      - DOMAIN-SUFFIX,bash.ws
+
+# === Rules ===
+# Порядок: вначале специфика (ip-чекер, реклама, push-уведомления, локалка),
+# затем РФ-приложения и торренты в DIRECT, потом блокированные сервисы в VPN,
+# и в самом конце MATCH→DIRECT (smart routing для пользователя в РФ).
+rules:
+  # IP-чекеры — DIRECT. Защищает IP западных нод от попадания в РКН через
+  # телеметрию российских приложений. Любое приложение через VPN, обращаясь
+  # к ipify/ifconfig.me/etc., увидит реальный IP пользователя, не ноды.
+  - RULE-SET,apps_ipcheck,♻️ БезVPN
+
+  # Реклама — глобальный REJECT
+  - RULE-SET,ads-all,REJECT
+
+  # Apple Push (iOS-уведомления) — обязательно DIRECT, иначе пуши тормозят/теряются
+  - IP-CIDR,17.0.0.0/8,♻️ БезVPN,no-resolve
+  - OR,((DST-PORT,5223),(DOMAIN-SUFFIX,push.apple.com)),♻️ БезVPN
+
+  # FCM (Android-уведомления) — DIRECT по той же причине
+  - OR,((DST-PORT,5228-5230),(DOMAIN-KEYWORD,mtalk),(DOMAIN-SUFFIX,fcm.googleapis.com),(DOMAIN-SUFFIX,fcm-xmpp.googleapis.com)),♻️ БезVPN
+
+  # Локальная сеть и приватные адреса
+  - RULE-SET,geosite-private,♻️ БезVPN
+  - RULE-SET,geoip-private,♻️ БезVPN,no-resolve
+
+  # Локальные VPN/RDP (tailscale, wireguard, anydesk, rustdesk, teamviewer)
+  # — DIRECT, чтобы Mihomo не ломал удалённый доступ
+  - PROCESS-NAME-REGEX,(?i).*(tailscale|wireguard|netbird|anydesk|rustdesk|teamviewer).*,♻️ БезVPN
+
+  # Российские приложения — DIRECT (доп. слой к exclude-package в TUN)
+  - RULE-SET,ru-app-list,♻️ БезVPN
+
+  # Торренты — DIRECT (трекеры/клиенты + любые процессы со словом «torrent»)
+  - OR,((RULE-SET,torrent-clients),(RULE-SET,torrent-trackers)),♻️ БезVPN
+  - PROCESS-NAME-REGEX,(?i).*torrent.*,♻️ БезVPN
+
+  # Игровые сервисы (Steam, Epic, Battle.net и т.д.) — DIRECT
+  - RULE-SET,games-direct,♻️ БезVPN
+
+  # === Заблокированные в РФ сервисы — через VPN ===
+
+  # YouTube
+  - RULE-SET,youtube,🌍 VPN
+
+  # Meta: WhatsApp + Instagram + Facebook (включая fbcdn.net для медиа Instagram)
+  # + IP-диапазоны Meta. Раздельные доменные списки нужны потому что на iOS
+  # приложения часто резолвят CDN домены и подключаются по SNI напрямую —
+  # IP-правило срабатывает только при no-resolve, поэтому домены критичны.
+  - OR,((RULE-SET,whatsapp_domains),(RULE-SET,instagram_domains),(RULE-SET,facebook_domains),(RULE-SET,meta_ips)),🌍 VPN
+
+  # Telegram (домены, IP, любые процессы со словом «telegram»)
+  - OR,((RULE-SET,telegram_ips),(RULE-SET,telegram_domains),(PROCESS-NAME-REGEX,(?i).*telegram.*)),🌍 VPN
+
+  # Discord — комплексное покрытие.
+  # Тексты/gateway/discord.media — по доменам:
+  - RULE-SET,discord_domains,🌍 VPN
+  - PROCESS-NAME-REGEX,(?i).*(discord|vesktop).*,🌍 VPN
+  # Голос — старые legacy-сервера (не на Cloudflare):
+  - AND,((RULE-SET,discord_voiceips),(NETWORK,udp),(DST-PORT,50000-50100)),🌍 VPN
+  - AND,((NETWORK,udp),(DST-PORT,19200-19500)),🌍 VPN
+  # Голос — новая Cloudflare-инфраструктура (миграция Discord на CF, февраль 2026).
+  # Захардкоженные subnet-ы из discord_vc уже не покрывают всё — широкий cloudflare
+  # rule-set + UDP + Discord-порты ловит голос на любом CF-сервере.
+  - AND,((RULE-SET,cloudflare),(NETWORK,udp),(DST-PORT,50000-50100)),🌍 VPN
+  - AND,((RULE-SET,cloudflare),(NETWORK,udp),(DST-PORT,19200-19500)),🌍 VPN
+  # Запасной вариант — старая inline-таблица CF subnet × UDP × порт:
+  - RULE-SET,discord_vc,🌍 VPN
+
+  # AI / нейросети (ChatGPT, Claude, Gemini, Anthropic, OpenAI и т.п.)
+  - RULE-SET,ai,🌍 VPN
+
+  # Re:Filter — комплексные доменные и IP-списки заблокированных в РФ ресурсов
+  - RULE-SET,refilter_domains,🌍 VPN
+  - RULE-SET,refilter_ipsum,🌍 VPN,no-resolve
+
+  # ru-bundle (массивный список заблокированных доменов от legiz)
+  - RULE-SET,ru-bundle,🌍 VPN
+
+  # Cloudflare-диапазоны (за CF часто прячутся блокированные сервисы)
+  - RULE-SET,cloudflare,🌍 VPN
+
+  # ASN-блок РКН (IP-диапазоны провайдеров, чьи ресурсы блочат)
+  - RULE-SET,rknasnblock,🌍 VPN
+
+  # Всё остальное — напрямую (smart routing для пользователя в РФ)
+  - MATCH,♻️ БезVPN
