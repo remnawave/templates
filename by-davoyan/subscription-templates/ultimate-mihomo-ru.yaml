@@ -74,7 +74,38 @@ dns:
   use-hosts: true
   use-system-hosts: true
   ipv6: false #true - если хотите резолвить в ipv6
-  enhanced-mode: normal
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - rule-set:geosite-private
+    - "*.lan"
+    - "*.msftncsi.com"
+    - "stun.*.*.*"
+    - "stun.*.*"
+    - "time.windows.com"
+    - "time.nist.gov"
+    - "time.apple.com"
+    - "*.openwrt.pool.ntp.org"
+    - "pool.ntp.org"
+    - "ntp.ubuntu.com"
+    - "time1.apple.com"
+    - "time2.apple.com"
+    - "time3.apple.com"
+    - "time4.apple.com"
+    - "time5.apple.com"
+    - "time6.apple.com"
+    - "time7.apple.com"
+    - "time1.google.com"
+    - "time2.google.com"
+    - "time3.google.com"
+    - "time4.google.com"
+    - "*.msftconnecttest.com"
+    - "*.msftncsi.com"
+    - "+.xboxlive.com"
+    - "*.*.stun.playstation.net"
+    - "xbox.*.*.microsoft.com"
+    - "*.ipv6.microsoft.com"
+    - "speedtest.cros.wr.pvp.net"
   # ----
   # Опционально выбираем DNS сервера - меняйте на ваш вкус.
   default-nameserver:
