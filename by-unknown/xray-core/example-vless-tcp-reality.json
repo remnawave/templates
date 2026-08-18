@@ -31,7 +31,8 @@
                     "privateKey": "#REPLACE_WITH_YOUR_PRIVATE_KEY, GENERATE BELOW ↓",
                     "serverNames": [
                         "#REPLACE_WITH_YOUR_SERVER_NAMES, EXAMPLE: example.com"
-                    ]
+                    ],
+                    "minClientVer": "0.0.0"
                 }
             }
         }
