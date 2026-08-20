@@ -7,32 +7,24 @@
                     "A",
                     "AAAA"
                 ]
-            },
-            {
-                "server": "local",
-                "outbound": "any"
             }
         ],
-        "fakeip": {
-            "enabled": true,
-            "inet4_range": "198.18.0.0/15",
-            "inet6_range": "fc00::/18"
-        },
         "servers": [
             {
                 "tag": "cf-dns",
-                "address": "tls://1.1.1.1"
+                "type": "tls",
+                "server": "1.1.1.1"
             },
             {
                 "tag": "local",
-                "detour": "direct",
-                "address": "tcp://1.1.1.1",
-                "strategy": "ipv4_only",
-                "address_strategy": "prefer_ipv4"
+                "type": "udp",
+                "server": "1.1.1.1"
             },
             {
                 "tag": "remote",
-                "address": "fakeip"
+                "type": "fakeip",
+                "inet4_range": "198.18.0.0/15",
+                "inet6_range": "fc00::/18"
             }
         ],
         "independent_cache": true
@@ -48,33 +40,27 @@
                 "action": "sniff"
             },
             {
-                "mode": "or",
-                "type": "logical",
-                "rules": [
-                    {
-                        "protocol": "dns"
-                    },
-                    {
-                        "port": 53
-                    }
-                ],
-                "action": "hijack-dns"
+                "action": "hijack-dns",
+                "protocol": "dns"
             },
             {
                 "outbound": "direct",
                 "ip_is_private": true
             }
         ],
-        "override_android_vpn": true,
-        "auto_detect_interface": true
+        "auto_detect_interface": true,
+        "default_domain_resolver": "local"
     },
     "inbounds": [
         {
             "mtu": 9000,
             "tag": "tun-in",
             "type": "tun",
-            "sniff": true,
             "stack": "mixed",
+            "address": [
+                "172.19.0.1/30",
+                "fdfe:dcba:9876::1/126"
+            ],
             "platform": {
                 "http_proxy": {
                     "server": "127.0.0.1",
@@ -84,15 +70,12 @@
             },
             "auto_route": true,
             "strict_route": true,
-            "inet4_address": "172.19.0.1/30",
-            "inet6_address": "fdfe:dcba:9876::1/126",
             "interface_name": "tun125",
             "endpoint_independent_nat": true
         },
         {
             "tag": "mixed-in",
             "type": "mixed",
-            "sniff": true,
             "users": [],
             "listen": "127.0.0.1",
             "listen_port": 2412,
