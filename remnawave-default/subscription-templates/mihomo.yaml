@@ -2,8 +2,9 @@ mixed-port: 7890
 socks-port: 7891
 redir-port: 7892
 allow-lan: true
-mode: global
+mode: rule
 log-level: info
+unified-delay: true
 external-controller: 127.0.0.1:9090
 dns:
   enable: true
@@ -13,9 +14,14 @@ dns:
   default-nameserver:
     - 1.1.1.1
     - 8.8.8.8
+    - system
   nameserver:
     - 1.1.1.1
     - 8.8.8.8
+    - system
+  nameserver-policy:
+    rule-set:geosite-private:
+      - system
   fake-ip-filter:
     - "*.lan"
     - stun.*.*.*
@@ -49,6 +55,38 @@ dns:
     - "*.ipv6.microsoft.com"
     - speedtest.cros.wr.pvp.net
 
+rule-providers:
+  geoip-private:
+    type: inline
+    behavior: ipcidr
+    payload:
+      - 0.0.0.0/8
+      - 10.0.0.0/8
+      - 100.64.0.0/10
+      - 127.0.0.0/8
+      - 169.254.0.0/16
+      - 172.16.0.0/12
+      - 192.0.0.0/24
+      - 192.0.2.0/24
+      - 192.88.99.0/24
+      - 192.168.0.0/16
+      - 198.18.0.0/15
+      - 198.51.100.0/24
+      - 203.0.113.0/24
+      - 224.0.0.0/3
+      - ::/127
+      - fc00::/7
+      - fe80::/10
+      - ff00::/8
+  geosite-private:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs
+    path: ./rule-sets/geosite-private.mrs
+    interval: 86400
+    proxy: "→ Remnawave"
+
 proxies: # LEAVE THIS LINE!
 
 proxy-groups:
@@ -57,4 +95,6 @@ proxy-groups:
     proxies: # LEAVE THIS LINE!
 
 rules:
+  - RULE-SET,geoip-private,DIRECT,no-resolve
+  - RULE-SET,geosite-private,DIRECT
   - MATCH,→ Remnawave
