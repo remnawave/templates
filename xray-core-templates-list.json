@@ -60,6 +60,12 @@
             "author": "x1roko",
             "type": "XRAY_JSON",
             "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-x1roko/xray-core/example-vless-tls-hy2-443-combo.json"
-        }
+        },
+		{
+			"name": "Example Hysteria2 Gecko",
+			"author": "spectreq",
+			"type": "XRAY_JSON",
+			"url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-spectreq/xray-core/example-hysteria2-gecko.json"
+		}
     ]
 }
