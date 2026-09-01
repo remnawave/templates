@@ -98,6 +98,18 @@
             "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-davoyan/subscription-templates/ultimate-mihomo-ru.yaml"
         },
         {
+            "name": "Quantum Direct",
+            "type": "MIHOMO",
+            "author": "CatFeth",
+            "url": "https://raw.githubusercontent.com/CatFeth/mihomo-templates/refs/heads/main/subscriptions-templates/q-direct.yaml"
+        },
+        {
+            "name": "Quantum Proxy",
+            "type": "MIHOMO",
+            "author": "CatFeth",
+            "url": "https://raw.githubusercontent.com/CatFeth/mihomo-templates/refs/heads/main/subscriptions-templates/q-proxy.yaml"
+        },
+        {
             "name": "Stash (RU bundle)",
             "type": "STASH",
             "author": "legiz-ru",

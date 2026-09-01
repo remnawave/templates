@@ -1,0 +1,38 @@
+name: Download Templates by CatFeth
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create directory if not exists
+        run: |
+          mkdir -p by-catfeth/subscriptions-templates
+
+      - name: Download q-direct template
+        run: |
+          curl -L "https://raw.githubusercontent.com/CatFeth/mihomo-templates/refs/heads/main/subscriptions-templates/q-direct.yaml" \
+          -o "by-catfeth/subscriptions-templates/q-direct.yaml"     
+
+      - name: Download q-proxy template
+        run: |
+          curl -L "https://raw.githubusercontent.com/CatFeth/mihomo-templates/refs/heads/main/subscriptions-templates/q-proxy.yaml" \
+          -o "by-catfeth/subscriptions-templates/q-proxy.yaml"  
+ 
+      - name: Commit and push if there are changes
+        run: |
+          git config --local user.email "CatFeth@users.noreply.github.com"
+          git config --local user.name "CatFeth"
+          git add by-catfeth/subscriptions-templates/
+          git commit -m "Update CatFeth templates" -a || echo "No changes to commit"
+          git push
