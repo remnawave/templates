@@ -307,8 +307,15 @@ rules:
   - RULE-SET,as-selectel,DIRECT
   - RULE-SET,as-edgecente,DIRECT
   # Services
-  - PROCESS-NAME-REGEX,.*teamspeak.*,DIRECT
+    # PROCESS-NAME
+  - PROCESS-NAME-WILDCARD,*teamspeak*,DIRECT
+  - PROCESS-NAME-WILDCARD,*ayugram*,⚫ VPN
+  - PROCESS-NAME-WILDCARD,*youtube*,⚫ VPN
+  - PROCESS-NAME-WILDCARD,*telegram*,⚫ VPN
+  - PROCESS-NAME-WILDCARD,*nekogram*,⚫ VPN
+    # DOMAIN-SUFFIX
   - DOMAIN-SUFFIX,deepl.com,⚫ VPN
+    # RULE-SET
   - RULE-SET,notion,⚫ VPN
   - RULE-SET,twitch,⚫ VPN
   - RULE-SET,reddit,⚫ VPN
