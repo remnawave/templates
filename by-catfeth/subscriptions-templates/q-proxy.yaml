@@ -136,9 +136,8 @@ dns:
       - system
     rule-set:oisd_big: 
       - rcode://success
-    "*.lan,*.local": [192.168.1.1, system]
-    "rule-set:cdn,doh,win-spy,tiktok,twitch,reddit,discord,nintendo,blizzard,ea,ubisoft": *dns_proxy
-    "rule-set:geosite-ru,ai-ru,steam,rockstar,epicgames,gog,riot,games-direct": *dns_ru
+    "rule-set:cdn,doh,companies,win-spy,telegram,tiktok,discord": *dns_proxy
+    "rule-set:geosite-ru,geosite-ru-2,ai-ru,steam,rockstar,epicgames,gog,riot": *dns_ru
 
 proxy-groups:
   - name: ⚫ VPN
@@ -166,10 +165,28 @@ rule-providers:
 
 # Ads
   oisd_big : {<<: *rp_domain, url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/oisd/big.mrs}
+  win-spy: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/win-spy.mrs}
 
 # Torrent
   torrent-trackers: {<<: *rp_domain, url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/torrent-trackers.mrs}
   torrent-clients: {<<: *rp_classical, url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/torrent-clients.yaml}
+
+# Russian Domains & IPs
+  geoip-ru: {<<: *rp_ipcidr, url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geoip/ru.mrs}
+  geosite-ru: {<<: *rp_domain, url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/category-ru.mrs}
+  geosite-ru-2: {<<: *rp_domain, url: https://raw.githubusercontent.com/Davoyan/mihomo-rule-sets/refs/heads/main/rules/category-ru.mrs}
+  geoip-ru-2: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/Davoyan/mihomo-rule-sets/refs/heads/main/ip-for-ru/lists/ips-for-ru.mrs}
+
+# ASN | RU
+  # CDN
+  as-ngenix: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/asn/AS34879.mrs}
+  as-curator@ru: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/asn/AS197068.mrs}
+  as-stormwall@ru: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/asn/AS43298.mrs}
+  as-ddosguard: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/asn/AS57724.mrs}
+  # Services
+  as-vk: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/VPN/mihomo-templates/refs/heads/main/asn/vk.mrs}
+  as-yandex: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/VPN/mihomo-templates/refs/heads/main/asn/yandex.mrs}
+  as-wildberries: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/asn/AS57073.mrs}
 
 # DOH & CDN
   cdn: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-cdn-!cn.mrs}
@@ -178,69 +195,32 @@ rule-providers:
   cloudfront: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/cloudfront.mrs}
   fastly-ip: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/fastly.mrs}
 
-# ASN CDN
-  as-gcore: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/asn/AS199524.mrs}
-  as-akamai: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/asn/AS200005.mrs}
-  as2-akamai: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/asn/AS16625.mrs}
+# ASN | EU
+  # CDN
+  as-cdn: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/VPN/mihomo-templates/refs/heads/main/asn/cdn.mrs}
   as-stormwall@eu: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/asn/AS59796.mrs}
-  as-curator@ru: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/asn/AS197068.mrs}
-  as-stormwall@ru: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/asn/AS43298.mrs}
-  as-ddosguard: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/asn/AS57724.mrs}
-
-# Russian Domains & IPs
-  geosite-ru: {<<: *rp_domain, url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/category-ru.mrs}
-  geoip-ru: {<<: *rp_ipcidr, url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geoip/ru.mrs}
-
-# ASN RU Hostings
-  as-edgecente: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/asn/AS210756.mrs}
-  as-selectel: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/asn/AS49505.mrs}
-
-# ASN RU Services
-  as-vk: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/asn/AS47541.mrs}
-  as2-vk: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/asn/AS47764.mrs}
-  as-yandex: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/asn/AS13238.mrs}
-  as2-yandex: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/asn/AS44534.mrs}
-  as-yandex_cloud: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/asn/AS200350.mrs}
-  as-wildberries: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/asn/AS57073.mrs}
 
 # Services
   companies: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-companies.mrs}
-  google-ip: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/google.mrs}
-  apple-ip: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geoip/apple.mrs}
   telegram: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/telegram.mrs}
   telegram-ip: {<<: *rp_ipcidr, url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geoip/telegram.mrs}
   tiktok: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/tiktok.mrs}
-  twitch: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/twitch.mrs}
-  reddit: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/reddit.mrs}
-  netflix: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/netflix.mrs}
-  netflix-ip: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/netflix.mrs}
-  facebook-ip: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/facebook.mrs}
-  twitter-ip: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/twitter.mrs}
   discord: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/discord.mrs}
   discord-voice: {<<: *rp_ipcidr, url: https://cdn.jsdelivr.net/gh/legiz-ru/mihomo-rule-sets@main/other/discord-voice-ip-list.mrs}
-  teamspeak: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/teamspeak.mrs}
-  notion: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/notion.mrs}
-  remnawave: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/remnawave.mrs}
-  win-spy: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/win-spy.mrs}
 
 # AI
   ai-ru: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-ai-ru.mrs}
-  
+
 # Games Companies
   steam: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/steam.mrs}
   rockstar: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/rockstar.mrs}
   epicgames: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/epicgames.mrs}
-  nintendo: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/nintendo.mrs}
-  blizzard: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/blizzard.mrs}
-  ea: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/ea.mrs}
   gog: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/gog.mrs}
   riot: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/riot.mrs}
-  ubisoft: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/ubisoft.mrs}
 
 # Games
-  games-direct: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-games.mrs}
+  games-direct: {<<: *rp_classical, url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/games-direct.yaml}
   roblox: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/roblox.mrs}
-  modrinth: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/modrinth.mrs}
 
 rules:
   # Private
@@ -253,59 +233,35 @@ rules:
   - RULE-SET,oisd_big,REJECT
   # Torrent
   - OR,((RULE-SET,torrent-clients),(RULE-SET,torrent-trackers)),DIRECT
-  # DOH & CDN
-  - RULE-SET,fastly-ip,⚫ VPN
-  - RULE-SET,cloudfront,⚫ VPN
-  - RULE-SET,cloudflare-ip,⚫ VPN
-  - OR,((RULE-SET,doh),(RULE-SET,cdn)),⚫ VPN
-  # ASN CDN
+  # Russian Domains & IPs
+  - OR,((RULE-SET,geosite-ru),(RULE-SET,geoip-ru)),DIRECT
+  - OR,((RULE-SET,geosite-ru-2),(RULE-SET,geoip-ru-2)),DIRECT
+  # ASN | RU
+    # CDN
   - RULE-SET,as-ddosguard,DIRECT
   - RULE-SET,as-curator@ru,DIRECT
   - RULE-SET,as-stormwall@ru,DIRECT
-  - RULE-SET,as-gcore,⚫ VPN
-  - RULE-SET,as-stormwall@eu,⚫ VPN
-  - OR,((RULE-SET,as-akamai),(RULE-SET,as2-akamai)),⚫ VPN
-  # Russian Domains & IPs
-  - OR,((RULE-SET,geosite-ru),(RULE-SET,geoip-ru)),DIRECT
-  # ASN RU Services
+    # Services
+  - RULE-SET,as-vk,DIRECT
+  - RULE-SET,as-yandex,DIRECT
   - RULE-SET,as-wildberries,DIRECT
-  - RULE-SET,as-yandex_cloud,DIRECT
-  - OR,((RULE-SET,as-vk),(RULE-SET,as2-vk)),DIRECT
-  - OR,((RULE-SET,as-yandex),(RULE-SET,as2-yandex)),DIRECT
-  # ASN RU Hostings
-  - RULE-SET,as-selectel,DIRECT
-  - RULE-SET,as-edgecente,DIRECT
+  # CDN & DOH
+  - OR,((RULE-SET,doh),(RULE-SET,cdn)),⚫ VPN
+  # ASN | EU
+    # CDN
+  - RULE-SET,as-cdn,⚫ VPN
   # Services
-    # PROCESS-NAME
-  - PROCESS-NAME-WILDCARD,*teamspeak*,DIRECT
-  - PROCESS-NAME-WILDCARD,*ayugram*,⚫ VPN
-  - PROCESS-NAME-WILDCARD,*youtube*,⚫ VPN
-  - PROCESS-NAME-WILDCARD,*telegram*,⚫ VPN
-  - PROCESS-NAME-WILDCARD,*nekogram*,⚫ VPN
-    # DOMAIN-SUFFIX
-  - DOMAIN-SUFFIX,deepl.com,⚫ VPN
     # RULE-SET
-  - RULE-SET,notion,⚫ VPN
-  - RULE-SET,twitch,⚫ VPN
-  - RULE-SET,reddit,⚫ VPN
   - RULE-SET,tiktok,⚫ VPN
-  - RULE-SET,apple-ip,⚫ VPN
-  - RULE-SET,google-ip,⚫ VPN
-  - RULE-SET,remnawave,⚫ VPN
   - RULE-SET,companies,⚫ VPN
-  - RULE-SET,twitter-ip,⚫ VPN
-  - RULE-SET,facebook-ip,⚫ VPN
-  - OR,((RULE-SET,netflix),(RULE-SET,netflix-ip)),⚫ VPN
   - OR,((RULE-SET,telegram),(RULE-SET,telegram-ip)),⚫ VPN
   - OR,((RULE-SET,discord),(RULE-SET,discord-voice)),⚫ VPN
   # AI
   - RULE-SET,ai-ru,DIRECT
   # Games Companies
   - OR,((RULE-SET,steam),(RULE-SET,rockstar),(RULE-SET,epicgames),(RULE-SET,gog),(RULE-SET,riot)),DIRECT
-  - OR,((RULE-SET,ubisoft),(RULE-SET,nintendo),(RULE-SET,blizzard)),⚫ VPN
   # Games
   - RULE-SET,roblox,⚫ VPN
-  - RULE-SET,modrinth,⚫ VPN
   - RULE-SET,games-direct,DIRECT
   # Exit
   - MATCH,⚫ VPN
