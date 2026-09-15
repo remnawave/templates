@@ -184,8 +184,8 @@ rule-providers:
   as-stormwall@ru: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/asn/AS43298.mrs}
   as-ddosguard: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/asn/AS57724.mrs}
   # Services
-  as-vk: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/VPN/mihomo-templates/refs/heads/main/asn/vk.mrs}
-  as-yandex: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/VPN/mihomo-templates/refs/heads/main/asn/yandex.mrs}
+  as-vk: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/CatFeth/mihomo-templates/refs/heads/main/asn/vk.mrs}
+  as-yandex: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/CatFeth/mihomo-templates/refs/heads/main/asn/yandex.mrs}
   as-wildberries: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/asn/AS57073.mrs}
 
 # DOH & CDN
@@ -197,7 +197,7 @@ rule-providers:
 
 # ASN | EU
   # CDN
-  as-cdn: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/VPN/mihomo-templates/refs/heads/main/asn/cdn.mrs}
+  as-cdn: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/CatFeth/mihomo-templates/refs/heads/main/asn/cdn.mrs}
   as-stormwall@eu: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/asn/AS59796.mrs}
   # Services
   as-github: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/asn/AS36459.mrs}
