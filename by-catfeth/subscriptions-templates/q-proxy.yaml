@@ -144,16 +144,12 @@ proxy-groups:
     type: select
     proxies:
       - 🔵 Auto-select
-      # LEAVE THIS LINE!
-    interval: 300
   - name: 🔵 Auto-select
     type: fallback
     hidden: true
     url: https://www.gstatic.com/generate_204
-    interval: 300
     remnawave:
         shuffle-proxies-order: true 
-# LEAVE THIS LINE!
 
 rule-providers:
 # Private Domains & IPs
