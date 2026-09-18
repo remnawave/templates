@@ -120,6 +120,18 @@
             "type": "MIHOMO",
             "author": "roscomvpn",
             "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-roscomvpn/subscription-templates/roscomvpn-mihomo-ru.yaml"
+        },
+        {
+            "name": "OneHost RU",
+            "type": "XRAY_JSON",
+            "author": "Solomon",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-solomon/subscription-templates/onehost-ru.json"
+        },
+        {
+            "name": "OneHost RU (FakeDNS)",
+            "type": "XRAY_JSON",
+            "author": "Solomon",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-solomon/subscription-templates/onehost-ru-fakedns.json"
         }
     ]
 }

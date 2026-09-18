@@ -1,0 +1,203 @@
+{
+  "dns": {
+    "tag": "dns-inbound",
+    "hosts": {
+      "common.dot.dns.yandex.net": [
+        "77.88.8.8"
+      ]
+    },
+    "servers": [
+      "fakedns",
+      "https://common.dot.dns.yandex.net/dns-query",
+      "77.88.8.8",
+      "194.85.254.37"
+    ],
+    "queryStrategy": "UseIPv4",
+    "enableParallelQuery": false
+  },
+  "log": {
+    "loglevel": "warning"
+  },
+  "fakedns": {
+    "ipPool": "198.18.0.0/15",
+    "poolSize": 131070
+  },
+  "geodata": {
+    "cron": "0 4 * * *",
+    "assets": [
+      {
+        "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat",
+        "file": "geoip.dat"
+      },
+      {
+        "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat",
+        "file": "geosite.dat"
+      }
+    ],
+    "outbound": "direct"
+  },
+  "routing": {
+    "rules": [
+      {
+        "inboundTag": [
+          "socks-direct",
+          "dns-inbound"
+        ],
+        "outboundTag": "direct"
+      },
+      {
+        "port": "53",
+        "network": "tcp,udp",
+        "outboundTag": "dns"
+      },
+      {
+        "inboundTag": [
+          "dns-in"
+        ],
+        "outboundTag": "dns"
+      },
+      {
+        "ip": [
+          "8.8.8.8",
+          "1.1.1.1"
+        ],
+        "port": "853",
+        "network": "tcp",
+        "outboundTag": "block"
+      },
+      {
+        "ip": [
+          "198.18.0.0/15"
+        ],
+        "network": "tcp,udp",
+        "outboundTag": "block"
+      },
+      {
+        "port": "443",
+        "network": "udp",
+        "outboundTag": "block"
+      },
+      {
+        "ip": [
+          "geoip:private"
+        ],
+        "outboundTag": "direct"
+      },
+      {
+        "domain": [
+          "geosite:category-gov-ru",
+          "geosite:category-bank-ru",
+          "geosite:category-retail-ru",
+          "geosite:category-travel-ru",
+          "geosite:category-ecommerce-ru",
+          "geosite:category-entertainment-ru",
+          "geosite:category-media-ru",
+          "geosite:category-speedtest",
+          "geosite:category-ip-geo-detect",
+          "geosite:private",
+          "geosite:mailru-group",
+          "geosite:yandex",
+          "geosite:x5"
+        ],
+        "outboundTag": "direct"
+      }
+    ],
+    "domainStrategy": "AsIs"
+  },
+  "inbounds": [
+    {
+      "tag": "socks",
+      "port": 10808,
+      "listen": "127.0.0.1",
+      "protocol": "socks",
+      "settings": {
+        "udp": true,
+        "auth": "noauth"
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic",
+          "fakedns"
+        ]
+      }
+    },
+    {
+      "tag": "http",
+      "port": 10809,
+      "listen": "127.0.0.1",
+      "protocol": "http",
+      "settings": {
+        "allowTransparent": false
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic",
+          "fakedns"
+        ]
+      }
+    },
+    {
+      "tag": "socks-direct",
+      "port": 10820,
+      "listen": "127.0.0.1",
+      "protocol": "socks",
+      "settings": {
+        "udp": true,
+        "auth": "noauth"
+      }
+    },
+    {
+      "tag": "dns-in",
+      "port": 10853,
+      "protocol": "dokodemo-door",
+      "settings": {
+        "network": "tcp,udp"
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "direct",
+      "protocol": "freedom",
+      "streamSettings": {
+        "sockopt": {
+          "domainStrategy": "ForceIPv4"
+        }
+      }
+    },
+    {
+      "tag": "dns",
+      "protocol": "dns",
+      "settings": {
+        "rules": [
+          {
+            "qType": "65,28",
+            "rCode": 5,
+            "action": "return"
+          }
+        ]
+      }
+    },
+    {
+      "tag": "block",
+      "protocol": "blackhole"
+    },
+    {
+      "tag": "block-http",
+      "protocol": "blackhole",
+      "settings": {
+        "response": {
+          "type": "http"
+        }
+      }
+    }
+  ]
+}
