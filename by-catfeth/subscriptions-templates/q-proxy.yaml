@@ -144,12 +144,16 @@ proxy-groups:
     type: select
     proxies:
       - 🔵 Auto-select
+      # LEAVE THIS LINE!
+    interval: 300
   - name: 🔵 Auto-select
     type: fallback
     hidden: true
     url: https://www.gstatic.com/generate_204
+    interval: 300
     remnawave:
         shuffle-proxies-order: true 
+# LEAVE THIS LINE!
 
 rule-providers:
 # Private Domains & IPs
@@ -198,8 +202,8 @@ rule-providers:
 
 # Services
   companies: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-companies.mrs}
+  companies-ip: {<<: *rp_ipcidr, url: https://raw.githubusercontent.com/CatFeth/mihomo-templates/refs/heads/main/geo/geoip/companies-ip.mrs}
   telegram: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/telegram.mrs}
-  telegram-ip: {<<: *rp_ipcidr, url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geoip/telegram.mrs}
   tiktok: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/tiktok.mrs}
   discord: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/discord.mrs}
   discord-voice: {<<: *rp_ipcidr, url: https://cdn.jsdelivr.net/gh/legiz-ru/mihomo-rule-sets@main/other/discord-voice-ip-list.mrs}
@@ -247,11 +251,18 @@ rules:
     # CDN
   - RULE-SET,as-cdn,⚫ VPN
   # Services
+    # PROCESS-NAME
+  - PROCESS-NAME-WILDCARD,*teamspeak*,DIRECT
+  - PROCESS-NAME-WILDCARD,*termius*,⚫ VPN
+  - PROCESS-NAME-WILDCARD,*ayugram*,⚫ VPN
+  - PROCESS-NAME-WILDCARD,*youtube*,⚫ VPN
+  - PROCESS-NAME-WILDCARD,*telegram*,⚫ VPN
+  - PROCESS-NAME-WILDCARD,*nekogram*,⚫ VPN
     # RULE-SET
   - RULE-SET,tiktok,⚫ VPN
-  - RULE-SET,companies,⚫ VPN
-  - OR,((RULE-SET,telegram),(RULE-SET,telegram-ip)),⚫ VPN
+  - RULE-SET,telegram,⚫ VPN
   - OR,((RULE-SET,discord),(RULE-SET,discord-voice)),⚫ VPN
+  - OR,((RULE-SET,companies),(RULE-SET,companies-ip)),⚫ VPN
   # AI
   - RULE-SET,ai-ru,DIRECT
   # Games Companies
