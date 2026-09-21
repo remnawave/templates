@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Create directory if not exists
         run: |
@@ -21,14 +21,16 @@ jobs:
 
       - name: Download q-direct template
         run: |
-          curl -L "https://raw.githubusercontent.com/CatFeth/mihomo-templates/refs/heads/main/subscriptions-templates/q-direct.yaml" \
-          -o "by-catfeth/subscriptions-templates/q-direct.yaml"     
+          curl -fL --retry 5 --retry-delay 5 \
+          "https://raw.githubusercontent.com/CatFeth/mihomo-templates/refs/heads/main/subscriptions-templates/q-direct.yaml" \
+          -o "by-catfeth/subscriptions-templates/q-direct.yaml"
 
       - name: Download q-proxy template
         run: |
-          curl -L "https://raw.githubusercontent.com/CatFeth/mihomo-templates/refs/heads/main/subscriptions-templates/q-proxy.yaml" \
-          -o "by-catfeth/subscriptions-templates/q-proxy.yaml"  
- 
+          curl -fL --retry 5 --retry-delay 5 \
+          "https://raw.githubusercontent.com/CatFeth/mihomo-templates/refs/heads/main/subscriptions-templates/q-proxy.yaml" \
+          -o "by-catfeth/subscriptions-templates/q-proxy.yaml"
+
       - name: Commit and push if there are changes
         run: |
           git config --local user.email "CatFeth@users.noreply.github.com"
