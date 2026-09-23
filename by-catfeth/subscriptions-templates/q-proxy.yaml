@@ -253,7 +253,6 @@ rules:
   # Services
     # PROCESS-NAME
   - PROCESS-NAME-WILDCARD,*teamspeak*,DIRECT
-  - PROCESS-NAME-WILDCARD,*termius*,⚫ VPN
   - PROCESS-NAME-WILDCARD,*ayugram*,⚫ VPN
   - PROCESS-NAME-WILDCARD,*youtube*,⚫ VPN
   - PROCESS-NAME-WILDCARD,*telegram*,⚫ VPN

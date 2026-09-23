@@ -136,7 +136,7 @@ dns:
       - system
     rule-set:oisd_big: 
       - rcode://success
-    "rule-set:cdn,doh,companies,win-spy,remnawave,telegram,tiktok,twitch,reddit,netflix,discord,ai,ai-cn,nintendo,blizzard,ea,ubisoft,roblox,modrinth,paypal,stripe,crypto,spotify,soundcloud,deezer,bandcamp,tidal,file-sharing": *dns_proxy
+    "rule-set:cdn,doh,companies,win-spy,remnawave,telegram,tiktok,twitch,reddit,netflix,discord,anime,ai,ai-cn,nintendo,blizzard,ea,ubisoft,roblox,modrinth,paypal,stripe,crypto,spotify,soundcloud,deezer,bandcamp,tidal,file-sharing": *dns_proxy
     "rule-set:geosite-ru,geosite-ru-2,ai-ru,steam,rockstar,epicgames,gog,riot": *dns_ru
 
 proxy-groups:
@@ -144,17 +144,12 @@ proxy-groups:
     type: select
     proxies:
       - 🔵 Auto-select
-      # LEAVE THIS LINE!
-    interval: 300
   - name: 🔵 Auto-select
     type: fallback
     hidden: true
     url: https://www.gstatic.com/generate_204
-    interval: 300
     remnawave:
-        shuffle-proxies-order: true 
-# LEAVE THIS LINE!
-
+        shuffle-proxies-order: true
 rule-providers:
 # Private Domains & IPs
   geosite-private: {<<: *rp_domain, url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/private.mrs}
@@ -210,6 +205,7 @@ rule-providers:
   netflix: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/netflix.mrs}
   discord: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/discord.mrs}
   discord-voice: {<<: *rp_ipcidr, url: https://cdn.jsdelivr.net/gh/legiz-ru/mihomo-rule-sets@main/other/discord-voice-ip-list.mrs}
+  anime: {<<: *rp_domain, url: https://raw.githubusercontent.com/CatFeth/mihomo-templates/refs/heads/main/geo/geosite/anime.mrs}
   remnawave: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/remnawave.mrs}
 
 # AI
@@ -282,12 +278,12 @@ rules:
   # Services
     # PROCESS-NAME
   - PROCESS-NAME-WILDCARD,*teamspeak*,DIRECT
-  - PROCESS-NAME-WILDCARD,*termius*,⚫ VPN
   - PROCESS-NAME-WILDCARD,*ayugram*,⚫ VPN
   - PROCESS-NAME-WILDCARD,*youtube*,⚫ VPN
   - PROCESS-NAME-WILDCARD,*telegram*,⚫ VPN
   - PROCESS-NAME-WILDCARD,*nekogram*,⚫ VPN
     # RULE-SET
+  - RULE-SET,anime,⚫ VPN
   - RULE-SET,twitch,⚫ VPN
   - RULE-SET,reddit,⚫ VPN
   - RULE-SET,tiktok,⚫ VPN
