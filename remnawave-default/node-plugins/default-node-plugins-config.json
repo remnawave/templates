@@ -12,12 +12,20 @@
         "enabled": false,
         "blockDuration": 3600,
         "ignoreLists": {
-            "ip": []
-        }
+            "ip": [],
+            "userId": []
+        },
+        "rulePlacement": 0
     },
     "connectionDrop": {
         "enabled": false,
         "whitelistIps": []
     },
-    "sharedLists": []
+    "preStart": {
+        "enabled": false,
+        "cleanupSockets": {
+            "enabled": false,
+            "files": []
+        }
+    }
 }
