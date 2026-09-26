@@ -749,7 +749,7 @@
                             },
                             "buttons": [
                                 {
-                                    "link": "https://github.com/coolcoala/clash-verge-rev-lite/releases/latest/download/Koala.Clash_amd64.deb",
+                                    "link": "https://github.com/coolcoala/koala-clash/releases/latest/download/Koala.Clash_amd64.deb",
                                     "text": {
                                         "en": "amd64 (.deb)",
                                         "fa": "amd64 (.deb)",
@@ -761,7 +761,7 @@
                                     "svgIconKey": "ExternalLink"
                                 },
                                 {
-                                    "link": "https://github.com/coolcoala/clash-verge-rev-lite/releases/latest/download/Koala.Clash.x86_64.rpm",
+                                    "link": "https://github.com/coolcoala/koala-clash/releases/latest/download/Koala.Clash_x86_64.rpm",
                                     "text": {
                                         "en": "amd64 (.rpm)",
                                         "fa": "amd64 (.rpm)",
@@ -773,7 +773,7 @@
                                     "svgIconKey": "ExternalLink"
                                 },
                                 {
-                                    "link": "https://github.com/coolcoala/clash-verge-rev-lite/releases/latest/download/Koala.Clash_arm64.deb",
+                                    "link": "https://github.com/coolcoala/koala-clash/releases/latest/download/Koala.Clash_arm64.deb",
                                     "text": {
                                         "en": "arm64 (.deb)",
                                         "fa": "arm64 (.deb)",
@@ -785,7 +785,7 @@
                                     "svgIconKey": "ExternalLink"
                                 },
                                 {
-                                    "link": "https://github.com/coolcoala/clash-verge-rev-lite/releases/latest/download/Koala.Clash.aarch64.rpm",
+                                    "link": "https://github.com/coolcoala/koala-clash/releases/latest/download/Koala.Clash_aarch64.rpm",
                                     "text": {
                                         "en": "arm64 (.rpm)",
                                         "fa": "arm64 (.rpm)",
@@ -1312,7 +1312,7 @@
                             },
                             "buttons": [
                                 {
-                                    "link": "https://github.com/coolcoala/clash-verge-rev-lite/releases/latest/download/Koala.Clash_aarch64.dmg",
+                                    "link": "https://github.com/coolcoala/koala-clash/releases/latest/download/Koala.Clash_arm64.pkg",
                                     "text": {
                                         "en": "macOS (Apple Silicon)",
                                         "fa": "مک (Apple Silicon)",
@@ -1324,7 +1324,7 @@
                                     "svgIconKey": "ExternalLink"
                                 },
                                 {
-                                    "link": "https://github.com/coolcoala/clash-verge-rev-lite/releases/latest/download/Koala.Clash_x64.dmg",
+                                    "link": "https://github.com/coolcoala/koala-clash/releases/latest/download/Koala.Clash_x64.pkg",
                                     "text": {
                                         "en": "macOS (Intel)",
                                         "fa": "مک (اینتل)",
@@ -1452,7 +1452,7 @@
                             },
                             "buttons": [
                                 {
-                                    "link": "https://github.com/legiz-ru/Prizrak-Box/releases/latest/download/macos-arm64-dmg.zip",
+                                    "link": "https://github.com/legiz-ru/Prizrak-Box/releases/latest/download/macos-arm64.zip",
                                     "text": {
                                         "en": "macOS (Apple Silicon)",
                                         "fa": "macOS (Apple Silicon)",
@@ -1464,7 +1464,7 @@
                                     "svgIconKey": "ExternalLink"
                                 },
                                 {
-                                    "link": "https://github.com/legiz-ru/Prizrak-Box/releases/latest/download/macos-amd64-dmg.zip",
+                                    "link": "https://github.com/legiz-ru/Prizrak-Box/releases/latest/download/macos-amd64.zip",
                                     "text": {
                                         "en": "macOS (Intel)",
                                         "fa": "macOS (Intel)",
@@ -2498,7 +2498,7 @@
                             },
                             "buttons": [
                                 {
-                                    "link": "https://github.com/coolcoala/clash-verge-rev-lite/releases/latest/download/Koala.Clash_x64-setup.exe",
+                                    "link": "https://github.com/coolcoala/koala-clash/releases/latest/download/Koala.Clash_x64-setup.exe",
                                     "text": {
                                         "en": "Windows (Setup)",
                                         "fa": "ویندوز (نصب)",
