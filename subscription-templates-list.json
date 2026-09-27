@@ -132,6 +132,18 @@
             "type": "XRAY_JSON",
             "author": "Solomon",
             "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-solomon/subscription-templates/onehost-ru-fakedns.json"
+        },
+        {
+            "name": "OneHost RU (Override)",
+            "type": "XRAY_JSON",
+            "author": "Solomon",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-solomon/subscription-templates/onehost-ru-override.json"
+        },
+        {
+            "name": "OneHost RU (Override, FakeDNS)",
+            "type": "XRAY_JSON",
+            "author": "Solomon",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-solomon/subscription-templates/onehost-ru-override-fakedns.json"
         }
     ]
 }

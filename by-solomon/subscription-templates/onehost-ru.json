@@ -165,7 +165,7 @@
       "settings": {
         "rules": [
           {
-            "qType": "65,28",
+            "qType": "28,64,65",
             "rCode": 5,
             "action": "return"
           },
