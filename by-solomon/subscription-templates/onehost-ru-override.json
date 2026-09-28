@@ -7,7 +7,6 @@
       ]
     },
     "servers": [
-      "fakedns",
       "https://common.dot.dns.yandex.net/dns-query",
       "77.88.8.8",
       "194.85.254.37"
@@ -17,10 +16,6 @@
   },
   "log": {
     "loglevel": "warning"
-  },
-  "fakedns": {
-    "ipPool": "198.18.0.0/15",
-    "poolSize": 131070
   },
   "geodata": {
     "cron": "0 4 * * *",
@@ -63,13 +58,6 @@
         ],
         "port": "853",
         "network": "tcp",
-        "outboundTag": "block"
-      },
-      {
-        "ip": [
-          "198.18.0.0/15"
-        ],
-        "network": "tcp,udp",
         "outboundTag": "block"
       },
       {
@@ -116,12 +104,16 @@
       },
       "sniffing": {
         "enabled": true,
-        "routeOnly": true,
+        "routeOnly": false,
+        "ipsExcluded": [
+          "geoip:telegram",
+          "geoip:facebook",
+          "194.221.250.50/32"
+        ],
         "destOverride": [
           "http",
           "tls",
-          "quic",
-          "fakedns"
+          "quic"
         ]
       }
     },
@@ -135,12 +127,16 @@
       },
       "sniffing": {
         "enabled": true,
-        "routeOnly": true,
+        "routeOnly": false,
+        "ipsExcluded": [
+          "geoip:telegram",
+          "geoip:facebook",
+          "194.221.250.50/32"
+        ],
         "destOverride": [
           "http",
           "tls",
-          "quic",
-          "fakedns"
+          "quic"
         ]
       }
     },
@@ -185,7 +181,22 @@
           },
           {
             "qType": "1",
-            "action": "hijack"
+            "action": "hijack",
+            "domain": [
+              "geosite:category-gov-ru",
+              "geosite:category-bank-ru",
+              "geosite:category-retail-ru",
+              "geosite:category-travel-ru",
+              "geosite:category-ecommerce-ru",
+              "geosite:category-entertainment-ru",
+              "geosite:category-media-ru",
+              "geosite:category-speedtest",
+              "geosite:category-ip-geo-detect",
+              "geosite:private",
+              "geosite:mailru-group",
+              "geosite:yandex",
+              "geosite:x5"
+            ]
           },
           {
             "action": "direct"

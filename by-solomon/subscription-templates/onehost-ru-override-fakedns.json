@@ -58,18 +58,18 @@
       },
       {
         "ip": [
+          "198.18.0.0/15"
+        ],
+        "network": "tcp,udp",
+        "outboundTag": "block"
+      },
+      {
+        "ip": [
           "8.8.8.8",
           "1.1.1.1"
         ],
         "port": "853",
         "network": "tcp",
-        "outboundTag": "block"
-      },
-      {
-        "ip": [
-          "198.18.0.0/15"
-        ],
-        "network": "tcp,udp",
         "outboundTag": "block"
       },
       {
@@ -116,7 +116,12 @@
       },
       "sniffing": {
         "enabled": true,
-        "routeOnly": true,
+        "routeOnly": false,
+        "ipsExcluded": [
+          "geoip:telegram",
+          "geoip:facebook",
+          "194.221.250.50/32"
+        ],
         "destOverride": [
           "http",
           "tls",
@@ -135,7 +140,12 @@
       },
       "sniffing": {
         "enabled": true,
-        "routeOnly": true,
+        "routeOnly": false,
+        "ipsExcluded": [
+          "geoip:telegram",
+          "geoip:facebook",
+          "194.221.250.50/32"
+        ],
         "destOverride": [
           "http",
           "tls",
