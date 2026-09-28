@@ -50,8 +50,8 @@ x-anchors:
     - 77.88.8.1
 
   dns_proxy: &dns_proxy
-    - https://1.1.1.1/dns-query#⚫ VPN
-    - https://8.8.8.8/dns-query#⚫ VPN
+    - 1.1.1.1#⚫ VPN
+    - 8.8.8.8#⚫ VPN
 
   pr_http: &pr_http
     type: http
@@ -115,6 +115,8 @@ tun:
   strict-route: true
   route-exclude-address: *reserved_ips
 
+hosts:
+  ntc.party: 130.255.77.28
 dns:
   enable: true
   ipv6: false
@@ -131,12 +133,17 @@ dns:
   default-nameserver: *dns_ru
   nameserver: *dns_proxy
   proxy-server-nameserver: *dns_ru
+  fallback:
+    - system
+  fallback-filter:
+    geoip: false
+  fallback-lazy-query: true
   nameserver-policy:
     rule-set:geosite-private:
       - system
     rule-set:oisd_big: 
       - rcode://success
-    "rule-set:cdn,doh,companies,win-spy,telegram,tiktok,discord": *dns_proxy
+    "rule-set:cdn,doh,companies,telegram,tiktok,discord": *dns_proxy
     "rule-set:geosite-ru,geosite-ru-2,ai-ru,steam,rockstar,epicgames,gog,riot": *dns_ru
 
 proxy-groups:
@@ -144,7 +151,6 @@ proxy-groups:
     type: select
     proxies:
       - 🔵 Auto-select
-      # LEAVE THIS LINE!
     interval: 300
   - name: 🔵 Auto-select
     type: fallback
@@ -152,8 +158,10 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 300
     remnawave:
-        shuffle-proxies-order: true 
-# LEAVE THIS LINE!
+        shuffle-proxies-order: true
+  - name: GLOBAL
+    flclashx-override: true
+    type: select
 
 rule-providers:
 # Private Domains & IPs

@@ -50,8 +50,8 @@ x-anchors:
     - 77.88.8.1
 
   dns_proxy: &dns_proxy
-    - https://1.1.1.1/dns-query#⚫ VPN
-    - https://8.8.8.8/dns-query#⚫ VPN
+    - 1.1.1.1#⚫ VPN
+    - 8.8.8.8#⚫ VPN
 
   pr_http: &pr_http
     type: http
@@ -115,6 +115,8 @@ tun:
   strict-route: true
   route-exclude-address: *reserved_ips
 
+hosts:
+  ntc.party: 130.255.77.28
 dns:
   enable: true
   ipv6: false
@@ -131,12 +133,17 @@ dns:
   default-nameserver: *dns_ru
   nameserver: *dns_proxy
   proxy-server-nameserver: *dns_ru
+  fallback:
+    - system
+  fallback-filter:
+    geoip: false
+  fallback-lazy-query: true
   nameserver-policy:
     rule-set:geosite-private:
       - system
     rule-set:oisd_big: 
       - rcode://success
-    "rule-set:cdn,doh,companies,win-spy,remnawave,telegram,tiktok,twitch,reddit,netflix,discord,anime,ai,ai-cn,nintendo,blizzard,ea,ubisoft,roblox,modrinth,paypal,stripe,crypto,spotify,soundcloud,deezer,bandcamp,tidal,file-sharing": *dns_proxy
+    "rule-set:cdn,doh,companies,remnawave,telegram,tiktok,twitch,reddit,netflix,discord,anime,ai,ai-cn,nintendo,blizzard,ea,ubisoft,roblox,modrinth,paypal,stripe,crypto,spotify,soundcloud,deezer,bandcamp,tidal,file-sharing": *dns_proxy
     "rule-set:geosite-ru,geosite-ru-2,ai-ru,steam,rockstar,epicgames,gog,riot": *dns_ru
 
 proxy-groups:
@@ -150,6 +157,10 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     remnawave:
         shuffle-proxies-order: true
+  - name: GLOBAL
+    flclashx-override: true
+    type: select
+
 rule-providers:
 # Private Domains & IPs
   geosite-private: {<<: *rp_domain, url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/private.mrs}
