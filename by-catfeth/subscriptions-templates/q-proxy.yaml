@@ -126,8 +126,7 @@ dns:
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
     - rule-set:geosite-private
-    - "+.lan"
-    - "+.local"
+    - rule-set:geosite-fake-ip
     - "+.msftncsi.com"
     - "+.msftconnecttest.com"
   default-nameserver: *dns_ru
@@ -141,30 +140,33 @@ dns:
   nameserver-policy:
     rule-set:geosite-private:
       - system
-    rule-set:oisd_big: 
+    rule-set:oisd_big,win-spy: 
       - rcode://success
     "rule-set:cdn,doh,companies,telegram,tiktok,discord": *dns_proxy
     "rule-set:geosite-ru,geosite-ru-2,ai-ru,steam,rockstar,epicgames,gog,riot": *dns_ru
+
+#proxy-providers:
+
+proxies:
+  - name: DNS-OUT
+    type: dns
 
 proxy-groups:
   - name: ⚫ VPN
     type: select
     proxies:
       - 🔵 Auto-select
-    interval: 300
   - name: 🔵 Auto-select
     type: fallback
     hidden: true
     url: https://www.gstatic.com/generate_204
-    interval: 300
+    exclude-filter: '🇯🇵'
     remnawave:
-        shuffle-proxies-order: true
-  - name: GLOBAL
-    flclashx-override: true
-    type: select
+      shuffle-proxies-order: true
 
 rule-providers:
 # Private Domains & IPs
+  geosite-fake-ip: {<<: *rp_domain, url: https://raw.githubusercontent.com/juewuy/ShellCrash/refs/heads/dev/public/fake_ip_filter.list}
   geosite-private: {<<: *rp_domain, url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/private.mrs}
   geoip-private: {<<: *private_ip}
 
@@ -231,6 +233,8 @@ rule-providers:
   roblox: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/roblox.mrs}
 
 rules:
+  # DNS HIJACK
+  - DST-PORT,53,DNS-OUT
   # Private
   - RULE-SET,geosite-private,DIRECT
   - RULE-SET,geoip-private,DIRECT,no-resolve
