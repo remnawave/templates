@@ -111,7 +111,6 @@ tun:
   auto-detect-interface: true
   dns-hijack:
     - any:53
-    - tcp://any:53
   strict-route: true
   route-exclude-address: *reserved_ips
 
@@ -127,8 +126,6 @@ dns:
   fake-ip-filter:
     - rule-set:geosite-private
     - rule-set:geosite-fake-ip
-    - "+.msftncsi.com"
-    - "+.msftconnecttest.com"
   default-nameserver: *dns_ru
   nameserver: *dns_proxy
   proxy-server-nameserver: *dns_ru
@@ -160,13 +157,12 @@ proxy-groups:
     type: fallback
     hidden: true
     url: https://www.gstatic.com/generate_204
-    exclude-filter: '🇯🇵'
     remnawave:
       shuffle-proxies-order: true
 
 rule-providers:
 # Private Domains & IPs
-  geosite-fake-ip: {<<: *rp_domain, url: https://raw.githubusercontent.com/juewuy/ShellCrash/refs/heads/dev/public/fake_ip_filter.list}
+  geosite-fake-ip: {<<: *rp_domain, url: https://raw.githubusercontent.com/wwqgtxx/clash-rules/refs/heads/release/fakeip-filter.mrs}
   geosite-private: {<<: *rp_domain, url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/private.mrs}
   geoip-private: {<<: *private_ip}
 

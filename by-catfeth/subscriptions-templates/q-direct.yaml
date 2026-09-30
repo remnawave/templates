@@ -111,7 +111,6 @@ tun:
   auto-detect-interface: true
   dns-hijack:
     - any:53
-    - tcp://any:53
   strict-route: true
   route-exclude-address: *reserved_ips
 
@@ -119,7 +118,7 @@ hosts:
   ntc.party: 130.255.77.28
 dns:
   enable: true
-  ipv6: true
+  ipv6: false
   use-hosts: true
   use-system-hosts: true
   enhanced-mode: fake-ip
@@ -129,8 +128,6 @@ dns:
   fake-ip-filter:
     - rule-set:geosite-private
     - rule-set:geosite-fake-ip
-    - "+.msftncsi.com"
-    - "+.msftconnecttest.com"
   default-nameserver: *dns_ru
   nameserver: *dns_proxy
   proxy-server-nameserver: *dns_ru
@@ -147,20 +144,6 @@ dns:
     "rule-set:cdn,doh,companies,remnawave,telegram,tiktok,twitch,reddit,netflix,discord,anime,ai,ai-cn,nintendo,blizzard,ea,ubisoft,roblox,modrinth,paypal,stripe,crypto,spotify,soundcloud,deezer,bandcamp,tidal,file-sharing": *dns_proxy
     "rule-set:geosite-ru,geosite-ru-2,ai-ru,steam,rockstar,epicgames,gog,riot": *dns_ru
 
-#proxy-providers:
-#  provider:
-#    type: http
-#    url: 
-#    interval: 3600
-#    proxy: DIRECT
-#    health-check:
-#      enable: true
-#      url: https://www.gstatic.com/generate_204
-#      interval: 300
-#      timeout: 5000
-#      lazy: true
-#      expected-status: 204
-
 proxies:
   - name: DNS-OUT
     type: dns
@@ -174,13 +157,12 @@ proxy-groups:
     type: fallback
     hidden: true
     url: https://www.gstatic.com/generate_204
-    exclude-filter: '🇯🇵'
     remnawave:
       shuffle-proxies-order: true
 
 rule-providers:
 # Private Domains & IPs
-  geosite-fake-ip: {<<: *rp_domain, url: https://raw.githubusercontent.com/juewuy/ShellCrash/refs/heads/dev/public/fake_ip_filter.list}
+  geosite-fake-ip: {<<: *rp_domain, url: https://raw.githubusercontent.com/wwqgtxx/clash-rules/refs/heads/release/fakeip-filter.mrs}
   geosite-private: {<<: *rp_domain, url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/private.mrs}
   geoip-private: {<<: *private_ip}
 
