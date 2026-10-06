@@ -20,6 +20,7 @@
       "apps": [
         {
           "name": "INCY",
+          "svgIconKey": "INCY",
           "featured": true,
           "blocks": [
             {
@@ -103,6 +104,7 @@
       "apps": [
         {
           "name": "INCY",
+          "svgIconKey": "INCY",
           "featured": true,
           "blocks": [
             {
@@ -196,6 +198,7 @@
       "apps": [
         {
           "name": "INCY",
+          "svgIconKey": "INCY",
           "featured": true,
           "blocks": [
             {
@@ -289,6 +292,7 @@
       "apps": [
         {
           "name": "INCY",
+          "svgIconKey": "INCY",
           "featured": true,
           "blocks": [
             {
@@ -372,6 +376,7 @@
       "apps": [
         {
           "name": "INCY",
+          "svgIconKey": "INCY",
           "featured": true,
           "blocks": [
             {
@@ -455,6 +460,7 @@
       "apps": [
         {
           "name": "INCY",
+          "svgIconKey": "INCY",
           "featured": true,
           "blocks": [
             {
@@ -549,7 +555,8 @@
     "AppleIcon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M8.286 7.008c-3.216 0 -4.286 3.23 -4.286 5.92c0 3.229 2.143 8.072 4.286 8.072c1.165 -.05 1.799 -.538 3.214 -.538c1.406 0 1.607 .538 3.214 .538s4.286 -3.229 4.286 -5.381c-.03 -.011 -2.649 -.434 -2.679 -3.23c-.02 -2.335 2.589 -3.179 2.679 -3.228c-1.096 -1.606 -3.162 -2.113 -3.75 -2.153c-1.535 -.12 -3.032 1.077 -3.75 1.077c-.729 0 -2.036 -1.077 -3.214 -1.077z\" /><path d=\"M12 4a2 2 0 0 0 2 -2a2 2 0 0 0 -2 2\" /></svg>",
     "DownloadIcon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2\" /><path d=\"M7 11l5 5l5 -5\" /><path d=\"M12 4l0 12\" /></svg>",
     "ExternalLink": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6\" /><path d=\"M11 13l9 -9\" /><path d=\"M15 4h5v5\" /></svg>",
-    "CloudDownload": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M19 18a3.5 3.5 0 0 0 0 -7h-1a5 4.5 0 0 0 -11 -2a4.6 4.4 0 0 0 -2.1 8.4\" /><path d=\"M12 13l0 9\" /><path d=\"M9 19l3 3l3 -3\" /></svg>"
+    "CloudDownload": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M19 18a3.5 3.5 0 0 0 0 -7h-1a5 4.5 0 0 0 -11 -2a4.6 4.4 0 0 0 -2.1 8.4\" /><path d=\"M12 13l0 9\" /><path d=\"M9 19l3 3l3 -3\" /></svg>",
+    "INCY": "<svg width=\"50\" height=\"50\" viewBox=\"0 0 50 50\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M3.6 33.58V16.42Q3.6 16.3 3.69 16.21Q3.78 16.12 3.9 16.12H6.87Q7 16.12 7.09 16.21Q7.18 16.3 7.18 16.42V33.58Q7.18 33.7 7.09 33.79Q7 33.88 6.87 33.88H3.9Q3.78 33.88 3.69 33.79Q3.6 33.7 3.6 33.58ZM18.01 16.12H20.96Q21.09 16.12 21.17 16.21Q21.26 16.3 21.26 16.42V33.58Q21.26 33.7 21.17 33.79Q21.09 33.88 20.96 33.88H17.61Q17.35 33.88 17.28 33.63L14.13 23.81Q14.11 23.73 14.04 23.74Q13.98 23.76 13.98 23.83L14 33.58Q14 33.7 13.92 33.79Q13.83 33.88 13.7 33.88H10.76Q10.63 33.88 10.54 33.79Q10.45 33.7 10.45 33.58V16.42Q10.45 16.3 10.54 16.21Q10.63 16.12 10.76 16.12H14.08Q14.33 16.12 14.41 16.37L17.58 26.19Q17.61 26.27 17.67 26.26Q17.74 26.24 17.74 26.17L17.71 16.42Q17.71 16.3 17.8 16.21Q17.89 16.12 18.01 16.12ZM24.26 28.99V20.96Q24.26 18.75 25.64 17.43Q27.02 16.12 29.31 16.12Q31.62 16.12 33 17.43Q34.38 18.75 34.38 20.96V21.23Q34.38 21.35 34.29 21.44Q34.21 21.53 34.08 21.53L31.11 21.65Q30.8 21.65 30.8 21.38V20.73Q30.8 20.01 30.4 19.57Q29.99 19.12 29.31 19.12Q28.65 19.12 28.24 19.57Q27.84 20.01 27.84 20.73V29.29Q27.84 30.01 28.24 30.45Q28.65 30.88 29.31 30.88Q29.99 30.88 30.4 30.45Q30.8 30.01 30.8 29.29V28.62Q30.8 28.5 30.89 28.41Q30.98 28.32 31.11 28.32L34.08 28.45Q34.21 28.45 34.29 28.54Q34.38 28.62 34.38 28.75V28.99Q34.38 31.23 32.99 32.55Q31.59 33.88 29.31 33.88Q27.02 33.88 25.64 32.55Q24.26 31.23 24.26 28.99ZM40.4 33.55V26.95L40.37 26.8L36.82 16.47Q36.79 16.42 36.79 16.35Q36.79 16.12 37.07 16.12H40.19Q40.47 16.12 40.55 16.37L42.12 22.44Q42.15 22.51 42.2 22.51Q42.25 22.51 42.28 22.44L43.85 16.37Q43.93 16.12 44.2 16.12H47.33Q47.48 16.12 47.55 16.21Q47.63 16.3 47.58 16.47L44 26.8L43.98 26.95V33.55Q43.98 33.68 43.89 33.77Q43.8 33.86 43.67 33.86H40.7Q40.58 33.86 40.49 33.77Q40.4 33.68 40.4 33.55Z\" fill=\"#FAFAFA\"/>\n</svg>"
   },
   "baseSettings": {
     "metaTitle": "Subscription",
