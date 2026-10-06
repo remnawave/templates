@@ -47,12 +47,12 @@ x-anchors:
 
   dns_ru: &dns_ru
     - 77.88.8.8
-    - 77.88.8.1
+    - system
 
   dns_proxy: &dns_proxy
     - 1.1.1.1#⚫ VPN
     - 8.8.8.8#⚫ VPN
-  
+
   pr_http: &pr_http
     type: http
     interval: 86400
@@ -132,7 +132,7 @@ dns:
   nameserver: *dns_proxy
   proxy-server-nameserver: *dns_ru
   fallback:
-    - system
+    *dns_ru
   fallback-filter:
     geoip: false
   fallback-lazy-query: true
@@ -141,12 +141,13 @@ dns:
       - system
     rule-set:oisd_big,win-spy: 
       - rcode://success
-    "rule-set:cdn,doh,companies,remnawave,telegram,tiktok,twitch,reddit,netflix,discord,anime,ai,ai-cn,nintendo,blizzard,ea,ubisoft,roblox,modrinth,paypal,stripe,crypto,spotify,soundcloud,deezer,bandcamp,tidal,file-sharing": *dns_proxy
-    "rule-set:geosite-ru,geosite-ru-2,ai-ru,steam,rockstar,epicgames,gog,riot": *dns_ru
+    "rule-set:cdn,doh,companies,telegram,tiktok,twitch,reddit,netflix,discord,anime,remnawave,allow-russian,ai,ai-cn,nintendo,blizzard,ea,ubisoft,roblox,modrinth,paypal,stripe,crypto,spotify,soundcloud,deezer,bandcamp,tidal,file-sharing": *dns_proxy
+
 
 proxies:
   - name: DNS-OUT
     type: dns
+                            
 
 proxy-groups:
   - name: ⚫ VPN
@@ -218,6 +219,7 @@ rule-providers:
   discord-voice: {<<: *rp_ipcidr, url: https://cdn.jsdelivr.net/gh/legiz-ru/mihomo-rule-sets@main/other/discord-voice-ip-list.mrs}
   anime: {<<: *rp_domain, url: https://raw.githubusercontent.com/CatFeth/mihomo-templates/refs/heads/main/geo/geosite/anime.mrs}
   remnawave: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/remnawave.mrs}
+  allow-russian: {<<: *rp_domain, url: https://raw.githubusercontent.com/CatFeth/mihomo-templates/refs/heads/main/geo/geosite/allow-russian.mrs}
 
 # AI
   ai: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-ai-!cn.mrs}
@@ -291,8 +293,9 @@ rules:
   # Services
     # PROCESS-NAME
   - PROCESS-NAME-WILDCARD,*teamspeak*,DIRECT
-  - PROCESS-NAME-WILDCARD,*ayugram*,⚫ VPN
+  - PROCESS-NAME-WILDCARD,*discord*,⚫ VPN
   - PROCESS-NAME-WILDCARD,*youtube*,⚫ VPN
+  - PROCESS-NAME-WILDCARD,*ayugram*,⚫ VPN
   - PROCESS-NAME-WILDCARD,*telegram*,⚫ VPN
   - PROCESS-NAME-WILDCARD,*nekogram*,⚫ VPN
     # RULE-SET
@@ -303,6 +306,7 @@ rules:
   - RULE-SET,netflix,⚫ VPN
   - RULE-SET,telegram,⚫ VPN
   - RULE-SET,remnawave,⚫ VPN
+  - RULE-SET,allow-russian,⚫ VPN
   - OR,((RULE-SET,discord),(RULE-SET,discord-voice)),⚫ VPN
   - OR,((RULE-SET,companies),(RULE-SET,companies-ip)),⚫ VPN
   # AI
