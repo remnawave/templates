@@ -54,6 +54,12 @@
             "author": "mugenme",
             "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-mugenme/subscription-page/incy-happ-flclashx.json",
             "type": "SUBPAGE_CONFIG"
+        },
+        {
+            "name": "Izhik VPN Subscription Page",
+            "author": "Justmaverick1",
+            "url": "https://raw.githubusercontent.com/remnawave/templates/refs/heads/main/by-justmaverick1/subscription-page/izhik-vpn.json",
+            "type": "SUBPAGE_CONFIG"
         }
     ]
 }
