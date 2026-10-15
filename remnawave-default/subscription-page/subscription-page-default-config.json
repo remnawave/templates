@@ -2768,11 +2768,23 @@
                                 {
                                     "link": "https://github.com/Happ-proxy/happ-desktop/releases/latest/download/setup-Happ.x64.exe",
                                     "text": {
-                                        "en": "Windows",
-                                        "fa": "ویندوز",
-                                        "fr": "Windows",
-                                        "ru": "Windows",
-                                        "zh": "Windows"
+                                        "en": "Windows (Setup)",
+                                        "fa": "ویندوز (نصب)",
+                                        "fr": "Windows (Installateur)",
+                                        "ru": "Windows (Установщик)",
+                                        "zh": "Windows（安装程序）"
+                                    },
+                                    "type": "external",
+                                    "svgIconKey": "ExternalLink"
+                                },
+                                {
+                                    "link": "https://github.com/Happ-proxy/happ-desktop/releases/latest/download/setup-Happ.arm64.exe",
+                                    "text": {
+                                        "en": "Windows on ARM (Setup)",
+                                        "fa": "ویندوز ARM (نصب)",
+                                        "fr": "Windows on ARM (Installateur)",
+                                        "ru": "Windows на ARM (Установщик)",
+                                        "zh": "Windows on ARM（安装程序）"
                                     },
                                     "type": "external",
                                     "svgIconKey": "ExternalLink"
