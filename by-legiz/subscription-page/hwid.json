@@ -716,7 +716,7 @@
               },
               "buttons": [
                 {
-                  "link": "https://github.com/coolcoala/clash-verge-rev-lite/releases/latest/download/Koala.Clash_amd64.deb",
+                  "link": "https://github.com/coolcoala/koala-clash/releases/latest/download/Koala.Clash_amd64.deb",
                   "type": "external",
                   "text": {
                     "en": "amd64 (.deb)",
@@ -728,7 +728,7 @@
                   "svgIconKey": "ExternalLink"
                 },
                 {
-                  "link": "https://github.com/coolcoala/clash-verge-rev-lite/releases/latest/download/Koala.Clash.x86_64.rpm",
+                  "link": "https://github.com/coolcoala/koala-clash/releases/latest/download/Koala.Clash_x86_64.rpm",
                   "type": "external",
                   "text": {
                     "en": "amd64 (.rpm)",
@@ -740,7 +740,7 @@
                   "svgIconKey": "ExternalLink"
                 },
                 {
-                  "link": "https://github.com/coolcoala/clash-verge-rev-lite/releases/latest/download/Koala.Clash_arm64.deb",
+                  "link": "https://github.com/coolcoala/koala-clash/releases/latest/download/Koala.Clash_arm64.deb",
                   "type": "external",
                   "text": {
                     "en": "arm64 (.deb)",
@@ -752,7 +752,7 @@
                   "svgIconKey": "ExternalLink"
                 },
                 {
-                  "link": "https://github.com/coolcoala/clash-verge-rev-lite/releases/latest/download/Koala.Clash.aarch64.rpm",
+                  "link": "https://github.com/coolcoala/koala-clash/releases/latest/download/Koala.Clash_aarch64.rpm",
                   "type": "external",
                   "text": {
                     "en": "arm64 (.rpm)",
@@ -1047,11 +1047,47 @@
                   "link": "https://github.com/Happ-proxy/happ-desktop/releases/latest/download/Happ.linux.x64.deb",
                   "type": "external",
                   "text": {
-                    "en": "Linux",
-                    "fa": "لینوکس",
-                    "fr": "Linux",
-                    "ru": "Linux",
-                    "zh": "Linux"
+                    "en": "amd64 (.deb)",
+                    "fa": "amd64 (.deb)",
+                    "fr": "amd64 (.deb)",
+                    "ru": "amd64 (.deb)",
+                    "zh": "amd64 (.deb)"
+                  },
+                  "svgIconKey": "ExternalLink"
+                },
+                {
+                  "link": "https://github.com/Happ-proxy/happ-desktop/releases/latest/download/Happ.linux.x64.rpm",
+                  "type": "external",
+                  "text": {
+                    "en": "amd64 (.rpm)",
+                    "fa": "amd64 (.rpm)",
+                    "fr": "amd64 (.rpm)",
+                    "ru": "amd64 (.rpm)",
+                    "zh": "amd64 (.rpm)"
+                  },
+                  "svgIconKey": "ExternalLink"
+                },
+                {
+                  "link": "https://github.com/Happ-proxy/happ-desktop/releases/latest/download/Happ.linux.arm64.deb",
+                  "type": "external",
+                  "text": {
+                    "en": "arm64 (.deb)",
+                    "fa": "arm64 (.deb)",
+                    "fr": "arm64 (.deb)",
+                    "ru": "arm64 (.deb)",
+                    "zh": "arm64 (.deb)"
+                  },
+                  "svgIconKey": "ExternalLink"
+                },
+                {
+                  "link": "https://github.com/Happ-proxy/happ-desktop/releases/latest/download/Happ.linux.arm64.rpm",
+                  "type": "external",
+                  "text": {
+                    "en": "arm64 (.rpm)",
+                    "fa": "arm64 (.rpm)",
+                    "fr": "arm64 (.rpm)",
+                    "ru": "arm64 (.rpm)",
+                    "zh": "arm64 (.rpm)"
                   },
                   "svgIconKey": "ExternalLink"
                 }
@@ -1533,7 +1569,7 @@
               },
               "buttons": [
                 {
-                  "link": "https://github.com/coolcoala/clash-verge-rev-lite/releases/latest/download/Koala.Clash_aarch64.dmg",
+                  "link": "https://github.com/coolcoala/koala-clash/releases/latest/download/Koala.Clash_arm64.pkg",
                   "type": "external",
                   "text": {
                     "en": "macOS (Apple Silicon)",
@@ -1545,7 +1581,7 @@
                   "svgIconKey": "ExternalLink"
                 },
                 {
-                  "link": "https://github.com/coolcoala/clash-verge-rev-lite/releases/latest/download/Koala.Clash_x64.dmg",
+                  "link": "https://github.com/coolcoala/koala-clash/releases/latest/download/Koala.Clash_x64.pkg",
                   "type": "external",
                   "text": {
                     "en": "macOS (Intel)",
@@ -1673,7 +1709,7 @@
               },
               "buttons": [
                 {
-                  "link": "https://github.com/legiz-ru/Prizrak-Box/releases/latest/download/macos-arm64-dmg.zip",
+                  "link": "https://github.com/legiz-ru/Prizrak-Box/releases/latest/download/macos-arm64.zip",
                   "type": "external",
                   "text": {
                     "en": "macOS (Apple Silicon)",
@@ -1685,7 +1721,7 @@
                   "svgIconKey": "ExternalLink"
                 },
                 {
-                  "link": "https://github.com/legiz-ru/Prizrak-Box/releases/latest/download/macos-amd64-dmg.zip",
+                  "link": "https://github.com/legiz-ru/Prizrak-Box/releases/latest/download/macos-amd64.zip",
                   "type": "external",
                   "text": {
                     "en": "macOS (Intel)",
@@ -2539,7 +2575,7 @@
               },
               "buttons": [
                 {
-                  "link": "https://github.com/coolcoala/clash-verge-rev-lite/releases/latest/download/Koala.Clash_x64-setup.exe",
+                  "link": "https://github.com/coolcoala/koala-clash/releases/latest/download/Koala.Clash_x64-setup.exe",
                   "type": "external",
                   "text": {
                     "en": "Windows (Setup)",
@@ -2810,11 +2846,23 @@
                   "link": "https://github.com/Happ-proxy/happ-desktop/releases/latest/download/setup-Happ.x64.exe",
                   "type": "external",
                   "text": {
-                    "en": "Windows",
-                    "fa": "ویندوز",
-                    "fr": "Windows",
-                    "ru": "Windows",
-                    "zh": "Windows"
+                    "en": "Windows (Setup)",
+                    "fa": "ویندوز (نصب)",
+                    "fr": "Windows (Setup)",
+                    "ru": "Windows (Установщик)",
+                    "zh": "Windows（安装程序）"
+                  },
+                  "svgIconKey": "ExternalLink"
+                },
+                {
+                  "link": "https://github.com/Happ-proxy/happ-desktop/releases/latest/download/setup-Happ.arm64.exe",
+                  "type": "external",
+                  "text": {
+                    "en": "Windows on ARM (Setup)",
+                    "fa": "ویندوز ARM (نصب)",
+                    "fr": "Windows on ARM (Setup)",
+                    "ru": "Windows на ARM (Установщик)",
+                    "zh": "Windows on ARM（安装程序）"
                   },
                   "svgIconKey": "ExternalLink"
                 }
