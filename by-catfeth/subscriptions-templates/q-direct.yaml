@@ -114,13 +114,9 @@ tun:
   strict-route: true
   route-exclude-address: *reserved_ips
 
-hosts:
-  ntc.party: 130.255.77.28
 dns:
   enable: true
   ipv6: false
-  use-hosts: true
-  use-system-hosts: true
   enhanced-mode: fake-ip
   cache-algorithm: arc
   prefer-h3: false
@@ -143,12 +139,10 @@ dns:
       - rcode://success
     "rule-set:cdn,doh,companies,telegram,tiktok,twitch,reddit,netflix,discord,anime,remnawave,allow-russian,ai,ai-cn,nintendo,blizzard,ea,ubisoft,roblox,modrinth,paypal,stripe,crypto,spotify,soundcloud,deezer,bandcamp,tidal,file-sharing": *dns_proxy
 
-
 proxies:
   - name: DNS-OUT
     type: dns
                             
-
 proxy-groups:
   - name: ⚫ VPN
     type: select
