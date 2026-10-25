@@ -137,7 +137,7 @@ dns:
       - system
     rule-set:oisd_big,win-spy: 
       - rcode://success
-    "rule-set:cdn,doh,companies,telegram,tiktok,twitch,reddit,netflix,discord,anime,remnawave,allow-russian,ai,ai-cn,nintendo,blizzard,ea,ubisoft,roblox,modrinth,paypal,stripe,crypto,spotify,soundcloud,deezer,bandcamp,tidal,file-sharing": *dns_proxy
+    "rule-set:cdn,doh,companies,telegram,tiktok,twitch,reddit,netflix,discord,anime,remnawave,ai,ai-cn,nintendo,blizzard,ea,ubisoft,roblox,modrinth,paypal,stripe,crypto,spotify,soundcloud,deezer,bandcamp,tidal,file-sharing": *dns_proxy
 
 proxies:
   - name: DNS-OUT
@@ -213,7 +213,6 @@ rule-providers:
   discord-voice: {<<: *rp_ipcidr, url: https://cdn.jsdelivr.net/gh/legiz-ru/mihomo-rule-sets@main/other/discord-voice-ip-list.mrs}
   anime: {<<: *rp_domain, url: https://raw.githubusercontent.com/CatFeth/mihomo-templates/refs/heads/main/geo/geosite/anime.mrs}
   remnawave: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/remnawave.mrs}
-  allow-russian: {<<: *rp_domain, url: https://raw.githubusercontent.com/CatFeth/mihomo-templates/refs/heads/main/geo/geosite/allow-russian.mrs}
 
 # AI
   ai: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-ai-!cn.mrs}
@@ -300,7 +299,6 @@ rules:
   - RULE-SET,netflix,⚫ VPN
   - RULE-SET,telegram,⚫ VPN
   - RULE-SET,remnawave,⚫ VPN
-  - RULE-SET,allow-russian,⚫ VPN
   - OR,((RULE-SET,discord),(RULE-SET,discord-voice)),⚫ VPN
   - OR,((RULE-SET,companies),(RULE-SET,companies-ip)),⚫ VPN
   # AI
