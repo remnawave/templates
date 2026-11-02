@@ -116,7 +116,7 @@ tun:
 
 dns:
   enable: true
-  ipv6: false
+  ipv6: true
   enhanced-mode: fake-ip
   cache-algorithm: arc
   prefer-h3: false
@@ -125,8 +125,9 @@ dns:
     - rule-set:geosite-private
     - rule-set:geosite-fake-ip
   default-nameserver: *dns_ru
-  nameserver: *dns_proxy
   proxy-server-nameserver: *dns_ru
+  direct-nameserver: *dns_ru
+  nameserver: *dns_proxy
   fallback:
     *dns_ru
   fallback-filter:
@@ -138,8 +139,6 @@ dns:
     rule-set:oisd_big,win-spy: 
       - rcode://success
     "rule-set:geosite-ru,geosite-ru-2,ai-ru,steam,rockstar,epicgames,gog,riot": *dns_ru
-
-#proxy-providers:
 
 proxies:
   - name: DNS-OUT

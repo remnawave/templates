@@ -116,7 +116,7 @@ tun:
 
 dns:
   enable: true
-  ipv6: false
+  ipv6: true
   enhanced-mode: fake-ip
   cache-algorithm: arc
   prefer-h3: false
@@ -125,8 +125,9 @@ dns:
     - rule-set:geosite-private
     - rule-set:geosite-fake-ip
   default-nameserver: *dns_ru
-  nameserver: *dns_proxy
   proxy-server-nameserver: *dns_ru
+  direct-nameserver: *dns_ru
+  nameserver: *dns_proxy
   fallback:
     *dns_ru
   fallback-filter:
@@ -137,12 +138,12 @@ dns:
       - system
     rule-set:oisd_big,win-spy: 
       - rcode://success
-    "rule-set:cdn,doh,companies,telegram,tiktok,twitch,reddit,netflix,discord,anime,remnawave,ai,ai-cn,nintendo,blizzard,ea,ubisoft,roblox,modrinth,paypal,stripe,crypto,spotify,soundcloud,deezer,bandcamp,tidal,file-sharing": *dns_proxy
+    "rule-set:cdn,doh,companies,telegram,tiktok,twitch,reddit,netflix,discord,anime,remnawave,ru-block,ai,ai-cn,nintendo,blizzard,ea,ubisoft,roblox,modrinth,paypal,stripe,crypto,music,file-sharing": *dns_proxy
 
 proxies:
   - name: DNS-OUT
     type: dns
-                            
+        
 proxy-groups:
   - name: ⚫ VPN
     type: select
@@ -213,6 +214,7 @@ rule-providers:
   discord-voice: {<<: *rp_ipcidr, url: https://cdn.jsdelivr.net/gh/legiz-ru/mihomo-rule-sets@main/other/discord-voice-ip-list.mrs}
   anime: {<<: *rp_domain, url: https://raw.githubusercontent.com/CatFeth/mihomo-templates/refs/heads/main/geo/geosite/anime.mrs}
   remnawave: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/remnawave.mrs}
+  ru-block: {<<: *rp_domain, url: https://raw.githubusercontent.com/CatFeth/mihomo-templates/refs/heads/main/geo/geosite/russian-block.mrs}
 
 # AI
   ai: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-ai-!cn.mrs}
@@ -241,11 +243,7 @@ rule-providers:
   crypto: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-cryptocurrency.mrs}
 
 # Music
-  spotify: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/spotify.mrs}
-  soundcloud: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/soundcloud.mrs}
-  deezer: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/deezer.mrs}
-  bandcamp: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/bandcamp.mrs}
-  tidal: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/tidal.mrs}
+  music: {<<: *rp_domain, url: https://raw.githubusercontent.com/CatFeth/mihomo-templates/refs/heads/main/geo/geosite/music.mrs}
 
 # File Sharing
   file-sharing: {<<: *rp_domain, url: https://raw.githubusercontent.com/CatFeth/mihomo-templates/refs/heads/main/geo/geosite/category-filesharing.mrs}
@@ -263,6 +261,11 @@ rules:
   - RULE-SET,oisd_big,REJECT
   # Torrent
   - OR,((RULE-SET,torrent-clients),(RULE-SET,torrent-trackers)),DIRECT
+  # Russian Block
+    # DOMAIN
+  - DOMAIN-KEYWORD,habr,⚫ VPN
+    # RULE-SET
+  - RULE-SET,ru-block,⚫ VPN
   # Russian Domains & IPs
   - OR,((RULE-SET,geosite-ru),(RULE-SET,geoip-ru),(RULE-SET,geosite-ru-2),(RULE-SET,geoip-ru-2)),DIRECT
   # ASN | RU
@@ -291,6 +294,8 @@ rules:
   - PROCESS-NAME-WILDCARD,*ayugram*,⚫ VPN
   - PROCESS-NAME-WILDCARD,*telegram*,⚫ VPN
   - PROCESS-NAME-WILDCARD,*nekogram*,⚫ VPN
+    # DOMAIN
+  - DOMAIN,ntc.party,⚫ VPN
     # RULE-SET
   - RULE-SET,anime,⚫ VPN
   - RULE-SET,twitch,⚫ VPN
@@ -311,11 +316,14 @@ rules:
   - RULE-SET,roblox,⚫ VPN
   - RULE-SET,modrinth,⚫ VPN
   - RULE-SET,games-direct,DIRECT
+    # DOMAIN
+  - DOMAIN-SUFFIX,vivox.com,DIRECT
+  - DOMAIN-SUFFIX,vivox.unity.cn,DIRECT
   # Payments
   - RULE-SET,crypto,⚫ VPN
   - OR,((RULE-SET,paypal),(RULE-SET,stripe)),⚫ VPN
   # Music
-  - OR,((RULE-SET,spotify),(RULE-SET,soundcloud),(RULE-SET,tidal),(RULE-SET,deezer),(RULE-SET,bandcamp)),⚫ VPN
+  - RULE-SET,music,⚫ VPN
   # File Sharing
   - RULE-SET,file-sharing,⚫ VPN
   # Exit
