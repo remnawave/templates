@@ -138,7 +138,7 @@ dns:
       - system
     rule-set:oisd_big,win-spy: 
       - rcode://success
-    "rule-set:cdn,doh,companies,telegram,tiktok,twitch,reddit,netflix,discord,anime,remnawave,ru-block,ai,ai-cn,nintendo,blizzard,ea,ubisoft,roblox,modrinth,paypal,stripe,crypto,music,file-sharing": *dns_proxy
+    "rule-set:cdn,doh,companies,telegram,tiktok,twitch,reddit,netflix,discord,anime,remnawave,ai,ai-cn,nintendo,blizzard,ea,ubisoft,roblox,modrinth,paypal,stripe,crypto,music,file-sharing": *dns_proxy
 
 proxies:
   - name: DNS-OUT
@@ -214,7 +214,7 @@ rule-providers:
   discord-voice: {<<: *rp_ipcidr, url: https://cdn.jsdelivr.net/gh/legiz-ru/mihomo-rule-sets@main/other/discord-voice-ip-list.mrs}
   anime: {<<: *rp_domain, url: https://raw.githubusercontent.com/CatFeth/mihomo-templates/refs/heads/main/geo/geosite/anime.mrs}
   remnawave: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/remnawave.mrs}
-  ru-block: {<<: *rp_domain, url: https://raw.githubusercontent.com/CatFeth/mihomo-templates/refs/heads/main/geo/geosite/russian-block.mrs}
+  ru-block: {<<: *rp_classical, url: https://raw.githubusercontent.com/CatFeth/mihomo-templates/refs/heads/main/geo/geosite/russian-block.yaml}
 
 # AI
   ai: {<<: *rp_domain, url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-ai-!cn.mrs}
@@ -262,9 +262,6 @@ rules:
   # Torrent
   - OR,((RULE-SET,torrent-clients),(RULE-SET,torrent-trackers)),DIRECT
   # Russian Block
-    # DOMAIN
-  - DOMAIN-KEYWORD,habr,⚫ VPN
-    # RULE-SET
   - RULE-SET,ru-block,⚫ VPN
   # Russian Domains & IPs
   - OR,((RULE-SET,geosite-ru),(RULE-SET,geoip-ru),(RULE-SET,geosite-ru-2),(RULE-SET,geoip-ru-2)),DIRECT
