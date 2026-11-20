@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Create directory if not exists
         run: |
@@ -21,8 +21,9 @@ jobs:
 
       - name: Download ultimate mihomo ru template
         run: |
-          curl -L "https://raw.githubusercontent.com/Davoyan/mihomo-rule-sets/main/remnawave-templates/ultimate-mihomo-ru.yaml" \
-          -o "by-davoyan/subscription-templates/ultimate-mihomo-ru.yaml"         
+          curl -fL --retry 5 --retry-delay 5 \
+          "https://raw.githubusercontent.com/Davoyan/mihomo-rule-sets/main/remnawave-templates/ultimate-mihomo-ru.yaml" \
+          -o "by-davoyan/subscription-templates/ultimate-mihomo-ru.yaml"
 
       - name: Commit and push if there are changes
         run: |
